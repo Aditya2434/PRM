@@ -6,11 +6,12 @@ import { news } from '@/data/news';
 const NewsSection = () => {
   return (
     <section id="news" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24">
         <SectionTitle title="RECENT NEWS" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {news.map((item, index) => (
+          {news?.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 30 }}

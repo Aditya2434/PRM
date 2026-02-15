@@ -11,7 +11,8 @@ const CTASection = () => {
       <div className="absolute inset-0 bg-[#1e3a5f]/85" />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="relative z-10 container mx-auto px-12 lg:px-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

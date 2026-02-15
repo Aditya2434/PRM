@@ -72,8 +72,8 @@ const HeroSection = () => {
       </AnimatePresence>
 
       {/* Content */}
-      {/* Updated the padding here to px-10 (40px) and lg:px-20 (80px) */}
-      <div className="relative z-10 container mx-auto px-10 lg:px-20 h-full flex items-center">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="relative z-10 container mx-auto px-12 lg:px-24 h-full flex items-center">
         <div className="max-w-2xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -103,11 +103,11 @@ const HeroSection = () => {
       </div>
 
       {/* Slider Controls */}
-      {/* Updated the horizontal positioning to match the text alignment (left-10/20 and right-10/20) */}
-      <div className="absolute bottom-1/2 translate-y-1/2 left-10 lg:left-20 z-20">
+      {/* Updated positioning: left-12/right-12 (48px) and lg:left-24/lg:right-24 (96px) */}
+      <div className="absolute bottom-1/2 translate-y-1/2 left-12 lg:left-24 z-20">
         <ArrowButton direction="left" onClick={prevSlide} />
       </div>
-      <div className="absolute bottom-1/2 translate-y-1/2 right-10 lg:right-20 z-20">
+      <div className="absolute bottom-1/2 translate-y-1/2 right-12 lg:right-24 z-20">
         <ArrowButton direction="right" onClick={nextSlide} />
       </div>
 

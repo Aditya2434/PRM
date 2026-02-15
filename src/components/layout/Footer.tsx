@@ -17,7 +17,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0d1b2a] text-white pt-20">
-      <div className="container mx-auto px-8 lg:px-12 pb-16">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Logo & Description */}
           <div className="space-y-6">
@@ -114,7 +115,8 @@ const Footer = () => {
 
       {/* Copyright Bar */}
       <div className="bg-[#0a1520] py-8">
-        <div className="container mx-auto px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+        <div className="container mx-auto px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500 font-medium">
             &copy; {new Date().getFullYear()} <span className="text-gray-300">Paragon Refractories and Minerals</span>. All Rights Reserved.
           </p>
