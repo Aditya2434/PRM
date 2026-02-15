@@ -12,8 +12,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const TopBar = () => {
   return (
     <div className="bg-[#1e3a5f] text-white py-2.5 border-b border-white/5">
-      {/* Applied px-10 (40px) and lg:px-20 (80px) to match the Header section */}
-      <div className="container mx-auto px-10 lg:px-20 flex flex-col sm:flex-row justify-between items-center text-xs">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24 flex flex-col sm:flex-row justify-between items-center text-xs">
         {/* Left Side: Tagline */}
         <div className="mb-2 sm:mb-0">
           <span className="italic opacity-80 text-[10px] tracking-wider">
@@ -39,7 +39,6 @@ const TopBar = () => {
           <div className="flex gap-4">
             {socialLinks.map((social) => {
               const Icon = iconMap[social.icon];
-              // Safety check to ensure the icon exists in the map
               if (!Icon) return null;
               
               return (

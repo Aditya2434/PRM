@@ -13,8 +13,8 @@ import {
 const TestimonialsSection = () => {
   return (
     <section className="py-20 bg-white overflow-hidden">
-      {/* Applied the requested padding: 40px (px-10) on mobile and 80px (lg:px-20) on desktop */}
-      <div className="container mx-auto px-10 lg:px-20">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24">
         <SectionTitle title="TESTIMONIALS" />
         
         <Carousel
@@ -30,7 +30,6 @@ const TestimonialsSection = () => {
                 <div className="bg-slate-50 p-10 h-full border border-slate-100 flex flex-col">
                   <Quote className="w-10 h-10 text-slate-200 mb-6 flex-shrink-0" />
                   
-                  {/* Fixed: changed 'content' to 'text' to match your data file */}
                   <p className="text-gray-600 leading-relaxed italic mb-8 flex-grow">
                     "{testimonial.text}"
                   </p>
@@ -50,7 +49,6 @@ const TestimonialsSection = () => {
                       <h4 className="font-bold text-[#1e3a5f] text-sm uppercase tracking-wider">
                         {testimonial.name}
                       </h4>
-                      {/* Fixed: changed 'role' to 'company' to match your data file */}
                       <p className="text-[10px] text-[#e63946] font-bold uppercase tracking-widest">
                         {testimonial.company}
                       </p>
@@ -61,7 +59,6 @@ const TestimonialsSection = () => {
             ))}
           </CarouselContent>
           
-          {/* Centered navigation arrows below the carousel */}
           <div className="flex justify-center gap-4 mt-12">
             <CarouselPrevious className="static translate-y-0 h-12 w-12 rounded-none border-slate-200 hover:bg-[#e63946] hover:text-white transition-colors" />
             <CarouselNext className="static translate-y-0 h-12 w-12 rounded-none border-slate-200 hover:bg-[#e63946] hover:text-white transition-colors" />

@@ -4,7 +4,8 @@ import { partners } from '@/data/partners';
 const PartnersSection = () => {
   return (
     <section className="py-12 bg-gray-50 border-t border-gray-200">
-      <div className="container mx-auto px-4">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24">
         <motion.div 
           className="flex flex-wrap justify-center items-center gap-8 md:gap-16"
           initial={{ opacity: 0 }}

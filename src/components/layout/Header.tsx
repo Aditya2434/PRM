@@ -5,8 +5,8 @@ import logo from '@/assets/logo.png';
 const Header = () => {
   return (
     <div className="bg-white py-5 border-b border-gray-100">
-      {/* Updated the padding here: px-10 (40px) for mobile, lg:px-20 (80px) for desktop */}
-      <div className="container mx-auto px-10 lg:px-20 flex flex-col md:flex-row justify-between items-center">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center">
         {/* Logo & Company Name */}
         <div className="flex items-center gap-3 mb-4 md:mb-0 group cursor-pointer">
           <img 

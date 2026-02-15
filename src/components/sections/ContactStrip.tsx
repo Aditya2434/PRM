@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MapPin, Mail } from 'lucide-react';
 
@@ -41,7 +42,8 @@ const contactInfo: ContactInfoItem[] = [
 const ContactStrip = () => {
   return (
     <section id="contact" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {contactInfo.map((item, index) => (
             <motion.div
@@ -50,7 +52,7 @@ const ContactStrip = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center p-8 bg-gray-50 hover:shadow-lg transition-shadow duration-300"
+              className="text-center p-8 bg-gray-50 hover:shadow-lg transition-shadow duration-300 border border-gray-100"
             >
               <div className="flex justify-center mb-4">
                 <item.icon className="w-8 h-8 text-[#1e3a5f]" strokeWidth={1.5} />

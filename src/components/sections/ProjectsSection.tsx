@@ -13,19 +13,18 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-20 bg-[#0d1b2a]">
-      {/* Updated padding: px-10 (40px) on mobile and lg:px-20 (80px) on desktop */}
-      <div className="container mx-auto px-10 lg:px-20">
+      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
+      <div className="container mx-auto px-12 lg:px-24">
         <SectionTitle title="PROJECTS" light />
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-4 mb-10">
-          {projectCategories.map((category) => (
+        <div className="flex flex-wrap gap-6 mb-10 border-b border-white/10 pb-4">
+          {projectCategories?.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`text-sm font-semibold transition-colors ${
+              className={`text-[11px] font-bold tracking-[0.2em] uppercase transition-all ${
                 activeCategory === category
-                  ? 'text-[#e63946]'
+                  ? 'text-[#e63946] border-b-2 border-[#e63946] pb-4 -mb-[18px]'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -34,19 +33,15 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
                 <ProjectCard
