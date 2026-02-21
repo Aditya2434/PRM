@@ -16,7 +16,8 @@ export const navLinks: NavLink[] = [
   { name: 'SERVICES', href: '#services', hasDropdown: true },
   { name: 'PAGES', href: '#', hasDropdown: true },
   { name: 'PROJECTS', href: '#projects', hasDropdown: true },
-  { name: 'NEWS', href: '#news', hasDropdown: true },
+  { name: 'OUR CLIENTS', href: '#clients', hasDropdown: false },
+  { name: 'PRODUCTS', href: '#products', hasDropdown: true },
   { name: 'CONTACT', href: '#contact', hasDropdown: true },
 ];
 
