@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Umbrella, Users } from 'lucide-react';
+// Imported PaintBucket from lucide-react
+import { Flame, Cog, PaintBucket } from 'lucide-react';
 import { features } from '@/data/features';
 
 const iconMap: Record<string, React.ElementType> = {
-  Star,
-  Umbrella,
-  Users,
+  Flame,
+  Cog,
+  PaintBucket, // Mapped the PaintBucket icon here
 };
 
 // Define unique faded color palettes for each card index
@@ -59,7 +60,7 @@ const FeaturesSection = () => {
                     ease: "easeInOut",
                     delay: index * 0.5 
                   }}
-                  className="group relative p-10 text-center rounded-2xl shadow-xl border border-white/20 overflow-hidden transition-all duration-500 hover:shadow-2xl"
+                  className="group relative p-10 text-center rounded-2xl shadow-xl border border-white/20 overflow-hidden transition-all duration-500 hover:shadow-2xl h-full flex flex-col items-center"
                 >
                   {/* Faded Background Layer */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${style.gradient} -z-20`} />
