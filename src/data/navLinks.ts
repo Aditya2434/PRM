@@ -11,20 +11,23 @@ export interface SocialLink {
 }
 
 export const navLinks: NavLink[] = [
-  { name: 'HOME', href: '#', hasDropdown: true },
-  { name: 'ABOUT US', href: '#about', hasDropdown: true },
-  { name: 'SERVICES', href: '#services', hasDropdown: true },
+  // FIXED: Changed href from '#' to '/' and hasDropdown to false
+  { name: 'HOME', href: '/', hasDropdown: false }, 
+  
+  // FIXED: Added '/' before section hashes so they work from inner pages
+  { name: 'ABOUT US', href: '/#about', hasDropdown: true },
+  { name: 'SERVICES', href: '/#services', hasDropdown: true },
   { name: 'PAGES', href: '#', hasDropdown: true },
-  { name: 'PROJECTS', href: '#projects', hasDropdown: true },
-  { name: 'OUR CLIENTS', href: '#clients', hasDropdown: false },
-  { name: 'PRODUCTS', href: '#products', hasDropdown: true },
-  { name: 'CONTACT', href: '#contact', hasDropdown: true },
+  { name: 'PROJECTS', href: '/#projects', hasDropdown: true },
+  { name: 'OUR CLIENTS', href: '/#clients', hasDropdown: false },
+  { name: 'PRODUCTS', href: '#', hasDropdown: true },
+  { name: 'CONTACT', href: '/#contact', hasDropdown: true },
 ];
 
 export const topBarLinks: Omit<NavLink, 'hasDropdown'>[] = [
   { name: 'Career', href: '#' },
   { name: 'Give Feedback', href: '#' },
-  { name: 'Contact Us', href: '#contact' },
+  { name: 'Contact Us', href: '/#contact' },
 ];
 
 export const socialLinks: SocialLink[] = [
