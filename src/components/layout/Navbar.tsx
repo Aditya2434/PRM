@@ -5,27 +5,27 @@ import { navLinks } from '@/data/navLinks';
 import CustomButton from '@/components/ui/CustomButton';
 import logo from '@/assets/logo.png';
 
-// 1. Define Submenu Data locally
+// 1. Define Submenu Data locally (Updated with correct Product routes)
 const submenuData: Record<string, { name: string; href: string }[]> = {
   'ABOUT US': [
-    { name: 'Our Story', href: '#story' },
-    { name: 'Team', href: '#team' },
-    { name: 'Careers', href: '#careers' },
+    { name: 'Our Story', href: '/#about' },
+    { name: 'Team', href: '/#team' },
+    { name: 'Careers', href: '/#careers' },
   ],
   'SERVICES': [
-    { name: 'Refractories', href: '#refractories' },
-    { name: 'Minerals', href: '#minerals' },
-    { name: 'Consulting', href: '#consulting' },
+    { name: 'Refractories', href: '/#refractories' },
+    { name: 'Minerals', href: '/#minerals' },
+    { name: 'Consulting', href: '/#consulting' },
   ],
   'PROJECTS': [
-    { name: 'Industrial', href: '#industrial' },
-    { name: 'Eco-Friendly', href: '#eco' },
-    { name: 'Manufacturing', href: '#manufacturing' },
+    { name: 'Industrial', href: '/#industrial' },
+    { name: 'Eco-Friendly', href: '/#eco' },
+    { name: 'Manufacturing', href: '/#manufacturing' },
   ],
   'PRODUCTS': [
-    { name: 'Refractory Materials', href: '#refractory-materials' },
-    { name: 'Industrial Equipment', href: '#industrial-equipment' },
-    { name: 'Cast Iron Parts', href: '#cast-iron-parts' },
+    { name: 'Refractory Material', href: '/products/refractory-material' },
+    { name: 'Industrial Equipments', href: '/products/industrial-equipments' },
+    { name: 'Cast Iron Parts', href: '/products/cast-iron-parts' },
   ],
 };
 
@@ -67,13 +67,15 @@ const Navbar = () => {
         `}
       >
         
-        {/* Left: Logo - Filters removed to ensure visibility */}
+        {/* Left: Logo */}
         <div className="flex items-center shrink-0">
-          <img 
-            src={logo} 
-            alt="Paragon Logo" 
-            className="h-12 w-auto object-contain bg-white/10 rounded-sm p-1" 
-          />
+          <a href="/">
+            <img 
+              src={logo} 
+              alt="Paragon Logo" 
+              className="h-12 w-auto object-contain bg-white/10 rounded-sm p-1 cursor-pointer" 
+            />
+          </a>
         </div>
 
         {/* Center: Desktop Navigation */}
@@ -90,7 +92,14 @@ const Navbar = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <a
-                  href={link.href || '#'} 
+                  href={hasSubmenu ? '#' : (link.href || '#')} 
+                  onClick={(e) => {
+                    // Prevent page jump if it's a dropdown menu trigger
+                    if (hasSubmenu) {
+                      e.preventDefault();
+                      setActiveDropdown(activeDropdown === link.name ? null : link.name);
+                    }
+                  }}
                   className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#e63946] transition-colors py-2"
                 >
                   {link.name}
@@ -183,50 +192,59 @@ const Navbar = () => {
 
                 return (
                   <div key={link.name} className="border-b border-white/5 last:border-0 pb-2">
-                    <div className="flex justify-between items-center">
+                    
+                    {/* Fixed Mobile Submenu Toggle Logic */}
+                    {hasSubmenu ? (
+                      <button 
+                        onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                        className="w-full flex justify-between items-center py-1"
+                      >
+                        <span className="text-white font-bold uppercase tracking-wider text-sm hover:text-[#e63946] transition-colors text-left">
+                          {link.name}
+                        </span>
+                        <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''} text-white/70`} />
+                      </button>
+                    ) : (
                       <a
                         href={link.href || '#'} 
-                        className="text-white font-bold uppercase tracking-wider text-sm hover:text-[#e63946] transition-colors"
+                        className="block w-full text-white font-bold uppercase tracking-wider text-sm hover:text-[#e63946] transition-colors py-1"
                         onClick={() => setIsOpen(false)}
                       >
                         {link.name}
                       </a>
-                      {hasSubmenu && (
-                        <button 
-                          onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
-                          className="text-white/70 hover:text-white"
-                        >
-                          <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
-                        </button>
-                      )}
-                    </div>
-                    
-                    {/* Mobile Submenu */}
-                    {hasSubmenu && activeDropdown === link.name && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        className="mt-2 ml-4 flex flex-col gap-2 pl-4 border-l border-white/20"
-                      >
-                        {subItems.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="text-gray-300 text-sm hover:text-white py-1"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
-                      </motion.div>
                     )}
+                    
+                    {/* Mobile Submenu Dropdown Container */}
+                    <AnimatePresence>
+                      {hasSubmenu && activeDropdown === link.name && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mt-2 ml-4 flex flex-col gap-2 pl-4 border-l border-white/20">
+                            {subItems.map((subItem) => (
+                              <a
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block text-gray-300 text-sm hover:text-white py-1"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {subItem.name}
+                              </a>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               })}
               
               {/* Mobile CTA */}
               <div className="pt-4 mt-2">
-                <a href="/contact" className="block w-full">
+                <a href="#contact" className="block w-full" onClick={() => setIsOpen(false)}>
                   <CustomButton 
                     className="w-full bg-[#e63946] hover:bg-white hover:text-[#e63946] text-white font-bold py-3 uppercase tracking-widest text-xs transition-colors rounded-xl"
                   >
