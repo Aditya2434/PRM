@@ -11,11 +11,11 @@ export interface SocialLink {
 }
 
 export const navLinks: NavLink[] = [
-  // FIXED: Changed href from '#' to '/' and hasDropdown to false
   { name: 'HOME', href: '/', hasDropdown: false }, 
   
-  // FIXED: Added '/' before section hashes so they work from inner pages
-  { name: 'ABOUT US', href: '/#about', hasDropdown: true },
+  // FIXED: Changed to link directly to /about, disabled dropdown
+  { name: 'ABOUT US', href: '/about', hasDropdown: false },
+  
   { name: 'SERVICES', href: '/#services', hasDropdown: true },
   { name: 'PAGES', href: '#', hasDropdown: true },
   { name: 'PROJECTS', href: '/#projects', hasDropdown: true },

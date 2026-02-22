@@ -8,20 +8,20 @@ export interface Feature {
 export const features: Feature[] = [
   {
     id: 1,
-    icon: 'Star',
-    title: 'QUALITY DRIVEN',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.',
+    icon: 'Flame',
+    title: 'Industrial Refractory Materials',
+    description: 'Protects furnaces, kilns, and boilers from thermal and chemical damage—reducing shutdowns and maintenance costs.',
   },
   {
     id: 2,
-    icon: 'Umbrella',
-    title: 'CUSTOMER FOCUSED',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.',
+    icon: 'Cog',
+    title: 'Mechanical Equipment',
+    description: 'Robust heavy-duty mechanical equipment designed for reliable performance in industrial furnaces.',
   },
   {
     id: 3,
-    icon: 'Users',
-    title: 'GLOBAL SOURCING',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.',
+    icon: 'PaintBucket', // Changed from Bucket to Anvil
+    title: 'Cast Iron Parts',
+    description: 'Durable and high-quality cast iron components fabricated to withstand severe industrial environments and continuous stress.',
   },
 ];
