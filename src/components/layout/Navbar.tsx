@@ -1,3 +1,4 @@
+// src/components/layout/Navbar.tsx
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -5,17 +6,12 @@ import { navLinks } from '@/data/navLinks';
 import CustomButton from '@/components/ui/CustomButton';
 import logo from '@/assets/logo.png';
 
-// 1. Define Submenu Data locally (Updated with correct Product routes)
+// 1. Define Submenu Data locally (Removed SERVICES to make it a direct page link)
 const submenuData: Record<string, { name: string; href: string }[]> = {
   'ABOUT US': [
     { name: 'Our Story', href: '/#about' },
     { name: 'Team', href: '/#team' },
     { name: 'Careers', href: '/#careers' },
-  ],
-  'SERVICES': [
-    { name: 'Refractories', href: '/#refractories' },
-    { name: 'Minerals', href: '/#minerals' },
-    { name: 'Consulting', href: '/#consulting' },
   ],
   'PROJECTS': [
     { name: 'Industrial', href: '/#industrial' },
@@ -82,7 +78,10 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8">
           {navLinks.map((link: any) => {
             const subItems = submenuData[link.name];
-            const hasSubmenu = link.hasDropdown && subItems && subItems.length > 0;
+            // Ensure SERVICES acts as a standard link even if marked as dropdown in data
+            const isServicesLink = link.name === 'SERVICES';
+            const hasSubmenu = !isServicesLink && link.hasDropdown && subItems && subItems.length > 0;
+            const linkHref = isServicesLink ? '/services' : (hasSubmenu ? '#' : (link.href || '#'));
 
             return (
               <div
@@ -92,7 +91,7 @@ const Navbar = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <a
-                  href={hasSubmenu ? '#' : (link.href || '#')} 
+                  href={linkHref} 
                   onClick={(e) => {
                     // Prevent page jump if it's a dropdown menu trigger
                     if (hasSubmenu) {
@@ -188,7 +187,9 @@ const Navbar = () => {
 
               {navLinks.map((link: any) => {
                 const subItems = submenuData[link.name];
-                const hasSubmenu = link.hasDropdown && subItems && subItems.length > 0;
+                const isServicesLink = link.name === 'SERVICES';
+                const hasSubmenu = !isServicesLink && link.hasDropdown && subItems && subItems.length > 0;
+                const linkHref = isServicesLink ? '/services' : (link.href || '#');
 
                 return (
                   <div key={link.name} className="border-b border-white/5 last:border-0 pb-2">
@@ -206,7 +207,7 @@ const Navbar = () => {
                       </button>
                     ) : (
                       <a
-                        href={link.href || '#'} 
+                        href={linkHref} 
                         className="block w-full text-white font-bold uppercase tracking-wider text-sm hover:text-[#e63946] transition-colors py-1"
                         onClick={() => setIsOpen(false)}
                       >

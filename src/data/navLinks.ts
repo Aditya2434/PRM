@@ -12,16 +12,12 @@ export interface SocialLink {
 
 export const navLinks: NavLink[] = [
   { name: 'HOME', href: '/', hasDropdown: false }, 
-  
-  // FIXED: Changed to link directly to /about, disabled dropdown
   { name: 'ABOUT US', href: '/about', hasDropdown: false },
-  
-  { name: 'SERVICES', href: '/#services', hasDropdown: true },
-  { name: 'PAGES', href: '#', hasDropdown: true },
+  { name: 'SERVICES', href: '/services', hasDropdown: false }, 
   { name: 'PROJECTS', href: '/#projects', hasDropdown: true },
   { name: 'OUR CLIENTS', href: '/#clients', hasDropdown: false },
   { name: 'PRODUCTS', href: '#', hasDropdown: true },
-  { name: 'CONTACT', href: '/#contact', hasDropdown: true },
+  { name: 'CONTACT', href: '/#contact', hasDropdown: false },
 ];
 
 export const topBarLinks: Omit<NavLink, 'hasDropdown'>[] = [
@@ -31,8 +27,6 @@ export const topBarLinks: Omit<NavLink, 'hasDropdown'>[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { name: 'Facebook', icon: 'FaFacebookF', href: '#' },
-  { name: 'Twitter', icon: 'FaTwitter', href: '#' },
-  { name: 'Instagram', icon: 'FaInstagram', href: '#' },
-  { name: 'Pinterest', icon: 'FaPinterestP', href: '#' },
+  // Kept only LinkedIn
+  { name: 'LinkedIn', icon: 'FaLinkedinIn', href: 'https://www.linkedin.com/company/110518013/' },
 ];
