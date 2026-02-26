@@ -5,16 +5,6 @@ export interface Project {
   category: string;
 }
 
-export const projectCategories: string[] = [
-  'ALL',
-  'ECO',
-  'MANUFACTURING',
-  'INDUSTRY',
-  'OIL',
-  'GAS',
-  'FACTORY',
-];
-
 export const projects: Project[] = [
   {
     id: 1,

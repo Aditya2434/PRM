@@ -6,17 +6,12 @@ import { navLinks } from '@/data/navLinks';
 import CustomButton from '@/components/ui/CustomButton';
 import logo from '@/assets/logo.png';
 
-// 1. Define Submenu Data locally (Removed SERVICES to make it a direct page link)
+// 1. Define Submenu Data locally (Removed PROJECTS to make it a direct page link like SERVICES)
 const submenuData: Record<string, { name: string; href: string }[]> = {
   'ABOUT US': [
     { name: 'Our Story', href: '/#about' },
     { name: 'Team', href: '/#team' },
     { name: 'Careers', href: '/#careers' },
-  ],
-  'PROJECTS': [
-    { name: 'Industrial', href: '/#industrial' },
-    { name: 'Eco-Friendly', href: '/#eco' },
-    { name: 'Manufacturing', href: '/#manufacturing' },
   ],
   'PRODUCTS': [
     { name: 'Refractory Material', href: '/products/refractory-material' },
@@ -78,10 +73,10 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8">
           {navLinks.map((link: any) => {
             const subItems = submenuData[link.name];
-            // Ensure SERVICES acts as a standard link even if marked as dropdown in data
-            const isServicesLink = link.name === 'SERVICES';
-            const hasSubmenu = !isServicesLink && link.hasDropdown && subItems && subItems.length > 0;
-            const linkHref = isServicesLink ? '/services' : (hasSubmenu ? '#' : (link.href || '#'));
+            // Ensure SERVICES and PROJECTS act as standard links even if marked as dropdown in data
+            const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS';
+            const hasSubmenu = !isDirectPage && link.hasDropdown && subItems && subItems.length > 0;
+            const linkHref = isDirectPage ? link.href : (hasSubmenu ? '#' : (link.href || '#'));
 
             return (
               <div
@@ -187,9 +182,10 @@ const Navbar = () => {
 
               {navLinks.map((link: any) => {
                 const subItems = submenuData[link.name];
-                const isServicesLink = link.name === 'SERVICES';
-                const hasSubmenu = !isServicesLink && link.hasDropdown && subItems && subItems.length > 0;
-                const linkHref = isServicesLink ? '/services' : (link.href || '#');
+                // Treat SERVICES and PROJECTS identically as direct links
+                const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS';
+                const hasSubmenu = !isDirectPage && link.hasDropdown && subItems && subItems.length > 0;
+                const linkHref = isDirectPage ? link.href : (link.href || '#');
 
                 return (
                   <div key={link.name} className="border-b border-white/5 last:border-0 pb-2">
