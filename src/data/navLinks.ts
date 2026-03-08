@@ -16,15 +16,15 @@ export const navLinks: NavLink[] = [
   { name: 'ABOUT US', href: '/about', hasDropdown: false },
   { name: 'SERVICES', href: '/services', hasDropdown: false }, 
   { name: 'PROJECTS', href: '/projects', hasDropdown: false },
-  { name: 'OUR CLIENTS', href: '/clients', hasDropdown: false }, // <-- Updated to point to new page
+  { name: 'OUR CLIENTS', href: '/clients', hasDropdown: false },
   { name: 'PRODUCTS', href: '#', hasDropdown: true },
-  { name: 'CONTACT', href: '/#contact', hasDropdown: false },
+  { name: 'CONTACT', href: '/contact', hasDropdown: false }, // <-- Updated to /contact
 ];
 
 export const topBarLinks: Omit<NavLink, 'hasDropdown'>[] = [
   { name: 'Career', href: '#' },
   { name: 'Give Feedback', href: '#' },
-  { name: 'Contact Us', href: '/#contact' },
+  { name: 'Contact Us', href: '/contact' }, // <-- Updated to /contact
 ];
 
 export const socialLinks: SocialLink[] = [

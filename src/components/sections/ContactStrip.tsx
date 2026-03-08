@@ -1,3 +1,4 @@
+// src/components/sections/ContactStrip.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail } from 'lucide-react';

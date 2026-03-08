@@ -1,5 +1,9 @@
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Calendar, MessageCircle, ArrowRight } from 'lucide-react';
+import { 
+  Calendar, MessageCircle, ArrowRight, Send, X, 
+  User, Building2, AtSign, PhoneCall, MessageSquare, CheckCircle2, AlertCircle 
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface NewsCardProps {
@@ -61,10 +65,8 @@ export const ServiceCard = ({
       'group relative bg-white p-10 text-center border border-gray-100 transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2',
       className
     )}>
-      {/* Decorative Top Accent */}
       <div className="absolute top-0 left-0 w-full h-1 bg-[#e63946] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
       
-      {/* Icon Container */}
       <div className="mb-6 flex justify-center">
         <div className="relative w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#1e3a5f]">
           <Icon 
@@ -74,7 +76,6 @@ export const ServiceCard = ({
         </div>
       </div>
 
-      {/* Content */}
       <h3 className="text-base font-bold mb-4 tracking-widest text-[#1e3a5f] uppercase group-hover:text-[#e63946] transition-colors duration-300">
         {title}
       </h3>
@@ -82,7 +83,6 @@ export const ServiceCard = ({
         {description}
       </p>
 
-      {/* Hover "Read More" link effect */}
       <div className="flex justify-center items-center gap-2 text-[10px] font-bold text-[#e63946] opacity-0 group-hover:opacity-100 transition-opacity duration-500 tracking-[0.2em] uppercase">
         Read More <ArrowRight className="w-3 h-3" />
       </div>
@@ -95,30 +95,204 @@ interface ProjectCardProps {
   title: string;
   category: string;
   className?: string;
+  showEnquiry?: boolean;
 }
 
 export const ProjectCard = ({ 
   image, 
   title, 
   category,
-  className 
+  className,
+  showEnquiry = false 
 }: ProjectCardProps) => {
+  // Modal & Form State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: '' // Pre-filled custom message removed
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Replace with your Web3Forms Access Key
+      const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY"; 
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `Product Enquiry: ${title} from ${formData.company || formData.name}`,
+          ...formData,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        // Close modal automatically after 2.5 seconds on success
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setSubmitStatus('idle');
+          // Reset form completely
+          setFormData({ name: '', email: '', phone: '', company: '', message: '' });
+        }, 2500);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className={cn('group relative overflow-hidden cursor-pointer rounded-sm shadow-md', className)}>
-      <img 
-        src={image} 
-        alt={title}
-        className="w-full h-72 object-cover transition-transform duration-1000 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-[#0f172a]/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center">
-        <span className="text-[10px] font-bold text-[#e63946] uppercase tracking-[0.3em] mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-          {category}
-        </span>
-        <h4 className="text-xl font-serif font-bold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-          {title}
-        </h4>
-        <div className="mt-6 w-10 h-1 bg-[#e63946] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-150" />
+    <>
+      {/* Product Card */}
+      <div className={cn('group relative overflow-hidden rounded-sm shadow-md h-full', className)}>
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-72 object-cover transition-transform duration-1000 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-[#0f172a]/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center">
+          <span className="text-[10px] font-bold text-[#e63946] uppercase tracking-[0.3em] mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            {category}
+          </span>
+          
+          <h4 className={`text-xl font-serif font-bold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 ${showEnquiry ? 'mb-6' : ''}`}>
+            {title}
+          </h4>
+          
+          {!showEnquiry && (
+            <div className="mt-6 w-10 h-1 bg-[#e63946] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-150" />
+          )}
+          
+          {showEnquiry && (
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="flex items-center gap-2 px-6 py-2.5 bg-transparent border border-white/30 text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#e63946] hover:border-[#e63946] transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 delay-150 rounded-sm cursor-pointer"
+            >
+              Enquiry <Send className="w-3 h-3" />
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+
+      {/* Pop-up Enquiry Modal */}
+      {showEnquiry && isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#0f172a]/80 backdrop-blur-sm transition-opacity">
+          {/* Modal Container */}
+          <div 
+            className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()} // Prevent clicking inside modal from closing it
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 md:p-8 border-b border-gray-100 bg-gray-50/50">
+              <div>
+                <span className="text-[#e63946] text-xs font-bold tracking-[0.2em] uppercase mb-1 block">
+                  Product Enquiry
+                </span>
+                <h3 className="text-2xl font-serif font-bold text-[#1e3a5f]">{title}</h3>
+              </div>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#e63946] hover:border-[#e63946] transition-colors shadow-sm"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Body (Scrollable if needed) */}
+            <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <User className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                    </div>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required disabled={isSubmitting}
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Full Name *" />
+                  </div>
+
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <Building2 className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                    </div>
+                    <input type="text" name="company" value={formData.company} onChange={handleChange} disabled={isSubmitting}
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Company Name" />
+                  </div>
+
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <AtSign className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                    </div>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required disabled={isSubmitting}
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Email Address *" />
+                  </div>
+
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <PhoneCall className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                    </div>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required disabled={isSubmitting}
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Phone Number *" />
+                  </div>
+                </div>
+
+                <div className="relative group">
+                  <div className="absolute top-4 left-0 pl-4 pointer-events-none">
+                    <MessageSquare className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                  </div>
+                  <textarea name="message" value={formData.message} onChange={handleChange} required rows={3} disabled={isSubmitting}
+                    className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none resize-none" placeholder="Additional requirements..."
+                  ></textarea>
+                </div>
+
+                <div className="pt-2">
+                  <button type="submit" disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 bg-[#e63946] hover:bg-[#c1121f] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 shadow-[0_4px_14px_0_rgb(230,57,70,0.39)] hover:shadow-[0_6px_20px_rgba(230,57,70,0.23)] disabled:shadow-none"
+                  >
+                    <span>{isSubmitting ? 'Sending Request...' : 'Submit Request'}</span>
+                    {!isSubmitting && <Send className="w-5 h-5" />}
+                  </button>
+                </div>
+
+                {/* Status Messages inside Modal */}
+                {submitStatus === 'success' && (
+                  <div className="flex items-center justify-center gap-2 text-green-700 bg-green-50 p-4 rounded-lg border border-green-200 mt-4 animate-in fade-in slide-in-from-bottom-2">
+                    <CheckCircle2 className="w-5 h-5" /> 
+                    <p className="text-sm font-semibold">Success! We will contact you shortly.</p>
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="flex items-center justify-center gap-2 text-red-700 bg-red-50 p-4 rounded-lg border border-red-200 mt-4 animate-in fade-in slide-in-from-bottom-2">
+                    <AlertCircle className="w-5 h-5" /> 
+                    <p className="text-sm font-semibold">Failed to send. Please try again.</p>
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
