@@ -1,10 +1,11 @@
-import { useState } from 'react';
+// src/pages/products/IndustrialEquipments.tsx
 import { motion, AnimatePresence } from 'framer-motion';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { ChevronRight } from 'lucide-react';
+import { ProjectCard } from '@/components/ui/CustomCard';
 
 const productsData = [
   { id: 1, title: 'Pusher Type Reheating Furnace', category: 'FURNACES', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800' },
@@ -15,15 +16,7 @@ const productsData = [
   { id: 6, title: 'Billet Heating Furnace', category: 'FURNACES', image: 'https://images.unsplash.com/photo-1607507981507-62f7961d15de?auto=format&fit=crop&q=80&w=800' },
 ];
 
-const categories = ['ALL', 'FURNACES', 'BURNERS', 'ROLLERS'];
-
 const IndustrialEquipments = () => {
-  const [activeFilter, setActiveFilter] = useState('ALL');
-
-  const filteredProducts = activeFilter === 'ALL' 
-    ? productsData 
-    : productsData.filter(item => item.category === activeFilter);
-
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <TopBar />
@@ -31,7 +24,7 @@ const IndustrialEquipments = () => {
       <Navbar />
 
       <main className="flex-grow">
-        {/* UPDATED: Bigger Hero Section with Background Image */}
+        {/* Hero Section */}
         <section className="relative bg-[#0f172a] py-32 md:py-48 overflow-hidden flex items-center min-h-[50vh]">
           {/* Background Image */}
           <div 
@@ -65,33 +58,25 @@ const IndustrialEquipments = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-12">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveFilter(category)}
-                  className={`text-xs md:text-sm font-bold tracking-[0.1em] uppercase pb-2 border-b-2 transition-all duration-300 ${
-                    activeFilter === category ? 'text-[#e63946] border-[#e63946]' : 'text-gray-500 border-transparent hover:text-[#1e3a5f] hover:border-gray-300'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-
-            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatePresence>
-                {filteredProducts.map((product) => (
+            {/* Grid */}
+            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <AnimatePresence mode="popLayout">
+                {productsData.map((product) => (
                   <motion.div
-                    key={product.id} layout initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.4 }}
-                    className="group relative overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-500 rounded-sm cursor-pointer h-80"
+                    key={product.id}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4 }}
                   >
-                    <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/95 via-[#1e3a5f]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                      <span className="text-[#e63946] text-[10px] font-bold tracking-widest uppercase mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{product.category}</span>
-                      <h3 className="text-white text-xl font-serif font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{product.title}</h3>
-                      <div className="w-12 h-1 bg-[#e63946] mt-4 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-150"></div>
-                    </div>
+                    <ProjectCard
+                      image={product.image}
+                      title={product.title}
+                      category={product.category}
+                      showEnquiry={true} // <-- Enables the new Enquiry button
+                    />
                   </motion.div>
                 ))}
               </AnimatePresence>

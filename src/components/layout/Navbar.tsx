@@ -6,7 +6,6 @@ import { navLinks } from '@/data/navLinks';
 import CustomButton from '@/components/ui/CustomButton';
 import logo from '@/assets/logo.png';
 
-// 1. Define Submenu Data locally (Removed PROJECTS to make it a direct page link like SERVICES)
 const submenuData: Record<string, { name: string; href: string }[]> = {
   'ABOUT US': [
     { name: 'Our Story', href: '/#about' },
@@ -73,8 +72,8 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8">
           {navLinks.map((link: any) => {
             const subItems = submenuData[link.name];
-            // Ensure SERVICES and PROJECTS act as standard links even if marked as dropdown in data
-            const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS';
+            // Ensure SERVICES, PROJECTS, and CONTACT act as standard links
+            const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS' || link.name === 'CONTACT';
             const hasSubmenu = !isDirectPage && link.hasDropdown && subItems && subItems.length > 0;
             const linkHref = isDirectPage ? link.href : (hasSubmenu ? '#' : (link.href || '#'));
 
@@ -182,8 +181,8 @@ const Navbar = () => {
 
               {navLinks.map((link: any) => {
                 const subItems = submenuData[link.name];
-                // Treat SERVICES and PROJECTS identically as direct links
-                const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS';
+                // Treat SERVICES, PROJECTS, and CONTACT identically as direct links
+                const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS' || link.name === 'CONTACT';
                 const hasSubmenu = !isDirectPage && link.hasDropdown && subItems && subItems.length > 0;
                 const linkHref = isDirectPage ? link.href : (link.href || '#');
 
@@ -241,7 +240,8 @@ const Navbar = () => {
               
               {/* Mobile CTA */}
               <div className="pt-4 mt-2">
-                <a href="#contact" className="block w-full" onClick={() => setIsOpen(false)}>
+                {/* Changed this href from #contact to /contact */}
+                <a href="/contact" className="block w-full" onClick={() => setIsOpen(false)}>
                   <CustomButton 
                     className="w-full bg-[#e63946] hover:bg-white hover:text-[#e63946] text-white font-bold py-3 uppercase tracking-widest text-xs transition-colors rounded-xl"
                   >
