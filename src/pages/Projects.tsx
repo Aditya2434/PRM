@@ -26,7 +26,6 @@ const Projects = () => {
             />
           </div>
 
-          {/* Grid updated to lg:grid-cols-4 for 4 cards per row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {projects.map((project) => (
               <motion.div
@@ -36,24 +35,13 @@ const Projects = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="group relative bg-white shadow-md overflow-hidden cursor-pointer rounded-sm">
-                  <div className="relative h-64 overflow-hidden">
-                    <div className="absolute inset-0 bg-[#1e3a5f]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6 relative z-20 bg-white border-t border-gray-100 transition-transform duration-300 group-hover:-translate-y-2">
-                    <h3 className="text-lg font-bold text-[#0f172a] mb-1 group-hover:text-[#e63946] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
-                      {project.category}
-                    </p>
-                  </div>
-                </div>
+                <ProjectCard
+                  image={project.image}
+                  title={project.title}
+                  category={project.category}
+                  detail={project.detail} // Added detail prop
+                  showEnquiry={true} // Adding this gives them the Enquiry button on flip
+                />
               </motion.div>
             ))}
           </div>

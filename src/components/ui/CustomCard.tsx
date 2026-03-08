@@ -94,6 +94,7 @@ interface ProjectCardProps {
   image: string;
   title: string;
   category: string;
+  detail?: string;
   className?: string;
   showEnquiry?: boolean;
 }
@@ -102,10 +103,10 @@ export const ProjectCard = ({
   image, 
   title, 
   category,
+  detail,
   className,
   showEnquiry = false 
 }: ProjectCardProps) => {
-  // Modal & Form State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -114,7 +115,7 @@ export const ProjectCard = ({
     email: '',
     phone: '',
     company: '',
-    message: '' // Pre-filled custom message removed
+    message: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -128,9 +129,7 @@ export const ProjectCard = ({
     setSubmitStatus('idle');
 
     try {
-      // Replace with your Web3Forms Access Key
       const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY"; 
-
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -145,11 +144,9 @@ export const ProjectCard = ({
 
       if (result.success) {
         setSubmitStatus('success');
-        // Close modal automatically after 2.5 seconds on success
         setTimeout(() => {
           setIsModalOpen(false);
           setSubmitStatus('idle');
-          // Reset form completely
           setFormData({ name: '', email: '', phone: '', company: '', message: '' });
         }, 2500);
       } else {
@@ -165,46 +162,60 @@ export const ProjectCard = ({
 
   return (
     <>
-      {/* Product Card */}
-      <div className={cn('group relative overflow-hidden rounded-sm shadow-md h-full', className)}>
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-72 object-cover transition-transform duration-1000 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-[#0f172a]/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center">
-          <span className="text-[10px] font-bold text-[#e63946] uppercase tracking-[0.3em] mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-            {category}
-          </span>
+      {/* 3D Flip Card Container */}
+      <div className={cn('group relative h-72 w-full [perspective:1000px] cursor-pointer', className)}>
+        {/* Flipping Inner Container */}
+        <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-md rounded-sm">
           
-          <h4 className={`text-xl font-serif font-bold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 ${showEnquiry ? 'mb-6' : ''}`}>
-            {title}
-          </h4>
-          
-          {!showEnquiry && (
-            <div className="mt-6 w-10 h-1 bg-[#e63946] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-150" />
-          )}
-          
-          {showEnquiry && (
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 px-6 py-2.5 bg-transparent border border-white/30 text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#e63946] hover:border-[#e63946] transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 delay-150 rounded-sm cursor-pointer"
-            >
-              Enquiry <Send className="w-3 h-3" />
-            </button>
-          )}
+          {/* Front Face (Image + Title Below) */}
+          <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] flex flex-col overflow-hidden rounded-sm bg-white border border-gray-100">
+            <div className="flex-1 w-full overflow-hidden">
+              <img 
+                src={image} 
+                alt={title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="h-[72px] w-full flex items-center justify-center px-4 bg-white border-t border-gray-100">
+              <h4 className="text-sm font-bold text-[#1e3a5f] text-center line-clamp-2 leading-tight">
+                {title}
+              </h4>
+            </div>
+          </div>
+
+          {/* Back Face (Text with dark film over the same image) */}
+          <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden rounded-sm">
+            {/* Background image slightly blurred for the back face */}
+            <img 
+              src={image} 
+              alt={`${title} background`}
+              className="absolute inset-0 w-full h-full object-cover blur-[3px] scale-110"
+            />
+            {/* Dark film overlay and content */}
+            <div className="absolute inset-0 bg-[#0f172a]/60 flex flex-col items-center justify-center p-6 text-center z-10">
+              <span className="text-[10px] font-bold text-[#e63946] uppercase tracking-[0.3em] mb-3">
+                {category}
+              </span>
+              
+              {/* Added whitespace-pre-line so \n breaks correctly map to new lines */}
+              {detail && (
+                <h4 className="text-sm font-sans font-semibold text-gray-100 mt-3 leading-relaxed px-2 whitespace-pre-line">
+                  {detail}
+                </h4>
+              )}
+              
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Pop-up Enquiry Modal */}
       {showEnquiry && isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#0f172a]/80 backdrop-blur-sm transition-opacity">
-          {/* Modal Container */}
           <div 
             className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col"
-            onClick={(e) => e.stopPropagation()} // Prevent clicking inside modal from closing it
+            onClick={(e) => e.stopPropagation()} 
           >
-            {/* Modal Header */}
             <div className="flex items-center justify-between p-6 md:p-8 border-b border-gray-100 bg-gray-50/50">
               <div>
                 <span className="text-[#e63946] text-xs font-bold tracking-[0.2em] uppercase mb-1 block">
@@ -220,7 +231,6 @@ export const ProjectCard = ({
               </button>
             </div>
 
-            {/* Modal Body (Scrollable if needed) */}
             <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -275,7 +285,6 @@ export const ProjectCard = ({
                   </button>
                 </div>
 
-                {/* Status Messages inside Modal */}
                 {submitStatus === 'success' && (
                   <div className="flex items-center justify-center gap-2 text-green-700 bg-green-50 p-4 rounded-lg border border-green-200 mt-4 animate-in fade-in slide-in-from-bottom-2">
                     <CheckCircle2 className="w-5 h-5" /> 
