@@ -39,8 +39,9 @@ const Projects = () => {
                   image={project.image}
                   title={project.title}
                   category={project.category}
-                  detail={project.detail} // Added detail prop
-                  showEnquiry={true} // Adding this gives them the Enquiry button on flip
+                  detail={project.detail} 
+                  tag={project.tag} // Passed the tag here
+                  showEnquiry={true}
                 />
               </motion.div>
             ))}

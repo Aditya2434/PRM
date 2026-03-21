@@ -38,7 +38,8 @@ const ProjectsSection = () => {
                 image={project.image}
                 title={project.title}
                 category={project.category}
-                detail={project.detail} // Added detail prop
+                detail={project.detail} 
+                tag={project.tag} // Passed the tag here
               />
             </motion.div>
           ))}

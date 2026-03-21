@@ -1,3 +1,4 @@
+// src/components/ui/CustomCard.tsx
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { 
@@ -95,6 +96,7 @@ interface ProjectCardProps {
   title: string;
   category: string;
   detail?: string;
+  tag?: string; 
   className?: string;
   showEnquiry?: boolean;
 }
@@ -104,6 +106,7 @@ export const ProjectCard = ({
   title, 
   category,
   detail,
+  tag, 
   className,
   showEnquiry = false 
 }: ProjectCardProps) => {
@@ -169,12 +172,18 @@ export const ProjectCard = ({
           
           {/* Front Face (Image + Title Below) */}
           <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] flex flex-col overflow-hidden rounded-sm bg-white border border-gray-100">
-            <div className="flex-1 w-full overflow-hidden">
+            <div className="relative flex-1 w-full overflow-hidden">
               <img 
                 src={image} 
                 alt={title}
                 className="w-full h-full object-cover"
               />
+              {/* Tag for the Front Face with opacity and blur */}
+              {tag && (
+                <div className="absolute top-3 right-3 bg-[#e63946]/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-10 shadow-md">
+                  {tag}
+                </div>
+              )}
             </div>
             <div className="h-[72px] w-full flex items-center justify-center px-4 bg-white border-t border-gray-100">
               <h4 className="text-sm font-bold text-[#1e3a5f] text-center line-clamp-2 leading-tight">
@@ -193,11 +202,17 @@ export const ProjectCard = ({
             />
             {/* Dark film overlay and content */}
             <div className="absolute inset-0 bg-[#0f172a]/60 flex flex-col items-center justify-center p-6 text-center z-10">
+              {/* Tag for the Back Face with opacity and blur */}
+              {tag && (
+                <div className="absolute top-3 right-3 bg-[#e63946]/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-20 shadow-md">
+                  {tag}
+                </div>
+              )}
+
               <span className="text-[10px] font-bold text-[#e63946] uppercase tracking-[0.3em] mb-3">
                 {category}
               </span>
               
-              {/* Added whitespace-pre-line so \n breaks correctly map to new lines */}
               {detail && (
                 <h4 className="text-sm font-sans font-semibold text-gray-100 mt-3 leading-relaxed px-2 whitespace-pre-line">
                   {detail}
