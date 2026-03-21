@@ -5,6 +5,7 @@ export interface Project {
   title: string;
   category: string;
   detail?: string;
+  tag: string;
 }
 
 export const projects: Project[] = [
@@ -14,6 +15,7 @@ export const projects: Project[] = [
     title: 'Adhunik Corporation Ltd',
     category: 'MANUFACTURING',
     detail: '25 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 2,
@@ -21,6 +23,7 @@ export const projects: Project[] = [
     title: 'SPS Steels Rolling Mills Ltd.',
     category: 'MANUFACTURING',
     detail: 'Unit I - 18 TPH Re-Heating Furnace\nUnit II - 15 TPH Boiler Furnace\nUnit III - 18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 3,
@@ -28,6 +31,7 @@ export const projects: Project[] = [
     title: 'Jai Balaji Industries Limited',
     category: 'MANUFACTURING',
     detail: '40 TPH Re-Heating Furnace\n18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 4,
@@ -35,6 +39,7 @@ export const projects: Project[] = [
     title: 'GIRIDHAN METAL PRIVATE LIMITED',
     category: 'MANUFACTURING',
     detail: '40 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 5,
@@ -42,6 +47,7 @@ export const projects: Project[] = [
     title: 'Jai Raj Steel',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 6,
@@ -49,6 +55,7 @@ export const projects: Project[] = [
     title: 'JR Metal Chennai Limited',
     category: 'MANUFACTURING',
     detail: '25 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 7,
@@ -56,6 +63,7 @@ export const projects: Project[] = [
     title: 'Kalindi Ispat Private Limited',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 8,
@@ -63,6 +71,7 @@ export const projects: Project[] = [
     title: 'Prativa Steel and Alloys Private Limited',
     category: 'MANUFACTURING',
     detail: '8 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 9,
@@ -70,6 +79,7 @@ export const projects: Project[] = [
     title: 'Prime Gold Group',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 10,
@@ -77,6 +87,7 @@ export const projects: Project[] = [
     title: 'Purvanchal Concast Pvt Ltd',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 11,
@@ -84,6 +95,7 @@ export const projects: Project[] = [
     title: 'Rashmi Metaliks Ltd.',
     category: 'MANUFACTURING',
     detail: '40TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 12,
@@ -91,6 +103,7 @@ export const projects: Project[] = [
     title: 'RITESH TRADEFIN LTD (R.T.F)',
     category: 'MANUFACTURING',
     detail: '10 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 13,
@@ -98,6 +111,7 @@ export const projects: Project[] = [
     title: 'RUHR ISPAT PRIVATE LIMITED',
     category: 'MANUFACTURING',
     detail: '12 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 14,
@@ -105,6 +119,7 @@ export const projects: Project[] = [
     title: 'SBIW STEELS PVT.LTD.',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 15,
@@ -112,6 +127,7 @@ export const projects: Project[] = [
     title: 'SHAKAMBHARI OVERSEAS TRADES PRIVATE LIMITED',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 16,
@@ -119,6 +135,7 @@ export const projects: Project[] = [
     title: 'Shivam Dhatu Udyog Private Limited',
     category: 'MANUFACTURING',
     detail: '40 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 17,
@@ -126,6 +143,7 @@ export const projects: Project[] = [
     title: 'SHIVAM MELTECH PRIVATE LIMITED',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 18,
@@ -133,6 +151,7 @@ export const projects: Project[] = [
     title: 'SHREE PARASHNATH RE-ROOLLING MILLS LIMITED',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 19,
@@ -140,6 +159,7 @@ export const projects: Project[] = [
     title: 'Shyam Ferro Alloys Ltd',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 20,
@@ -147,6 +167,7 @@ export const projects: Project[] = [
     title: 'Shyam Steel Industries Ltd.',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 21,
@@ -154,6 +175,7 @@ export const projects: Project[] = [
     title: 'SOVA ISPAT ALLOYS LIMITED',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 22,
@@ -161,6 +183,7 @@ export const projects: Project[] = [
     title: 'Super Smelters Limited',
     category: 'MANUFACTURING',
     detail: 'Durgapur - 30 TPH Re-Heating Furnace\nKODERMA - 18 TPH Re-Heating Furnace\nJAMURIA - 40 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 23,
@@ -168,6 +191,7 @@ export const projects: Project[] = [
     title: 'SURYA ALLOY INDUSTRIES LIMITED',
     category: 'MANUFACTURING',
     detail: '10 TPH Re-Heating Furnace\n40 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 24,
@@ -175,6 +199,7 @@ export const projects: Project[] = [
     title: 'Shree Vaishnavi Ispat Limited',
     category: 'MANUFACTURING',
     detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
   },
   {
     id: 25,
@@ -182,5 +207,29 @@ export const projects: Project[] = [
     title: 'Vision Ispat Private Limited',
     category: 'MANUFACTURING',
     detail: '15 TPH Re-Heating Furnace',
+    tag: 'India',
+  },
+  {
+    id: 26,
+    image: '/images/projects/Maa Mahamaya.webp',
+    title: 'Maa Mahamaya Industries Limited',
+    category: 'MANUFACTURING',
+    detail: '18 TPH Re-Heating Furnace',
+    tag: 'India',
+  },
+  {
+    id: 27,
+    image: '/images/projects/Durgapur steel.webp',
+    title: 'Duragapur Steel Limited',
+    category: 'MANUFACTURING',
+    detail: '20 TPH Re-Heating Furnace',
+    tag: 'India',
+  },
+  {
+    id: 28,
+    image: '/images/projects/Pro Metal.webp',
+    title: 'Pro Metal',
+    category: 'MANUFACTURING',
+    tag: 'Cameroon',
   }
 ];
