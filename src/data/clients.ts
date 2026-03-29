@@ -1,46 +1,35 @@
 // src/data/clients.ts
-export interface Client {
+
+export interface ClientLogo {
   id: number;
+  name: string;
   image: string;
-  title: string;
-  category: string;
 }
 
-export const clients: Client[] = [
-  {
-    id: 1,
-    image: '/src/assets/images/project-1.jpg',
-    title: 'Global Steel Co.',
-    category: 'MANUFACTURING',
-  },
-  {
-    id: 2,
-    image: '/src/assets/images/project-2.jpg',
-    title: 'Apex Refineries',
-    category: 'OIL & GAS',
-  },
-  {
-    id: 3,
-    image: '/src/assets/images/project-3.jpg',
-    title: 'BuildRight Const.',
-    category: 'CONSTRUCTION',
-  },
-  {
-    id: 4,
-    image: '/src/assets/images/project-4.jpg',
-    title: 'EcoPower Solutions',
-    category: 'RENEWABLE ENERGY',
-  },
-  {
-    id: 5,
-    image: '/src/assets/images/project-5.jpg',
-    title: 'HeavyForge Ind.',
-    category: 'AUTOMOTIVE',
-  },
-  {
-    id: 6,
-    image: '/src/assets/images/project-6.jpg',
-    title: 'Machina Corp.',
-    category: 'ENGINEERING',
-  },
+export const clients: ClientLogo[] = [
+  { id: 1, name: 'Elegant Steel', image: '/images/clients/elegant-steel.webp' },
+  { id: 2, name: 'Girdham Metal', image: '/images/clients/Girdham%20Metal.webp' },
+  { id: 3, name: 'Jai Krishna', image: '/images/clients/Jai%20Krishna.webp' },
+  { id: 4, name: 'Jai Raj', image: '/images/clients/Jai%20Raj.webp' },
+  { id: 5, name: 'JBG', image: '/images/clients/JBG.webp' },
+  { id: 6, name: 'JR Metal 1', image: '/images/clients/JR%20Metal%201.webp' },
+  { id: 7, name: 'JR Metal', image: '/images/clients/Jr%20Metal.webp' },
+  { id: 8, name: 'Parasnath', image: '/images/clients/Parasnath.webp' },
+  { id: 9, name: 'Patna Iron', image: '/images/clients/Patna%20Iron.webp' },
+  { id: 10, name: 'Prativa', image: '/images/clients/Prativa.webp' },
+  { id: 11, name: 'PrimeGold', image: '/images/clients/PrimeGold.webp' },
+  { id: 12, name: 'Pro Metal', image: '/images/clients/prometal.webp' },
+  { id: 13, name: 'Purvanchal', image: '/images/clients/purvanchal.webp' },
+  { id: 14, name: 'Rashmi Group', image: '/images/clients/Rashmi.webp' },
+  { id: 15, name: 'RTF', image: '/images/clients/RTF.webp' },
+  { id: 16, name: 'Ruhr', image: '/images/clients/Ruhr.webp' },
+  { id: 17, name: 'Shakambhari Group', image: '/images/clients/Shakambhari-Group.webp' },
+  { id: 18, name: 'Shivam Meltech', image: '/images/clients/Shivam%20Meltech.webp' },
+  { id: 19, name: 'Shyam Ferro', image: '/images/clients/ShyamFerro.webp' },
+  { id: 20, name: 'Shyam Steel', image: '/images/clients/Shyam_Steel_Logo.webp' },
+  { id: 21, name: 'Super Smelters Product', image: '/images/clients/super_smelters%20Product.webp' },
+  { id: 22, name: 'Super Smelters Limited', image: '/images/clients/super_smelters_limited_logo.webp' },
+  { id: 23, name: 'Surya', image: '/images/clients/Surya.webp' },
+  { id: 24, name: 'Vision', image: '/images/clients/vision.webp' },
+  { id: 25, name: 'Viva', image: '/images/clients/Viva.webp' },
 ];
