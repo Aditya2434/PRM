@@ -1,20 +1,10 @@
+// src/components/layout/Footer.tsx
 import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP } from 'react-icons/fa';
 import { Send } from 'lucide-react';
 import { services } from '@/data/services';
 import logo from '@/assets/logo.png';
 
 const Footer = () => {
-  const recentPosts = [
-    {
-      title: 'The Best in dolor sit amet consectetur adipisicing elit sed',
-      date: 'June 16, 2017',
-    },
-    {
-      title: 'The Best in dolor sit amet consectetur adipisicing elit sed',
-      date: 'June 16, 2017',
-    },
-  ];
-
   return (
     <footer className="bg-[#0d1b2a] text-white pt-20">
       {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
@@ -51,24 +41,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Recent Posts */}
-          <div>
-            <h4 className="text-lg font-bold mb-8 relative inline-block">
-              Recent Post
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#e63946]" />
-            </h4>
-            <ul className="space-y-6">
-              {recentPosts.map((post, index) => (
-                <li key={index} className="group cursor-pointer">
-                  <h5 className="text-sm text-gray-300 group-hover:text-[#e63946] transition-colors font-semibold leading-snug mb-2">
-                    {post.title}
-                  </h5>
-                  <span className="text-xs text-gray-500 font-bold uppercase tracking-widest">{post.date}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Our Services */}
           <div>
             <h4 className="text-lg font-bold mb-8 relative inline-block">
@@ -87,6 +59,43 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Our Products */}
+          <div>
+            <h4 className="text-lg font-bold mb-8 relative inline-block">
+              Our Products
+              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#e63946]" />
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href="/products/refractory-material"
+                  className="text-sm text-gray-400 hover:text-[#e63946] transition-colors flex items-center gap-2 group"
+                >
+                  <span className="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#e63946] transition-colors" />
+                  Refractory Material
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/products/industrial-equipments"
+                  className="text-sm text-gray-400 hover:text-[#e63946] transition-colors flex items-center gap-2 group"
+                >
+                  <span className="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#e63946] transition-colors" />
+                  Industrial Equipments
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/products/cast-iron-parts"
+                  className="text-sm text-gray-400 hover:text-[#e63946] transition-colors flex items-center gap-2 group"
+                >
+                  <span className="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#e63946] transition-colors" />
+                  Cast Iron Parts
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import { useState, useEffect } from 'react';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
@@ -8,9 +9,7 @@ import FeaturesSection from '@/components/sections/FeaturesSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ServicesSection from '@/components/sections/ServicesSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
-import NewsSection from '@/components/sections/NewsSection';
 import PartnersSection from '@/components/sections/PartnersSection';
 import ContactStrip from '@/components/sections/ContactStrip';
 
@@ -74,9 +73,7 @@ const Home = () => {
         <AboutSection />
         <ProjectsSection />
         <ServicesSection />
-        <TestimonialsSection />
         <CTASection />
-        <NewsSection />
         <PartnersSection />
         <ContactStrip />
       </main>

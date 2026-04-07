@@ -1,6 +1,5 @@
-// src/components/layout/Navbar.tsx
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Search } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks } from '@/data/navLinks';
 import CustomButton from '@/components/ui/CustomButton';
@@ -45,14 +44,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    // Wrapper for sticky positioning with floating overlap (-mb-20)
-    <div className={`sticky top-0 z-40 w-full flex flex-col items-center transition-all duration-300 pointer-events-none -mb-20 ${scrolled ? 'pt-2' : 'pt-4'}`}>
+    // Wrapper for sticky positioning with heavy floating overlap (-mb-[100px]) to tuck banner under header
+    <div className={`sticky top-0 z-40 w-full flex flex-col items-center transition-all duration-300 pointer-events-none -mb-[100px] ${scrolled ? 'pt-1.5' : 'pt-2'}`}>
       
       {/* Main Navbar Pill */}
       <nav
-        className={`pointer-events-auto transition-all duration-300 flex justify-between items-center px-6 lg:px-8
-          bg-[#0f172a] text-white w-[95%] lg:max-w-7xl mx-auto
-          ${scrolled ? 'py-2 shadow-lg bg-[#0f172a]/95 backdrop-blur-md' : 'py-3'}
+        className={`pointer-events-auto transition-all duration-300 flex justify-between items-center px-6 lg:px-12
+          bg-[#0f172a] text-white w-[95%] md:w-[80%] lg:w-max mx-auto lg:gap-16
+          ${scrolled ? 'py-1.5 shadow-lg bg-[#0f172a]/95 backdrop-blur-md' : 'py-2'}
           ${isOpen ? 'rounded-t-3xl rounded-b-none' : 'rounded-full shadow-md'} 
         `}
       >
@@ -63,7 +62,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="Paragon Logo" 
-              className="h-12 w-auto object-contain bg-white/10 rounded-sm p-1 cursor-pointer" 
+              className="h-9 lg:h-10 w-auto object-contain bg-white/10 rounded-sm p-1 cursor-pointer" 
             />
           </a>
         </div>
@@ -93,7 +92,7 @@ const Navbar = () => {
                       setActiveDropdown(activeDropdown === link.name ? null : link.name);
                     }
                   }}
-                  className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#e63946] transition-colors py-2"
+                  className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#e63946] transition-colors py-1.5"
                 >
                   {link.name}
                   {hasSubmenu && (
@@ -113,13 +112,13 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 w-56 bg-white shadow-xl rounded-sm overflow-hidden py-2 mt-4 border-t-2 border-[#e63946]"
+                        className="absolute top-full left-0 w-56 bg-white shadow-xl rounded-sm overflow-hidden py-2 mt-3 border-t-2 border-[#e63946]"
                       >
                         {subItems.map((subItem) => (
                           <a
                             key={subItem.name}
                             href={subItem.href}
-                            className="block px-6 py-3 text-sm font-medium text-gray-600 hover:text-[#e63946] hover:bg-gray-50 transition-colors border-l-2 border-transparent hover:border-[#e63946]"
+                            className="block px-6 py-2.5 text-sm font-medium text-gray-600 hover:text-[#e63946] hover:bg-gray-50 transition-colors border-l-2 border-transparent hover:border-[#e63946]"
                           >
                             {subItem.name}
                           </a>
@@ -133,26 +132,15 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Right: Search Bar (Desktop) & Menu Toggle (Mobile) */}
-        <div className="flex items-center gap-4">
-          
-          {/* Desktop Search Bar */}
-          <div className="hidden lg:flex items-center relative group">
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              className="pl-4 pr-10 py-1.5 w-40 focus:w-60 transition-all duration-300 bg-white/10 border border-white/10 rounded-full text-sm text-white placeholder-gray-400 focus:outline-none focus:bg-white/20 focus:border-white/30"
-            />
-            <Search className="absolute right-3 w-4 h-4 text-gray-400 group-hover:text-white transition-colors pointer-events-none" />
-          </div>
-
+        {/* Right: Menu Toggle (Mobile) */}
+        <div className="flex items-center">
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white hover:text-[#e63946] transition-colors focus:outline-none ml-auto"
+            className="lg:hidden text-white hover:text-[#e63946] transition-colors focus:outline-none ml-auto py-1"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </nav>
@@ -165,20 +153,10 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="pointer-events-auto lg:hidden w-[95%] bg-[#0f172a] rounded-b-3xl overflow-hidden shadow-xl border-t border-white/10"
+            className="pointer-events-auto lg:hidden w-[95%] md:w-[80%] bg-[#0f172a] rounded-b-3xl overflow-hidden shadow-xl border-t border-white/10"
           >
-            <div className="px-6 py-6 flex flex-col gap-4">
+            <div className="px-6 py-5 flex flex-col gap-4">
               
-              {/* Mobile Search Bar */}
-              <div className="relative mb-2">
-                <input 
-                  type="text" 
-                  placeholder="Search..." 
-                  className="w-full pl-4 pr-10 py-2 bg-white/10 border border-white/10 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:bg-white/20"
-                />
-                <Search className="absolute right-3 top-2.5 w-4 h-4 text-gray-400" />
-              </div>
-
               {navLinks.map((link: any) => {
                 const subItems = submenuData[link.name];
                 // Treat SERVICES, PROJECTS, and CONTACT identically as direct links
@@ -239,11 +217,10 @@ const Navbar = () => {
               })}
               
               {/* Mobile CTA */}
-              <div className="pt-4 mt-2">
-                {/* Changed this href from #contact to /contact */}
+              <div className="pt-3 mt-1">
                 <a href="/contact" className="block w-full" onClick={() => setIsOpen(false)}>
                   <CustomButton 
-                    className="w-full bg-[#e63946] hover:bg-white hover:text-[#e63946] text-white font-bold py-3 uppercase tracking-widest text-xs transition-colors rounded-xl"
+                    className="w-full bg-[#e63946] hover:bg-white hover:text-[#e63946] text-white font-bold py-2.5 uppercase tracking-widest text-xs transition-colors rounded-xl"
                   >
                     Get a Quote
                   </CustomButton>
