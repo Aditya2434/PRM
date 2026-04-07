@@ -1,3 +1,4 @@
+// src/components/layout/Header.tsx
 import { Mail, Phone, ChevronRight } from 'lucide-react';
 import CustomButton from '@/components/ui/CustomButton';
 import logo from '@/assets/logo.png';
@@ -26,13 +27,13 @@ const Header = () => {
             />
           </div>
 
-          {/* Text Section - Premium Serif Typography */}
+          {/* Text Section - Uniform Typography */}
           <div className="flex flex-col border-l border-gray-300 pl-3 py-1">
-            <h1 className="text-2xl font-serif font-bold text-[#0f172a] leading-none tracking-tight group-hover:text-[#1e3a5f] transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+            <h1 className="text-2xl font-bold text-[#0f172a] leading-none tracking-tight group-hover:text-[#1e3a5f] transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
               Paragon Refractories
             </h1>
             {/* Highlighted "And Minerals" with Gradient and Weight */}
-            <span className="text-sm font-serif font-semibold bg-gradient-to-r from-[#e63946] to-[#b91c1c] bg-clip-text text-transparent leading-tight mt-1 tracking-wide">
+            <span className="text-sm font-semibold bg-gradient-to-r from-[#e63946] to-[#b91c1c] bg-clip-text text-transparent leading-tight mt-1 tracking-wide">
               And Minerals
             </span>
           </div>
@@ -54,7 +55,7 @@ const Header = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Us</span>
-                <a href="mailto:paragonrefractories22@gmail.com" className="text-sm font-semibold text-[#334155] hover:text-[#e63946] transition-colors font-sans">
+                <a href="mailto:paragonrefractories22@gmail.com" className="text-sm font-semibold text-[#334155] hover:text-[#e63946] transition-colors">
                   paragonrefractories22@gmail.com
                 </a>
               </div>
@@ -70,7 +71,7 @@ const Header = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Call Us</span>
-                <a href="tel:+919932317334" className="text-sm font-semibold text-[#334155] hover:text-[#e63946] transition-colors font-sans">
+                <a href="tel:+919932317334" className="text-sm font-semibold text-[#334155] hover:text-[#e63946] transition-colors">
                   +91 9932317334
                 </a>
               </div>
@@ -82,7 +83,7 @@ const Header = () => {
             variant="primary" 
             className="group relative overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f172a] hover:from-[#e63946] hover:to-[#d62828] text-white px-9 py-4 text-[13px] font-bold tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5"
           >
-            <span className="relative z-10 flex items-center gap-2 font-sans">
+            <span className="relative z-10 flex items-center gap-2">
               GET A QUOTE
               <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>

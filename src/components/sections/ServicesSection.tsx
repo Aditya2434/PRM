@@ -1,16 +1,17 @@
+// src/components/sections/ServicesSection.tsx
 import { motion } from 'framer-motion';
-import { Settings, Leaf, Droplet, Zap, FlaskConical, Box, ArrowRight } from 'lucide-react';
+import { Settings, Flame, Wrench, Activity, Factory, Hexagon, ArrowRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { services } from '@/data/services';
 
 const iconMap: Record<string, LucideIcon> = {
   Settings,
-  Leaf,
-  Droplet,
-  Zap,
-  FlaskConical,
-  Box,
+  Flame,
+  Wrench,
+  Activity,
+  Factory,
+  Hexagon,
 };
 
 const serviceStyles = [
@@ -85,7 +86,7 @@ const ServicesSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className={`group relative p-7 text-center rounded-xl border border-gray-100 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 overflow-hidden`}>
+                <div className={`group relative p-7 text-center rounded-xl border border-gray-100 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 overflow-hidden flex flex-col h-full`}>
                   <div className={`absolute inset-0 bg-gradient-to-br ${style.gradient} -z-10`} />
                   <div className={`absolute top-0 left-0 w-full h-1 ${style.accent} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center`} />
                   <div className="mb-6 flex justify-center">
@@ -94,15 +95,34 @@ const ServicesSection = () => {
                     </div>
                   </div>
                   <h3 className={`text-sm font-bold mb-3 tracking-widest uppercase transition-colors duration-300 ${style.text} group-hover:text-gray-900`}>{service.title}</h3>
-                  <p className="text-[13px] leading-relaxed text-gray-500 font-medium mb-6">{service.description}</p>
-                  <div className={`flex justify-center items-center gap-2 text-[9px] font-bold ${style.text} opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 tracking-[0.2em] uppercase`}>
+                  <p className="text-[13px] leading-relaxed text-gray-500 font-medium mb-6 flex-grow">{service.description}</p>
+                  
+                  {/* Keep the original "Explore Service" text from your design */}
+                  <a href="/services" className={`flex justify-center items-center gap-2 text-[9px] font-bold ${style.text} opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 tracking-[0.2em] uppercase mt-auto`}>
                     Explore Service <ArrowRight className="w-3 h-3" />
-                  </div>
+                  </a>
                 </div>
               </motion.div>
             );
           })}
         </div>
+
+        {/* Global CTA Button for Services */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16 flex justify-center"
+        >
+          <a href="/services" className="group">
+            <button className="flex items-center gap-3 bg-transparent border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white px-9 py-4 font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-sm">
+              Explore All Services
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+// src/components/sections/CTASection.tsx
 import { motion } from 'framer-motion';
 import CustomButton from '@/components/ui/CustomButton';
 
@@ -26,9 +27,11 @@ const CTASection = () => {
             We provide innovative solutions for sustainable progress. Our professional team 
             works to increase productivity and cost effectiveness on the market.
           </p>
-          <CustomButton variant="primary" size="lg">
-            CONTACT US
-          </CustomButton>
+          <a href="/contact" className="inline-block">
+            <CustomButton variant="primary" size="lg">
+              CONTACT US
+            </CustomButton>
+          </a>
         </motion.div>
       </div>
     </section>
