@@ -1,3 +1,4 @@
+// src/components/sections/AboutSection.tsx
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ArrowRight } from 'lucide-react';
@@ -21,7 +22,7 @@ const AboutSection = () => {
           >
             <SectionTitle title="ABOUT US" />
             
-            <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#1e3a5f] leading-tight mb-8 tracking-tight">
+            <h3 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] leading-tight mb-8 tracking-tight">
               Trusted Manufacturer of <span className="text-[#e63946] border-b-2 border-[#e63946]/10">Refractory Materials and Furnace Equipment</span>
             </h3>
 
@@ -78,7 +79,7 @@ const AboutSection = () => {
               </div>
 
               <div className="flex-1 py-2">
-                <h4 className="text-xl md:text-2xl font-serif font-bold text-[#1e3a5f] mb-1">
+                <h4 className="text-xl md:text-2xl font-bold text-[#1e3a5f] mb-1">
                   Kalika Prasad Chauhan
                 </h4>
                 <div className="flex items-center gap-2 mb-4">

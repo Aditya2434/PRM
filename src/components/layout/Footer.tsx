@@ -19,8 +19,8 @@ const Footer = () => {
                 className="h-12 w-auto object-contain" 
               />
               <div className="flex flex-col border-l border-gray-700 pl-3">
-                <span className="text-sm font-serif font-bold leading-tight tracking-tight uppercase">PARAGON REFRACTORIES</span>
-                <span className="text-[9px] font-sans font-bold text-[#e63946] tracking-[0.2em] uppercase">AND MINERALS</span>
+                <span className="text-sm font-bold leading-tight tracking-tight uppercase">PARAGON REFRACTORIES</span>
+                <span className="text-[9px] font-bold text-[#e63946] tracking-[0.2em] uppercase">AND MINERALS</span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed font-medium">
@@ -130,7 +130,8 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} <span className="text-gray-300">Paragon Refractories and Minerals</span>. All Rights Reserved.
           </p>
           <div className="flex gap-6 text-[10px] font-bold text-gray-500 tracking-widest uppercase">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            {/* Added link to /privacy-policy */}
+            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>

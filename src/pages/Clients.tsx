@@ -1,4 +1,5 @@
 // src/pages/Clients.tsx
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
@@ -7,6 +8,7 @@ import Footer from '@/components/layout/Footer';
 import SectionTitle from '@/components/ui/SectionTitle';
 import CustomButton from '@/components/ui/CustomButton';
 import { clients, type ClientLogo } from '@/data/clients';
+import heroBg from '@/assets/images/cta-bg.jpg';
 
 // ----------------------------------------------------------------------
 // Reusable, Perfectly Looping Marquee Column Component
@@ -60,78 +62,111 @@ const ScrollingColumn = ({
 // Main Page Component
 // ----------------------------------------------------------------------
 const Clients = () => {
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Split the clients into 3 columns (Total 25 clients)
   const col1 = clients.slice(0, 8);
   const col2 = clients.slice(8, 17);
   const col3 = clients.slice(17, 25);
 
   return (
-    // Changed background to #08101a to cleanly differentiate it from the Footer's #0d1b2a
     <div className="min-h-screen flex flex-col relative bg-[#08101a]">
       <TopBar />
       <Header />
       <Navbar />
 
-      <main className="flex-grow pt-24 pb-20 overflow-hidden relative">
-        
-        {/* --- Premium Background Ambient Glows --- */}
-        <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[#e63946]/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-[#457b9d]/10 rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="container mx-auto px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 h-full lg:min-h-[80vh] relative z-10">
+      <main className="flex-grow">
+        {/* Standard Hero Section */}
+        <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-[#0f172a]">
+          <div className="absolute inset-0 opacity-20">
+            <img src={heroBg} alt="Clients Background" className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
           
-          {/* Left Side: Premium Text & Context */}
-          <div className="lg:w-5/12 space-y-8 pt-10 lg:pt-0">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-block py-1 px-3 rounded-full bg-[#e63946]/10 text-[#e63946] border border-[#e63946]/20 text-sm font-bold uppercase tracking-widest mb-4"
             >
-              <SectionTitle 
-                subtitle="Our Clients" 
-                title="Trusted by Industry Leaders Worldwide" 
-                centered={false}
-                light={true} 
-              />
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed mt-6 font-light tracking-wide">
-                At Paragon Refractories and Minerals, we take immense pride in the strong, 
-                lasting relationships we've built with top-tier organizations across the 
-                manufacturing, steel, and industrial sectors. 
-              </p>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed mt-4">
-                Our commitment to uncompromising quality and continuous innovation has made us the premier 
-                partner for companies demanding excellence globally.
-              </p>
+              Our Partners
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            >
+              Our <span className="text-[#e63946]">Clients</span>
+            </motion.h1>
+          </div>
+        </section>
 
-              <motion.div 
-                className="mt-12"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ originX: 0 }} // Scales from the left edge
+        {/* Client Scrolling Content Section */}
+        <section className="py-20 overflow-hidden relative">
+          
+          {/* --- Premium Background Ambient Glows --- */}
+          <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[#e63946]/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-[#457b9d]/10 rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="container mx-auto px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 h-full lg:min-h-[80vh] relative z-10">
+            
+            {/* Left Side: Premium Text & Context */}
+            <div className="lg:w-5/12 space-y-8 pt-10 lg:pt-0">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <a href="/contact">
-                  <CustomButton className="bg-gradient-to-r from-[#e63946] to-[#c1121f] hover:from-white hover:to-white hover:text-[#e63946] text-white font-bold py-4 px-10 uppercase tracking-[0.2em] text-sm transition-all duration-300 rounded-xl shadow-[0_4px_20px_rgba(230,57,70,0.4)] hover:shadow-white/20">
-                    Contact Us
-                  </CustomButton>
-                </a>
+                <SectionTitle 
+                  subtitle="Our Network" 
+                  title="Trusted by Industry Leaders Worldwide" 
+                  centered={false}
+                  light={true} 
+                />
+                <p className="text-gray-300 text-base md:text-lg leading-relaxed mt-6 font-light tracking-wide">
+                  At Paragon Refractories and Minerals, we take immense pride in the strong, 
+                  lasting relationships we've built with top-tier organizations across the 
+                  manufacturing, steel, and industrial sectors. 
+                </p>
+                <p className="text-gray-400 text-sm md:text-base leading-relaxed mt-4">
+                  Our commitment to uncompromising quality and continuous innovation has made us the premier 
+                  partner for companies demanding excellence globally.
+                </p>
+
+                <motion.div 
+                  className="mt-12"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ originX: 0 }} // Scales from the left edge
+                >
+                  <a href="/contact">
+                    <CustomButton className="bg-gradient-to-r from-[#e63946] to-[#c1121f] hover:from-white hover:to-white hover:text-[#e63946] text-white font-bold py-4 px-10 uppercase tracking-[0.2em] text-sm transition-all duration-300 rounded-xl shadow-[0_4px_20px_rgba(230,57,70,0.4)] hover:shadow-white/20">
+                      Contact Us
+                    </CustomButton>
+                  </a>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
+
+            {/* Right Side: Animated Logo Columns */}
+            <div className="lg:w-7/12 w-full h-[70vh] lg:h-[80vh] flex gap-4 lg:gap-6 justify-center items-center mask-vertical-fade relative">
+              
+              {/* Column 1 - Moving UP */}
+              <ScrollingColumn items={col1} speed={22} className="mt-16" />
+
+              {/* Column 2 - Moving DOWN */}
+              <ScrollingColumn items={col2} speed={25} reverse={true} />
+
+              {/* Column 3 - Moving UP */}
+              <ScrollingColumn items={col3} speed={20} className="mt-32" />
+              
+            </div>
           </div>
-
-          {/* Right Side: Animated Logo Columns */}
-          <div className="lg:w-7/12 w-full h-[70vh] lg:h-[80vh] flex gap-4 lg:gap-6 justify-center items-center mask-vertical-fade relative">
-            
-            {/* Column 1 - Moving UP */}
-            <ScrollingColumn items={col1} speed={22} className="mt-16" />
-
-            {/* Column 2 - Moving DOWN */}
-            <ScrollingColumn items={col2} speed={25} reverse={true} />
-
-            {/* Column 3 - Moving UP */}
-            <ScrollingColumn items={col3} speed={20} className="mt-32" />
-            
-          </div>
-        </div>
+        </section>
       </main>
 
       <Footer />
