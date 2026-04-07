@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   return (
-    <header className="bg-white py-6 border-b border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] relative z-30">
+    <header className="bg-white py-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] relative z-30">
       {/* Container with consistent padding */}
       <div className="container mx-auto px-12 lg:px-24 flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0">
         
