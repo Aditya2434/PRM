@@ -7,9 +7,9 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import CustomButton from '@/components/ui/CustomButton';
 import { refractoryProducts } from '@/data/refractoryProducts';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Image as ImageIcon } from 'lucide-react';
 
-const categories = ['All', 'High Alumina', 'Castables', 'Insulating', 'Basic'];
+const categories = ['All', 'High Alumina', 'Castables', 'Insulating', 'Special'];
 
 const RefractoryMaterial = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -27,7 +27,7 @@ const RefractoryMaterial = () => {
       <main className="flex-grow">
         
         {/* --- Premium Cinematic Hero Section --- */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-32 pb-16 overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]" />
           
           <motion.div 
@@ -63,6 +63,34 @@ const RefractoryMaterial = () => {
               </p>
             </motion.div>
           </div>
+        </section>
+
+        {/* --- Premium Introduction Section --- */}
+        <section className="container mx-auto px-6 lg:px-24 pb-16 relative z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative bg-[#0d1520]/40 backdrop-blur-md border border-white/5 rounded-3xl p-8 lg:p-12 overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)]"
+          >
+            {/* Elegant Accent Line */}
+            <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#e63946] via-[#ff6b6b] to-transparent opacity-80" />
+            
+            {/* Subtle glow inside the card */}
+            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#e63946]/5 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="relative z-10 space-y-6">
+              <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+                <span className="text-white font-semibold tracking-wide">Refractory materials</span> are specially engineered products designed to withstand extremely high temperatures, chemical attack, and mechanical stress in industrial environments. These materials are widely used in industries such as steel plants, cement plants, power plants, foundries, and reheating furnaces.
+              </p>
+              <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+                We are a leading manufacturer and supplier of high-quality refractory materials in India, offering a complete range of products including high alumina bricks, fire bricks, castables, insulation materials, and special refractories. With our strong expertise in manufacturing reheating furnaces and industrial equipment, we provide reliable and performance-driven refractory solutions tailored to industrial needs.
+              </p>
+              <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+                Our refractory products are manufactured using high-grade raw materials and advanced production techniques to ensure durability, thermal stability, and long service life.
+              </p>
+            </div>
+          </motion.div>
         </section>
 
         {/* --- Sleek Minimalist Filter Bar --- */}
@@ -103,14 +131,20 @@ const RefractoryMaterial = () => {
                   key={product.id}
                   className="group relative bg-[#0d1520]/50 backdrop-blur-md border border-white/5 rounded-3xl overflow-hidden hover:border-white/15 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(230,57,70,0.12)]"
                 >
-                  {/* Image Container */}
-                  <div className="relative h-48 overflow-hidden bg-[#0a111a]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d1520]/50 via-[#080d14]/40 to-transparent z-10" />
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out opacity-80 group-hover:opacity-100"
-                    />
+                  {/* Image Container - Aspect 4:3 with Object Cover to fully fill */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0a111a] flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d1520]/80 via-transparent to-transparent z-10 pointer-events-none" />
+                    
+                    {product.image ? (
+                      <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 group-hover:opacity-100"
+                      />
+                    ) : (
+                      <ImageIcon className="w-12 h-12 text-gray-600 opacity-30 group-hover:scale-110 transition-transform duration-700" />
+                    )}
+
                     <div className="absolute top-4 left-4 z-20">
                       <span className="bg-black/40 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-lg">
                         {product.category}
@@ -123,7 +157,7 @@ const RefractoryMaterial = () => {
                     <h3 className="text-lg lg:text-xl font-bold text-white mb-2 group-hover:text-[#e63946] transition-colors duration-500 leading-tight">
                       {product.name}
                     </h3>
-                    <p className="text-gray-400 text-xs leading-relaxed mb-6 flex-grow font-light">
+                    <p className="text-gray-400 text-xs leading-relaxed mb-6 flex-grow font-light line-clamp-3">
                       {product.shortDescription}
                     </p>
 
@@ -141,7 +175,6 @@ const RefractoryMaterial = () => {
                     </div>
 
                     {/* --- UPDATED RESPONSIVE PREMIUM LINK --- */}
-                    {/* Added active:scale-[0.98] for touch feedback and lg: prefixes for desktop hover effects */}
                     <a href={`/products/refractory-material/${product.id}`} className="mt-auto block active:scale-[0.98] transition-transform duration-200">
                       <div className="flex items-center justify-between px-4 py-3 rounded-xl border border-white/10 lg:border-transparent lg:group-hover:border-white/10 bg-white/[0.03] lg:bg-transparent lg:group-hover:bg-white/[0.03] transition-all duration-300">
                         <span className="text-[10px] font-bold text-white lg:text-gray-400 lg:group-hover:text-white uppercase tracking-[0.2em] transition-colors duration-300">
