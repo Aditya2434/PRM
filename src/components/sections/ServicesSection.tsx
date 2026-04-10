@@ -85,6 +85,8 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                // Hide cards after the 3rd one on mobile devices
+                className={index >= 3 ? "hidden md:block" : ""}
               >
                 <div className={`group relative p-7 text-center rounded-xl border border-gray-100 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 overflow-hidden flex flex-col h-full`}>
                   <div className={`absolute inset-0 bg-gradient-to-br ${style.gradient} -z-10`} />
@@ -97,7 +99,6 @@ const ServicesSection = () => {
                   <h3 className={`text-sm font-bold mb-3 tracking-widest uppercase transition-colors duration-300 ${style.text} group-hover:text-gray-900`}>{service.title}</h3>
                   <p className="text-[13px] leading-relaxed text-gray-500 font-medium mb-6 flex-grow">{service.description}</p>
                   
-                  {/* Keep the original "Explore Service" text from your design */}
                   <a href="/services" className={`flex justify-center items-center gap-2 text-[9px] font-bold ${style.text} opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 tracking-[0.2em] uppercase mt-auto`}>
                     Explore Service <ArrowRight className="w-3 h-3" />
                   </a>

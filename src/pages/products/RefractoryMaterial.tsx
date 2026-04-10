@@ -71,7 +71,7 @@ const RefractoryMaterial = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative bg-[#0d1520]/40 backdrop-blur-md border border-white/5 rounded-3xl p-8 lg:p-12 overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)]"
+            className="relative bg-[#0d1520]/40 backdrop-blur-md border border-white/5 rounded-2xl p-8 lg:p-12 overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)]"
           >
             {/* Elegant Accent Line */}
             <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#e63946] via-[#ff6b6b] to-transparent opacity-80" />
@@ -81,13 +81,7 @@ const RefractoryMaterial = () => {
 
             <div className="relative z-10 space-y-6">
               <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed">
-                <span className="text-white font-semibold tracking-wide">Refractory materials</span> are specially engineered products designed to withstand extremely high temperatures, chemical attack, and mechanical stress in industrial environments. These materials are widely used in industries such as steel plants, cement plants, power plants, foundries, and reheating furnaces.
-              </p>
-              <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed">
-                We are a leading manufacturer and supplier of high-quality refractory materials in India, offering a complete range of products including high alumina bricks, fire bricks, castables, insulation materials, and special refractories. With our strong expertise in manufacturing reheating furnaces and industrial equipment, we provide reliable and performance-driven refractory solutions tailored to industrial needs.
-              </p>
-              <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed">
-                Our refractory products are manufactured using high-grade raw materials and advanced production techniques to ensure durability, thermal stability, and long service life.
+                Refractory materials are specially engineered products designed to withstand extremely high temperatures, chemical attack, and mechanical stress in industrial environments. These materials are widely used in industries such as steel plants, cement plants, power plants, foundries, and reheating furnaces. <span className="text-white font-medium">At Paragon Refractories and Minerals</span>, we are a leading manufacturer and supplier of high-quality refractory materials in India, offering a complete range of products including high alumina bricks, fire bricks, castables, insulation materials, and special refractories. With our strong expertise in manufacturing reheating furnaces and industrial equipment, we provide reliable and performance-driven refractory solutions tailored to industrial needs. Our refractory products are manufactured using high-grade raw materials and advanced production techniques to ensure durability, thermal stability, and long service life.
               </p>
             </div>
           </motion.div>
@@ -129,9 +123,9 @@ const RefractoryMaterial = () => {
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   key={product.id}
-                  className="group relative bg-[#0d1520]/50 backdrop-blur-md border border-white/5 rounded-3xl overflow-hidden hover:border-white/15 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(230,57,70,0.12)]"
+                  className="group relative bg-[#0d1520]/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-white/15 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(230,57,70,0.12)]"
                 >
-                  {/* Image Container - Aspect 4:3 with Object Cover to fully fill */}
+                  {/* Image Container */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0a111a] flex items-center justify-center">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0d1520]/80 via-transparent to-transparent z-10 pointer-events-none" />
                     
@@ -161,7 +155,7 @@ const RefractoryMaterial = () => {
                       {product.shortDescription}
                     </p>
 
-                    <div className="bg-black/20 rounded-2xl p-4 border border-white/5 mb-4 group-hover:bg-black/30 transition-colors duration-500">
+                    <div className="bg-black/20 rounded-xl p-4 border border-white/5 mb-4 group-hover:bg-black/30 transition-colors duration-500">
                       <div className="grid grid-cols-2 gap-3">
                         <div className="border-r border-white/5">
                           <span className="block text-[8px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Max Temp</span>
@@ -174,7 +168,6 @@ const RefractoryMaterial = () => {
                       </div>
                     </div>
 
-                    {/* --- UPDATED RESPONSIVE PREMIUM LINK --- */}
                     <a href={`/products/refractory-material/${product.id}`} className="mt-auto block active:scale-[0.98] transition-transform duration-200">
                       <div className="flex items-center justify-between px-4 py-3 rounded-xl border border-white/10 lg:border-transparent lg:group-hover:border-white/10 bg-white/[0.03] lg:bg-transparent lg:group-hover:bg-white/[0.03] transition-all duration-300">
                         <span className="text-[10px] font-bold text-white lg:text-gray-400 lg:group-hover:text-white uppercase tracking-[0.2em] transition-colors duration-300">
@@ -186,8 +179,6 @@ const RefractoryMaterial = () => {
                       </div>
                     </a>
                   </div>
-
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#e63946]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </motion.div>
               ))}
             </AnimatePresence>

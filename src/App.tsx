@@ -6,10 +6,11 @@ import Services from '@/pages/Services';
 import Projects from '@/pages/Projects';
 import Clients from '@/pages/Clients';
 import Contact from '@/pages/Contact'; 
-import PrivacyPolicy from '@/pages/PrivacyPolicy'; // <-- Imported the new page
+import PrivacyPolicy from '@/pages/PrivacyPolicy'; 
 import RefractoryMaterial from '@/pages/products/RefractoryMaterial';
 import RefractoryProductDetails from '@/pages/products/RefractoryProductDetails'; 
 import IndustrialEquipments from '@/pages/products/IndustrialEquipments';
+import IndustrialEquipmentDetails from '@/pages/products/IndustrialEquipmentDetails'; // <-- Imported New Detail Page
 import CastIronParts from '@/pages/products/CastIronParts';
 import './App.css';
 
@@ -28,12 +29,13 @@ function App() {
           {/* Privacy Policy Page */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           
-          {/* Catalog Page */}
+          {/* Catalog Pages & Details */}
           <Route path="/products/refractory-material" element={<RefractoryMaterial />} />
-          
           <Route path="/products/refractory-material/:productId" element={<RefractoryProductDetails />} />
           
           <Route path="/products/industrial-equipments" element={<IndustrialEquipments />} />
+          <Route path="/products/industrial-equipments/:id" element={<IndustrialEquipmentDetails />} /> {/* <-- Added New Route */}
+          
           <Route path="/products/cast-iron-parts" element={<CastIronParts />} />
         </Routes>
       </div>

@@ -7,7 +7,7 @@ import { ProjectCard } from '@/components/ui/CustomCard';
 import { projects } from '@/data/projects';
 
 const ProjectsSection = () => {
-  // Updated to display 8 projects so it perfectly fills 2 rows of 4
+  // Extract 8 projects for the desktop view
   const displayedProjects = projects.slice(0, 8);
 
   return (
@@ -24,22 +24,24 @@ const ProjectsSection = () => {
           />
         </div>
 
-        {/* Projects Grid updated to lg:grid-cols-4 */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
-          {displayedProjects.map((project) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
+              // Hide cards after the 4th one on mobile devices (screens smaller than 768px)
+              className={index >= 4 ? "hidden md:block" : ""}
             >
               <ProjectCard
                 image={project.image}
                 title={project.title}
                 category={project.category}
                 detail={project.detail} 
-                tag={project.tag} // Passed the tag here
+                tag={project.tag} 
               />
             </motion.div>
           ))}
