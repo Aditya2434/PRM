@@ -5,8 +5,8 @@ export interface RefractoryProduct {
   name: string;
   subtitle?: string;
   category: 'High Alumina' | 'Castables' | 'Insulating' | 'Special';
-  image?: string;          // Made optional for products without images
-  gallery?: string[];      // NEW: Added to support 2nd, 3rd, 4th images
+  image?: string;          
+  gallery?: string[];      
   shortDescription: string;
   longDescription?: string[];
   detailedSpecs?: { label: string; value: string }[];
@@ -68,7 +68,10 @@ export const refractoryProducts: RefractoryProduct[] = [
     subtitle: 'Standard',
     category: 'High Alumina',
     image: '/images/refractory/High Alumina.webp',
-    gallery: ['/images/refractory/70 Stock.webp'],
+    gallery: [
+      '/images/refractory/70.webp',
+      '/images/refractory/70 Stock.webp'
+    ],
     shortDescription: 'Premium-quality refractory bricks designed for superior performance in high-temperature industrial applications.',
     longDescription: [
       "High Alumina Bricks 70% are premium-quality refractory bricks designed for superior performance in high-temperature industrial applications. With high alumina content, these bricks provide excellent thermal stability, high mechanical strength, and long service life under extreme operating conditions.",
@@ -109,6 +112,9 @@ export const refractoryProducts: RefractoryProduct[] = [
     subtitle: 'Standard',
     category: 'High Alumina',
     image: '/images/refractory/High Alumina.webp',
+    gallery: [
+      '/images/refractory/60.webp'
+    ],
     shortDescription: 'High-quality refractory bricks designed for medium to high-temperature applications, offering a balance of thermal stability and strength.',
     longDescription: [
       "High Alumina Bricks 60% are high-quality refractory bricks designed for medium to high-temperature applications, offering a balance of thermal stability, strength, and cost efficiency. These bricks are widely used in industrial furnaces requiring reliable performance and durability.",
@@ -149,6 +155,9 @@ export const refractoryProducts: RefractoryProduct[] = [
     subtitle: 'Standard',
     category: 'High Alumina',
     image: '/images/refractory/High Alumina.webp',
+    gallery: [
+      '/images/refractory/50.webp'
+    ],
     shortDescription: 'Durable and cost-effective refractory bricks designed for moderate temperature applications providing reliable performance.',
     longDescription: [
       "High Alumina Bricks 50% are durable and cost-effective refractory bricks designed for moderate temperature applications. These bricks provide good thermal resistance, structural strength, and reliable performance in standard industrial furnace conditions.",
@@ -188,7 +197,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     name: 'IS-8 Fire Bricks',
     subtitle: 'Standard',
     category: 'High Alumina',
-    image: '', // Image removed
+    image: '/images/refractory/IS-8.webp', 
     shortDescription: 'High-grade super duty refractory bricks designed for high-temperature applications requiring superior strength and stability.',
     longDescription: [
       "IS-8 Fire Bricks are high-grade super duty refractory bricks manufactured as per Indian Standards, designed for high-temperature industrial applications requiring superior strength, thermal stability, and resistance to slag and abrasion. These bricks are ideal for critical zones in furnaces where performance and durability are essential.",
@@ -228,7 +237,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     name: 'IS-6 Fire Bricks',
     subtitle: 'Standard',
     category: 'High Alumina',
-    image: '', // Image removed
+    image: '/images/refractory/IS-6.webp', 
     shortDescription: 'High duty refractory bricks designed for medium to high-temperature applications providing reliable thermal performance.',
     longDescription: [
       "IS-6 Fire Bricks are high duty refractory bricks designed for medium to high-temperature industrial applications. These bricks provide reliable thermal performance, good strength, and cost-effective furnace lining solutions for a wide range of industries.",
@@ -269,6 +278,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     category: 'High Alumina',
     image: '/images/refractory/Hanger Brick.webp',
     gallery: [
+      '/images/refractory/Hanger Shoulder 2.webp',
       '/images/refractory/Hanger Shoulder.webp', 
       '/images/refractory/Hanger Stock.webp'
     ],
@@ -314,6 +324,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     category: 'High Alumina',
     image: '/images/refractory/shoulder.webp',
     gallery: [
+      '/images/refractory/Hanger Shoulder 2.webp',
       '/images/refractory/Hanger Shoulder.webp', 
       '/images/refractory/Shoulder Stock.webp'
     ],
@@ -357,7 +368,10 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'side-arch-bricks',
     name: 'Side Arch Bricks',
     category: 'High Alumina',
-    image: '', // Image removed
+    image: '/images/refractory/SA.webp', 
+    gallery: [
+      '/images/refractory/SA 1.webp'
+    ],
     shortDescription: 'Refractory shapes used in furnace side walls to support curved linings and distribute arch loads.',
     longDescription: [
       "Side Arch Bricks are specially engineered refractory shapes used in furnace side walls and arch structures, designed to support curved linings and maintain structural integrity under high-temperature conditions. These bricks play a critical role in distributing load and ensuring stability in arch formations of industrial furnaces.",
@@ -398,7 +412,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'end-arch-bricks',
     name: 'End Arch Bricks',
     category: 'High Alumina',
-    image: '', // Image removed
+    image: '/images/refractory/End Arch.webp', 
     shortDescription: 'Used at the end sections of furnace arches where structural locking and load transfer are vital.',
     longDescription: [
       "End Arch Bricks are specially designed refractory shapes used at the end sections of furnace arches, where structural locking, load transfer, and stability are critical. These bricks play a key role in maintaining the integrity of arch formations by properly distributing stress and ensuring tight interlocking at arch ends.",
@@ -439,7 +453,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'refractory-burner-blocks',
     name: 'Refractory Burner Blocks',
     category: 'High Alumina',
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'Specially engineered refractory shapes designed to withstand direct flame exposure and severe operating conditions.',
     longDescription: [
       "Burner Blocks are specially engineered refractory shapes designed to withstand direct flame exposure, high thermal shock, and severe operating conditions in industrial furnaces. These blocks are installed around burner nozzles to ensure proper flame shaping, heat distribution, and protection of furnace linings.",
@@ -480,7 +494,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'super-castable',
     name: 'Super Castable',
     category: 'Castables',
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'High-performance refractory castable designed for high-temperature, high-strength, and abrasion-resistant applications.',
     longDescription: [
       "Super Castable is a high-performance refractory castable designed for high-temperature, high-strength, and abrasion-resistant applications in industrial furnaces. Engineered using advanced refractory aggregates and bonding systems, this castable provides excellent thermal stability, mechanical strength, and long service life in demanding environments.",
@@ -518,7 +532,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'whytheat-castable',
     name: 'Whytheat Castable',
     category: 'Castables',
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'High-quality refractory castable widely used for furnace linings, repair work, and general high-temperature applications.',
     longDescription: [
       "Whytheat Castable is a high-quality refractory castable widely used for furnace linings, repair work, and general high-temperature applications. Known for its reliable performance, good strength, and ease of installation, Whytheat is available in different grades such as K Grade and A Grade, depending on temperature and application requirements.",
@@ -558,7 +572,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'insolite-castable',
     name: 'Insolite Castable',
     category: 'Castables',
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'Lightweight insulating refractory castable designed to provide excellent thermal insulation, low heat loss, and energy efficiency.',
     longDescription: [
       "Insolite Castable is a lightweight insulating refractory castable designed to provide excellent thermal insulation, low heat loss, and energy efficiency in high-temperature industrial applications. It is widely used as a backup insulation layer behind dense refractory linings to reduce fuel consumption and improve furnace efficiency.",
@@ -598,7 +612,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'ceramic-fiber-blanket',
     name: 'Ceramic Fiber Blanket (64 & 96 Grade)',
     category: 'Insulating',
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'Lightweight, high-temperature insulating material made from high-purity ceramic fibers, designed for excellent thermal insulation.',
     longDescription: [
       "Ceramic Fiber Blanket is a lightweight, high-temperature insulating material made from high-purity ceramic fibers, designed for excellent thermal insulation, flexibility, and resistance to thermal shock. Available in 64 and 96 density grades, these blankets are widely used for furnace insulation, heat containment, and energy-saving applications.",
@@ -641,7 +655,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'hysil-block',
     name: 'Hysil Block 1" & 2"',
     category: 'Insulating',
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'High-performance calcium silicate insulation blocks designed for superior thermal insulation, low heat loss, and energy efficiency.',
     longDescription: [
       "Hysil Blocks are high-performance calcium silicate insulation blocks designed for superior thermal insulation, low heat loss, and energy efficiency in industrial and commercial applications. Available in 1 inch and 2 inch thickness, these blocks are widely used for furnace backup insulation, boiler insulation, and high-temperature equipment.",
@@ -763,7 +777,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'lc-90-blocks',
     name: 'LC 90 Blocks',
     category: 'Special', 
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'High-performance precast refractory blocks made from low cement castable formulations with high alumina content.',
     longDescription: [
       "LC 90 Blocks (Low Cement 90% Alumina Blocks) are high-performance precast refractory blocks made from low cement castable formulations with high alumina content. These blocks are designed for extreme temperature applications, offering superior strength, low porosity, and excellent resistance to thermal shock, abrasion, and chemical attack.",
@@ -802,7 +816,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'fire-clay',
     name: 'Fire Clay',
     category: 'Special',
-    image: '', // Image removed
+    image: '', 
     shortDescription: 'High-quality refractory raw material widely used in the manufacturing of fire bricks, castables, mortars, and other refractory products.',
     longDescription: [
       "Fire Clay is a high-quality refractory raw material widely used in the manufacturing of fire bricks, castables, mortars, and other refractory products. Known for its excellent plasticity, thermal resistance, and binding properties, fire clay plays a critical role in high-temperature industrial applications.",
@@ -839,7 +853,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'set-50-refractory-mortar',
     name: 'Set-50 Refractory Mortar',
     category: 'Special',
-    image: '', // Image removed
+    image: '/images/refractory/ParaSet.webp', 
     shortDescription: 'High-quality heat-resistant bonding material specially formulated for laying and jointing of fire bricks and refractory linings.',
     longDescription: [
       "Set-50 Refractory Mortar is a high-quality heat-resistant bonding material specially formulated for laying and jointing of fire bricks and refractory linings. With approximately 50% alumina content, this mortar provides excellent bonding strength, thermal stability, and resistance to high temperatures.",
