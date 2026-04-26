@@ -12,7 +12,7 @@ import { equipmentsData } from '@/data/industrialEquipments';
 const IndustrialEquipmentDetails = () => {
   const { id } = useParams();
   
-  const product = equipmentsData.find(p => p.id === Number(id));
+  const product = equipmentsData.find(p => p.id === id);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -20,6 +20,22 @@ const IndustrialEquipmentDetails = () => {
   useEffect(() => {
     setActiveIndex(0);
     setIsLightboxOpen(false);
+    window.scrollTo(0, 0);
+
+    if (product) {
+      document.title = `${product.title} Manufacturer in India | PRM Equipment`;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      const desc = `PRM manufactures heavy-duty ${product.title} for steel plants and rolling mills. Designed for maximum efficiency, fuel savings, and long-lasting performance.`;
+      
+      if (metaDescription) {
+        metaDescription.setAttribute("content", desc);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = "description";
+        meta.content = desc;
+        document.head.appendChild(meta);
+      }
+    }
   }, [product]);
 
   useEffect(() => {
@@ -32,8 +48,9 @@ const IndustrialEquipmentDetails = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isLightboxOpen]);
 
+  // CORRECTED REDIRECT PATH
   if (!product) {
-    return <Navigate to="/products/industrial-equipments" replace />;
+    return <Navigate to="/products/industrial-equipment" replace />;
   }
 
   const allImages = [product.image, ...(product.gallery || [])].filter(Boolean) as string[];
@@ -70,7 +87,6 @@ const IndustrialEquipmentDetails = () => {
       <Navbar />
 
       <main className="flex-grow pt-32 lg:pt-40 pb-32 relative">
-        
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-gradient-to-b from-[#e63946]/[0.02] to-transparent" />
         </div>
@@ -78,8 +94,9 @@ const IndustrialEquipmentDetails = () => {
         <div className="container mx-auto px-6 lg:px-12 xl:px-24 relative z-10">
           
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
+            {/* CORRECTED LINK PATH */}
             <Link 
-              to="/products/industrial-equipments" 
+              to="/products/industrial-equipment" 
               className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.15em] text-gray-400 hover:text-white transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
@@ -92,23 +109,21 @@ const IndustrialEquipmentDetails = () => {
               transition={{ duration: 1 }}
               className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.15em] text-gray-500"
             >
-              <Link to="/products/industrial-equipments" className="hover:text-gray-300 transition-colors">Equipment</Link>
+              {/* CORRECTED LINK PATH */}
+              <Link to="/products/industrial-equipment" className="hover:text-gray-300 transition-colors">Equipment</Link>
               <span className="w-1 h-1 rounded-full bg-gray-700" />
               <span className="text-[#e63946]">{product.category}</span>
             </motion.div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 xl:gap-24">
-            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-9 flex flex-col"
             >
-              
               <div className="flex flex-col md:flex-row gap-10 xl:gap-14 mb-16">
-                
                 <div className="w-full md:w-5/12 shrink-0 flex flex-col gap-4">
                   <div 
                     className={`w-full aspect-[4/3] relative overflow-hidden rounded-sm bg-[#0a111a] shadow-2xl group border border-white/5 flex items-center justify-center ${activeImage ? 'cursor-zoom-in' : ''}`}
@@ -317,9 +332,6 @@ const IndustrialEquipmentDetails = () => {
 
             </motion.div>
 
-            {/* ---------------------------------------------------------------- */}
-            {/* RIGHT SIDE: Sidebar Catalog with Scroll                          */}
-            {/* ---------------------------------------------------------------- */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -331,15 +343,15 @@ const IndustrialEquipmentDetails = () => {
                   Other Products
                 </h3>
                 
-                {/* Scrollable List Container */}
                 <div className="flex flex-col gap-1 pr-2 max-h-[calc(100vh-250px)] overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/10 hover:[&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full transition-all">
                   {equipmentsData.map((p) => {
                     const isActive = p.id === product.id;
                     
                     return (
+                      // CORRECTED LINK PATH
                       <Link 
                         key={p.id}
-                        to={`/products/industrial-equipments/${p.id}`}
+                        to={`/products/industrial-equipment/${p.id}`}
                         className={`group flex items-center gap-4 py-3 border-b border-white/5 transition-all duration-300 ${
                           isActive ? 'pointer-events-none' : 'hover:pl-2 hover:border-white/10'
                         }`}
@@ -382,7 +394,6 @@ const IndustrialEquipmentDetails = () => {
         </div>
       </main>
 
-      {/* LIGHTBOX */}
       <AnimatePresence>
         {isLightboxOpen && activeImage && (
           <motion.div

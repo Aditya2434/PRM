@@ -11,8 +11,19 @@ import { projects } from '@/data/projects';
 import heroBg from '@/assets/images/cta-bg.jpg';
 
 const Projects = () => {
-  // Scroll to top on page load
+  // Scroll to top and set SEO on page load
   useEffect(() => {
+    document.title = "Reheating Furnace Projects & Refractory Work | PRM";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const desc = "Explore PRM’s successful reheating furnace projects and refractory installations across major steel plants and industrial manufacturing units in India.";
+    if (metaDescription) {
+      metaDescription.setAttribute("content", desc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = desc;
+      document.head.appendChild(meta);
+    }
     window.scrollTo(0, 0);
   }, []);
 

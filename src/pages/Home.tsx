@@ -59,6 +59,22 @@ const ScrollToTop = () => {
 };
 
 const Home = () => {
+  // SEO Optimization
+  useEffect(() => {
+    document.title = "Reheating Furnace & Refractory Manufacturer India | PRM";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const desc = "Paragon Refractories & Minerals (PRM) manufactures reheating furnaces, refractory materials, and industrial equipment for steel plants and rolling mills.";
+    if (metaDescription) {
+      metaDescription.setAttribute("content", desc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = desc;
+      document.head.appendChild(meta);
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Header Area */}

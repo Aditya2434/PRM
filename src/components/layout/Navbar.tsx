@@ -1,3 +1,4 @@
+// src/components/layout/Navbar.tsx
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,8 +13,8 @@ const submenuData: Record<string, { name: string; href: string }[]> = {
     { name: 'Careers', href: '/#careers' },
   ],
   'PRODUCTS': [
-    { name: 'Refractory Material', href: '/products/refractory-material' },
-    { name: 'Industrial Equipments', href: '/products/industrial-equipments' },
+    { name: 'Refractory Materials', href: '/products/refractory-materials' },
+    { name: 'Industrial Equipment', href: '/products/industrial-equipment' },
     { name: 'Cast Iron Parts', href: '/products/cast-iron-parts' },
   ],
 };
@@ -23,7 +24,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  // Handle scroll effect for sticky navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -32,7 +32,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -44,10 +43,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    // Wrapper for sticky positioning with heavy floating overlap (-mb-[100px]) to tuck banner under header
     <div className={`sticky top-0 z-40 w-full flex flex-col items-center transition-all duration-300 pointer-events-none -mb-[100px] ${scrolled ? 'pt-1.5' : 'pt-2'}`}>
-      
-      {/* Main Navbar Pill */}
       <nav
         className={`pointer-events-auto transition-all duration-300 flex justify-between items-center px-6 lg:px-12
           bg-[#0f172a] text-white w-[95%] md:w-[80%] lg:w-max mx-auto lg:gap-16
@@ -55,8 +51,6 @@ const Navbar = () => {
           ${isOpen ? 'rounded-t-3xl rounded-b-none' : 'rounded-full shadow-md'} 
         `}
       >
-        
-        {/* Left: Logo */}
         <div className="flex items-center shrink-0">
           <a href="/">
             <img 
@@ -67,11 +61,9 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Center: Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8">
           {navLinks.map((link: any) => {
             const subItems = submenuData[link.name];
-            // Ensure SERVICES, PROJECTS, and CONTACT act as standard links
             const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS' || link.name === 'CONTACT';
             const hasSubmenu = !isDirectPage && link.hasDropdown && subItems && subItems.length > 0;
             const linkHref = isDirectPage ? link.href : (hasSubmenu ? '#' : (link.href || '#'));
@@ -86,7 +78,6 @@ const Navbar = () => {
                 <a
                   href={linkHref} 
                   onClick={(e) => {
-                    // Prevent page jump if it's a dropdown menu trigger
                     if (hasSubmenu) {
                       e.preventDefault();
                       setActiveDropdown(activeDropdown === link.name ? null : link.name);
@@ -98,12 +89,9 @@ const Navbar = () => {
                   {hasSubmenu && (
                     <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
                   )}
-                  
-                  {/* Animated Underline */}
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#e63946] transition-all duration-300 group-hover:w-full" />
                 </a>
 
-                {/* Desktop Dropdown Menu */}
                 {hasSubmenu && (
                   <AnimatePresence>
                     {activeDropdown === link.name && (
@@ -112,7 +100,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 w-56 bg-white shadow-xl rounded-sm overflow-hidden py-2 mt-3 border-t-2 border-[#e63946]"
+                        className="absolute top-full left-0 w-60 bg-white shadow-xl rounded-sm overflow-hidden py-2 mt-3 border-t-2 border-[#e63946]"
                       >
                         {subItems.map((subItem) => (
                           <a
@@ -132,9 +120,7 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Right: Menu Toggle (Mobile) */}
         <div className="flex items-center">
-          {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-white hover:text-[#e63946] transition-colors focus:outline-none ml-auto py-1"
@@ -145,7 +131,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -156,18 +141,14 @@ const Navbar = () => {
             className="pointer-events-auto lg:hidden w-[95%] md:w-[80%] bg-[#0f172a] rounded-b-3xl overflow-hidden shadow-xl border-t border-white/10"
           >
             <div className="px-6 py-5 flex flex-col gap-4">
-              
               {navLinks.map((link: any) => {
                 const subItems = submenuData[link.name];
-                // Treat SERVICES, PROJECTS, and CONTACT identically as direct links
                 const isDirectPage = link.name === 'SERVICES' || link.name === 'PROJECTS' || link.name === 'CONTACT';
                 const hasSubmenu = !isDirectPage && link.hasDropdown && subItems && subItems.length > 0;
                 const linkHref = isDirectPage ? link.href : (link.href || '#');
 
                 return (
                   <div key={link.name} className="border-b border-white/5 last:border-0 pb-2">
-                    
-                    {/* Fixed Mobile Submenu Toggle Logic */}
                     {hasSubmenu ? (
                       <button 
                         onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
@@ -188,7 +169,6 @@ const Navbar = () => {
                       </a>
                     )}
                     
-                    {/* Mobile Submenu Dropdown Container */}
                     <AnimatePresence>
                       {hasSubmenu && activeDropdown === link.name && (
                         <motion.div
@@ -216,7 +196,6 @@ const Navbar = () => {
                 );
               })}
               
-              {/* Mobile CTA */}
               <div className="pt-3 mt-1">
                 <a href="/contact" className="block w-full" onClick={() => setIsOpen(false)}>
                   <CustomButton 

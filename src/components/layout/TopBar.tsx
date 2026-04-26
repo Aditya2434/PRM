@@ -1,10 +1,5 @@
-import { socialLinks } from '@/data/navLinks';
+// src/components/layout/TopBar.tsx
 import { FaLinkedinIn } from 'react-icons/fa';
-
-// Map icons to the components imported from react-icons
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  FaLinkedinIn, // Only mapping LinkedIn now
-};
 
 const TopBar = () => {
   return (
@@ -18,27 +13,18 @@ const TopBar = () => {
           </span>
         </div>
         
-        {/* Right Side: Social Media Icons Only */}
+        {/* Right Side: Functional LinkedIn Link Only */}
         <div className="flex items-center gap-5">
-          {socialLinks.map((social) => {
-            const Icon = iconMap[social.icon];
-            if (!Icon) return null;
-            
-            return (
-              <a
-                key={social.name}
-                href={social.href}
-                target={social.name === 'LinkedIn' ? '_blank' : '_self'}
-                rel={social.name === 'LinkedIn' ? 'noopener noreferrer' : ''}
-                className="text-white/80 hover:text-[#e63946] hover:scale-110 transition-all duration-300 flex items-center gap-2"
-                aria-label={social.name}
-              >
-                <Icon className="w-4 h-4" />
-                {/* Optional: Add text next to the icon since it's the only one */}
-                <span className="hidden sm:inline font-semibold uppercase tracking-wider">Follow Us</span>
-              </a>
-            );
-          })}
+          <a
+            href="https://www.linkedin.com/company/110518013/admin/page-posts/published/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-[#e63946] hover:scale-110 transition-all duration-300 flex items-center gap-2"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn className="w-4 h-4" />
+            <span className="hidden sm:inline font-semibold uppercase tracking-wider text-[10px]">Follow Us</span>
+          </a>
         </div>
         
       </div>

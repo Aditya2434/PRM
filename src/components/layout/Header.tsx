@@ -1,5 +1,6 @@
 // src/components/layout/Header.tsx
 import { Mail, Phone, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import CustomButton from '@/components/ui/CustomButton';
 import logo from '@/assets/logo.png';
 import { motion } from 'framer-motion';
@@ -78,16 +79,26 @@ const Header = () => {
             </div>
           </div>
 
-          {/* CTA Button - Premium Gradient */}
-          <CustomButton 
-            variant="primary" 
-            className="group relative overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f172a] hover:from-[#e63946] hover:to-[#d62828] text-white px-9 py-4 text-[13px] font-bold tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5"
+          {/* CTA Button - Wrapped in Link with Smooth Scroll */}
+          <Link 
+            to="/contact"
+            onClick={() => {
+              // Slight delay ensures the new page loads before scrolling down to the form
+              setTimeout(() => {
+                window.scrollTo({ top: window.innerHeight * 0.6, behavior: 'smooth' });
+              }, 150);
+            }}
           >
-            <span className="relative z-10 flex items-center gap-2">
-              GET A QUOTE
-              <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </span>
-          </CustomButton>
+            <CustomButton 
+              variant="primary" 
+              className="group relative overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f172a] hover:from-[#e63946] hover:to-[#d62828] text-white px-9 py-4 text-[13px] font-bold tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                GET A QUOTE
+                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </CustomButton>
+          </Link>
         </motion.div>
       </div>
     </header>
