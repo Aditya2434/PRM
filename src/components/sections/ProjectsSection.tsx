@@ -1,6 +1,7 @@
 // src/components/sections/ProjectsSection.tsx
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SectionTitle from '@/components/ui/SectionTitle';
 import CustomButton from '@/components/ui/CustomButton';
 import { ProjectCard } from '@/components/ui/CustomCard';
@@ -49,14 +50,14 @@ const ProjectsSection = () => {
 
         {/* Explore More Button */}
         <div className="mt-14 flex justify-center">
-          <a href="/projects">
+          <Link to="/projects">
             <CustomButton 
               className="group flex items-center gap-2 bg-[#e63946] hover:bg-white hover:text-[#0d1b2a] text-white px-8 py-4 rounded-sm font-bold tracking-widest text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               EXPLORE MORE PROJECTS
               <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </CustomButton>
-          </a>
+          </Link>
         </div>
 
       </div>

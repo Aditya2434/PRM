@@ -1,5 +1,6 @@
 // src/components/sections/CTASection.tsx
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import CustomButton from '@/components/ui/CustomButton';
 
 const CTASection = () => {
@@ -12,7 +13,6 @@ const CTASection = () => {
       <div className="absolute inset-0 bg-[#1e3a5f]/85" />
 
       {/* Content */}
-      {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
       <div className="relative z-10 container mx-auto px-12 lg:px-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,11 +27,11 @@ const CTASection = () => {
             We provide innovative solutions for sustainable progress. Our professional team 
             works to increase productivity and cost effectiveness on the market.
           </p>
-          <a href="/contact" className="inline-block">
+          <Link to="/contact" className="inline-block">
             <CustomButton variant="primary" size="lg">
               CONTACT US
             </CustomButton>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

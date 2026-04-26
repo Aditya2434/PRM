@@ -1,5 +1,6 @@
 // src/components/sections/ServicesSection.tsx
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Settings, Flame, Wrench, Activity, Factory, Hexagon, ArrowRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -85,7 +86,6 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                // Hide cards after the 3rd one on mobile devices
                 className={index >= 3 ? "hidden md:block" : ""}
               >
                 <div className={`group relative p-7 text-center rounded-xl border border-gray-100 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 overflow-hidden flex flex-col h-full`}>
@@ -99,9 +99,9 @@ const ServicesSection = () => {
                   <h3 className={`text-sm font-bold mb-3 tracking-widest uppercase transition-colors duration-300 ${style.text} group-hover:text-gray-900`}>{service.title}</h3>
                   <p className="text-[13px] leading-relaxed text-gray-500 font-medium mb-6 flex-grow">{service.description}</p>
                   
-                  <a href="/services" className={`flex justify-center items-center gap-2 text-[9px] font-bold ${style.text} opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 tracking-[0.2em] uppercase mt-auto`}>
+                  <Link to="/services" className={`flex justify-center items-center gap-2 text-[9px] font-bold ${style.text} opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 tracking-[0.2em] uppercase mt-auto`}>
                     Explore Service <ArrowRight className="w-3 h-3" />
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             );
@@ -116,12 +116,12 @@ const ServicesSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 flex justify-center"
         >
-          <a href="/services" className="group">
+          <Link to="/services" className="group">
             <button className="flex items-center gap-3 bg-transparent border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white px-9 py-4 font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-sm">
               Explore All Services
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
             </button>
-          </a>
+          </Link>
         </motion.div>
 
       </div>
