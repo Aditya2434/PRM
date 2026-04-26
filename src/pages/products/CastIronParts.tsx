@@ -131,6 +131,22 @@ const CastIronParts = () => {
   
   const [lightboxData, setLightboxData] = useState<{ images: string[]; index: number } | null>(null);
 
+  // SEO Optimization & Scroll
+  useEffect(() => {
+    document.title = "Cast Iron Furnace Parts Manufacturer India | CI Components";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const desc = "PRM manufactures high-quality cast iron furnace parts in India, including CI doors, skids, dampers, and heavy-duty components for industrial heating.";
+    if (metaDescription) {
+      metaDescription.setAttribute("content", desc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = desc;
+      document.head.appendChild(meta);
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   const filteredParts = activeFilter === 'All' 
     ? castIronData 
     : castIronData.filter(item => item.category === activeFilter.toUpperCase());

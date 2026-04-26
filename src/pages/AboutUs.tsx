@@ -1,3 +1,5 @@
+// src/pages/AboutUs.tsx
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
@@ -6,6 +8,22 @@ import Footer from '@/components/layout/Footer';
 import { ChevronRight, Eye, Target, Layers } from 'lucide-react';
 
 const AboutUs = () => {
+  // SEO Optimization
+  useEffect(() => {
+    document.title = "About PRM | Refractory & Furnace Manufacturer India";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const desc = "PRM is a leading manufacturer of reheating furnaces, refractory materials, and industrial equipment with expertise in steel and high-temperature sectors.";
+    if (metaDescription) {
+      metaDescription.setAttribute("content", desc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = desc;
+      document.head.appendChild(meta);
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <TopBar />

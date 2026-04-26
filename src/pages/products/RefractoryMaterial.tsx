@@ -1,6 +1,7 @@
 // src/pages/products/RefractoryMaterial.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom'; 
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -13,6 +14,22 @@ const categories = ['All', 'High Alumina', 'Castables', 'Insulating', 'Special']
 
 const RefractoryMaterial = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+
+  // SEO Optimization
+  useEffect(() => {
+    document.title = "Refractory Material Manufacturer India | Bricks & Castables";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const desc = "PRM manufactures top-grade refractory materials including high alumina bricks, fire bricks, castables, and insulation materials for furnaces and kilns.";
+    if (metaDescription) {
+      metaDescription.setAttribute("content", desc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = desc;
+      document.head.appendChild(meta);
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   const filteredProducts = activeFilter === 'All' 
     ? refractoryProducts 
@@ -76,7 +93,6 @@ const RefractoryMaterial = () => {
             {/* Elegant Accent Line */}
             <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#e63946] via-[#ff6b6b] to-transparent opacity-80" />
             
-            {/* Subtle glow inside the card */}
             <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#e63946]/5 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="relative z-10 space-y-6">
@@ -125,60 +141,66 @@ const RefractoryMaterial = () => {
                   key={product.id}
                   className="group relative bg-[#0d1520]/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-white/15 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(230,57,70,0.12)]"
                 >
-                  {/* Image Container */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0a111a] flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d1520]/80 via-transparent to-transparent z-10 pointer-events-none" />
-                    
-                    {product.image ? (
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 group-hover:opacity-100"
-                      />
-                    ) : (
-                      <ImageIcon className="w-12 h-12 text-gray-600 opacity-30 group-hover:scale-110 transition-transform duration-700" />
-                    )}
+                  {/* ENTIRE CARD WRAPPED IN LINK */}
+                  <Link 
+                    to={`/products/refractory-materials/${product.id}`} 
+                    className="flex flex-col flex-grow h-full w-full"
+                  >
+                    {/* Image Container */}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0a111a] flex items-center justify-center">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d1520]/80 via-transparent to-transparent z-10 pointer-events-none" />
+                      
+                      {product.image ? (
+                        <img 
+                          src={product.image} 
+                          alt={product.name} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 group-hover:opacity-100"
+                        />
+                      ) : (
+                        <ImageIcon className="w-12 h-12 text-gray-600 opacity-30 group-hover:scale-110 transition-transform duration-700" />
+                      )}
 
-                    <div className="absolute top-4 left-4 z-20">
-                      <span className="bg-black/40 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-lg">
-                        {product.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Spec Content Area */}
-                  <div className="p-6 flex flex-col flex-grow relative z-20">
-                    <h3 className="text-lg lg:text-xl font-bold text-white mb-2 group-hover:text-[#e63946] transition-colors duration-500 leading-tight">
-                      {product.name}
-                    </h3>
-                    <p className="text-gray-400 text-xs leading-relaxed mb-6 flex-grow font-light line-clamp-3">
-                      {product.shortDescription}
-                    </p>
-
-                    <div className="bg-black/20 rounded-xl p-4 border border-white/5 mb-4 group-hover:bg-black/30 transition-colors duration-500">
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="border-r border-white/5">
-                          <span className="block text-[8px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Max Temp</span>
-                          <span className="block text-white font-mono text-xs tracking-tight">{product.specs.maxTemp}</span>
-                        </div>
-                        <div className="pl-1">
-                          <span className="block text-[8px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Density</span>
-                          <span className="block text-white font-mono text-xs tracking-tight">{product.specs.density}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <a href={`/products/refractory-material/${product.id}`} className="mt-auto block active:scale-[0.98] transition-transform duration-200">
-                      <div className="flex items-center justify-between px-4 py-3 rounded-xl border border-white/10 lg:border-transparent lg:group-hover:border-white/10 bg-white/[0.03] lg:bg-transparent lg:group-hover:bg-white/[0.03] transition-all duration-300">
-                        <span className="text-[10px] font-bold text-white lg:text-gray-400 lg:group-hover:text-white uppercase tracking-[0.2em] transition-colors duration-300">
-                          Explore Specs
+                      <div className="absolute top-4 left-4 z-20">
+                        <span className="bg-black/40 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-lg">
+                          {product.category}
                         </span>
-                        <div className="w-7 h-7 rounded-full bg-[#e63946]/20 lg:bg-transparent lg:group-hover:bg-[#e63946] flex items-center justify-center transition-all duration-300">
-                          <ArrowRight className="w-3.5 h-3.5 text-[#e63946] lg:group-hover:text-white transform lg:group-hover:translate-x-0.5 transition-all duration-300" />
+                      </div>
+                    </div>
+
+                    {/* Spec Content Area */}
+                    <div className="p-6 flex flex-col flex-grow relative z-20">
+                      <h3 className="text-lg lg:text-xl font-bold text-white mb-2 group-hover:text-[#e63946] transition-colors duration-500 leading-tight">
+                        {product.name}
+                      </h3>
+                      <p className="text-gray-400 text-xs leading-relaxed mb-6 flex-grow font-light line-clamp-3">
+                        {product.shortDescription}
+                      </p>
+
+                      <div className="bg-black/20 rounded-xl p-4 border border-white/5 mb-4 group-hover:bg-black/30 transition-colors duration-500">
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="border-r border-white/5">
+                            <span className="block text-[8px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Max Temp</span>
+                            <span className="block text-white font-mono text-xs tracking-tight">{product.specs.maxTemp}</span>
+                          </div>
+                          <div className="pl-1">
+                            <span className="block text-[8px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Density</span>
+                            <span className="block text-white font-mono text-xs tracking-tight">{product.specs.density}</span>
+                          </div>
                         </div>
                       </div>
-                    </a>
-                  </div>
+
+                      <div className="mt-auto block active:scale-[0.98] transition-transform duration-200">
+                        <div className="flex items-center justify-between px-4 py-3 rounded-xl border border-white/10 lg:border-transparent lg:group-hover:border-white/10 bg-white/[0.03] lg:bg-transparent lg:group-hover:bg-white/[0.03] transition-all duration-300">
+                          <span className="text-[10px] font-bold text-white lg:text-gray-400 lg:group-hover:text-white uppercase tracking-[0.2em] transition-colors duration-300">
+                            Explore Specs
+                          </span>
+                          <div className="w-7 h-7 rounded-full bg-[#e63946]/20 lg:bg-transparent lg:group-hover:bg-[#e63946] flex items-center justify-center transition-all duration-300">
+                            <ArrowRight className="w-3.5 h-3.5 text-[#e63946] lg:group-hover:text-white transform lg:group-hover:translate-x-0.5 transition-all duration-300" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -216,12 +238,12 @@ const RefractoryMaterial = () => {
               </div>
               
               <div className="md:w-1/3 flex justify-end shrink-0 w-full md:w-auto mt-8 md:mt-0">
-                <a href="/contact" className="relative group block w-full md:w-auto">
+                <Link to="/contact" className="relative group block w-full md:w-auto">
                   <div className="absolute -inset-1 bg-gradient-to-r from-[#e63946] to-[#ffb3c6] rounded-xl blur opacity-25 group-hover:opacity-60 transition duration-700"></div>
                   <CustomButton className="relative w-full md:w-auto bg-[#0d1520] hover:bg-[#1a2332] text-white font-bold py-4 px-10 uppercase tracking-[0.2em] text-[11px] transition-all duration-300 rounded-xl border border-white/10 group-hover:border-[#e63946]/50 text-center whitespace-nowrap shadow-2xl">
                     Contact Engineering
                   </CustomButton>
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>

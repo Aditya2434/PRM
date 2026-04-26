@@ -1,5 +1,5 @@
 // src/pages/Contact.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopBar from '../components/layout/TopBar';
 import Header from '../components/layout/Header';
 import Navbar from '../components/layout/Navbar';
@@ -12,6 +12,22 @@ import { Button } from '../components/ui/button';
 import { Label } from '../components/ui/label';
 
 const Contact = () => {
+  // SEO Optimization
+  useEffect(() => {
+    document.title = "Contact Refractory & Furnace Manufacturer | PRM India";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const desc = "Contact PRM India for high-performance reheating furnaces, refractory materials, and industrial equipment. Request a custom quote for your steel plant today.";
+    if (metaDescription) {
+      metaDescription.setAttribute("content", desc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = desc;
+      document.head.appendChild(meta);
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',

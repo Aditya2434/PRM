@@ -1,8 +1,9 @@
 // src/components/layout/Footer.tsx
-import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { Send } from 'lucide-react';
 import { services } from '@/data/services';
 import logo from '@/assets/logo.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -28,16 +29,25 @@ const Footer = () => {
               to excellence ensures sustainable progress for our global partners.
             </p>
             <div className="flex gap-4">
-              {[FaFacebookF, FaTwitter, FaInstagram, FaPinterestP].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-9 h-9 rounded-full bg-[#1e3a5f]/40 border border-gray-800 flex items-center justify-center hover:bg-[#e63946] hover:border-[#e63946] transition-all duration-300"
-                  aria-label="Social link"
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                </a>
-              ))}
+              {/* Facebook Link */}
+              <a
+                href="#"
+                className="w-9 h-9 rounded-full bg-[#1e3a5f]/40 border border-gray-800 flex items-center justify-center hover:bg-[#e63946] hover:border-[#e63946] transition-all duration-300"
+                aria-label="Facebook"
+              >
+                <FaFacebookF className="w-3.5 h-3.5" />
+              </a>
+              
+              {/* Functional LinkedIn Link */}
+              <a
+                href="https://www.linkedin.com/company/110518013/admin/page-posts/published/"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-[#1e3a5f]/40 border border-gray-800 flex items-center justify-center hover:bg-[#e63946] hover:border-[#e63946] transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 
@@ -50,13 +60,13 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
-                  <a 
-                    href="#services"
+                  <Link 
+                    to="/services"
                     className="text-sm text-gray-400 hover:text-[#e63946] transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#e63946] transition-colors" />
                     {service.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -70,31 +80,31 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a 
-                  href="/products/refractory-material"
+                <Link 
+                  to="/products/refractory-materials"
                   className="text-sm text-gray-400 hover:text-[#e63946] transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#e63946] transition-colors" />
-                  Refractory Material
-                </a>
+                  Refractory Materials
+                </Link>
               </li>
               <li>
-                <a 
-                  href="/products/industrial-equipments"
+                <Link 
+                  to="/products/industrial-equipment"
                   className="text-sm text-gray-400 hover:text-[#e63946] transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#e63946] transition-colors" />
-                  Industrial Equipments
-                </a>
+                  Industrial Equipment
+                </Link>
               </li>
               <li>
-                <a 
-                  href="/products/cast-iron-parts"
+                <Link 
+                  to="/products/cast-iron-parts"
                   className="text-sm text-gray-400 hover:text-[#e63946] transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#e63946] transition-colors" />
                   Cast Iron Parts
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -130,8 +140,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} <span className="text-gray-300">Paragon Refractories and Minerals</span>. All Rights Reserved.
           </p>
           <div className="flex gap-6 text-[10px] font-bold text-gray-500 tracking-widest uppercase">
-            {/* Added link to /privacy-policy */}
-            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>

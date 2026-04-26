@@ -237,7 +237,10 @@ export const refractoryProducts: RefractoryProduct[] = [
     name: 'IS-6 Fire Bricks',
     subtitle: 'Standard',
     category: 'High Alumina',
-    image: '/images/refractory/IS-6.webp', 
+    image: '/images/refractory/IS-6.webp',
+    gallery: [
+      '/images/refractory/IS-6 2.webp'
+    ],
     shortDescription: 'High duty refractory bricks designed for medium to high-temperature applications providing reliable thermal performance.',
     longDescription: [
       "IS-6 Fire Bricks are high duty refractory bricks designed for medium to high-temperature industrial applications. These bricks provide reliable thermal performance, good strength, and cost-effective furnace lining solutions for a wide range of industries.",
@@ -370,7 +373,8 @@ export const refractoryProducts: RefractoryProduct[] = [
     category: 'High Alumina',
     image: '/images/refractory/SA.webp', 
     gallery: [
-      '/images/refractory/SA 1.webp'
+      '/images/refractory/SA 1.webp',
+      '/images/refractory/SA 3.webp'
     ],
     shortDescription: 'Refractory shapes used in furnace side walls to support curved linings and distribute arch loads.',
     longDescription: [
@@ -450,10 +454,58 @@ export const refractoryProducts: RefractoryProduct[] = [
     ]
   },
   {
+    id: 'skew-block',
+    name: 'High Alumina Skew Block',
+    category: 'High Alumina',
+    image: '/images/refractory/Skew Block.webp', 
+    gallery: [
+      '/images/refractory/Skew Block 2.webp'
+    ],
+    shortDescription: 'Specialized refractory shape used as a springer to support furnace arches and roofs, ensuring precise load transfer.',
+    longDescription: [
+      "A Skew Block is a specially designed refractory shape installed at the base of furnace arches and roofs to act as a springer. It provides critical structural support by receiving the thrust of the arch and safely transferring it to the furnace walls and steel casing.",
+      "We are a leading Skew Block manufacturer and supplier in India, offering IS-6, IS-8, 50%, 60%, and 70% High Alumina Skew Blocks designed for maximum load-bearing capacity and thermal stability under continuous operation.",
+      "Shapes & Customization: Manufactured with precise skew angles to match your specific arch radius and span. Custom-engineered strictly as per your architectural and furnace layout requirements to ensure perfect fitment."
+    ],
+    specs: { maxTemp: '1770°C', density: '2.3 g/cm³' },
+    tableSpecs: {
+      headers: ["Properties", "IS-6", "IS-8", "50% Grade", "60% Grade", "70% Grade"],
+      rows: [
+        ["Al₂O₃ (%)", "30–35", "38–42", "≥ 50", "≥ 60", "≥ 70"],
+        ["Fe₂O₃ (%)", "≤ 2.5", "≤ 2.5", "≤ 2.5", "≤ 2.0", "≤ 2.0"],
+        ["Bulk Density (g/cm³)", "1.9 – 2.0", "2.0 – 2.2", "≥ 2.0", "≥ 2.2", "≥ 2.3"],
+        ["Apparent Porosity (%)", "22 – 26", "20 – 24", "≤ 24", "≤ 23", "≤ 23"],
+        ["Cold Crushing Strength (MPa)", "25 – 35", "35 – 45", "≥ 35", "≥ 40", "≥ 45"],
+        ["Refractoriness (°C)", "≥ 1700", "≥ 1750", "≥ 1700", "≥ 1750", "≥ 1770"],
+        ["RUL @ 0.2 MPa (°C)", "1300 – 1350", "1350 – 1400", "≥ 1400", "≥ 1450", "≥ 1480"]
+      ]
+    },
+    features: [
+      "Crucial for arch springing and load transfer",
+      "High load-bearing capacity under extreme thermal stress",
+      "Excellent resistance to deformation and structural fatigue",
+      "Precise skew angles for perfect arch alignment",
+      "Long service life in continuous high-temperature operations",
+      "Compatible with all arch brick configurations"
+    ],
+    applications: [
+      "Reheating Furnace Arches",
+      "Furnace Roof Springers",
+      "Steel & Iron Industry Furnaces",
+      "Cement Kilns",
+      "Glass Furnaces",
+      "Industrial Kilns and Thermal Units"
+    ]
+  },
+  {
     id: 'refractory-burner-blocks',
     name: 'Refractory Burner Blocks',
     category: 'High Alumina',
-    image: '', 
+    image: '/images/refractory/Burner Block.webp', 
+    gallery: [
+      '/images/refractory/Burner Block 1.webp',
+      '/images/refractory/Burner Block 2.webp'
+    ],
     shortDescription: 'Specially engineered refractory shapes designed to withstand direct flame exposure and severe operating conditions.',
     longDescription: [
       "Burner Blocks are specially engineered refractory shapes designed to withstand direct flame exposure, high thermal shock, and severe operating conditions in industrial furnaces. These blocks are installed around burner nozzles to ensure proper flame shaping, heat distribution, and protection of furnace linings.",
@@ -612,7 +664,10 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'ceramic-fiber-blanket',
     name: 'Ceramic Fiber Blanket (64 & 96 Grade)',
     category: 'Insulating',
-    image: '', 
+    image: '/images/refractory/Ceramic Blanket.webp', 
+    gallery: [
+      '/images/refractory/Ceramic Blanket 2.webp'
+    ],
     shortDescription: 'Lightweight, high-temperature insulating material made from high-purity ceramic fibers, designed for excellent thermal insulation.',
     longDescription: [
       "Ceramic Fiber Blanket is a lightweight, high-temperature insulating material made from high-purity ceramic fibers, designed for excellent thermal insulation, flexibility, and resistance to thermal shock. Available in 64 and 96 density grades, these blankets are widely used for furnace insulation, heat containment, and energy-saving applications.",
@@ -649,44 +704,6 @@ export const refractoryProducts: RefractoryProduct[] = [
       "Pipe and Duct Insulation",
       "Heat Treatment Furnaces",
       "Petrochemical and Power Plants"
-    ]
-  },
-  {
-    id: 'hysil-block',
-    name: 'Hysil Block 1" & 2"',
-    category: 'Insulating',
-    image: '', 
-    shortDescription: 'High-performance calcium silicate insulation blocks designed for superior thermal insulation, low heat loss, and energy efficiency.',
-    longDescription: [
-      "Hysil Blocks are high-performance calcium silicate insulation blocks designed for superior thermal insulation, low heat loss, and energy efficiency in industrial and commercial applications. Available in 1 inch and 2 inch thickness, these blocks are widely used for furnace backup insulation, boiler insulation, and high-temperature equipment.",
-      "We are a leading Hysil Block manufacturer and supplier in India, offering high-quality insulation blocks with excellent strength, durability, and thermal performance.",
-      "Thickness Options: 1 Inch (25 mm) is suitable for light insulation and space-restricted areas. 2 Inch (50 mm) provides better insulation performance for higher heat loss zones."
-    ],
-    specs: { maxTemp: '1000°C', density: '220 - 280 kg/m³' },
-    detailedSpecs: [
-      { label: "Material", value: "Calcium Silicate" },
-      { label: "Bulk Density (kg/m³)", value: "220 – 280" },
-      { label: "Compressive Strength (MPa)", value: "1.0 – 1.5" },
-      { label: "Thermal Conductivity (W/m·K)", value: "0.05 – 0.10" },
-      { label: "Max Service Temperature (°C)", value: "650 – 1000" },
-      { label: "Thickness Available", value: "25 mm (1”), 50 mm (2”)" },
-      { label: "Standard Size", value: "1000 × 500 mm (typical)" }
-    ],
-    features: [
-      "Excellent thermal insulation with low heat loss",
-      "Higher mechanical strength than ceramic fiber products",
-      "Non-combustible and fire-resistant",
-      "Good resistance to moisture and chemical attack",
-      "Easy machining and installation",
-      "Long service life with stable performance"
-    ],
-    applications: [
-      "Furnace Backup Insulation",
-      "Boilers and Steam Lines",
-      "Industrial Ovens and Kilns",
-      "Petrochemical Plants",
-      "Power Plants",
-      "Pipe and Equipment Insulation"
     ]
   },
   {

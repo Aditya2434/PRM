@@ -21,8 +21,19 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const Services = () => {
-  // Scroll to top on page load
+  // Scroll to top and set SEO on page load
   useEffect(() => {
+    document.title = "Furnace Installation & Refractory Services | PRM India";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const desc = "Expert furnace installation, refractory lining, repair, and maintenance services for steel plants, rolling mills, and heavy industrial applications.";
+    if (metaDescription) {
+      metaDescription.setAttribute("content", desc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = desc;
+      document.head.appendChild(meta);
+    }
     window.scrollTo(0, 0);
   }, []);
 

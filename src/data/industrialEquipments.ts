@@ -5,7 +5,7 @@ export interface EquipmentSpec {
 }
 
 export interface IndustrialEquipment {
-  id: number;
+  id: string; // Changed from number to string for URL routing
   title: string;
   category: string;
   image: string;
@@ -21,7 +21,7 @@ export interface IndustrialEquipment {
 
 export const equipmentsData: IndustrialEquipment[] = [
   { 
-    id: 1, 
+    id: 'pusher-type-reheating-furnace', 
     title: 'Pusher Type Reheating Furnace', 
     category: 'FURNACES', 
     image: '/images/equipments/RHF.webp',
@@ -66,7 +66,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 2, 
+    id: 'recuperator', 
     title: 'Recuperator', 
     category: 'ACCESSORIES', 
     image: '/images/equipments/Recuperator.webp',
@@ -109,7 +109,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 3, 
+    id: 'heating-pumping-unit', 
     title: 'Heating & Pumping Unit', 
     category: 'SYSTEMS', 
     image: '/images/equipments/Heating Pumping Unit.webp',
@@ -162,7 +162,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 4, 
+    id: 'industrial-blowers', 
     title: 'Industrial Blower', 
     category: 'ACCESSORIES', 
     image: '/images/equipments/Blower 1.webp',
@@ -208,7 +208,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 5, 
+    id: 'industrial-pulverizer', 
     title: 'Industrial Pulverizer', 
     category: 'SYSTEMS', 
     image: '/images/equipments/pulvurizer.webp',
@@ -248,7 +248,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 6, 
+    id: 'billet-ejector', 
     title: 'Billet Ejector', 
     category: 'HANDLING', 
     image: '/images/equipments/Ejector.webp',
@@ -297,7 +297,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 7, 
+    id: 'billet-pusher', 
     title: 'Billet Pusher', 
     category: 'HANDLING', 
     image: '/images/equipments/H Pusher.webp',
@@ -347,7 +347,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 8, 
+    id: 'industrial-burner', 
     title: 'Industrial Burner', 
     category: 'BURNERS', 
     image: '/images/equipments/Burner.webp',
@@ -400,7 +400,7 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   },
   { 
-    id: 9, 
+    id: 'butterfly-valve', 
     title: 'Butterfly Valve', 
     category: 'VALVES', 
     image: '/images/equipments/butterfly valv.webp',
