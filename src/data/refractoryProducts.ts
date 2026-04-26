@@ -27,7 +27,10 @@ export const refractoryProducts: RefractoryProduct[] = [
     name: 'High Alumina Bricks 80%',
     subtitle: 'Standard',
     category: 'High Alumina',
-    image: '/images/refractory/High Alumina.webp',
+    image: '/images/refractory/HA 80.webp',
+    gallery: [
+      '/images/Gallery/g9.webp'
+    ],
     shortDescription: 'Ultra high-performance refractory bricks engineered for extreme temperature applications requiring superior strength and resistance.',
     longDescription: [
       "High Alumina Bricks 80% are ultra high-performance refractory bricks engineered for extreme temperature applications requiring superior strength, thermal stability, and resistance to chemical attack. With very high alumina content, these bricks deliver exceptional durability and long service life in critical furnace zones.",
@@ -67,10 +70,12 @@ export const refractoryProducts: RefractoryProduct[] = [
     name: 'High Alumina Bricks 70%',
     subtitle: 'Standard',
     category: 'High Alumina',
-    image: '/images/refractory/High Alumina.webp',
+    image: '/images/refractory/HA 70.webp',
     gallery: [
       '/images/refractory/70.webp',
-      '/images/refractory/70 Stock.webp'
+      '/images/refractory/70 Stock.webp',
+      '/images/refractory/70 2.webp',
+      '/images/Gallery/g9.webp'
     ],
     shortDescription: 'Premium-quality refractory bricks designed for superior performance in high-temperature industrial applications.',
     longDescription: [
@@ -111,9 +116,10 @@ export const refractoryProducts: RefractoryProduct[] = [
     name: 'High Alumina Bricks 60%',
     subtitle: 'Standard',
     category: 'High Alumina',
-    image: '/images/refractory/High Alumina.webp',
+    image: '/images/refractory/HA 60.webp',
     gallery: [
-      '/images/refractory/60.webp'
+      '/images/refractory/60.webp',
+      '/images/Gallery/g9.webp'
     ],
     shortDescription: 'High-quality refractory bricks designed for medium to high-temperature applications, offering a balance of thermal stability and strength.',
     longDescription: [
@@ -154,9 +160,10 @@ export const refractoryProducts: RefractoryProduct[] = [
     name: 'High Alumina Bricks 50%',
     subtitle: 'Standard',
     category: 'High Alumina',
-    image: '/images/refractory/High Alumina.webp',
+    image: '/images/refractory/HA 50.webp',
     gallery: [
-      '/images/refractory/50.webp'
+      '/images/refractory/50.webp',
+      '/images/Gallery/g9.webp'
     ],
     shortDescription: 'Durable and cost-effective refractory bricks designed for moderate temperature applications providing reliable performance.',
     longDescription: [
@@ -546,7 +553,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'super-castable',
     name: 'Super Castable',
     category: 'Castables',
-    image: '', 
+    image: '/images/refractory/super.webp', 
     shortDescription: 'High-performance refractory castable designed for high-temperature, high-strength, and abrasion-resistant applications.',
     longDescription: [
       "Super Castable is a high-performance refractory castable designed for high-temperature, high-strength, and abrasion-resistant applications in industrial furnaces. Engineered using advanced refractory aggregates and bonding systems, this castable provides excellent thermal stability, mechanical strength, and long service life in demanding environments.",
@@ -584,7 +591,7 @@ export const refractoryProducts: RefractoryProduct[] = [
     id: 'whytheat-castable',
     name: 'Whytheat Castable',
     category: 'Castables',
-    image: '', 
+    image: '/images/refractory/whytheat.webp', 
     shortDescription: 'High-quality refractory castable widely used for furnace linings, repair work, and general high-temperature applications.',
     longDescription: [
       "Whytheat Castable is a high-quality refractory castable widely used for furnace linings, repair work, and general high-temperature applications. Known for its reliable performance, good strength, and ease of installation, Whytheat is available in different grades such as K Grade and A Grade, depending on temperature and application requirements.",
@@ -621,15 +628,15 @@ export const refractoryProducts: RefractoryProduct[] = [
     ]
   },
   {
-    id: 'insolite-castable',
-    name: 'Insolite Castable',
+    id: 'insulyte-castable',
+    name: 'Insulyte Castable',
     category: 'Castables',
-    image: '', 
+    image: '/images/refractory/insulyte.webp', 
     shortDescription: 'Lightweight insulating refractory castable designed to provide excellent thermal insulation, low heat loss, and energy efficiency.',
     longDescription: [
-      "Insolite Castable is a lightweight insulating refractory castable designed to provide excellent thermal insulation, low heat loss, and energy efficiency in high-temperature industrial applications. It is widely used as a backup insulation layer behind dense refractory linings to reduce fuel consumption and improve furnace efficiency.",
-      "We are a leading Insolite Castable manufacturer and supplier in India, offering high-quality insulating castables suitable for furnaces, kilns, and thermal processing units.",
-      "Types Available: Standard Insolite Castable, Medium Temperature Insulating Castable, High Temperature Insulating Castable. We also offer custom formulations as per your requirement."
+      "Insulyte Castable is a lightweight insulating refractory castable designed to provide excellent thermal insulation, low heat loss, and energy efficiency in high-temperature industrial applications. It is widely used as a backup insulation layer behind dense refractory linings to reduce fuel consumption and improve furnace efficiency.",
+      "We are a leading Insulyte Castable manufacturer and supplier in India, offering high-quality insulating castables suitable for furnaces, kilns, and thermal processing units.",
+      "Types Available: Standard Insulyte Castable, Medium Temperature Insulating Castable, High Temperature Insulating Castable. We also offer custom formulations as per your requirement."
     ],
     specs: { maxTemp: '1300°C', density: '0.8 - 1.2 g/cm³' },
     detailedSpecs: [

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://paragonrefractoriesandminerals.com/sitemap.xml
