@@ -90,8 +90,8 @@ const Navbar = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {hasSubmenu ? (
-                  <a
-                    href={linkHref}
+                  <Link
+                    to={linkHref}
                     onClick={(e) => {
                       e.preventDefault();
                       setActiveDropdown(
@@ -105,7 +105,7 @@ const Navbar = () => {
                       className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? "rotate-180" : ""}`}
                     />
                     <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#e63946] transition-all duration-300 group-hover:w-full" />
-                  </a>
+                  </Link>
                 ) : (
                   <Link
                     to={linkHref}

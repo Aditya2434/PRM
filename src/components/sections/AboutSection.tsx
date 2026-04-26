@@ -1,5 +1,6 @@
 // src/components/sections/AboutSection.tsx
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ArrowRight } from 'lucide-react';
 
@@ -36,12 +37,12 @@ const AboutSection = () => {
               
               {/* Centered "Know More" Button - FIXED LINK TO /about */}
               <div className="flex justify-center lg:justify-start pt-4">
-                <a href="/about" className="group">
+                <Link to="/about" className="group">
                   <button className="flex items-center gap-3 bg-transparent border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white px-8 py-3.5 font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-sm">
                     Know More
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

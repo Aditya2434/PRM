@@ -1,6 +1,7 @@
 // src/components/sections/HeroSection.tsx
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import CustomButton from '@/components/ui/CustomButton';
 import { ArrowButton } from '@/components/ui/ArrowButton';
 
@@ -32,7 +33,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    image: '/images/Gallery/g18.webp', // Fixed to .webp
+    image: '/images/Gallery/g18.webp',
     title: 'Excellence in Engineering',
     subtitle: 'Delivering performance-driven industrial solutions and sustainable progress for global partners.',
   }
@@ -42,7 +43,6 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    // Sped up from 6000 (6s) to 4000 (4s) so the auto-slide is much more noticeable
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 4000); 
@@ -70,13 +70,11 @@ const HeroSection = () => {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          {/* object-cover and object-center ensures it fills the screen perfectly */}
           <img
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}
             className="w-full h-full object-cover object-center"
           />
-          {/* Premium Dark Overlay gradient for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#030508]/95 via-[#030508]/60 to-transparent" />
         </motion.div>
       </AnimatePresence>
@@ -106,16 +104,16 @@ const HeroSection = () => {
                 {slides[currentSlide].subtitle}
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="/products/refractory-material">
+                <Link to="/products/refractory-material">
                   <CustomButton className="bg-[#e63946] hover:bg-[#c1121f] text-white px-8 py-4 rounded-sm font-bold tracking-widest text-xs transition-all duration-300 shadow-xl">
                     EXPLORE CATALOG
                   </CustomButton>
-                </a>
-                <a href="/contact">
+                </Link>
+                <Link to="/contact">
                   <CustomButton className="bg-transparent border border-white/20 hover:border-white hover:bg-white/5 text-white px-8 py-4 rounded-sm font-bold tracking-widest text-xs transition-all duration-300">
                     CONTACT SALES
                   </CustomButton>
-                </a>
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
