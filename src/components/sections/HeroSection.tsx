@@ -1,42 +1,37 @@
 // src/components/sections/HeroSection.tsx
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import CustomButton from '@/components/ui/CustomButton';
-import { ArrowButton } from '@/components/ui/ArrowButton';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import CustomButton from "@/components/ui/CustomButton";
+import { ArrowButton } from "@/components/ui/ArrowButton";
 
 interface Slide {
   id: number;
   image: string;
   title: string;
-  subtitle: string;
 }
 
 const slides: Slide[] = [
   {
     id: 1,
-    image: '/images/Gallery/Refractory.webp',
-    title: 'Premium Refractory Solutions',
-    subtitle: 'Engineered for extreme temperatures and ultimate thermal stability in demanding industrial environments.',
+    image: "/images/Gallery/Refractory.webp",
+    title: "Premium Refractory Solutions",
   },
   {
     id: 2,
-    image: '/images/Gallery/CI.webp',
-    title: 'Bespoke Cast Iron Components',
-    subtitle: 'High-grade metallurgical castings forged for maximum durability and severe mechanical stress.',
+    image: "/images/Gallery/CI.webp",
+    title: "Custom Cast Iron Components",
   },
   {
     id: 3,
-    image: '/images/Gallery/g17.webp', 
-    title: 'Advanced Industrial Equipment',
-    subtitle: 'Turnkey heating and material handling systems tailored to your precise manufacturing requirements.',
+    image: "/images/Gallery/g17.webp",
+    title: "Advanced Industrial Equipment",
   },
   {
     id: 4,
-    image: '/images/Gallery/g18.webp',
-    title: 'Excellence in Engineering',
-    subtitle: 'Delivering performance-driven industrial solutions and sustainable progress for global partners.',
-  }
+    image: "/images/Gallery/g18.webp",
+    title: "Excellence in Engineering",
+  },
 ];
 
 const HeroSection = () => {
@@ -45,8 +40,8 @@ const HeroSection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000); 
-    
+    }, 4000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -96,19 +91,12 @@ const HeroSection = () => {
                   Paragon Refractories & Minerals
                 </span>
               </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-10 leading-[1.1] tracking-tight">
                 {slides[currentSlide].title}
               </h1>
-              <p className="text-base md:text-lg text-gray-300 mb-10 font-light leading-relaxed max-w-xl">
-                {slides[currentSlide].subtitle}
-              </p>
+
               <div className="flex flex-wrap gap-4">
-                <Link to="/products/refractory-material">
-                  <CustomButton className="bg-[#e63946] hover:bg-[#c1121f] text-white px-8 py-4 rounded-sm font-bold tracking-widest text-xs transition-all duration-300 shadow-xl">
-                    EXPLORE CATALOG
-                  </CustomButton>
-                </Link>
                 <Link to="/contact">
                   <CustomButton className="bg-transparent border border-white/20 hover:border-white hover:bg-white/5 text-white px-8 py-4 rounded-sm font-bold tracking-widest text-xs transition-all duration-300">
                     CONTACT SALES
@@ -136,8 +124,8 @@ const HeroSection = () => {
             onClick={() => setCurrentSlide(index)}
             className={`h-1.5 rounded-full transition-all duration-500 ${
               currentSlide === index
-                ? 'bg-[#e63946] w-8 shadow-[0_0_10px_rgba(230,57,70,0.8)]'
-                : 'bg-white/40 hover:bg-white/80 w-1.5'
+                ? "bg-[#e63946] w-8 shadow-[0_0_10px_rgba(230,57,70,0.8)]"
+                : "bg-white/40 hover:bg-white/80 w-1.5"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
