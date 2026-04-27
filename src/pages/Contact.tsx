@@ -5,7 +5,7 @@ import TopBar from '../components/layout/TopBar';
 import Header from '../components/layout/Header';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { CheckCircle2, AlertCircle, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
@@ -165,7 +165,6 @@ const Contact = () => {
                     <Input 
                       id="firstName" value={formData.firstName} onChange={handleChange} required 
                       className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                      placeholder="John"
                     />
                   </div>
                   <div className="space-y-2">
@@ -175,7 +174,6 @@ const Contact = () => {
                     <Input 
                       id="lastName" value={formData.lastName} onChange={handleChange} required 
                       className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                      placeholder="Doe"
                     />
                   </div>
                 </div>
@@ -188,7 +186,6 @@ const Contact = () => {
                     <Input 
                       id="email" type="email" value={formData.email} onChange={handleChange} required 
                       className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                      placeholder="john@company.com"
                     />
                   </div>
                   <div className="space-y-2">
@@ -198,7 +195,6 @@ const Contact = () => {
                     <Input 
                       id="phone" type="tel" value={formData.phone} onChange={handleChange} 
                       className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                      placeholder="+91 00000 00000"
                     />
                   </div>
                 </div>
@@ -210,7 +206,6 @@ const Contact = () => {
                   <Input 
                     id="subject" value={formData.subject} onChange={handleChange} required 
                     className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                    placeholder="How can we help you?"
                   />
                 </div>
 
@@ -221,7 +216,6 @@ const Contact = () => {
                   <Textarea 
                     id="message" value={formData.message} onChange={handleChange} required 
                     className="min-h-[150px] bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 py-4 text-[15px] resize-y"
-                    placeholder="Tell us about your project requirements..."
                   />
                 </div>
 
