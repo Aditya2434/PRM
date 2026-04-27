@@ -5,7 +5,7 @@ import TopBar from '../components/layout/TopBar';
 import Header from '../components/layout/Header';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { Send, CheckCircle2, AlertCircle, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
