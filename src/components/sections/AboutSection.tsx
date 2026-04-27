@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ArrowRight } from 'lucide-react';
+import founderImg from '@/assets/images/Founder.jpg';
 
 const AboutSection = () => {
   return (
@@ -61,13 +62,9 @@ const AboutSection = () => {
                 <div className="w-full md:w-52 h-64 bg-gray-100 rounded-sm overflow-hidden relative">
                   {/* Image with subtle zoom on hover */}
                   <img
-                    src="/src/assets/images/Founder.jpg"
+                    src={founderImg}
                     alt="Kalika Prasad Chauhan"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    onError={(e) => {
-                      e.currentTarget.onerror = null; 
-                      e.currentTarget.src = '/src/assets/images/Founder.png';
-                    }}
                   />
                   {/* Subtle Inner Glow */}
                   <div className="absolute inset-0 ring-1 ring-inset ring-black/5" />

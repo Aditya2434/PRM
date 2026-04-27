@@ -22,14 +22,38 @@ const CastIronCard = ({
 }) => {
   const [activeImgIndex, setActiveImgIndex] = useState(0);
 
+  // Swipe States for Inline Card
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const goNext = () => setActiveImgIndex((prev) => (prev + 1) % part.images.length);
+  const goPrev = () => setActiveImgIndex((prev) => (prev - 1 + part.images.length) % part.images.length);
+
   const nextImg = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setActiveImgIndex((prev) => (prev + 1) % part.images.length);
+    goNext();
   };
 
   const prevImg = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setActiveImgIndex((prev) => (prev - 1 + part.images.length) % part.images.length);
+    goPrev();
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) goNext();
+    if (distance < -minSwipeDistance) goPrev();
   };
 
   return (
@@ -42,8 +66,11 @@ const CastIronCard = ({
       className="group relative bg-[#0a111a] border border-white/10 rounded-2xl overflow-hidden hover:border-[#e63946]/40 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(230,57,70,0.15)]"
     >
       <div 
-        className="relative h-64 sm:h-72 overflow-hidden bg-[#0a111a] cursor-zoom-in group/image"
+        className="relative h-64 sm:h-72 overflow-hidden bg-[#0a111a] cursor-zoom-in group/image active:cursor-grabbing"
         onClick={() => onOpenLightbox(part.images as string[], activeImgIndex)}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a111a] via-transparent to-transparent z-10 opacity-80 pointer-events-none" />
         
@@ -52,7 +79,7 @@ const CastIronCard = ({
             key={idx}
             src={img} 
             alt={`${part.title} View ${idx + 1}`} 
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out pointer-events-none ${
               activeImgIndex === idx ? 'opacity-100 z-0' : 'opacity-0 -z-10'
             }`}
           />
@@ -131,7 +158,11 @@ const CastIronParts = () => {
   
   const [lightboxData, setLightboxData] = useState<{ images: string[]; index: number } | null>(null);
 
-  // SEO Optimization & Scroll
+  // Swipe States for Lightbox
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
   useEffect(() => {
     document.title = "Cast Iron Furnace Parts Manufacturer India | CI Components";
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -161,8 +192,7 @@ const CastIronParts = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxData]);
 
-  const handleLightboxNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goLightboxNext = () => {
     if (!lightboxData) return;
     setLightboxData({
       ...lightboxData,
@@ -170,13 +200,38 @@ const CastIronParts = () => {
     });
   };
 
-  const handleLightboxPrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goLightboxPrev = () => {
     if (!lightboxData) return;
     setLightboxData({
       ...lightboxData,
       index: (lightboxData.index - 1 + lightboxData.images.length) % lightboxData.images.length
     });
+  };
+
+  const handleLightboxNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    goLightboxNext();
+  };
+
+  const handleLightboxPrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    goLightboxPrev();
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) goLightboxNext();
+    if (distance < -minSwipeDistance) goLightboxPrev();
   };
 
   return (
@@ -186,8 +241,6 @@ const CastIronParts = () => {
       <Navbar />
 
       <main className="flex-grow">
-        
-        {/* --- Premium Cinematic Hero Section --- */}
         <section className="relative pt-32 pb-16 overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]" />
           
@@ -226,7 +279,6 @@ const CastIronParts = () => {
           </div>
         </section>
 
-        {/* --- Premium Introduction Section (Above Filter) --- */}
         <section className="container mx-auto px-6 lg:px-24 pb-16 relative z-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -248,7 +300,6 @@ const CastIronParts = () => {
           </motion.div>
         </section>
 
-        {/* --- Sleek Minimalist Filter Bar --- */}
         <section className="sticky top-0 z-40 bg-[#080d14]/90 backdrop-blur-xl border-b border-white/5 py-5 mb-16 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
           <div className="container mx-auto px-6 lg:px-24">
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
@@ -269,7 +320,6 @@ const CastIronParts = () => {
           </div>
         </section>
 
-        {/* --- Premium Equipment Grid --- */}
         <section className="container mx-auto px-6 lg:px-24 pb-24">
           <motion.div 
             layout
@@ -287,7 +337,6 @@ const CastIronParts = () => {
           </motion.div>
         </section>
 
-        {/* --- Custom Engineering CTA --- */}
         <section className="relative py-24 overflow-hidden bg-[#080d14]">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]" />
           
@@ -329,7 +378,6 @@ const CastIronParts = () => {
 
       </main>
 
-      {/* --- FULL SCREEN LIGHTBOX MODAL --- */}
       <AnimatePresence>
         {lightboxData && (
           <motion.div
@@ -370,13 +418,16 @@ const CastIronParts = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl w-full h-full flex flex-col items-center justify-center"
+              className="relative max-w-6xl w-full h-full flex flex-col items-center justify-center cursor-grab active:cursor-grabbing"
               onClick={(e) => e.stopPropagation()} 
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
             >
               <img
                 src={lightboxData.images[lightboxData.index]}
                 alt="Fullscreen view"
-                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl pointer-events-none"
               />
               <div className="mt-6 flex items-center justify-center gap-2">
                 {lightboxData.images.length > 1 && lightboxData.images.map((_, idx) => (

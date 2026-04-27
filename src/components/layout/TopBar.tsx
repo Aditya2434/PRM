@@ -7,9 +7,9 @@ const TopBar = () => {
       <div className="container mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs max-w-7xl">
         
         {/* Left Side: Tagline */}
-        <div className="mb-2 sm:mb-0">
+        <div className="mb-2 sm:mb-0 text-center sm:text-left">
           <span className="italic opacity-80 text-[11px] tracking-wider font-medium">
-            Paragon Refractories and Minerals - Excellence in Industrial Solutions
+            Paragon Refractories and Minerals - Manufacturer of Reheating Furnace, Refractories and Reheating Furnace Materials
           </span>
         </div>
         
