@@ -1,11 +1,11 @@
 // src/pages/Contact.tsx
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import TopBar from '../components/layout/TopBar';
 import Header from '../components/layout/Header';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import ContactStrip from '../components/sections/ContactStrip';
-import { ChevronRight, Send, CheckCircle2, AlertCircle, Phone, Mail, MapPin } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
@@ -63,7 +63,7 @@ const Contact = () => {
           phone: formData.phone || "Not provided",
           subject: formData.subject,
           message: formData.message,
-          from_name: "Paragon Refractories Website",
+          from_name: "PRM Website",
         }),
       });
 
@@ -72,15 +72,7 @@ const Contact = () => {
       if (response.status === 200) {
         setStatus('success');
         setResultMessage("Thank you! Your message has been sent successfully.");
-        // Clear the form
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: ''
-        });
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' });
       } else {
         setStatus('error');
         setResultMessage(result.message || "Something went wrong. Please try again.");
@@ -93,212 +85,234 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[#f4f7f9] font-sans">
       <TopBar />
       <Header />
       <Navbar />
 
-      <main className="flex-grow">
-        {/* Premium Hero Section */}
-        <section className="relative bg-[#0f172a] py-32 md:py-48 overflow-hidden flex items-center min-h-[40vh]">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1920')" }}
-          ></div>
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent opacity-80"></div>
+      <main className="flex-grow relative">
+        
+        {/* --- ULTRA PREMIUM HERO SECTION --- */}
+        <section className="relative bg-[#020617] pt-32 pb-48 lg:pt-40 lg:pb-72 overflow-hidden flex items-center justify-center">
+          {/* Deep Abstract Gradients */}
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
           
-          <div className="container mx-auto px-6 lg:px-24 relative z-10 flex flex-col items-center justify-center text-center">
-            <h1 className="text-[40px] md:text-[56px] font-['Helvetica_Neue',_Helvetica,_sans-serif] font-bold text-white mb-6 tracking-[0.5px] drop-shadow-lg">
-              Contact Us
+          {/* Glowing Orbs */}
+          <motion.div 
+            animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-[#e63946] rounded-full blur-[150px] pointer-events-none" 
+          />
+          <div className="absolute top-[20%] -left-[10%] w-[500px] h-[500px] bg-[#1e3a5f] rounded-full blur-[150px] pointer-events-none" />
+
+          {/* Giant Watermark */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
+            <h1 className="text-[150px] md:text-[250px] lg:text-[350px] font-black text-white/5 tracking-tighter leading-none">
+              PRM
             </h1>
-            <div className="flex items-center gap-2 text-[16px] font-['Inter',_sans-serif] font-medium text-white/90 bg-white/10 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
-              <a href="/" className="hover:text-[#e63946] transition-colors duration-300">Home</a>
-              <ChevronRight className="w-4 h-4 text-white/60" />
-              <span className="text-white">Contact</span>
-            </div>
           </div>
-        </section>
 
-        {/* Enhanced Form Section */}
-        <section className="py-24 bg-gray-50 relative">
-          {/* Decorative background gradient */}
-          <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-white to-transparent"></div>
-          
-          <div className="container mx-auto px-6 lg:px-24 relative z-10">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
+          <div className="container mx-auto px-6 lg:px-24 relative z-10 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="inline-flex items-center justify-center gap-3 mb-6 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[#e63946] animate-pulse"></span>
+                <span className="text-white/80 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">
+                  Global Industrial Support
+                </span>
+              </div>
               
-              {/* Left Column: Contact Info Cards */}
-              <div className="lg:col-span-5 flex flex-col justify-center">
-                <div className="w-12 h-1.5 bg-[#e63946] mb-8 rounded-full"></div>
-                <h2 className="text-[32px] md:text-[48px] font-['Helvetica_Neue',_Helvetica,_sans-serif] font-bold text-[#0f172a] mb-6 tracking-[0.2px] leading-[1.2]">
-                  Let's Build <br /> Something Great.
-                </h2>
-                <p className="text-[18px] md:text-[20px] font-['Inter',_sans-serif] font-normal text-gray-600 leading-[1.6] mb-12">
-                  Reach out to us for detailed product specifications, custom refractory solutions, or general inquiries. Our experts are here to help.
-                </p>
-                
-                {/* Info Cards */}
-                <div className="space-y-6">
-                  {/* Phone Card */}
-                  <div className="flex items-start p-6 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_8px_30px_rgb(230,57,70,0.1)] transition-all duration-300 group">
-                    <div className="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center mr-6 group-hover:bg-[#e63946] group-hover:text-white transition-colors duration-300">
-                      <Phone className="w-6 h-6 text-[#e63946] group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div>
-                      <h4 className="text-[16px] font-['Inter',_sans-serif] font-medium text-gray-400 mb-1">Direct Line</h4>
-                      <p className="text-[20px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">+91 9932317334</p>
-                    </div>
-                  </div>
-
-                  {/* Email Card */}
-                  <div className="flex items-start p-6 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_8px_30px_rgb(230,57,70,0.1)] transition-all duration-300 group">
-                    <div className="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center mr-6 group-hover:bg-[#e63946] group-hover:text-white transition-colors duration-300">
-                      <Mail className="w-6 h-6 text-[#e63946] group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div>
-                      <h4 className="text-[16px] font-['Inter',_sans-serif] font-medium text-gray-400 mb-1">Email Support</h4>
-                      <p className="text-[18px] md:text-[20px] font-['Inter',_sans-serif] font-medium text-[#0f172a] break-all">paragonrefractories22@gmail.com</p>
-                    </div>
-                  </div>
-
-                  {/* Location Card */}
-                  <div className="flex items-start p-6 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_8px_30px_rgb(230,57,70,0.1)] transition-all duration-300 group">
-                    <div className="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center mr-6 group-hover:bg-[#e63946] group-hover:text-white transition-colors duration-300 shrink-0">
-                      <MapPin className="w-6 h-6 text-[#e63946] group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div>
-                      <h4 className="text-[16px] font-['Inter',_sans-serif] font-medium text-gray-400 mb-1">Office Location</h4>
-                      <p className="text-[18px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">Durgapur, West Bengal, India</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: The Elevated Form Card */}
-              <div className="lg:col-span-7">
-                <div className="bg-white p-8 md:p-12 rounded-3xl shadow-[0_20px_50px_rgb(0,0,0,0.07)] border border-gray-100">
-                  <h3 className="text-[24px] font-['Helvetica_Neue',_Helvetica,_sans-serif] font-bold text-[#0f172a] mb-8">
-                    Send us a message
-                  </h3>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="space-y-3">
-                        <Label htmlFor="firstName" className="text-[16px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">
-                          First Name <span className="text-[#e63946]">*</span>
-                        </Label>
-                        <Input 
-                          id="firstName" 
-                          value={formData.firstName}
-                          onChange={handleChange}
-                          className="h-14 bg-gray-50/50 border-gray-200 rounded-xl px-4 focus-visible:ring-[#e63946]/20 focus-visible:border-[#e63946] transition-all duration-300 text-[16px] font-['Inter',_sans-serif] font-normal text-gray-800" 
-                          required 
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label htmlFor="lastName" className="text-[16px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">
-                          Last Name <span className="text-[#e63946]">*</span>
-                        </Label>
-                        <Input 
-                          id="lastName" 
-                          value={formData.lastName}
-                          onChange={handleChange}
-                          className="h-14 bg-gray-50/50 border-gray-200 rounded-xl px-4 focus-visible:ring-[#e63946]/20 focus-visible:border-[#e63946] transition-all duration-300 text-[16px] font-['Inter',_sans-serif] font-normal text-gray-800" 
-                          required 
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="space-y-3">
-                        <Label htmlFor="email" className="text-[16px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">
-                          Email Address <span className="text-[#e63946]">*</span>
-                        </Label>
-                        <Input 
-                          id="email" 
-                          type="email" 
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="h-14 bg-gray-50/50 border-gray-200 rounded-xl px-4 focus-visible:ring-[#e63946]/20 focus-visible:border-[#e63946] transition-all duration-300 text-[16px] font-['Inter',_sans-serif] font-normal text-gray-800" 
-                          required 
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label htmlFor="phone" className="text-[16px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">
-                          Phone Number
-                        </Label>
-                        <Input 
-                          id="phone" 
-                          type="tel" 
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="h-14 bg-gray-50/50 border-gray-200 rounded-xl px-4 focus-visible:ring-[#e63946]/20 focus-visible:border-[#e63946] transition-all duration-300 text-[16px] font-['Inter',_sans-serif] font-normal text-gray-800" 
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label htmlFor="subject" className="text-[16px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">
-                        Subject <span className="text-[#e63946]">*</span>
-                      </Label>
-                      <Input 
-                        id="subject" 
-                        value={formData.subject}
-                        onChange={handleChange}
-                        className="h-14 bg-gray-50/50 border-gray-200 rounded-xl px-4 focus-visible:ring-[#e63946]/20 focus-visible:border-[#e63946] transition-all duration-300 text-[16px] font-['Inter',_sans-serif] font-normal text-gray-800" 
-                        required 
-                      />
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label htmlFor="message" className="text-[16px] font-['Inter',_sans-serif] font-medium text-[#0f172a]">
-                        Message <span className="text-[#e63946]">*</span>
-                      </Label>
-                      <Textarea 
-                        id="message" 
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="min-h-[160px] bg-gray-50/50 border-gray-200 rounded-xl px-4 py-4 focus-visible:ring-[#e63946]/20 focus-visible:border-[#e63946] resize-y transition-all duration-300 text-[16px] font-['Inter',_sans-serif] font-normal text-gray-800"
-                        required 
-                      />
-                    </div>
-
-                    {/* Feedback Messages */}
-                    {status === 'success' && (
-                      <div className="flex items-center gap-3 text-green-700 bg-green-50 p-5 rounded-xl border border-green-200">
-                        <CheckCircle2 className="w-6 h-6 text-green-600" />
-                        <span className="text-[16px] font-['Inter',_sans-serif] font-medium">{resultMessage}</span>
-                      </div>
-                    )}
-                    
-                    {status === 'error' && (
-                      <div className="flex items-center gap-3 text-red-700 bg-red-50 p-5 rounded-xl border border-red-200">
-                        <AlertCircle className="w-6 h-6 text-red-600" />
-                        <span className="text-[16px] font-['Inter',_sans-serif] font-medium">{resultMessage}</span>
-                      </div>
-                    )}
-
-                    <div className="pt-4">
-                      <Button 
-                        type="submit" 
-                        disabled={status === 'submitting'}
-                        className="w-full bg-[#e63946] hover:bg-[#c1121f] text-white h-16 text-[18px] font-['Inter',_sans-serif] font-semibold rounded-xl transition-all duration-300 flex items-center justify-center shadow-[0_8px_20px_rgb(230,57,70,0.25)] hover:shadow-[0_8px_25px_rgb(230,57,70,0.4)] hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-                      >
-                        {status === 'submitting' ? 'Sending Message...' : 'Send Message'}
-                        {status !== 'submitting' && <Send className="w-5 h-5 ml-3" />}
-                      </Button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-            </div>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.1] tracking-tight">
+                Let's Build <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-[#ff8fa3] italic">
+                  Something Great.
+                </span>
+              </h2>
+              <p className="text-gray-400 text-sm md:text-base max-w-3xl mx-auto font-light leading-relaxed">
+                Our main expertise is in reheating furnace manufacturing and installation. Connect with our engineering team for customized refractory solutions, detailed product specifications, and enterprise quotes.
+              </p>
+            </motion.div>
           </div>
         </section>
 
-        {/* Contact Info Strip */}
-        <ContactStrip />
+        {/* --- SPLIT PANEL CONTACT SECTION --- */}
+        {/* Adheres strictly to the site's container padding (px-6 lg:px-24) */}
+        <section className="container mx-auto px-6 lg:px-24 relative z-20 -mt-24 lg:-mt-44 mb-32">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="max-w-7xl mx-auto flex flex-col lg:flex-row bg-white rounded-[2rem] lg:rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-gray-100"
+          >
+            
+            {/* LEFT SIDE: THE FORM (Renders Top on Mobile) */}
+            <div className="w-full lg:w-3/5 p-6 sm:p-10 lg:p-16 order-1">
+              <div className="mb-10">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight mb-2">Send a Message</h3>
+                <p className="text-gray-500 text-sm md:text-base">Fill out the form below and we will get back to you promptly.</p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
+                      First Name <span className="text-[#e63946]">*</span>
+                    </Label>
+                    <Input 
+                      id="firstName" value={formData.firstName} onChange={handleChange} required 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
+                      Last Name <span className="text-[#e63946]">*</span>
+                    </Label>
+                    <Input 
+                      id="lastName" value={formData.lastName} onChange={handleChange} required 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
+                      Email Address <span className="text-[#e63946]">*</span>
+                    </Label>
+                    <Input 
+                      id="email" type="email" value={formData.email} onChange={handleChange} required 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
+                      Phone Number
+                    </Label>
+                    <Input 
+                      id="phone" type="tel" value={formData.phone} onChange={handleChange} 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="subject" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
+                    Subject <span className="text-[#e63946]">*</span>
+                  </Label>
+                  <Input 
+                    id="subject" value={formData.subject} onChange={handleChange} required 
+                    className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
+                    Message <span className="text-[#e63946]">*</span>
+                  </Label>
+                  <Textarea 
+                    id="message" value={formData.message} onChange={handleChange} required 
+                    className="min-h-[150px] bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 py-4 text-[15px] resize-y"
+                  />
+                </div>
+
+                {/* Status Notifications */}
+                {status === 'success' && (
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 text-emerald-700 bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                    <span className="text-sm font-medium">{resultMessage}</span>
+                  </motion.div>
+                )}
+                
+                {status === 'error' && (
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 text-red-700 bg-red-50 p-4 rounded-xl border border-red-100">
+                    <AlertCircle className="w-5 h-5 text-red-500 shrink-0" />
+                    <span className="text-sm font-medium">{resultMessage}</span>
+                  </motion.div>
+                )}
+
+                <div className="pt-4">
+                  <Button 
+                    type="submit" 
+                    disabled={status === 'submitting'}
+                    className="w-full bg-[#e63946] hover:bg-[#d62828] text-white h-16 text-[15px] tracking-[0.1em] uppercase font-bold rounded-xl transition-all duration-500 flex items-center justify-center shadow-[0_10px_20px_rgba(230,57,70,0.2)] hover:shadow-[0_10px_30px_rgba(230,57,70,0.3)] hover:-translate-y-1 group"
+                  >
+                    {status === 'submitting' ? 'Processing...' : 'Submit Request'}
+                    {status !== 'submitting' && <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />}
+                  </Button>
+                </div>
+              </form>
+            </div>
+
+            {/* RIGHT SIDE: CONTACT INFO (Renders Bottom on Mobile) */}
+            <div className="w-full lg:w-2/5 p-6 sm:p-10 lg:p-16 bg-[#0f172a] relative overflow-hidden order-2">
+              
+              {/* Decorative Geometric Patterns */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#e63946]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
+
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="mb-12">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">Contact Information</h3>
+                  <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                    Prefer to speak directly? Reach out to our headquarters using the details below.
+                  </p>
+                </div>
+
+                <div className="space-y-10 flex-grow">
+                  {/* Phone */}
+                  <div className="flex items-start gap-5 group">
+                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#e63946] group-hover:border-[#e63946] transition-all duration-500">
+                      <Phone className="w-5 h-5 text-[#e63946] group-hover:text-white transition-colors" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Direct Line</p>
+                      <p className="text-lg font-medium text-white">+91 9932317334</p>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-start gap-5 group">
+                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#e63946] group-hover:border-[#e63946] transition-all duration-500">
+                      <Mail className="w-5 h-5 text-[#e63946] group-hover:text-white transition-colors" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Email Support</p>
+                      <p className="text-[15px] sm:text-[17px] font-medium text-white break-all sm:break-normal group-hover:text-[#e63946] transition-colors cursor-pointer">
+                        paragonrefractories22@gmail.com
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex items-start gap-5 group">
+                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#e63946] group-hover:border-[#e63946] transition-all duration-500">
+                      <MapPin className="w-5 h-5 text-[#e63946] group-hover:text-white transition-colors" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Headquarters</p>
+                      <p className="text-base font-medium text-white leading-relaxed">
+                        Durgapur, West Bengal<br/>
+                        <span className="text-gray-400">India</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decorative Bottom Line */}
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mt-12 mb-6"></div>
+                <p className="text-xs text-center text-gray-500 uppercase tracking-widest font-bold">
+                  Operating Worldwide
+                </p>
+              </div>
+            </div>
+
+          </motion.div>
+        </section>
       </main>
 
       <Footer />
