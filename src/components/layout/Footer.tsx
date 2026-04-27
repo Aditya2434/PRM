@@ -1,6 +1,5 @@
 // src/components/layout/Footer.tsx
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
-import { Send } from 'lucide-react';
 import { services } from '@/data/services';
 import logo from '@/assets/logo.png';
 import { Link } from 'react-router-dom';
@@ -10,7 +9,7 @@ const Footer = () => {
     <footer className="bg-[#0d1b2a] text-white pt-20">
       {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
       <div className="container mx-auto px-12 lg:px-24 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Logo & Description */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
@@ -107,27 +106,6 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Subscribe */}
-          <div>
-            <h4 className="text-lg font-bold mb-8 relative inline-block">
-              Subscribe
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#e63946]" />
-            </h4>
-            <p className="text-sm text-gray-400 mb-6 font-medium">
-              Stay updated with our latest industrial news and mineral sourcing updates.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-white/5 border border-gray-800 text-white text-sm focus:outline-none focus:border-[#e63946] transition-colors"
-              />
-              <button className="px-5 py-3 bg-[#e63946] hover:bg-white hover:text-[#e63946] transition-all duration-300">
-                <Send className="w-4 h-4" />
-              </button>
-            </div>
           </div>
         </div>
       </div>
