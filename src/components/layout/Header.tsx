@@ -7,16 +7,16 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   return (
-    <header className="bg-white py-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] relative z-30">
-      {/* Container with consistent padding */}
-      <div className="container mx-auto px-12 lg:px-24 flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0">
+    <header className="bg-white py-3 md:py-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] relative z-30">
+      {/* Container with responsive padding and horizontal layout for mobile */}
+      <div className="container mx-auto px-4 md:px-12 lg:px-24 flex flex-row justify-between items-center gap-2 lg:gap-0">
         
         {/* Logo & Company Name */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex items-center gap-3 group cursor-pointer"
+          className="flex items-center gap-2 md:gap-3 group cursor-pointer shrink-0"
         >
           {/* Logo Image with Glow Effect */}
           <div className="relative">
@@ -24,17 +24,17 @@ const Header = () => {
             <img 
               src={logo} 
               alt="Paragon Refractories and Minerals" 
-              className="relative h-14 w-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" 
+              className="relative h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" 
             />
           </div>
 
-          {/* Text Section - Uniform Typography */}
-          <div className="flex flex-col border-l border-gray-300 pl-3 py-1">
-            <h1 className="text-2xl font-bold text-[#0f172a] leading-none tracking-tight group-hover:text-[#1e3a5f] transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+          {/* Text Section - Responsive Typography */}
+          <div className="flex flex-col border-l border-gray-300 pl-2 md:pl-3 py-1">
+            <h1 className="text-[15px] sm:text-lg md:text-2xl font-bold text-[#0f172a] leading-none tracking-tight group-hover:text-[#1e3a5f] transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
               Paragon Refractories
             </h1>
-            {/* Highlighted "And Minerals" with Gradient and Weight */}
-            <span className="text-sm font-semibold bg-gradient-to-r from-[#e63946] to-[#b91c1c] bg-clip-text text-transparent leading-tight mt-1 tracking-wide">
+            {/* Highlighted "And Minerals" */}
+            <span className="text-[9px] sm:text-[11px] md:text-sm font-semibold bg-gradient-to-r from-[#e63946] to-[#b91c1c] bg-clip-text text-transparent leading-tight mt-0.5 md:mt-1 tracking-wide">
               And Minerals
             </span>
           </div>
@@ -45,10 +45,10 @@ const Header = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col md:flex-row items-center gap-8"
+          className="flex items-center gap-4 lg:gap-8"
         >
-          {/* Contact Group */}
-          <div className="flex items-center gap-8 hidden md:flex">
+          {/* Contact Group - Hidden on mobile, visible on desktop */}
+          <div className="hidden lg:flex items-center gap-8">
             {/* Email Block */}
             <div className="flex items-center gap-3 group/item">
               <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-[#e63946] shadow-sm transition-all duration-300 group-hover/item:bg-[#e63946] group-hover/item:text-white group-hover/item:border-[#e63946] group-hover/item:shadow-md">
@@ -63,7 +63,7 @@ const Header = () => {
             </div>
 
             {/* Divider */}
-            <div className="h-10 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent hidden lg:block" />
+            <div className="h-10 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
 
             {/* Phone Block */}
             <div className="flex items-center gap-3 group/item">
@@ -79,11 +79,10 @@ const Header = () => {
             </div>
           </div>
 
-          {/* CTA Button - Wrapped in Link with Smooth Scroll */}
+          {/* CTA Button - Scaled intelligently for mobile & desktop */}
           <Link 
             to="/contact"
             onClick={() => {
-              // Slight delay ensures the new page loads before scrolling down to the form
               setTimeout(() => {
                 window.scrollTo({ top: window.innerHeight * 0.6, behavior: 'smooth' });
               }, 150);
@@ -91,11 +90,11 @@ const Header = () => {
           >
             <CustomButton 
               variant="primary" 
-              className="group relative overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f172a] hover:from-[#e63946] hover:to-[#d62828] text-white px-9 py-4 text-[13px] font-bold tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5"
+              className="group relative overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f172a] hover:from-[#e63946] hover:to-[#d62828] text-white px-3 py-2 md:px-9 md:py-4 text-[10px] md:text-[13px] font-bold tracking-wider md:tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                GET A QUOTE
-                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <span className="relative z-10 flex items-center gap-1 md:gap-2">
+                <span className="hidden sm:inline">GET A </span>QUOTE
+                <ChevronRight className="w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </CustomButton>
           </Link>

@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { ChevronRight, Eye, Target, Layers } from 'lucide-react';
+import founderImg from '@/assets/images/Founder.jpg';
 
 const AboutUs = () => {
   // SEO Optimization
@@ -94,13 +95,9 @@ const AboutUs = () => {
                 <div className="flex flex-col gap-6 items-center text-center">
                   <div className="w-48 h-48 md:w-56 md:h-56 shrink-0 rounded-full overflow-hidden border-4 border-white shadow-xl relative">
                     <img
-                      src="/src/assets/images/Founder.jpg"
+                      src={founderImg}
                       alt="Kalika Prasad Chauhan"
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.onerror = null; 
-                        e.currentTarget.src = '/src/assets/images/Founder.png';
-                      }}
                     />
                   </div>
                   <div>

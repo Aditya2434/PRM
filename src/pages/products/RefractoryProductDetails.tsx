@@ -17,6 +17,11 @@ const RefractoryProductDetails = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
+  // Swipe States
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
   useEffect(() => {
     setActiveIndex(0);
     setIsLightboxOpen(false);
@@ -48,7 +53,6 @@ const RefractoryProductDetails = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isLightboxOpen]);
 
-  // CORRECTED REDIRECT TO PLURAL URL
   if (!product) {
     return <Navigate to="/products/refractory-materials" replace />;
   }
@@ -64,8 +68,7 @@ const RefractoryProductDetails = () => {
 
   const activeImage = galleryImages[activeIndex];
 
-  const handleNextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goNextImage = () => {
     if (!activeImage) return;
     const currentIdx = allImages.indexOf(activeImage);
     const nextIdx = (currentIdx + 1) % allImages.length;
@@ -73,13 +76,42 @@ const RefractoryProductDetails = () => {
     setActiveIndex(galleryImages.indexOf(nextImgSrc));
   };
 
-  const handlePrevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goPrevImage = () => {
     if (!activeImage) return;
     const currentIdx = allImages.indexOf(activeImage);
     const prevIdx = (currentIdx - 1 + allImages.length) % allImages.length;
     const prevImgSrc = allImages[prevIdx];
     setActiveIndex(galleryImages.indexOf(prevImgSrc));
+  };
+
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    goNextImage();
+  };
+
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    goPrevImage();
+  };
+
+  // Touch Handlers for Swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) goNextImage();
+    if (isRightSwipe) goPrevImage();
   };
 
   return (
@@ -89,15 +121,12 @@ const RefractoryProductDetails = () => {
       <Navbar />
 
       <main className="flex-grow pt-32 lg:pt-40 pb-32 relative">
-        
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-gradient-to-b from-[#e63946]/[0.02] to-transparent" />
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 xl:px-24 relative z-10">
-          
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
-            {/* CORRECTED BACK LINK TO PLURAL URL */}
             <Link 
               to="/products/refractory-materials" 
               className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.15em] text-gray-400 hover:text-white transition-colors group"
@@ -112,7 +141,6 @@ const RefractoryProductDetails = () => {
               transition={{ duration: 1 }}
               className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.15em] text-gray-500"
             >
-              {/* CORRECTED BREADCRUMB TO PLURAL URL */}
               <Link to="/products/refractory-materials" className="hover:text-gray-300 transition-colors">Refractory</Link>
               <span className="w-1 h-1 rounded-full bg-gray-700" />
               <span className="text-[#e63946]">{product.category}</span>
@@ -120,7 +148,6 @@ const RefractoryProductDetails = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 xl:gap-24">
-            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -349,7 +376,6 @@ const RefractoryProductDetails = () => {
                     const isActive = p.id === product.id;
                     
                     return (
-                      // CORRECTED SIDEBAR PLURAL LINK
                       <Link 
                         key={p.id}
                         to={`/products/refractory-materials/${p.id}`}
@@ -439,13 +465,16 @@ const RefractoryProductDetails = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl w-full h-full flex flex-col items-center justify-center"
+              className="relative max-w-6xl w-full h-full flex flex-col items-center justify-center cursor-grab active:cursor-grabbing"
               onClick={(e) => e.stopPropagation()} 
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
             >
               <img
                 src={activeImage}
                 alt={`${product.name} Fullscreen`}
-                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl pointer-events-none"
               />
               <div className="mt-6 flex items-center justify-center gap-2">
                 {allImages.length > 1 && allImages.map((img, idx) => (

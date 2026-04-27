@@ -17,6 +17,11 @@ const IndustrialEquipmentDetails = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
+  // Swipe States
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
   useEffect(() => {
     setActiveIndex(0);
     setIsLightboxOpen(false);
@@ -48,7 +53,6 @@ const IndustrialEquipmentDetails = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isLightboxOpen]);
 
-  // CORRECTED REDIRECT PATH
   if (!product) {
     return <Navigate to="/products/industrial-equipment" replace />;
   }
@@ -62,8 +66,7 @@ const IndustrialEquipmentDetails = () => {
   ];
   const activeImage = galleryImages[activeIndex];
 
-  const handleNextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goNextImage = () => {
     if (!activeImage) return;
     const currentIdx = allImages.indexOf(activeImage);
     const nextIdx = (currentIdx + 1) % allImages.length;
@@ -71,13 +74,42 @@ const IndustrialEquipmentDetails = () => {
     setActiveIndex(galleryImages.indexOf(nextImgSrc));
   };
 
-  const handlePrevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goPrevImage = () => {
     if (!activeImage) return;
     const currentIdx = allImages.indexOf(activeImage);
     const prevIdx = (currentIdx - 1 + allImages.length) % allImages.length;
     const prevImgSrc = allImages[prevIdx];
     setActiveIndex(galleryImages.indexOf(prevImgSrc));
+  };
+
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    goNextImage();
+  };
+
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    goPrevImage();
+  };
+
+  // Touch Handlers for Swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) goNextImage();
+    if (isRightSwipe) goPrevImage();
   };
 
   return (
@@ -92,9 +124,7 @@ const IndustrialEquipmentDetails = () => {
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 xl:px-24 relative z-10">
-          
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
-            {/* CORRECTED LINK PATH */}
             <Link 
               to="/products/industrial-equipment" 
               className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.15em] text-gray-400 hover:text-white transition-colors group"
@@ -109,7 +139,6 @@ const IndustrialEquipmentDetails = () => {
               transition={{ duration: 1 }}
               className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.15em] text-gray-500"
             >
-              {/* CORRECTED LINK PATH */}
               <Link to="/products/industrial-equipment" className="hover:text-gray-300 transition-colors">Equipment</Link>
               <span className="w-1 h-1 rounded-full bg-gray-700" />
               <span className="text-[#e63946]">{product.category}</span>
@@ -348,7 +377,6 @@ const IndustrialEquipmentDetails = () => {
                     const isActive = p.id === product.id;
                     
                     return (
-                      // CORRECTED LINK PATH
                       <Link 
                         key={p.id}
                         to={`/products/industrial-equipment/${p.id}`}
@@ -434,13 +462,16 @@ const IndustrialEquipmentDetails = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl w-full h-full flex flex-col items-center justify-center"
+              className="relative max-w-6xl w-full h-full flex flex-col items-center justify-center cursor-grab active:cursor-grabbing"
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
             >
               <img
                 src={activeImage}
                 alt={`${product.title} Fullscreen`}
-                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl pointer-events-none"
               />
               <div className="mt-6 flex items-center justify-center gap-2">
                 {allImages.length > 1 && allImages.map((img, idx) => (
