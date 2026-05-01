@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ArrowLeft, ZoomIn, X, Activity, Image as ImageIcon, ChevronLeft } from 'lucide-react';
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -26,21 +27,6 @@ const IndustrialEquipmentDetails = () => {
     setActiveIndex(0);
     setIsLightboxOpen(false);
     window.scrollTo(0, 0);
-
-    if (product) {
-      document.title = `${product.title} Manufacturer in India | PRM Equipment`;
-      const metaDescription = document.querySelector('meta[name="description"]');
-      const desc = `PRM manufactures heavy-duty ${product.title} for steel plants and rolling mills. Designed for maximum efficiency, fuel savings, and long-lasting performance.`;
-      
-      if (metaDescription) {
-        metaDescription.setAttribute("content", desc);
-      } else {
-        const meta = document.createElement('meta');
-        meta.name = "description";
-        meta.content = desc;
-        document.head.appendChild(meta);
-      }
-    }
   }, [product]);
 
   useEffect(() => {
@@ -112,8 +98,42 @@ const IndustrialEquipmentDetails = () => {
     if (isRightSwipe) goPrevImage();
   };
 
+  // Generate keywords
+  const dynamicKeywords = [
+    product.title,
+    product.category,
+    "Manufacturer in India",
+    "PRM Equipment",
+    "Industrial Heating",
+    ...(product.applications || [])
+  ].join(", ");
+
+  // Generate Schema.org Product Data
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": product.title,
+    "image": `https://paragonrefractories.com${product.image}`,
+    "description": product.desc,
+    "brand": {
+      "@type": "Brand",
+      "name": "Paragon Refractories"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Paragon Refractories & Minerals",
+      "location": "India"
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#030508] font-sans selection:bg-[#e63946]/30 selection:text-white">
+      <SEO 
+        title={`${product.title} Manufacturer in India | PRM Equipment`}
+        description={`PRM manufactures heavy-duty ${product.title} for steel plants and rolling mills. Designed for maximum efficiency, fuel savings, and long-lasting performance.`}
+        keywords={dynamicKeywords}
+        schema={productSchema}
+      />
       <TopBar />
       <Header />
       <Navbar />

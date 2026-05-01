@@ -30,9 +30,9 @@ const Header = () => {
 
           {/* Text Section - Responsive Typography */}
           <div className="flex flex-col border-l border-gray-300 pl-2 md:pl-3 py-1">
-            <h1 className="text-[15px] sm:text-lg md:text-2xl font-bold text-[#0f172a] leading-none tracking-tight group-hover:text-[#1e3a5f] transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+            <span className="text-[15px] sm:text-lg md:text-2xl font-bold text-[#0f172a] leading-none tracking-tight group-hover:text-[#1e3a5f] transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
               Paragon Refractories
-            </h1>
+            </span>
             {/* Highlighted "And Minerals" */}
             <span className="text-[9px] sm:text-[11px] md:text-sm font-semibold bg-gradient-to-r from-[#e63946] to-[#b91c1c] bg-clip-text text-transparent leading-tight mt-0.5 md:mt-1 tracking-wide">
               And Minerals

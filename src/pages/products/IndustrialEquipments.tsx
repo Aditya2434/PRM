@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -15,19 +16,8 @@ const categories = ['All', 'Furnaces', 'Burners', 'Handling', 'Systems', 'Valves
 const IndustrialEquipments = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  // SEO Optimization
+  // Scroll to top on page load
   useEffect(() => {
-    document.title = "Reheating Furnace & Industrial Equipment Manufacturer India";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const desc = "Discover industrial equipment including pusher furnaces, recuperators, burners, blowers, and heavy billet handling machinery for steel plants in India.";
-    if (metaDescription) {
-      metaDescription.setAttribute("content", desc);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = desc;
-      document.head.appendChild(meta);
-    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -37,6 +27,10 @@ const IndustrialEquipments = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#080d14]">
+      <SEO 
+        title="Reheating Furnace & Industrial Equipment Manufacturer India"
+        description="Discover industrial equipment including pusher furnaces, recuperators, burners, blowers, and heavy billet handling machinery for steel plants in India."
+      />
       <TopBar />
       <Header />
       <Navbar />
@@ -215,7 +209,7 @@ const IndustrialEquipments = () => {
                   </span>
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
-                  Require custom industrial equipment?
+                  Require custom Industrial Heating & Furnace solutions?
                 </h2>
                 <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed max-w-2xl">
                   Our design bureau can customize dimensions, configurations, and automation systems tailored entirely to your specific manufacturing plant requirements.

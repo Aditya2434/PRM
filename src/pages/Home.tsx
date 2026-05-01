@@ -1,5 +1,6 @@
 // src/pages/Home.tsx
 import { useState, useEffect } from 'react';
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -59,24 +60,17 @@ const ScrollToTop = () => {
 };
 
 const Home = () => {
-  // SEO Optimization
+  // Scroll to top on page load
   useEffect(() => {
-    document.title = "Reheating Furnace & Refractory Manufacturer India | PRM";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const desc = "Paragon Refractories & Minerals (PRM) manufactures reheating furnaces, refractory materials, and industrial equipment for steel plants and rolling mills.";
-    if (metaDescription) {
-      metaDescription.setAttribute("content", desc);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = desc;
-      document.head.appendChild(meta);
-    }
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Reheating Furnace & Refractory Manufacturer India | PRM"
+        description="Paragon Refractories & Minerals (PRM) manufactures reheating furnaces, refractory materials, and industrial equipment for steel plants and rolling mills."
+      />
       {/* Header Area */}
       <TopBar />
       <Header />

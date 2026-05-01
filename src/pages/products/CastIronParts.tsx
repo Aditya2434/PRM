@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -164,17 +165,6 @@ const CastIronParts = () => {
   const minSwipeDistance = 50;
 
   useEffect(() => {
-    document.title = "Cast Iron Furnace Parts Manufacturer India | CI Components";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const desc = "PRM manufactures high-quality cast iron furnace parts in India, including CI doors, skids, dampers, and heavy-duty components for industrial heating.";
-    if (metaDescription) {
-      metaDescription.setAttribute("content", desc);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = desc;
-      document.head.appendChild(meta);
-    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -236,6 +226,10 @@ const CastIronParts = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#080d14]">
+      <SEO 
+        title="Cast Iron Furnace Parts Manufacturer India | CI Components"
+        description="PRM manufactures high-quality cast iron furnace parts in India, including CI doors, skids, dampers, and heavy-duty components for industrial heating."
+      />
       <TopBar />
       <Header />
       <Navbar />
@@ -357,7 +351,7 @@ const CastIronParts = () => {
                   </span>
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
-                  Need specialized cast components?
+                  Need custom Cast Iron furnace components?
                 </h2>
                 <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed max-w-2xl">
                   Our foundry can produce custom cast iron and alloy components based on your precise engineering drawings and material specifications.

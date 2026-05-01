@@ -23,32 +23,27 @@
   <url><loc>https://paragonrefractoriesandminerals.com/products/cast-iron-parts</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 
   <!-- REFRACTORY PRODUCTS -->
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-bricks-80</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-bricks-70</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-bricks-60</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-bricks-50</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-brick-80</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-brick-70</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-brick-60</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-brick-50</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/is-8-fire-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/is-6-fire-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-hanger-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/high-alumina-shoulder-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/hanger-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/shoulder-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/side-arch-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/end-arch-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/skew-block</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/refractory-burner-blocks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/super-castable</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/whytheat-castable</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/insolite-castable</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/insulyte-castable</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/ceramic-fiber-blanket-64</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/ceramic-fiber-blanket-96</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/hysil-block-1-inch</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/hysil-block-2-inch</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/hot-face-insulation-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/cold-face-insulation-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/ceramic-fiber-blanket</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/insulation-bricks-hot-cold-face</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/magnesite-mgr-bricks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://paragonrefractoriesandminerals.com/products/refractory-materials/lc-90-blocks</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
