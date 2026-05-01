@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ArrowLeft, Image as ImageIcon, ZoomIn, X, ChevronLeft } from 'lucide-react';
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -26,21 +27,6 @@ const RefractoryProductDetails = () => {
     setActiveIndex(0);
     setIsLightboxOpen(false);
     window.scrollTo(0, 0);
-
-    if (product) {
-      document.title = `${product.name} Manufacturer in India | PRM`;
-      const metaDescription = document.querySelector('meta[name="description"]');
-      const desc = `Buy high-quality ${product.name} engineered for steel furnaces and high-temperature industrial applications. Ensures durability and superior thermal resistance.`;
-      
-      if (metaDescription) {
-        metaDescription.setAttribute("content", desc);
-      } else {
-        const meta = document.createElement('meta');
-        meta.name = "description";
-        meta.content = desc;
-        document.head.appendChild(meta);
-      }
-    }
   }, [product]);
 
   useEffect(() => {
@@ -114,8 +100,42 @@ const RefractoryProductDetails = () => {
     if (isRightSwipe) goPrevImage();
   };
 
+  // Generate keywords
+  const dynamicKeywords = [
+    product.name,
+    product.category,
+    "Refractory Manufacturer India",
+    "PRM",
+    "Furnace Lining",
+    ...(product.applications || [])
+  ].join(", ");
+
+  // Generate Schema.org Product Data
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": product.name,
+    "image": `https://paragonrefractories.com${product.image}`,
+    "description": product.shortDescription,
+    "brand": {
+      "@type": "Brand",
+      "name": "Paragon Refractories"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Paragon Refractories & Minerals",
+      "location": "India"
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#030508] font-sans selection:bg-[#e63946]/30 selection:text-white">
+      <SEO 
+        title={`${product.name} Manufacturer in India | PRM`}
+        description={`Buy high-quality ${product.name} engineered for steel furnaces and high-temperature industrial applications. Ensures durability and superior thermal resistance.`}
+        keywords={dynamicKeywords}
+        schema={productSchema}
+      />
       <TopBar />
       <Header />
       <Navbar />

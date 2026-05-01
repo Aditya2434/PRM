@@ -1,6 +1,7 @@
 // src/pages/Clients.tsx
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -62,19 +63,8 @@ const ScrollingColumn = ({
 // Main Page Component
 // ----------------------------------------------------------------------
 const Clients = () => {
-  // Scroll to top and set SEO on page load
+  // Scroll to top on page load
   useEffect(() => {
-    document.title = "Our Clients | Steel Plants & Industrial Companies | PRM";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const desc = "Trusted by leading steel plants, rolling mills, and industrial companies across India for premium refractory materials and reliable furnace systems.";
-    if (metaDescription) {
-      metaDescription.setAttribute("content", desc);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = desc;
-      document.head.appendChild(meta);
-    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -85,6 +75,10 @@ const Clients = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative bg-[#08101a]">
+      <SEO 
+        title="Our Clients | Steel Plants & Industrial Companies | PRM"
+        description="Trusted by leading steel plants, rolling mills, and industrial companies across India for premium refractory materials and reliable furnace systems."
+      />
       <TopBar />
       <Header />
       <Navbar />

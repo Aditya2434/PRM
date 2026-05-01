@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom'; 
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -15,19 +16,8 @@ const categories = ['All', 'High Alumina', 'Castables', 'Insulating', 'Special']
 const RefractoryMaterial = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  // SEO Optimization
+  // Scroll to top on page load
   useEffect(() => {
-    document.title = "Refractory Material Manufacturer India | Bricks & Castables";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const desc = "PRM manufactures top-grade refractory materials including high alumina bricks, fire bricks, castables, and insulation materials for furnaces and kilns.";
-    if (metaDescription) {
-      metaDescription.setAttribute("content", desc);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = desc;
-      document.head.appendChild(meta);
-    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -37,6 +27,10 @@ const RefractoryMaterial = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#080d14]">
+      <SEO 
+        title="Refractory Material Manufacturer India | Bricks & Castables"
+        description="PRM manufactures top-grade refractory materials including high alumina bricks, fire bricks, castables, and insulation materials for furnaces and kilns."
+      />
       <TopBar />
       <Header />
       <Navbar />
@@ -230,7 +224,7 @@ const RefractoryMaterial = () => {
                   </span>
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-5 leading-tight tracking-tight">
-                  Need a custom refractory lining design?
+                  Need a custom Refractory Material lining design?
                 </h2>
                 <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed max-w-2xl">
                   Speak directly with our metallurgical engineers to find the exact formulation for your furnace, ensuring maximum thermal efficiency and lifespan.

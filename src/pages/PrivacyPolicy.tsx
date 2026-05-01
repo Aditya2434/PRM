@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
+import SEO from '@/components/SEO';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
@@ -16,6 +17,10 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc]">
+      <SEO 
+        title="Privacy Policy | Paragon Refractories & Minerals"
+        description="Privacy Policy for Paragon Refractories & Minerals (PRM). Learn how we collect, use, and protect your personal data."
+      />
       {/* Navigation Area */}
       <TopBar />
       <Header />
