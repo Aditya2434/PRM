@@ -115,7 +115,7 @@ const RefractoryProductDetails = () => {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.name,
-    "image": `https://paragonrefractories.com${product.image}`,
+    "image": `https://www.paragonrefractoriesandminerals.com${product.image}`,
     "description": product.shortDescription,
     "brand": {
       "@type": "Brand",
@@ -134,6 +134,7 @@ const RefractoryProductDetails = () => {
         title={`${product.name} Manufacturer in India | PRM`}
         description={`Buy high-quality ${product.name} engineered for steel furnaces and high-temperature industrial applications. Ensures durability and superior thermal resistance.`}
         keywords={dynamicKeywords}
+        url={`/products/refractory-materials/${product.id}`}
         schema={productSchema}
       />
       <TopBar />

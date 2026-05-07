@@ -20,6 +20,7 @@ const AboutUs = () => {
       <SEO 
         title="About PRM | Refractory & Furnace Manufacturer India"
         description="PRM is a leading manufacturer of reheating furnaces, refractory materials, and industrial equipment with expertise in steel and high-temperature sectors."
+        url="/about"
       />
       <TopBar />
       <Header />

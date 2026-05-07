@@ -65,11 +65,22 @@ const Home = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Strict Site Name Schema for Google
+  const siteNameSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Paragon Refractories and Minerals",
+    "alternateName": ["Paragon Refractories & Minerals", "PRM"],
+    "url": "https://www.paragonrefractoriesandminerals.com/"
+  };
+
   return (
     <div className="min-h-screen">
       <SEO 
         title="Reheating Furnace & Refractory Manufacturer India | PRM"
         description="Paragon Refractories & Minerals (PRM) manufactures reheating furnaces, refractory materials, and industrial equipment for steel plants and rolling mills."
+        url="/"
+        schema={siteNameSchema}
       />
       {/* Header Area */}
       <TopBar />

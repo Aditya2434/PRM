@@ -30,6 +30,7 @@ const RefractoryMaterial = () => {
       <SEO 
         title="Refractory Material Manufacturer India | Bricks & Castables"
         description="PRM manufactures top-grade refractory materials including high alumina bricks, fire bricks, castables, and insulation materials for furnaces and kilns."
+        url="/products/refractory-materials"
       />
       <TopBar />
       <Header />

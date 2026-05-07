@@ -113,7 +113,7 @@ const IndustrialEquipmentDetails = () => {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.title,
-    "image": `https://paragonrefractories.com${product.image}`,
+    "image": `https://www.paragonrefractoriesandminerals.com${product.image}`,
     "description": product.desc,
     "brand": {
       "@type": "Brand",
@@ -132,6 +132,7 @@ const IndustrialEquipmentDetails = () => {
         title={`${product.title} Manufacturer in India | PRM Equipment`}
         description={`PRM manufactures heavy-duty ${product.title} for steel plants and rolling mills. Designed for maximum efficiency, fuel savings, and long-lasting performance.`}
         keywords={dynamicKeywords}
+        url={`/products/industrial-equipment/${product.id}`}
         schema={productSchema}
       />
       <TopBar />
