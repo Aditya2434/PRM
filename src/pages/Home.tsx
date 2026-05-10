@@ -77,8 +77,9 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Reheating Furnace & Refractory Manufacturer India | PRM"
-        description="Paragon Refractories & Minerals (PRM) manufactures reheating furnaces, refractory materials, and industrial equipment for steel plants and rolling mills."
+        title="Reheating Furnace Manufacturer in India | Refractory Materials & Industrial Equipment"
+        description="Paragon Refractories & Minerals (PRM) is a leading reheating furnace manufacturer in India, supplying high-quality refractory materials and industrial equipment."
+        keywords="Reheating furnace manufacturer in India, Reheating furnaces, Refractory Materials, Industrial Equipment, Steel Plants, PRM"
         url="/"
         schema={siteNameSchema}
       />
