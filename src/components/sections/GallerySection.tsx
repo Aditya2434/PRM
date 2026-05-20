@@ -8,7 +8,8 @@ import {
   DialogHeader 
 } from '@/components/ui/dialog';
 import { motion } from 'framer-motion';
-import { Maximize2, Image as ImageIcon, ZoomIn, ZoomOut } from 'lucide-react';
+// Fixed: Removed the unused Maximize2 and ImageIcon imports
+import { ZoomIn, ZoomOut } from 'lucide-react';
 
 const galleryImages = Array.from({ length: 26 }, (_, i) => ({
   id: i + 1,
@@ -28,7 +29,7 @@ const ZoomableImage = ({ src, alt }: { src: string; alt: string }) => {
       className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-lg group"
       onClick={() => setIsZoomed(!isZoomed)}
     >
-      {/* Zoom Hint Icon (Visible on hover on desktop, or active state on mobile) */}
+      {/* Zoom Hint Icon */}
       <div className="absolute top-4 right-4 z-50 bg-black/40 backdrop-blur-md text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
         {isZoomed ? <ZoomOut className="w-5 h-5" /> : <ZoomIn className="w-5 h-5" />}
       </div>
@@ -94,13 +95,13 @@ const GallerySection = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    {/* Dark overlay that fades out on hover to highlight the hovered image */}
+                    {/* Dark overlay that fades out on hover */}
                     <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
                   </div>
                 </DialogTrigger>
               </motion.div>
 
-              {/* Modal Pop-up (Backdrop Blur applied to container) */}
+              {/* Modal Pop-up */}
               <DialogContent className="max-w-5xl w-[95vw] p-0 bg-transparent border-none shadow-none flex items-center justify-center">
                 <DialogHeader className="sr-only">
                   <DialogTitle>{image.alt}</DialogTitle>
@@ -108,10 +109,7 @@ const GallerySection = () => {
                 
                 {/* Backdrop Blur Container */}
                 <div className="relative w-full h-[90vh] flex items-center justify-center backdrop-blur-md bg-black/60 p-2 md:p-4 rounded-xl overflow-hidden">
-                  
-                  {/* Our new Zoomable Image Component */}
                   <ZoomableImage src={image.url} alt={image.alt} />
-                  
                 </div>
               </DialogContent>
             </Dialog>
