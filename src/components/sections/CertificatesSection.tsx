@@ -27,8 +27,8 @@ const certificates = [
 const CertificatesSection = () => {
   return (
     <div className="w-full flex flex-col">
-      {/* Hero Banner Section (Size Reduced & Image Updated) */}
-      <section className="relative bg-[#0f172a] py-16 md:py-20 overflow-hidden flex items-center">
+      {/* Hero Banner Section - Increased pt (padding-top) to prevent navbar overlap */}
+      <section className="relative bg-[#0f172a] pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden flex items-center">
         {/* Background Image - Import/Export/Trade Theme */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay"

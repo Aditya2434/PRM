@@ -18,7 +18,8 @@ export const navLinks: NavLink[] = [
   { name: 'PROJECTS', href: '/projects', hasDropdown: false },
   { name: 'OUR CLIENTS', href: '/clients', hasDropdown: false },
   { name: 'PRODUCTS', href: '#', hasDropdown: true },
-  { name: 'CERTIFICATES', href: '/certificates', hasDropdown: false }, // <-- Updated to dedicated route
+  { name: 'CERTIFICATES', href: '/certificates', hasDropdown: false }, 
+  { name: 'GALLERY', href: '/gallery', hasDropdown: false }, // <-- Added Gallery Link
   { name: 'CONTACT', href: '/contact', hasDropdown: false }, 
 ];
 
