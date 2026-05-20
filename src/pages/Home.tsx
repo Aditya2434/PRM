@@ -60,9 +60,21 @@ const ScrollToTop = () => {
 };
 
 const Home = () => {
-  // Scroll to top on page load
+  // Handle scrolling on page load (Top or Specific hash)
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   // Strict Site Name Schema for Google
@@ -75,7 +87,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <SEO 
         title="Reheating Furnace Manufacturer in India | Refractory Materials & Industrial Equipment"
         description="Paragon Refractories & Minerals (PRM) is a leading reheating furnace manufacturer in India, supplying high-quality refractory materials and industrial equipment."
@@ -89,7 +101,7 @@ const Home = () => {
       <Navbar />
 
       {/* Main Content */}
-      <main>
+      <main className="flex-grow">
         <HeroSection />
         <FeaturesSection />
         <AboutSection />

@@ -43,6 +43,21 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Helper function to handle smooth scrolling for hash links
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#') && window.location.pathname === '/') {
+      e.preventDefault();
+      const targetId = href.substring(2); // removes '/#'
+      const element = document.getElementById(targetId);
+      if (element) {
+        // Offset for the sticky navbar height
+        const y = element.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+    setIsOpen(false); // Always close mobile menu on click
+  };
+
   return (
     <div
       className={`sticky top-0 z-40 w-full flex flex-col items-center transition-all duration-300 pointer-events-none -mb-[100px] ${scrolled ? "pt-1.5" : "pt-2"}`}
@@ -55,7 +70,7 @@ const Navbar = () => {
         `}
       >
         <div className="flex items-center shrink-0">
-          <Link to="/">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
               src={logo}
               alt="Paragon Logo"
@@ -70,6 +85,7 @@ const Navbar = () => {
             const isDirectPage =
               link.name === "SERVICES" ||
               link.name === "PROJECTS" ||
+              link.name === "CERTIFICATES" ||
               link.name === "CONTACT";
             const hasSubmenu =
               !isDirectPage &&
@@ -109,6 +125,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={linkHref}
+                    onClick={(e) => handleNavClick(e, linkHref)}
                     className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#e63946] transition-colors py-1.5"
                   >
                     {link.name}
@@ -130,6 +147,7 @@ const Navbar = () => {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
+                            onClick={(e) => handleNavClick(e, subItem.href)}
                             className="block px-6 py-2.5 text-sm font-medium text-gray-600 hover:text-[#e63946] hover:bg-gray-50 transition-colors border-l-2 border-transparent hover:border-[#e63946]"
                           >
                             {subItem.name}
@@ -170,6 +188,7 @@ const Navbar = () => {
                 const isDirectPage =
                   link.name === "SERVICES" ||
                   link.name === "PROJECTS" ||
+                  link.name === "CERTIFICATES" ||
                   link.name === "CONTACT";
                 const hasSubmenu =
                   !isDirectPage &&
@@ -203,7 +222,7 @@ const Navbar = () => {
                       <Link
                         to={linkHref}
                         className="block w-full text-white font-bold uppercase tracking-wider text-sm hover:text-[#e63946] transition-colors py-1"
-                        onClick={() => setIsOpen(false)}
+                        onClick={(e) => handleNavClick(e, linkHref)}
                       >
                         {link.name}
                       </Link>
@@ -223,7 +242,7 @@ const Navbar = () => {
                                 key={subItem.name}
                                 to={subItem.href}
                                 className="block text-gray-300 text-sm hover:text-white py-1"
-                                onClick={() => setIsOpen(false)}
+                                onClick={(e) => handleNavClick(e, subItem.href)}
                               >
                                 {subItem.name}
                               </Link>

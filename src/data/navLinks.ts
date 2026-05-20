@@ -18,13 +18,14 @@ export const navLinks: NavLink[] = [
   { name: 'PROJECTS', href: '/projects', hasDropdown: false },
   { name: 'OUR CLIENTS', href: '/clients', hasDropdown: false },
   { name: 'PRODUCTS', href: '#', hasDropdown: true },
-  { name: 'CONTACT', href: '/contact', hasDropdown: false }, // <-- Updated to /contact
+  { name: 'CERTIFICATES', href: '/certificates', hasDropdown: false }, // <-- Updated to dedicated route
+  { name: 'CONTACT', href: '/contact', hasDropdown: false }, 
 ];
 
 export const topBarLinks: Omit<NavLink, 'hasDropdown'>[] = [
   { name: 'Career', href: '#' },
   { name: 'Give Feedback', href: '#' },
-  { name: 'Contact Us', href: '/contact' }, // <-- Updated to /contact
+  { name: 'Contact Us', href: '/contact' },
 ];
 
 export const socialLinks: SocialLink[] = [
