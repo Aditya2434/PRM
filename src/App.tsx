@@ -8,6 +8,7 @@ import Clients from '@/pages/Clients';
 import Contact from '@/pages/Contact'; 
 import PrivacyPolicy from '@/pages/PrivacyPolicy'; 
 import Certificates from '@/pages/Certificates';
+import Gallery from '@/pages/Gallery';
 
 // --- CRITICAL: Ensure these imports point to their exact respective files ---
 import RefractoryMaterial from '@/pages/products/RefractoryMaterial';
@@ -44,6 +45,7 @@ function App() {
           {/* CAST IRON PARTS ROUTES */}
           <Route path="/products/cast-iron-parts" element={<CastIronParts />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </div>
     </Router>
