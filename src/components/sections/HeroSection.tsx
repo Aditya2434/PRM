@@ -8,28 +8,33 @@ import { ArrowButton } from "@/components/ui/ArrowButton";
 interface Slide {
   id: number;
   image: string;
+  mobileImage: string;
   title: string;
 }
 
 const slides: Slide[] = [
   {
     id: 1,
-    image: "/images/Gallery/Refractory.webp",
+    image: "/images/Gallery/g29.webp",
+    mobileImage: "/images/Gallery/g29 mob.webp",
     title: "Premium Refractory Solutions",
   },
   {
     id: 2,
-    image: "/images/Gallery/CI.webp",
+    image: "/images/Gallery/g28.webp",
+    mobileImage: "/images/Gallery/g28 mob.webp",
     title: "Custom Cast Iron Components",
   },
   {
     id: 3,
     image: "/images/Gallery/g17.webp",
+    mobileImage: "/images/Gallery/g17 mob.webp",
     title: "Advanced Industrial Equipment",
   },
   {
     id: 4,
     image: "/images/Gallery/g18.webp",
+    mobileImage: "/images/Gallery/g18 mob.webp",
     title: "Excellence in Engineering",
   },
 ];
@@ -54,7 +59,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[600px] md:h-[700px] overflow-hidden bg-[#030508]">
+    // Adjusted mobile height slightly (h-[500px]) for a better fit
+    <section className="relative h-[500px] md:h-[700px] overflow-hidden bg-[#030508]">
       {/* Background Images */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -63,19 +69,25 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0"
+          className="absolute inset-0 flex items-center justify-center"
         >
-          <img
-            src={slides[currentSlide].image}
-            alt={slides[currentSlide].title}
-            className="w-full h-full object-cover object-center"
-          />
+          <picture className="w-full h-full">
+            <source media="(max-width: 768px)" srcSet={slides[currentSlide].mobileImage} />
+            {/* object-contain ensures the FULL image is visible on mobile without cropping. 
+              md:object-cover ensures it fills the screen normally on desktops.
+            */}
+            <img
+              src={slides[currentSlide].image}
+              alt={slides[currentSlide].title}
+              className="w-full h-full object-contain md:object-cover object-center"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-r from-[#030508]/95 via-[#030508]/60 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-12 lg:px-24 h-full flex items-center">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-24 h-full flex items-center">
         <div className="max-w-2xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -109,15 +121,15 @@ const HeroSection = () => {
       </div>
 
       {/* Slider Controls */}
-      <div className="absolute bottom-1/2 translate-y-1/2 left-4 md:left-12 lg:left-24 z-20">
+      <div className="absolute bottom-1/2 translate-y-1/2 left-2 md:left-12 lg:left-24 z-20">
         <ArrowButton direction="left" onClick={prevSlide} />
       </div>
-      <div className="absolute bottom-1/2 translate-y-1/2 right-4 md:right-12 lg:right-24 z-20">
+      <div className="absolute bottom-1/2 translate-y-1/2 right-2 md:right-12 lg:right-24 z-20">
         <ArrowButton direction="right" onClick={nextSlide} />
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
