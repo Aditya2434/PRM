@@ -132,14 +132,15 @@ export const ProjectCard = ({
     setSubmitStatus('idle');
 
     try {
-      const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY"; 
+      const ACCESS_KEY = "e0c4e386-1dea-4873-86d2-5edee06ea579"; 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
-          subject: `Product Enquiry: ${title} from ${formData.company || formData.name}`,
+          subject: `Product Inquiry: ${title} from ${formData.company || formData.name}`,
           ...formData,
+          from_name: "PRM Website Projects Inquiry",
         }),
       });
 

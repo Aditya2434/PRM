@@ -48,6 +48,13 @@ module.exports = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        industrial: {
+          navy: "#1e3a5f",
+          red: "#e63946",
+          sand: "#f0ede8",
+          steel: "#8a9ab0",
+          warm: "#f5f4f0",
+        },
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -58,6 +65,10 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       keyframes: {
         "accordion-down": {
@@ -72,11 +83,50 @@ module.exports = {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
         },
+        "fade-in-up": {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "ken-burns": {
+          from: { transform: "scale(1.06)" },
+          to: { transform: "scale(1)" },
+        },
+        "sweep-shine": {
+          "0%": { transform: "translateX(-150%) skewX(-15deg)" },
+          "100%": { transform: "translateX(300%) skewX(-15deg)" },
+        },
+        "float-up": {
+          "0%,100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        "industrial-pulse": {
+          "0%,100%": { boxShadow: "0 0 0 0 rgba(230,57,70,0.4)" },
+          "50%": { boxShadow: "0 0 0 12px rgba(230,57,70,0)" },
+        },
+        "slide-in-left": {
+          from: { opacity: "0", transform: "translateX(-40px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        "slide-in-right": {
+          from: { opacity: "0", transform: "translateX(40px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        "width-expand": {
+          from: { width: "0%" },
+          to: { width: "100%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+        "fade-in-up": "fade-in-up 0.7s ease-out forwards",
+        "ken-burns": "ken-burns 10s ease-out forwards",
+        "sweep-shine": "sweep-shine 0.8s ease-out forwards",
+        "float-up": "float-up 4s ease-in-out infinite",
+        "industrial-pulse": "industrial-pulse 2s ease-in-out infinite",
+        "slide-in-left": "slide-in-left 0.7s ease-out forwards",
+        "slide-in-right": "slide-in-right 0.7s ease-out forwards",
       },
     },
   },

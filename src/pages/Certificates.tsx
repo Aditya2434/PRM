@@ -16,9 +16,9 @@ const Certificates = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO 
-        title="Our Certificates | Paragon Refractories and Minerals"
-        description="View the recognitions, quality accreditations, and industry standard certificates of Paragon Refractories & Minerals."
-        keywords="Certificates, Quality Accreditations, ISO, PRM, Paragon Refractories"
+        title="Quality Certifications & ISO Standards | Paragon Refractories and Minerals"
+        description="Review our quality accreditations, ISO standards, and manufacturer approvals verifying the superior performance of our refractory and furnace supplies."
+        keywords="refractory quality certificates, ISO certified furnace manufacturer, industrial casting approvals, steel plant supplier standards"
         url="/certificates"
       />
       

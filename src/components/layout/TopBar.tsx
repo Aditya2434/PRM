@@ -3,9 +3,10 @@ import { FaLinkedinIn } from 'react-icons/fa';
 
 const TopBar = () => {
   return (
-    <div className="bg-[#030508] text-white py-2 sm:py-2.5 border-b border-white/10 relative overflow-hidden">
-      {/* Subtle premium gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#e63946]/10 via-transparent to-[#1e3a5f]/20 pointer-events-none" />
+    <div className="bg-[#1e3a5f] text-white py-2 sm:py-2.5 border-b border-white/10 relative overflow-hidden">
+      {/* Industrial diagonal stripe overlay */}
+      <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,transparent,transparent_20px,rgba(255,255,255,0.02)_20px,rgba(255,255,255,0.02)_40px)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#e63946]/15 via-transparent to-[#152d4a]/40 pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 flex flex-col sm:flex-row justify-between items-center max-w-7xl relative z-10 gap-2 sm:gap-0">
 

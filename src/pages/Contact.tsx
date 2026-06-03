@@ -77,8 +77,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#f4f7f9] font-sans">
       <SEO 
-        title="Contact Refractory & Furnace Manufacturer | PRM India"
-        description="Contact PRM India for high-performance reheating furnaces, refractory materials, and industrial equipment. Request a custom quote for your steel plant today."
+        title="Contact Us | Reheating Furnace & Refractory Manufacturer | Paragon Refractories and Minerals"
+        description="Get in touch with PRM India in Durgapur, West Bengal for customized reheating furnace systems, high-quality refractory bricks, and enterprise quotes."
+        keywords="contact refractory supplier, furnace manufacturer Durgapur, refractory brick prices India, steel plant equipment quote, PRM contact number"
+        url="/contact"
       />
       <TopBar />
       <Header />
@@ -264,8 +266,13 @@ const Contact = () => {
                       <Phone className="w-5 h-5 text-[#e63946] group-hover:text-white transition-colors" />
                     </div>
                     <div>
-                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Direct Line</p>
-                      <p className="text-lg font-medium text-white">+91 9932317334</p>
+                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Direct Lines</p>
+                      <p className="text-lg font-medium text-white hover:text-[#e63946] transition-colors">
+                        <a href="tel:+919932317334">+91 9932317334</a>
+                      </p>
+                      <p className="text-lg font-medium text-white hover:text-[#e63946] transition-colors mt-1">
+                        <a href="tel:+918158884204">+91 8158884204</a>
+                      </p>
                     </div>
                   </div>
 
@@ -276,8 +283,8 @@ const Contact = () => {
                     </div>
                     <div className="min-w-0">
                       <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Email Support</p>
-                      <p className="text-[15px] sm:text-[17px] font-medium text-white break-all sm:break-normal group-hover:text-[#e63946] transition-colors cursor-pointer">
-                        paragonrefractories22@gmail.com
+                      <p className="text-[15px] sm:text-[17px] font-medium text-white break-all sm:break-normal hover:text-[#e63946] transition-colors cursor-pointer">
+                        <a href="mailto:paragonrefractories22@gmail.com">paragonrefractories22@gmail.com</a>
                       </p>
                     </div>
                   </div>

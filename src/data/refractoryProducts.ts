@@ -45,7 +45,7 @@ export const refractoryProducts: RefractoryProduct[] = [
       { label: "Cold Crushing Strength", value: "≥ 55 – 60 MPa" },
       { label: "Refractoriness", value: "≥ 1800°C" },
       { label: "RUL @ 0.2 MPa", value: "≥ 1520°C" },
-      { label: "Standard Size", value: "230 × 115 × 65 mm" },
+      { label: "Standard Size", value: "230 × 115 × 75 mm" },
       { label: "Shapes", value: "Standard, Arch, Wedge, Key, Custom shapes available" },
     ],
     features: [
@@ -91,7 +91,7 @@ export const refractoryProducts: RefractoryProduct[] = [
       { label: "Cold Crushing Strength", value: "≥ 45 MPa" },
       { label: "Refractoriness", value: "≥ 1770°C" },
       { label: "RUL @ 0.2 MPa", value: "≥ 1480°C" },
-      { label: "Standard Size", value: "230 × 115 × 65 mm" },
+      { label: "Standard Size", value: "230 × 115 × 75 mm" },
       { label: "Shapes", value: "Standard, Arch, Wedge, Key, Custom shapes available" },
     ],
     features: [
@@ -135,7 +135,7 @@ export const refractoryProducts: RefractoryProduct[] = [
       { label: "Cold Crushing Strength", value: "≥ 40 – 45 MPa" },
       { label: "Refractoriness", value: "≥ 1750°C" },
       { label: "RUL @ 0.2 MPa", value: "≥ 1450°C" },
-      { label: "Standard Size", value: "230 × 115 × 65 mm" },
+      { label: "Standard Size", value: "230 × 115 × 75 mm" },
       { label: "Shapes", value: "Standard, Arch, Wedge, Key, Custom shapes available" },
     ],
     features: [
@@ -179,7 +179,7 @@ export const refractoryProducts: RefractoryProduct[] = [
       { label: "Cold Crushing Strength", value: "≥ 35 – 40 MPa" },
       { label: "Refractoriness", value: "≥ 1700°C" },
       { label: "RUL @ 0.2 MPa", value: "≥ 1400°C" },
-      { label: "Standard Size", value: "230 × 115 × 65 mm" },
+      { label: "Standard Size", value: "230 × 115 × 75 mm" },
       { label: "Shapes", value: "Standard, Arch, Wedge, Key, Custom shapes available" },
     ],
     features: [
@@ -219,7 +219,7 @@ export const refractoryProducts: RefractoryProduct[] = [
       { label: "Cold Crushing Strength", value: "≥ 40 MPa" },
       { label: "Refractoriness", value: "≥ 1750°C" },
       { label: "RUL @ 0.2 MPa", value: "≥ 1400°C" },
-      { label: "Standard Size", value: "230 × 115 × 65 mm" },
+      { label: "Standard Size", value: "230 × 115 × 75 mm" },
       { label: "Shapes", value: "Standard, Arch, Wedge, Key, Custom shapes available" },
     ],
     features: [
@@ -262,7 +262,7 @@ export const refractoryProducts: RefractoryProduct[] = [
       { label: "Cold Crushing Strength", value: "≥ 30 – 35 MPa" },
       { label: "Refractoriness", value: "≥ 1700°C" },
       { label: "RUL @ 0.2 MPa", value: "≥ 1350°C" },
-      { label: "Standard Size", value: "230 × 115 × 65 mm" },
+      { label: "Standard Size", value: "230 × 115 × 75 mm" },
       { label: "Shapes", value: "Standard, Arch, Wedge, Key, Custom shapes available" },
     ],
     features: [
@@ -735,7 +735,7 @@ export const refractoryProducts: RefractoryProduct[] = [
         ["Cold Crushing Strength (MPa)", "3 – 6", "2 – 4"],
         ["Thermal Conductivity (W/m·K)", "0.25 – 0.45", "0.15 – 0.30"],
         ["Maximum Service Temp (°C)", "1200 – 1400", "900 – 1100"],
-        ["Standard Size", "230 × 115 × 65 mm", "230 × 115 × 65 mm"]
+        ["Standard Size", "230 × 115 × 75 mm", "230 × 115 × 75 mm"]
       ]
     },
     features: [
@@ -777,7 +777,7 @@ export const refractoryProducts: RefractoryProduct[] = [
       { label: "Cold Crushing Strength (MPa)", value: "≥ 50 – 70" },
       { label: "Refractoriness (°C)", value: "≥ 2000" },
       { label: "RUL @ 0.2 MPa (°C)", value: "≥ 1600" },
-      { label: "Standard Size", value: "230 × 115 × 65 mm" },
+      { label: "Standard Size", value: "230 × 115 × 75 mm" },
       { label: "Shapes", value: "Standard, Key, Arch, Custom shapes" }
     ],
     features: [

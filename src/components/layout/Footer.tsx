@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0d1b2a] text-white pt-20">
+    <footer className="bg-[#0f2540] text-white pt-20">
       {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
       <div className="container mx-auto px-12 lg:px-24 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
@@ -16,7 +16,7 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="Paragon Refractories and Minerals Logo" 
-                className="h-12 w-auto object-contain" 
+                className="h-12 w-auto object-contain bg-transparent" 
               />
               <div className="flex flex-col border-l border-gray-700 pl-3">
                 <span className="text-sm font-bold leading-tight tracking-tight uppercase">PARAGON REFRACTORIES</span>
@@ -111,7 +111,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-[#0a1520] py-8">
+      <div className="bg-[#0a1828] border-t border-white/5 py-8">
         {/* Updated padding: px-12 (48px) for mobile, lg:px-24 (96px) for desktop */}
         <div className="container mx-auto px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500 font-medium">
