@@ -9,7 +9,6 @@ import Footer from '@/components/layout/Footer';
 import SectionTitle from '@/components/ui/SectionTitle';
 import CustomButton from '@/components/ui/CustomButton';
 import { clients, type ClientLogo } from '@/data/clients';
-import heroBg from '@/assets/images/cta-bg.jpg';
 
 // ----------------------------------------------------------------------
 // Reusable, Perfectly Looping Marquee Column Component
@@ -74,44 +73,73 @@ const Clients = () => {
   const col3 = clients.slice(17, 25);
 
   return (
-    <div className="min-h-screen flex flex-col relative bg-[#08101a]">
+    <div className="min-h-screen flex flex-col relative bg-[#f5f4f0]">
       <SEO 
-        title="Our Clients | Steel Plants & Industrial Companies | PRM"
-        description="Trusted by leading steel plants, rolling mills, and industrial companies across India for premium refractory materials and reliable furnace systems."
+        title="Our Steel Plant & Rolling Mill Clients | Paragon Refractories and Minerals"
+        description="PRM is trusted by major steel manufacturing plants and rolling mills across India for high-quality furnace components, castings, and refractory supplies."
+        keywords="steel plant clients, rolling mill partners, industrial furnace customers, refractory clients India, steel manufacturer suppliers"
+        url="/clients"
       />
       <TopBar />
       <Header />
       <Navbar />
 
       <main className="flex-grow">
-        {/* Standard Hero Section */}
-        <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-[#0f172a]">
-          <div className="absolute inset-0 opacity-20">
-            <img src={heroBg} alt="Clients Background" className="w-full h-full object-cover" />
+        {/* Hero Section — Industrial Theme */}
+        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0f172a]">
+          {/* Background Image */}
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src="/images/clients_hero.jpg"
+              alt="Our Industrial Client Network"
+              className="w-full h-full object-cover animate-ken-burns"
+            />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          {/* Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/55 to-[#0f172a]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-[#0f172a]/30" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(230,57,70,0.03)_30px,rgba(230,57,70,0.03)_31px)] pointer-events-none" />
+          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#e63946]/60" />
+          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#e63946]/60" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-20 text-center">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-block py-1 px-3 rounded-full bg-[#e63946]/10 text-[#e63946] border border-[#e63946]/20 text-sm font-bold uppercase tracking-widest mb-4"
+              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#e63946]/15 border border-[#e63946]/30 backdrop-blur-sm text-[#e63946] text-xs font-black uppercase tracking-widest mb-5"
             >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#e63946] animate-pulse" />
               Our Partners
             </motion.span>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5"
             >
               Our <span className="text-[#e63946]">Clients</span>
             </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="w-20 h-[3px] bg-gradient-to-r from-[#e63946] to-transparent mx-auto mb-5"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex items-center justify-center gap-2 text-[11px] font-bold tracking-[0.2em] text-white/75 uppercase bg-black/25 px-5 py-2 rounded-full backdrop-blur-sm border border-white/10 w-fit mx-auto"
+            >
+              <a href="/" className="hover:text-[#e63946] transition-colors">Home</a>
+              <span className="text-white/40">›</span>
+              <span className="text-[#e63946]">Clients</span>
+            </motion.div>
           </div>
         </section>
 
         {/* Client Scrolling Content Section */}
-        <section className="py-20 overflow-hidden relative">
+        <section className="py-20 overflow-hidden relative bg-[#f5f4f0]">
           
           {/* --- Premium Background Ambient Glows --- */}
           <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[#e63946]/10 rounded-full blur-[120px] pointer-events-none" />
@@ -130,14 +158,14 @@ const Clients = () => {
                   subtitle="Our Network" 
                   title="Trusted by Industry Leaders Worldwide" 
                   centered={false}
-                  light={true} 
+                  light={false} 
                 />
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed mt-6 font-light tracking-wide">
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-6 font-light tracking-wide">
                   At Paragon Refractories and Minerals, we take immense pride in the strong, 
                   lasting relationships we've built with top-tier organizations across the 
                   manufacturing, steel, and industrial sectors. 
                 </p>
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed mt-4">
+                <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-4">
                   Our commitment to uncompromising quality and continuous innovation has made us the premier 
                   partner for companies demanding excellence globally.
                 </p>

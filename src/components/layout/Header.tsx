@@ -24,7 +24,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="Paragon Refractories and Minerals" 
-              className="relative h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" 
+              className="relative h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-sm bg-transparent" 
             />
           </div>
 

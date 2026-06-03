@@ -64,8 +64,8 @@ const Navbar = () => {
     >
       <nav
         className={`pointer-events-auto transition-all duration-300 flex justify-between items-center px-6 lg:px-12
-          bg-[#0f172a] text-white w-[95%] md:w-[80%] lg:w-max mx-auto lg:gap-16
-          ${scrolled ? "py-1.5 shadow-lg bg-[#0f172a]/95 backdrop-blur-md" : "py-2"}
+          bg-[#1e3a5f] text-white w-[95%] md:w-[80%] lg:w-max mx-auto lg:gap-16
+          ${scrolled ? "py-1.5 shadow-lg bg-[#1e3a5f]/97 backdrop-blur-md" : "py-2"}
           ${isOpen ? "rounded-t-3xl rounded-b-none" : "rounded-full shadow-md"} 
         `}
       >
@@ -74,7 +74,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Paragon Logo"
-              className="h-9 lg:h-10 w-auto object-contain bg-white/10 rounded-sm p-1 cursor-pointer"
+              className="h-9 lg:h-10 w-auto object-contain rounded-sm p-1 cursor-pointer bg-transparent"
             />
           </Link>
         </div>
@@ -180,7 +180,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="pointer-events-auto lg:hidden w-[95%] md:w-[80%] bg-[#0f172a] rounded-b-3xl overflow-hidden shadow-xl border-t border-white/10"
+            className="pointer-events-auto lg:hidden w-[95%] md:w-[80%] bg-[#1e3a5f] rounded-b-3xl overflow-hidden shadow-xl border-t border-white/10"
           >
             <div className="px-6 py-5 flex flex-col gap-4">
               {navLinks.map((link: any) => {

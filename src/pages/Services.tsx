@@ -9,7 +9,6 @@ import Header from '@/components/layout/Header';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ContactStrip from '@/components/sections/ContactStrip';
-import heroBg from '@/assets/images/cta-bg.jpg';
 import { services } from '@/data/services';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -30,8 +29,10 @@ const Services = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc]">
       <SEO 
-        title="Furnace Installation & Refractory Services | PRM India"
-        description="Expert furnace installation, refractory lining, repair, and maintenance services for steel plants, rolling mills, and heavy industrial applications."
+        title="Industrial Furnace & Refractory Lining Services | Paragon Refractories and Minerals"
+        description="Get professional industrial reheating furnace installation, refractory lining, maintenance, and combustion system audit services across steel mills in India."
+        keywords="furnace installation services, refractory lining installation, reheating furnace maintenance, combustion audit services India, steel plant furnace repairs"
+        url="/services"
       />
       {/* Navigation Area */}
       <TopBar />
@@ -39,19 +40,30 @@ const Services = () => {
       <Navbar />
 
       <main className="flex-grow">
-        {/* Premium Hero Section */}
-        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-[#0f172a]">
-          <div className="absolute inset-0 opacity-30 mix-blend-overlay">
-            <img src={heroBg} alt="Services Background" className="w-full h-full object-cover" />
+        {/* Premium Hero Section — Industrial Theme */}
+        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0f172a]">
+          {/* Background Image */}
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src="/images/services_hero.jpg"
+              alt="Industrial Furnace Services"
+              className="w-full h-full object-cover animate-ken-burns"
+            />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent" />
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          {/* Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/92 via-[#0f172a]/65 to-[#0f172a]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(230,57,70,0.03)_30px,rgba(230,57,70,0.03)_31px)] pointer-events-none" />
+          {/* Corner brackets */}
+          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#e63946]/60" />
+          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#e63946]/60" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-20 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6 shadow-xl"
+              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#e63946]/15 border border-[#e63946]/30 backdrop-blur-sm mb-6 shadow-xl"
             >
               <div className="w-2 h-2 rounded-full bg-[#e63946] animate-pulse" />
               <span className="text-[#e63946] text-xs font-black uppercase tracking-[0.2em]">What We Do</span>
@@ -61,10 +73,26 @@ const Services = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-6 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-5 tracking-tight"
             >
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-[#ffb3c6]">Services</span>
             </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="w-20 h-[3px] bg-gradient-to-r from-[#e63946] to-transparent mx-auto mb-5"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="flex items-center justify-center gap-2 text-[11px] font-bold tracking-[0.2em] text-white/75 uppercase bg-black/25 px-5 py-2 rounded-full backdrop-blur-sm border border-white/10 w-fit mx-auto"
+            >
+              <a href="/" className="hover:text-[#e63946] transition-colors">Home</a>
+              <span className="text-white/40">›</span>
+              <span className="text-[#e63946]">Services</span>
+            </motion.div>
           </div>
         </section>
 

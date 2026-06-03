@@ -12,8 +12,10 @@ const ProjectsSection = () => {
   const displayedProjects = projects.slice(0, 8);
 
   return (
-    <section id="projects" className="py-20 bg-[#0d1b2a]">
-      <div className="container mx-auto px-12 lg:px-24">
+    <section id="projects" className="py-20 bg-[#f5f4f0] relative overflow-hidden">
+      {/* Engineering blueprint grid */}
+      <div className="absolute inset-0 bg-blueprint-grid pointer-events-none" />
+      <div className="container mx-auto px-12 lg:px-24 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -21,7 +23,7 @@ const ProjectsSection = () => {
             subtitle="OUR PORTFOLIO" 
             title="Featured Projects" 
             centered={true}
-            light={true} 
+            light={false} 
           />
         </div>
 
@@ -52,7 +54,7 @@ const ProjectsSection = () => {
         <div className="mt-14 flex justify-center">
           <Link to="/projects">
             <CustomButton 
-              className="group flex items-center gap-2 bg-[#e63946] hover:bg-white hover:text-[#0d1b2a] text-white px-8 py-4 rounded-sm font-bold tracking-widest text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="group flex items-center gap-2 bg-[#1e3a5f] hover:bg-[#e63946] text-white px-8 py-4 rounded-sm font-bold tracking-widest text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               EXPLORE MORE PROJECTS
               <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

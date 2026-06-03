@@ -18,8 +18,9 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <SEO 
-        title="About PRM | Refractory & Furnace Manufacturer India"
-        description="PRM is a leading manufacturer of reheating furnaces, refractory materials, and industrial equipment with expertise in steel and high-temperature sectors."
+        title="About Us | Industrial Furnace & Refractory Experts | Paragon Refractories and Minerals"
+        description="Learn about Paragon Refractories & Minerals (PRM), a premier manufacturer and supplier of industrial reheating furnaces, high-alumina bricks, castables, and custom cast iron components in Durgapur, West Bengal."
+        keywords="About Paragon Refractories, Reheating Furnace manufacturer Durgapur, refractory brick supplier West Bengal, cast iron casting manufacturer India, steel plant furnace suppliers"
         url="/about"
       />
       <TopBar />
@@ -27,24 +28,47 @@ const AboutUs = () => {
       <Navbar />
 
       <main className="flex-grow">
-        {/* Page Banner */}
-        <section className="relative bg-[#0f172a] py-32 md:py-48 overflow-hidden flex items-center min-h-[50vh]">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1920')" }}
-          ></div>
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
-          
+        {/* Page Banner — Industrial Light Theme */}
+        <section className="relative bg-[#0f172a] py-32 md:py-48 overflow-hidden flex items-center min-h-[55vh]">
+          {/* Background Image — Industrial Steel Plant */}
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src="/images/about_us_hero.jpg"
+              alt="Paragon Steel Plant Interior"
+              className="w-full h-full object-cover animate-ken-burns"
+            />
+          </div>
+          {/* Multi-layer overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/60 to-[#0f172a]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-[#0f172a]/30" />
+          {/* Industrial diagonal stripe accent */}
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(230,57,70,0.03)_30px,rgba(230,57,70,0.03)_31px)] pointer-events-none" />
+          {/* Corner bracket accents */}
+          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#e63946]/60" />
+          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#e63946]/60" />
+
           <div className="container mx-auto px-12 lg:px-24 relative z-10 flex flex-col items-center justify-center text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg tracking-tight">
-              About Us
-            </h1>
-            <div className="flex items-center gap-2 text-[12px] font-bold tracking-[0.2em] text-white/80 uppercase bg-black/20 px-6 py-2 rounded-full backdrop-blur-sm">
-              <a href="/" className="hover:text-[#e63946] transition-colors duration-300">Home</a>
-              <ChevronRight className="w-4 h-4" />
-              <span className="text-white">About Us</span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="flex flex-col items-center"
+            >
+              {/* Industrial badge */}
+              <div className="inline-flex items-center gap-2 bg-[#e63946]/15 border border-[#e63946]/30 rounded-full px-5 py-1.5 mb-6 backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#e63946] animate-pulse" />
+                <span className="text-[#e63946] text-[10px] font-black uppercase tracking-[0.25em]">Paragon Refractories & Minerals</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg tracking-tight">
+                About Us
+              </h1>
+              <div className="w-20 h-[3px] bg-gradient-to-r from-[#e63946] to-transparent mb-6" />
+              <div className="flex items-center gap-2 text-[12px] font-bold tracking-[0.2em] text-white/80 uppercase bg-black/25 px-6 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                <a href="/" className="hover:text-[#e63946] transition-colors duration-300">Home</a>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-[#e63946]">About Us</span>
+              </div>
+            </motion.div>
           </div>
         </section>
 

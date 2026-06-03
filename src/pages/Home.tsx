@@ -9,6 +9,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
+import ProductsSection from '@/components/sections/ProductsSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import CTASection from '@/components/sections/CTASection';
 import PartnersSection from '@/components/sections/PartnersSection';
@@ -77,23 +78,81 @@ const Home = () => {
     }
   }, []);
 
-  // Strict Site Name Schema for Google
-  const siteNameSchema = {
+  // Rich combined Schema for Google SEO (LocalBusiness, WebSite & Organization)
+  const combinedSchema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Paragon Refractories and Minerals",
-    "alternateName": ["Paragon Refractories & Minerals", "PRM"],
-    "url": "https://www.paragonrefractoriesandminerals.com/"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.paragonrefractoriesandminerals.com/#website",
+        "url": "https://www.paragonrefractoriesandminerals.com/",
+        "name": "Paragon Refractories and Minerals",
+        "alternateName": ["Paragon Refractories & Minerals", "PRM"],
+        "description": "Leading Reheating Furnace Manufacturer & Refractory Supplier in India"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.paragonrefractoriesandminerals.com/#organization",
+        "name": "Paragon Refractories and Minerals",
+        "url": "https://www.paragonrefractoriesandminerals.com/",
+        "logo": "https://www.paragonrefractoriesandminerals.com/src/assets/logo.png",
+        "sameAs": [
+          "https://www.linkedin.com/company/paragon-refractories-minerals"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+919932317334",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": ["en", "Hindi", "Bengali"]
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.paragonrefractoriesandminerals.com/#localbusiness",
+        "name": "Paragon Refractories and Minerals",
+        "image": "https://www.paragonrefractoriesandminerals.com/images/refractory_hero.jpg",
+        "telephone": ["+919932317334", "+918158884204"],
+        "email": "paragonrefractories22@gmail.com",
+        "url": "https://www.paragonrefractoriesandminerals.com/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Durgapur",
+          "addressLocality": "Durgapur",
+          "addressRegion": "West Bengal",
+          "postalCode": "713201",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 23.5204,
+          "longitude": 87.3119
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      }
+    ]
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <SEO 
-        title="Reheating Furnace Manufacturer in India | Refractory Materials & Industrial Equipment"
-        description="Paragon Refractories & Minerals (PRM) is a leading reheating furnace manufacturer in India, supplying high-quality refractory materials and industrial equipment."
-        keywords="Reheating furnace manufacturer in India, Reheating furnaces, Refractory Materials, Industrial Equipment, Steel Plants, PRM"
+        title="Reheating Furnace Manufacturer & Refractory Supplier in India | Paragon Refractories and Minerals"
+        description="Paragon Refractories & Minerals (PRM) is India's leading manufacturer of reheating furnaces, high-alumina bricks, castables, and heat-resistant cast iron components."
+        keywords="reheating furnace manufacturer, refractory materials manufacturer, high alumina bricks 80%, industrial furnace supplier India, cast iron furnace parts, continuous pusher furnace, refractory castables Durgapur West Bengal"
         url="/"
-        schema={siteNameSchema}
+        schema={combinedSchema}
       />
       {/* Header Area */}
       <TopBar />
@@ -106,6 +165,7 @@ const Home = () => {
         <FeaturesSection />
         <AboutSection />
         <ProjectsSection />
+        <ProductsSection />
         <ServicesSection />
         <CTASection />
         <PartnersSection />
