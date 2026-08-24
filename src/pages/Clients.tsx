@@ -41,7 +41,7 @@ const ScrollingColumn = ({
         {[...items, ...items].map((client, idx) => (
           <div 
             key={`${client.id}-${idx}`} 
-            className="bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-5 flex items-center justify-center aspect-square shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/10 hover:border-[#e63946]/40 hover:shadow-[0_8px_30px_rgba(230,57,70,0.15)] hover:-translate-y-1 transition-all duration-300 shrink-0 group relative overflow-hidden cursor-pointer"
+            className="bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-5 flex items-center justify-center aspect-square shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/10 hover:border-[#c49a3c]/40 hover:shadow-[0_8px_30px_rgba(196,154,60,0.15)] hover:-translate-y-1 transition-all duration-300 shrink-0 group relative overflow-hidden cursor-pointer"
           >
             {/* Premium Glossy Shine Effect on Hover */}
             <div className="absolute inset-0 -translate-x-[150%] skew-x-[30deg] group-hover:animate-sweep-shine bg-gradient-to-r from-transparent via-white/60 to-transparent z-10 pointer-events-none" />
@@ -86,7 +86,7 @@ const Clients = () => {
 
       <main className="flex-grow">
         {/* Hero Section — Industrial Theme */}
-        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0f172a]">
+        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0d1f35]">
           {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">
             <img
@@ -96,19 +96,19 @@ const Clients = () => {
             />
           </div>
           {/* Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/55 to-[#0f172a]/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-[#0f172a]/30" />
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(230,57,70,0.03)_30px,rgba(230,57,70,0.03)_31px)] pointer-events-none" />
-          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#e63946]/60" />
-          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#e63946]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f35]/90 via-[#0d1f35]/55 to-[#0d1f35]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f35]/80 via-transparent to-[#0d1f35]/30" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(196,154,60,0.03)_30px,rgba(196,154,60,0.03)_31px)] pointer-events-none" />
+          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#c49a3c]/60" />
+          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#c49a3c]/60" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-20 text-center">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#e63946]/15 border border-[#e63946]/30 backdrop-blur-sm text-[#e63946] text-xs font-black uppercase tracking-widest mb-5"
+              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#c49a3c]/15 border border-[#c49a3c]/30 backdrop-blur-sm text-[#c49a3c] text-xs font-black uppercase tracking-widest mb-5"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e63946] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#c49a3c] animate-pulse" />
               Our Partners
             </motion.span>
             <motion.h1 
@@ -117,13 +117,13 @@ const Clients = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5"
             >
-              Our <span className="text-[#e63946]">Clients</span>
+              Our <span className="text-[#c49a3c]">Clients</span>
             </motion.h1>
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="w-20 h-[3px] bg-gradient-to-r from-[#e63946] to-transparent mx-auto mb-5"
+              className="w-20 h-[3px] bg-gradient-to-r from-[#c49a3c] to-transparent mx-auto mb-5"
             />
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -131,9 +131,9 @@ const Clients = () => {
               transition={{ delay: 0.4 }}
               className="flex items-center justify-center gap-2 text-[11px] font-bold tracking-[0.2em] text-white/75 uppercase bg-black/25 px-5 py-2 rounded-full backdrop-blur-sm border border-white/10 w-fit mx-auto"
             >
-              <a href="/" className="hover:text-[#e63946] transition-colors">Home</a>
+              <a href="/" className="hover:text-[#c49a3c] transition-colors">Home</a>
               <span className="text-white/40">›</span>
-              <span className="text-[#e63946]">Clients</span>
+              <span className="text-[#c49a3c]">Clients</span>
             </motion.div>
           </div>
         </section>
@@ -142,7 +142,7 @@ const Clients = () => {
         <section className="py-20 overflow-hidden relative bg-[#f5f4f0]">
           
           {/* --- Premium Background Ambient Glows --- */}
-          <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[#e63946]/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[#c49a3c]/10 rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-[#457b9d]/10 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="container mx-auto px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 h-full lg:min-h-[80vh] relative z-10">
@@ -177,7 +177,7 @@ const Clients = () => {
                   style={{ originX: 0 }} // Scales from the left edge
                 >
                   <a href="/contact">
-                    <CustomButton className="bg-gradient-to-r from-[#e63946] to-[#c1121f] hover:from-white hover:to-white hover:text-[#e63946] text-white font-bold py-4 px-10 uppercase tracking-[0.2em] text-sm transition-all duration-300 rounded-xl shadow-[0_4px_20px_rgba(230,57,70,0.4)] hover:shadow-white/20">
+                    <CustomButton className="bg-gradient-to-r from-[#c49a3c] to-[#9a7530] hover:from-white hover:to-white hover:text-[#c49a3c] text-white font-bold py-4 px-10 uppercase tracking-[0.2em] text-sm transition-all duration-300 rounded-xl shadow-[0_4px_20px_rgba(196,154,60,0.4)] hover:shadow-white/20">
                       Contact Us
                     </CustomButton>
                   </a>

@@ -64,8 +64,8 @@ const Navbar = () => {
     >
       <nav
         className={`pointer-events-auto transition-all duration-300 flex justify-between items-center px-6 lg:px-12
-          bg-[#1e3a5f] text-white w-[95%] md:w-[80%] lg:w-max mx-auto lg:gap-16
-          ${scrolled ? "py-1.5 shadow-lg bg-[#1e3a5f]/97 backdrop-blur-md" : "py-2"}
+          bg-[#0d1f35] text-white w-[95%] md:w-[80%] lg:w-max mx-auto lg:gap-16
+          ${scrolled ? "py-1.5 shadow-lg bg-[#0d1f35]/97 backdrop-blur-md" : "py-2"}
           ${isOpen ? "rounded-t-3xl rounded-b-none" : "rounded-full shadow-md"} 
         `}
       >
@@ -114,22 +114,22 @@ const Navbar = () => {
                         activeDropdown === link.name ? null : link.name,
                       );
                     }}
-                    className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#e63946] transition-colors py-1.5"
+                    className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#c49a3c] transition-colors py-1.5"
                   >
                     {link.name}
                     <ChevronDown
                       className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? "rotate-180" : ""}`}
                     />
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#e63946] transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#c49a3c] transition-all duration-300 group-hover:w-full" />
                   </Link>
                 ) : (
                   <Link
                     to={linkHref}
                     onClick={(e) => handleNavClick(e, linkHref)}
-                    className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#e63946] transition-colors py-1.5"
+                    className="relative flex items-center gap-1 text-[12px] font-bold text-white uppercase tracking-wider hover:text-[#c49a3c] transition-colors py-1.5"
                   >
                     {link.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#e63946] transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#c49a3c] transition-all duration-300 group-hover:w-full" />
                   </Link>
                 )}
 
@@ -141,14 +141,14 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 w-60 bg-white shadow-xl rounded-sm overflow-hidden py-2 mt-3 border-t-2 border-[#e63946]"
+                        className="absolute top-full left-0 w-60 bg-white shadow-xl rounded-sm overflow-hidden py-2 mt-3 border-t-2 border-[#c49a3c]"
                       >
                         {subItems.map((subItem) => (
                           <Link
                             key={subItem.name}
                             to={subItem.href}
                             onClick={(e) => handleNavClick(e, subItem.href)}
-                            className="block px-6 py-2.5 text-sm font-medium text-gray-600 hover:text-[#e63946] hover:bg-gray-50 transition-colors border-l-2 border-transparent hover:border-[#e63946]"
+                            className="block px-6 py-2.5 text-sm font-medium text-gray-600 hover:text-[#c49a3c] hover:bg-gray-50 transition-colors border-l-2 border-transparent hover:border-[#c49a3c]"
                           >
                             {subItem.name}
                           </Link>
@@ -165,7 +165,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white hover:text-[#e63946] transition-colors focus:outline-none ml-auto py-1"
+            className="lg:hidden text-white hover:text-[#c49a3c] transition-colors focus:outline-none ml-auto py-1"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -180,7 +180,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="pointer-events-auto lg:hidden w-[95%] md:w-[80%] bg-[#1e3a5f] rounded-b-3xl overflow-hidden shadow-xl border-t border-white/10"
+            className="pointer-events-auto lg:hidden w-[95%] md:w-[80%] bg-[#0d1f35] rounded-b-3xl overflow-hidden shadow-xl border-t border-white/10"
           >
             <div className="px-6 py-5 flex flex-col gap-4">
               {navLinks.map((link: any) => {
@@ -211,7 +211,7 @@ const Navbar = () => {
                         }
                         className="w-full flex justify-between items-center py-1"
                       >
-                        <span className="text-white font-bold uppercase tracking-wider text-sm hover:text-[#e63946] transition-colors text-left">
+                        <span className="text-white font-bold uppercase tracking-wider text-sm hover:text-[#c49a3c] transition-colors text-left">
                           {link.name}
                         </span>
                         <ChevronDown
@@ -221,7 +221,7 @@ const Navbar = () => {
                     ) : (
                       <Link
                         to={linkHref}
-                        className="block w-full text-white font-bold uppercase tracking-wider text-sm hover:text-[#e63946] transition-colors py-1"
+                        className="block w-full text-white font-bold uppercase tracking-wider text-sm hover:text-[#c49a3c] transition-colors py-1"
                         onClick={(e) => handleNavClick(e, linkHref)}
                       >
                         {link.name}
@@ -236,12 +236,12 @@ const Navbar = () => {
                           exit={{ opacity: 0, height: 0 }}
                           className="overflow-hidden"
                         >
-                          <div className="mt-2 ml-4 flex flex-col gap-2 pl-4 border-l border-white/20">
+                          <div className="mt-2 ml-4 flex flex-col gap-2 pl-4 border-l border-[#c49a3c]/30">
                             {subItems.map((subItem) => (
                               <Link
                                 key={subItem.name}
                                 to={subItem.href}
-                                className="block text-gray-300 text-sm hover:text-white py-1"
+                                className="block text-gray-300 text-sm hover:text-[#c49a3c] py-1 transition-colors"
                                 onClick={(e) => handleNavClick(e, subItem.href)}
                               >
                                 {subItem.name}
@@ -261,7 +261,7 @@ const Navbar = () => {
                   className="block w-full"
                   onClick={() => setIsOpen(false)}
                 >
-                  <CustomButton className="w-full bg-[#e63946] hover:bg-white hover:text-[#e63946] text-white font-bold py-2.5 uppercase tracking-widest text-xs transition-colors rounded-xl">
+                  <CustomButton className="w-full bg-[#c49a3c] hover:bg-white hover:text-[#0d1f35] text-white font-bold py-2.5 uppercase tracking-widest text-xs transition-colors rounded-xl">
                     Get a Quote
                   </CustomButton>
                 </Link>

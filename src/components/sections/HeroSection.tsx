@@ -60,7 +60,7 @@ const HeroSection = () => {
 
   return (
     // Adjusted mobile height slightly (h-[500px]) for a better fit
-    <section className="relative h-[500px] md:h-[700px] overflow-hidden bg-[#030508]">
+    <section className="relative h-[500px] md:h-[700px] overflow-hidden bg-[#07111f]">
       {/* Background Images */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -82,7 +82,7 @@ const HeroSection = () => {
               className="w-full h-full object-contain md:object-cover object-center"
             />
           </picture>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030508]/95 via-[#030508]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07111f]/95 via-[#07111f]/60 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
@@ -98,8 +98,8 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <span className="w-10 h-[2px] bg-[#e63946]"></span>
-                <span className="text-[#e63946] font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">
+                <span className="w-10 h-[2px] bg-[#c49a3c]"></span>
+                <span className="text-[#c49a3c] font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">
                   Paragon Refractories & Minerals
                 </span>
               </div>
@@ -110,7 +110,7 @@ const HeroSection = () => {
 
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact">
-                  <CustomButton className="bg-transparent border border-white/20 hover:border-white hover:bg-white/5 text-white px-8 py-4 rounded-sm font-bold tracking-widest text-xs transition-all duration-300">
+                  <CustomButton className="bg-transparent border border-white/20 hover:border-[#c49a3c] hover:bg-[#c49a3c]/10 text-white px-8 py-4 rounded-sm font-bold tracking-widest text-xs transition-all duration-300">
                     CONTACT SALES
                   </CustomButton>
                 </Link>
@@ -136,7 +136,7 @@ const HeroSection = () => {
             onClick={() => setCurrentSlide(index)}
             className={`h-1.5 rounded-full transition-all duration-500 ${
               currentSlide === index
-                ? "bg-[#e63946] w-8 shadow-[0_0_10px_rgba(230,57,70,0.8)]"
+                ? "bg-[#c49a3c] w-8 shadow-[0_0_10px_rgba(196,154,60,0.8)]"
                 : "bg-white/40 hover:bg-white/80 w-1.5"
             }`}
             aria-label={`Go to slide ${index + 1}`}

@@ -15,16 +15,16 @@ const cardStyles = [
   {
     gradient: "from-blue-50/50 via-white to-indigo-50/50",
     hoverGradient: "from-blue-100/40 via-white to-indigo-100/40",
-    accent: "bg-[#1e3a5f]",
+    accent: "bg-[#0d1f35]",
     iconBg: "bg-blue-50",
-    iconColor: "text-[#1e3a5f]"
+    iconColor: "text-[#0d1f35]"
   },
   {
     gradient: "from-red-50/50 via-white to-rose-50/50",
     hoverGradient: "from-red-100/40 via-white to-rose-100/40",
-    accent: "bg-[#e63946]",
+    accent: "bg-[#c49a3c]",
     iconBg: "bg-red-50",
-    iconColor: "text-[#e63946]"
+    iconColor: "text-[#c49a3c]"
   },
   {
     gradient: "from-emerald-50/50 via-white to-teal-50/50",

@@ -4,66 +4,69 @@
 
 @layer base {
   :root {
-    /* Industrial Light Theme */
-    --background: 40 20% 97%;          /* warm off-white #f5f4f0 */
-    --foreground: 222 47% 11%;         /* deep dark navy */
+    /* ═══════════════════════════════════════════
+       OBSIDIAN & GOLD — Premium Industrial Theme
+       Primary:  #0d1f35 (Deep Obsidian Navy)
+       Accent:   #c49a3c (Amber Gold)
+    ═══════════════════════════════════════════ */
+    --background: 40 25% 97%;           /* warm ivory #f8f6f1 */
+    --foreground: 215 56% 14%;          /* deep navy #0d1f35 */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 215 56% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 213 52% 24%;            /* #1e3a5f — industrial navy */
+    --popover-foreground: 215 56% 14%;
+    --primary: 215 56% 14%;             /* #0d1f35 — obsidian navy */
     --primary-foreground: 0 0% 98%;
-    --secondary: 40 15% 91%;           /* warm sand gray */
-    --secondary-foreground: 213 52% 24%;
+    --secondary: 40 18% 91%;            /* warm sand */
+    --secondary-foreground: 215 56% 14%;
     --muted: 40 15% 93%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 358 72% 57%;             /* #e63946 — industrial red */
+    --muted-foreground: 215 14% 47%;
+    --accent: 40 54% 50%;               /* #c49a3c — amber gold */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 12% 88%;              /* warm border */
+    --border: 40 12% 88%;
     --input: 40 12% 92%;
-    --ring: 213 52% 24%;
+    --ring: 215 56% 14%;
     --radius: 0.625rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 213 52% 24%;
+    --sidebar-primary: 215 56% 14%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 40 15% 91%;
-    --sidebar-accent-foreground: 213 52% 24%;
+    --sidebar-accent-foreground: 215 56% 14%;
     --sidebar-border: 40 12% 88%;
-    --sidebar-ring: 213 52% 24%;
+    --sidebar-ring: 215 56% 14%;
   }
 
-  /* Keep dark class available but not applied globally */
   .dark {
-    --background: 222 47% 4%;
+    --background: 215 56% 4%;
     --foreground: 0 0% 98%;
-    --card: 222 47% 6%;
+    --card: 215 56% 6%;
     --card-foreground: 0 0% 98%;
-    --popover: 222 47% 6%;
+    --popover: 215 56% 6%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
-    --primary-foreground: 222 47% 11%;
-    --secondary: 222 35% 12%;
+    --primary-foreground: 215 56% 14%;
+    --secondary: 215 35% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 222 35% 12%;
+    --muted: 215 35% 12%;
     --muted-foreground: 215 16% 55%;
-    --accent: 222 35% 12%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 40 54% 50%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 222 35% 15%;
-    --input: 222 35% 15%;
-    --ring: 213 52% 60%;
-    --sidebar-background: 222 47% 5%;
+    --border: 215 35% 15%;
+    --input: 215 35% 15%;
+    --ring: 40 54% 50%;
+    --sidebar-background: 215 56% 5%;
     --sidebar-foreground: 40 15% 91%;
-    --sidebar-primary: 213 70% 55%;
+    --sidebar-primary: 40 54% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 35% 12%;
+    --sidebar-accent: 215 35% 12%;
     --sidebar-accent-foreground: 40 15% 91%;
-    --sidebar-border: 222 35% 15%;
-    --sidebar-ring: 213 70% 55%;
+    --sidebar-border: 215 35% 15%;
+    --sidebar-ring: 40 54% 50%;
   }
 }
 

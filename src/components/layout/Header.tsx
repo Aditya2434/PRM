@@ -20,7 +20,7 @@ const Header = () => {
         >
           {/* Logo Image with Glow Effect */}
           <div className="relative">
-            <div className="absolute inset-0 bg-blue-100 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-amber-100 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
             <img 
               src={logo} 
               alt="Paragon Refractories and Minerals" 
@@ -30,11 +30,11 @@ const Header = () => {
 
           {/* Text Section - Responsive Typography */}
           <div className="flex flex-col border-l border-gray-300 pl-2 md:pl-3 py-1">
-            <span className="text-[15px] sm:text-lg md:text-2xl font-bold text-[#0f172a] leading-none tracking-tight group-hover:text-[#1e3a5f] transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+            <span className="text-[15px] sm:text-lg md:text-2xl font-bold text-[#0d1f35] leading-none tracking-tight group-hover:text-[#0d1f35]/80 transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
               Paragon Refractories
             </span>
             {/* Highlighted "And Minerals" */}
-            <span className="text-[9px] sm:text-[11px] md:text-sm font-semibold bg-gradient-to-r from-[#e63946] to-[#b91c1c] bg-clip-text text-transparent leading-tight mt-0.5 md:mt-1 tracking-wide">
+            <span className="text-[9px] sm:text-[11px] md:text-sm font-semibold bg-gradient-to-r from-[#c49a3c] to-[#9a7530] bg-clip-text text-transparent leading-tight mt-0.5 md:mt-1 tracking-wide">
               And Minerals
             </span>
           </div>
@@ -51,12 +51,12 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-8">
             {/* Email Block */}
             <div className="flex items-center gap-3 group/item">
-              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-[#e63946] shadow-sm transition-all duration-300 group-hover/item:bg-[#e63946] group-hover/item:text-white group-hover/item:border-[#e63946] group-hover/item:shadow-md">
+              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-[#c49a3c] shadow-sm transition-all duration-300 group-hover/item:bg-[#c49a3c] group-hover/item:text-white group-hover/item:border-[#c49a3c] group-hover/item:shadow-md">
                 <Mail className="w-4 h-4" strokeWidth={2} />
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Us</span>
-                <a href="mailto:paragonrefractories22@gmail.com" className="text-sm font-semibold text-[#334155] hover:text-[#e63946] transition-colors">
+                <a href="mailto:paragonrefractories22@gmail.com" className="text-sm font-semibold text-[#334155] hover:text-[#c49a3c] transition-colors">
                   paragonrefractories22@gmail.com
                 </a>
               </div>
@@ -67,12 +67,12 @@ const Header = () => {
 
             {/* Phone Block */}
             <div className="flex items-center gap-3 group/item">
-              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-[#e63946] shadow-sm transition-all duration-300 group-hover/item:bg-[#e63946] group-hover/item:text-white group-hover/item:border-[#e63946] group-hover/item:shadow-md">
+              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-[#c49a3c] shadow-sm transition-all duration-300 group-hover/item:bg-[#c49a3c] group-hover/item:text-white group-hover/item:border-[#c49a3c] group-hover/item:shadow-md">
                 <Phone className="w-4 h-4" strokeWidth={2} />
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Call Us</span>
-                <a href="tel:+919932317334" className="text-sm font-semibold text-[#334155] hover:text-[#e63946] transition-colors">
+                <a href="tel:+919932317334" className="text-sm font-semibold text-[#334155] hover:text-[#c49a3c] transition-colors">
                   +91 9932317334
                 </a>
               </div>
@@ -90,7 +90,7 @@ const Header = () => {
           >
             <CustomButton 
               variant="primary" 
-              className="group relative overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f172a] hover:from-[#e63946] hover:to-[#d62828] text-white px-3 py-2 md:px-9 md:py-4 text-[10px] md:text-[13px] font-bold tracking-wider md:tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5 whitespace-nowrap"
+              className="group relative overflow-hidden bg-gradient-to-r from-[#0d1f35] to-[#07111f] hover:from-[#c49a3c] hover:to-[#9a7530] text-white px-3 py-2 md:px-9 md:py-4 text-[10px] md:text-[13px] font-bold tracking-wider md:tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span className="relative z-10 flex items-center gap-1 md:gap-2">
                 <span className="hidden sm:inline">GET A </span>QUOTE

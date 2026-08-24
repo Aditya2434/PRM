@@ -101,9 +101,9 @@ const GallerySection = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-          <h2 className="text-sm font-bold text-[#e63946] tracking-[0.2em] uppercase mb-3">Our Facilities</h2>
-          <h3 className="text-2xl md:text-4xl font-bold text-[#1e3a5f]">
-            Image <span className="text-[#e63946]">Gallery</span>
+          <h2 className="text-sm font-bold text-[#c49a3c] tracking-[0.2em] uppercase mb-3">Our Facilities</h2>
+          <h3 className="text-2xl md:text-4xl font-bold text-[#0d1f35]">
+            Image <span className="text-[#c49a3c]">Gallery</span>
           </h3>
         </div>
         

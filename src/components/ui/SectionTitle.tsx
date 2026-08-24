@@ -21,14 +21,14 @@ const SectionTitle = ({
         "flex items-center gap-3 mb-3", 
         centered ? "justify-center" : "justify-start md:justify-start"
       )}>
-        <div className="w-12 h-[2px] bg-[#e63946]" />
-        <span className="text-[10px] font-bold text-[#e63946] uppercase tracking-[0.4em]">
+        <div className="w-12 h-[2px] bg-[#c49a3c]" />
+        <span className="text-[10px] font-bold text-[#c49a3c] uppercase tracking-[0.4em]">
           {subtitle}
         </span>
       </div>
       <h2 className={cn(
         'text-3xl md:text-4xl font-serif font-bold tracking-tight',
-        light ? 'text-white' : 'text-[#1e3a5f]'
+        light ? 'text-white' : 'text-[#0d1f35]'
       )}>
         {title}
       </h2>

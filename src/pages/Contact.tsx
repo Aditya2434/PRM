@@ -97,9 +97,9 @@ const Contact = () => {
           <motion.div 
             animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-[#e63946] rounded-full blur-[150px] pointer-events-none" 
+            className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-[#c49a3c] rounded-full blur-[150px] pointer-events-none" 
           />
-          <div className="absolute top-[20%] -left-[10%] w-[500px] h-[500px] bg-[#1e3a5f] rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute top-[20%] -left-[10%] w-[500px] h-[500px] bg-[#0d1f35] rounded-full blur-[150px] pointer-events-none" />
 
           {/* Giant Watermark */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
@@ -115,7 +115,7 @@ const Contact = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <div className="inline-flex items-center justify-center gap-3 mb-6 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-[#e63946] animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-[#c49a3c] animate-pulse"></span>
                 <span className="text-white/80 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">
                   Global Industrial Support
                 </span>
@@ -123,7 +123,7 @@ const Contact = () => {
               
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.1] tracking-tight">
                 Let's Build <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-[#ff8fa3] italic">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c49a3c] to-[#ff8fa3] italic">
                   Something Great.
                 </span>
               </h2>
@@ -148,7 +148,7 @@ const Contact = () => {
             {/* LEFT SIDE: THE FORM (Renders Top on Mobile) */}
             <div className="w-full lg:w-3/5 p-6 sm:p-10 lg:p-16 order-1">
               <div className="mb-10">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight mb-2">Send a Message</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#0d1f35] tracking-tight mb-2">Send a Message</h3>
                 <p className="text-gray-500 text-sm md:text-base">Fill out the form below and we will get back to you promptly.</p>
               </div>
               
@@ -156,20 +156,20 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                      First Name <span className="text-[#e63946]">*</span>
+                      First Name <span className="text-[#c49a3c]">*</span>
                     </Label>
                     <Input 
                       id="firstName" value={formData.firstName} onChange={handleChange} required 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                      Last Name <span className="text-[#e63946]">*</span>
+                      Last Name <span className="text-[#c49a3c]">*</span>
                     </Label>
                     <Input 
                       id="lastName" value={formData.lastName} onChange={handleChange} required 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
                     />
                   </div>
                 </div>
@@ -177,11 +177,11 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                      Email Address <span className="text-[#e63946]">*</span>
+                      Email Address <span className="text-[#c49a3c]">*</span>
                     </Label>
                     <Input 
                       id="email" type="email" value={formData.email} onChange={handleChange} required 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
                     />
                   </div>
                   <div className="space-y-2">
@@ -190,28 +190,28 @@ const Contact = () => {
                     </Label>
                     <Input 
                       id="phone" type="tel" value={formData.phone} onChange={handleChange} 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                    Subject <span className="text-[#e63946]">*</span>
+                    Subject <span className="text-[#c49a3c]">*</span>
                   </Label>
                   <Input 
                     id="subject" value={formData.subject} onChange={handleChange} required 
-                    className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
+                    className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
                   />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                    Message <span className="text-[#e63946]">*</span>
+                    Message <span className="text-[#c49a3c]">*</span>
                   </Label>
                   <Textarea 
                     id="message" value={formData.message} onChange={handleChange} required 
-                    className="min-h-[150px] bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#e63946] focus:ring-4 focus:ring-[#e63946]/10 transition-all duration-300 rounded-xl px-5 py-4 text-[15px] resize-y"
+                    className="min-h-[150px] bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 py-4 text-[15px] resize-y"
                   />
                 </div>
 
@@ -234,7 +234,7 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     disabled={status === 'submitting'}
-                    className="w-full bg-[#e63946] hover:bg-[#d62828] text-white h-16 text-[15px] tracking-[0.1em] uppercase font-bold rounded-xl transition-all duration-500 flex items-center justify-center shadow-[0_10px_20px_rgba(230,57,70,0.2)] hover:shadow-[0_10px_30px_rgba(230,57,70,0.3)] hover:-translate-y-1 group"
+                    className="w-full bg-[#c49a3c] hover:bg-[#a67d28] text-white h-16 text-[15px] tracking-[0.1em] uppercase font-bold rounded-xl transition-all duration-500 flex items-center justify-center shadow-[0_10px_20px_rgba(196,154,60,0.2)] hover:shadow-[0_10px_30px_rgba(196,154,60,0.3)] hover:-translate-y-1 group"
                   >
                     {status === 'submitting' ? 'Processing...' : 'Submit Request'}
                     {status !== 'submitting' && <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />}
@@ -244,11 +244,11 @@ const Contact = () => {
             </div>
 
             {/* RIGHT SIDE: CONTACT INFO (Renders Bottom on Mobile) */}
-            <div className="w-full lg:w-2/5 p-6 sm:p-10 lg:p-16 bg-[#0f172a] relative overflow-hidden order-2">
+            <div className="w-full lg:w-2/5 p-6 sm:p-10 lg:p-16 bg-[#0d1f35] relative overflow-hidden order-2">
               
               {/* Decorative Geometric Patterns */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#e63946]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#c49a3c]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
               <div className="relative z-10 h-full flex flex-col">
@@ -262,15 +262,15 @@ const Contact = () => {
                 <div className="space-y-10 flex-grow">
                   {/* Phone */}
                   <div className="flex items-start gap-5 group">
-                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#e63946] group-hover:border-[#e63946] transition-all duration-500">
-                      <Phone className="w-5 h-5 text-[#e63946] group-hover:text-white transition-colors" />
+                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] transition-all duration-500">
+                      <Phone className="w-5 h-5 text-[#c49a3c] group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Direct Lines</p>
-                      <p className="text-lg font-medium text-white hover:text-[#e63946] transition-colors">
+                      <p className="text-lg font-medium text-white hover:text-[#c49a3c] transition-colors">
                         <a href="tel:+919932317334">+91 9932317334</a>
                       </p>
-                      <p className="text-lg font-medium text-white hover:text-[#e63946] transition-colors mt-1">
+                      <p className="text-lg font-medium text-white hover:text-[#c49a3c] transition-colors mt-1">
                         <a href="tel:+918158884204">+91 8158884204</a>
                       </p>
                     </div>
@@ -278,12 +278,12 @@ const Contact = () => {
 
                   {/* Email */}
                   <div className="flex items-start gap-5 group">
-                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#e63946] group-hover:border-[#e63946] transition-all duration-500">
-                      <Mail className="w-5 h-5 text-[#e63946] group-hover:text-white transition-colors" />
+                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] transition-all duration-500">
+                      <Mail className="w-5 h-5 text-[#c49a3c] group-hover:text-white transition-colors" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Email Support</p>
-                      <p className="text-[15px] sm:text-[17px] font-medium text-white break-all sm:break-normal hover:text-[#e63946] transition-colors cursor-pointer">
+                      <p className="text-[15px] sm:text-[17px] font-medium text-white break-all sm:break-normal hover:text-[#c49a3c] transition-colors cursor-pointer">
                         <a href="mailto:paragonrefractories22@gmail.com">paragonrefractories22@gmail.com</a>
                       </p>
                     </div>
@@ -291,8 +291,8 @@ const Contact = () => {
 
                   {/* Location */}
                   <div className="flex items-start gap-5 group">
-                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#e63946] group-hover:border-[#e63946] transition-all duration-500">
-                      <MapPin className="w-5 h-5 text-[#e63946] group-hover:text-white transition-colors" />
+                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] transition-all duration-500">
+                      <MapPin className="w-5 h-5 text-[#c49a3c] group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Headquarters</p>

@@ -41,7 +41,7 @@ const Services = () => {
 
       <main className="flex-grow">
         {/* Premium Hero Section — Industrial Theme */}
-        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0f172a]">
+        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0d1f35]">
           {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">
             <img
@@ -51,22 +51,22 @@ const Services = () => {
             />
           </div>
           {/* Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/92 via-[#0f172a]/65 to-[#0f172a]/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(230,57,70,0.03)_30px,rgba(230,57,70,0.03)_31px)] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f35]/92 via-[#0d1f35]/65 to-[#0d1f35]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f35]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(196,154,60,0.03)_30px,rgba(196,154,60,0.03)_31px)] pointer-events-none" />
           {/* Corner brackets */}
-          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#e63946]/60" />
-          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#e63946]/60" />
+          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#c49a3c]/60" />
+          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#c49a3c]/60" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-20 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#e63946]/15 border border-[#e63946]/30 backdrop-blur-sm mb-6 shadow-xl"
+              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#c49a3c]/15 border border-[#c49a3c]/30 backdrop-blur-sm mb-6 shadow-xl"
             >
-              <div className="w-2 h-2 rounded-full bg-[#e63946] animate-pulse" />
-              <span className="text-[#e63946] text-xs font-black uppercase tracking-[0.2em]">What We Do</span>
+              <div className="w-2 h-2 rounded-full bg-[#c49a3c] animate-pulse" />
+              <span className="text-[#c49a3c] text-xs font-black uppercase tracking-[0.2em]">What We Do</span>
             </motion.div>
             
             <motion.h1 
@@ -75,13 +75,13 @@ const Services = () => {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-5 tracking-tight"
             >
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-[#ffb3c6]">Services</span>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c49a3c] to-[#ffb3c6]">Services</span>
             </motion.h1>
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="w-20 h-[3px] bg-gradient-to-r from-[#e63946] to-transparent mx-auto mb-5"
+              className="w-20 h-[3px] bg-gradient-to-r from-[#c49a3c] to-transparent mx-auto mb-5"
             />
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -89,9 +89,9 @@ const Services = () => {
               transition={{ delay: 0.4, duration: 0.4 }}
               className="flex items-center justify-center gap-2 text-[11px] font-bold tracking-[0.2em] text-white/75 uppercase bg-black/25 px-5 py-2 rounded-full backdrop-blur-sm border border-white/10 w-fit mx-auto"
             >
-              <a href="/" className="hover:text-[#e63946] transition-colors">Home</a>
+              <a href="/" className="hover:text-[#c49a3c] transition-colors">Home</a>
               <span className="text-white/40">›</span>
-              <span className="text-[#e63946]">Services</span>
+              <span className="text-[#c49a3c]">Services</span>
             </motion.div>
           </div>
         </section>
@@ -106,7 +106,7 @@ const Services = () => {
               className="bg-white rounded-2xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] p-8 md:p-12 text-center border border-gray-100"
             >
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
-                <strong className="text-[#0f172a] font-bold tracking-wide">Paragon Refractories and Minerals</strong> provides comprehensive industrial furnace maintenance and shutdown services designed to ensure safe operation, maximum efficiency, and extended equipment life across all types of complex industrial environments.
+                <strong className="text-[#0d1f35] font-bold tracking-wide">Paragon Refractories and Minerals</strong> provides comprehensive industrial furnace maintenance and shutdown services designed to ensure safe operation, maximum efficiency, and extended equipment life across all types of complex industrial environments.
               </p>
             </motion.div>
           </div>
@@ -128,10 +128,10 @@ const Services = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group relative bg-white rounded-xl p-8 lg:p-10 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-500 border border-slate-200 hover:border-[#1e3a5f]/20 overflow-hidden flex flex-col z-10 hover:-translate-y-1.5"
+                    className="group relative bg-white rounded-xl p-8 lg:p-10 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-500 border border-slate-200 hover:border-[#0d1f35]/20 overflow-hidden flex flex-col z-10 hover:-translate-y-1.5"
                   >
                     {/* Top Animated Accent Line */}
-                    <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#1e3a5f] to-[#e63946] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                    <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#0d1f35] to-[#c49a3c] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
                     
                     {/* Background Watermark Number */}
                     <div className="absolute top-6 right-6 text-7xl font-black text-slate-50 group-hover:text-blue-50/50 transition-colors duration-500 select-none pointer-events-none -z-10 tracking-tighter">
@@ -139,12 +139,12 @@ const Services = () => {
                     </div>
 
                     {/* Icon Container */}
-                    <div className="w-16 h-16 rounded-xl bg-slate-50 border border-slate-100 group-hover:bg-[#1e3a5f] group-hover:border-[#1e3a5f] group-hover:shadow-lg flex items-center justify-center mb-8 transition-all duration-500 shrink-0 group-hover:-translate-y-1">
-                      {IconComponent && <IconComponent className="w-8 h-8 text-[#e63946] group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />}
+                    <div className="w-16 h-16 rounded-xl bg-slate-50 border border-slate-100 group-hover:bg-[#0d1f35] group-hover:border-[#0d1f35] group-hover:shadow-lg flex items-center justify-center mb-8 transition-all duration-500 shrink-0 group-hover:-translate-y-1">
+                      {IconComponent && <IconComponent className="w-8 h-8 text-[#c49a3c] group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />}
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-[#0f172a] group-hover:text-[#1e3a5f] mb-4 tracking-wide uppercase transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-[#0d1f35] group-hover:text-[#0d1f35] mb-4 tracking-wide uppercase transition-colors duration-300">
                       {service.title}
                     </h3>
                     
@@ -155,12 +155,12 @@ const Services = () => {
                     
                     {/* Checklist Elements */}
                     <ul className="mt-8 space-y-3 pt-6 border-t border-slate-100 transition-colors duration-300">
-                      <li className="flex items-center text-sm font-bold text-slate-400 group-hover:text-[#1e3a5f] transition-colors duration-300 uppercase tracking-wider">
-                        <CheckCircle2 className="w-4 h-4 text-[#e63946] mr-3 shrink-0" /> 
+                      <li className="flex items-center text-sm font-bold text-slate-400 group-hover:text-[#0d1f35] transition-colors duration-300 uppercase tracking-wider">
+                        <CheckCircle2 className="w-4 h-4 text-[#c49a3c] mr-3 shrink-0" /> 
                         Performance Restoration
                       </li>
-                      <li className="flex items-center text-sm font-bold text-slate-400 group-hover:text-[#1e3a5f] transition-colors duration-300 uppercase tracking-wider">
-                        <CheckCircle2 className="w-4 h-4 text-[#e63946] mr-3 shrink-0" /> 
+                      <li className="flex items-center text-sm font-bold text-slate-400 group-hover:text-[#0d1f35] transition-colors duration-300 uppercase tracking-wider">
+                        <CheckCircle2 className="w-4 h-4 text-[#c49a3c] mr-3 shrink-0" /> 
                         Minimized Downtime
                       </li>
                     </ul>

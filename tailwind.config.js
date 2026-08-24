@@ -49,11 +49,13 @@ module.exports = {
           ring: "hsl(var(--sidebar-ring))",
         },
         industrial: {
-          navy: "#1e3a5f",
-          red: "#e63946",
-          sand: "#f0ede8",
+          navy: "#0d1f35",
+          gold: "#c49a3c",
+          "gold-light": "#e8cc7e",
+          "gold-dark": "#9a7530",
+          sand: "#f8f6f1",
           steel: "#8a9ab0",
-          warm: "#f5f4f0",
+          dark: "#07111f",
         },
       },
       borderRadius: {
@@ -100,8 +102,8 @@ module.exports = {
           "50%": { transform: "translateY(-8px)" },
         },
         "industrial-pulse": {
-          "0%,100%": { boxShadow: "0 0 0 0 rgba(230,57,70,0.4)" },
-          "50%": { boxShadow: "0 0 0 12px rgba(230,57,70,0)" },
+          "0%,100%": { boxShadow: "0 0 0 0 rgba(196,154,60,0.4)" },
+          "50%": { boxShadow: "0 0 0 12px rgba(196,154,60,0)" },
         },
         "slide-in-left": {
           from: { opacity: "0", transform: "translateX(-40px)" },

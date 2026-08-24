@@ -39,9 +39,9 @@ const serviceStyles = [
   },
   { 
     gradient: "from-red-50/50 via-white to-red-50/30",
-    hoverBg: "group-hover:bg-[#e63946]",
-    accent: "bg-[#e63946]",
-    text: "text-[#e63946]",
+    hoverBg: "group-hover:bg-[#c49a3c]",
+    accent: "bg-[#c49a3c]",
+    text: "text-[#c49a3c]",
     iconBg: "bg-red-50"
   },
   { 
@@ -117,7 +117,7 @@ const ServicesSection = () => {
           className="mt-16 flex justify-center"
         >
           <Link to="/services" className="group">
-            <button className="flex items-center gap-3 bg-transparent border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white px-9 py-4 font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-sm">
+            <button className="flex items-center gap-3 bg-transparent border-2 border-[#0d1f35] text-[#0d1f35] hover:bg-[#0d1f35] hover:text-white px-9 py-4 font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-sm">
               Explore All Services
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
             </button>

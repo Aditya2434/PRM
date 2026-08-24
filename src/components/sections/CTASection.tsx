@@ -10,7 +10,7 @@ const CTASection = () => {
       style={{ backgroundImage: 'url(/src/assets/images/cta-bg.jpg)' }}
     >
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-[#1e3a5f]/85" />
+      <div className="absolute inset-0 bg-[#0d1f35]/85" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-12 lg:px-24 text-center">

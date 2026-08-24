@@ -54,7 +54,7 @@ const ProjectsSection = () => {
         <div className="mt-14 flex justify-center">
           <Link to="/projects">
             <CustomButton 
-              className="group flex items-center gap-2 bg-[#1e3a5f] hover:bg-[#e63946] text-white px-8 py-4 rounded-sm font-bold tracking-widest text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="group flex items-center gap-2 bg-[#0d1f35] hover:bg-[#c49a3c] text-white px-8 py-4 rounded-sm font-bold tracking-widest text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               EXPLORE MORE PROJECTS
               <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
