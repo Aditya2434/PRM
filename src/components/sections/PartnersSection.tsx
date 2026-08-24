@@ -10,9 +10,9 @@ const PartnersSection = () => {
       
       {/* Section Title */}
       <div className="container mx-auto px-12 lg:px-24 mb-12 text-center">
-        <h4 className="text-2xl md:text-3xl font-serif font-bold text-[#1e3a5f] relative inline-block">
+        <h4 className="text-2xl md:text-3xl font-serif font-bold text-[#0d1f35] relative inline-block">
           Our Trusted Clients
-          <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#e63946]" />
+          <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#c49a3c]" />
         </h4>
       </div>
 

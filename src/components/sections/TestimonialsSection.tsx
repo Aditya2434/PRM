@@ -13,13 +13,13 @@ import {
 const testimonialStyles = [
   {
     gradient: "from-white via-white to-blue-50/40",
-    accent: "bg-[#1e3a5f]",
+    accent: "bg-[#0d1f35]",
     iconColor: "text-blue-100",
     borderColor: "border-blue-100/30"
   },
   {
     gradient: "from-white via-white to-red-50/40",
-    accent: "bg-[#e63946]",
+    accent: "bg-[#c49a3c]",
     iconColor: "text-red-100",
     borderColor: "border-red-100/30"
   },
@@ -65,10 +65,10 @@ const TestimonialsSection = () => {
                           <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                         </div>
                         <div>
-                          <h4 className="font-serif font-bold text-[#1e3a5f] text-base tracking-tight mb-0.5">{testimonial.name}</h4>
+                          <h4 className="font-serif font-bold text-[#0d1f35] text-base tracking-tight mb-0.5">{testimonial.name}</h4>
                           <div className="flex items-center gap-2">
-                            <div className="w-4 h-[1px] bg-[#e63946]" />
-                            <p className="text-[10px] text-[#e63946] font-bold uppercase tracking-[0.2em]">{testimonial.company}</p>
+                            <div className="w-4 h-[1px] bg-[#c49a3c]" />
+                            <p className="text-[10px] text-[#c49a3c] font-bold uppercase tracking-[0.2em]">{testimonial.company}</p>
                           </div>
                         </div>
                       </div>
@@ -80,11 +80,11 @@ const TestimonialsSection = () => {
           </CarouselContent>
           
           <div className="flex justify-center items-center gap-6 mt-16">
-            <CarouselPrevious className="static translate-y-0 h-14 w-14 rounded-full border-slate-200 bg-white shadow-sm hover:bg-[#1e3a5f] hover:text-white hover:border-[#1e3a5f] transition-all duration-300">
+            <CarouselPrevious className="static translate-y-0 h-14 w-14 rounded-full border-slate-200 bg-white shadow-sm hover:bg-[#0d1f35] hover:text-white hover:border-[#0d1f35] transition-all duration-300">
               <ChevronLeft className="w-6 h-6" />
             </CarouselPrevious>
             <div className="h-px w-12 bg-slate-300" />
-            <CarouselNext className="static translate-y-0 h-14 w-14 rounded-full border-slate-200 bg-white shadow-sm hover:bg-[#e63946] hover:text-white hover:border-[#e63946] transition-all duration-300">
+            <CarouselNext className="static translate-y-0 h-14 w-14 rounded-full border-slate-200 bg-white shadow-sm hover:bg-[#c49a3c] hover:text-white hover:border-[#c49a3c] transition-all duration-300">
               <ChevronRight className="w-6 h-6" />
             </CarouselNext>
           </div>

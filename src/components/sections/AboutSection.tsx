@@ -24,22 +24,22 @@ const AboutSection = () => {
           >
             <SectionTitle title="ABOUT US" />
             
-            <h3 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] leading-tight mb-8 tracking-tight">
-              Trusted Manufacturer of <span className="text-[#e63946] border-b-2 border-[#e63946]/10">Refractory Materials and Furnace Equipment</span>
+            <h3 className="text-3xl md:text-4xl font-bold text-[#0d1f35] leading-tight mb-8 tracking-tight">
+              Trusted Manufacturer of <span className="text-[#c49a3c] border-b-2 border-[#c49a3c]/20">Refractory Materials and Furnace Equipment</span>
             </h3>
 
             <div className="space-y-8">
               {/* Professional Text Block */}
-              <div className="relative pl-6 border-l-4 border-[#e63946]">
+              <div className="relative pl-6 border-l-4 border-[#c49a3c]">
                 <p className="text-lg text-gray-600 font-medium leading-relaxed">
-                  Welcome to <span className="font-bold text-[#1e3a5f]">Paragon Refractories and Minerals</span>, a trusted manufacturer and supplier of high-performance refractory materials, heavy industrial mechanical equipment, and cast iron products for the reheating furnace industry. Established in 2000, we specialize in manufacturing and supplying solutions tailored for walking beam, walking hearth, and pusher-type reheating furnaces.
+                  Welcome to <span className="font-bold text-[#0d1f35]">Paragon Refractories and Minerals</span>, a trusted manufacturer and supplier of high-performance refractory materials, heavy industrial mechanical equipment, and cast iron products for the reheating furnace industry. Established in 2000, we specialize in manufacturing and supplying solutions tailored for walking beam, walking hearth, and pusher-type reheating furnaces.
                 </p>
               </div>
               
-              {/* Centered "Know More" Button - FIXED LINK TO /about */}
+              {/* Centered "Know More" Button */}
               <div className="flex justify-center lg:justify-start pt-4">
                 <Link to="/about" className="group">
-                  <button className="flex items-center gap-3 bg-transparent border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white px-8 py-3.5 font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-sm">
+                  <button className="flex items-center gap-3 bg-transparent border-2 border-[#0d1f35] text-[#0d1f35] hover:bg-[#0d1f35] hover:text-white px-8 py-3.5 font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-sm">
                     Know More
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
@@ -71,18 +71,18 @@ const AboutSection = () => {
                 </div>
                 
                 {/* Founder Badge */}
-                <div className="absolute bottom-0 left-0 bg-[#e63946] text-white px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] uppercase shadow-lg">
+                <div className="absolute bottom-0 left-0 bg-[#c49a3c] text-white px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] uppercase shadow-lg">
                   FOUNDER
                 </div>
               </div>
 
               <div className="flex-1 py-2">
-                <h4 className="text-xl md:text-2xl font-bold text-[#1e3a5f] mb-1">
+                <h4 className="text-xl md:text-2xl font-bold text-[#0d1f35] mb-1">
                   Kalika Prasad Chauhan
                 </h4>
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="h-px w-4 bg-[#e63946]" />
-                  <p className="text-xs text-[#e63946] font-bold tracking-[0.15em] uppercase">
+                  <div className="h-px w-4 bg-[#c49a3c]" />
+                  <p className="text-xs text-[#c49a3c] font-bold tracking-[0.15em] uppercase">
                     Founder & CEO
                   </p>
                 </div>

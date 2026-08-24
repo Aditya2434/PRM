@@ -1,4 +1,5 @@
 // src/App.tsx
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '@/pages/Home';
 import AboutUs from '@/pages/AboutUs'; 
@@ -18,38 +19,54 @@ import IndustrialEquipments from '@/pages/products/IndustrialEquipments';
 import IndustrialEquipmentDetails from '@/pages/products/IndustrialEquipmentDetails'; 
 
 import CastIronParts from '@/pages/products/CastIronParts';
+import SplashScreen from '@/components/SplashScreen';
 import './App.css';
 
+// Show the splash screen only once per browser session
+const hasSeenSplash = sessionStorage.getItem('prm_splash_seen') === 'true';
+
 function App() {
+  const [showSplash, setShowSplash] = useState(!hasSeenSplash);
+
+  const handleSplashComplete = () => {
+    sessionStorage.setItem('prm_splash_seen', 'true');
+    setShowSplash(false);
+  };
+
   return (
-    <Router>
-      <div className="font-sans">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} /> 
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/contact" element={<Contact />} /> 
-          
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          
-          {/* REFRACTORY MATERIALS ROUTES */}
-          <Route path="/products/refractory-materials" element={<RefractoryMaterial />} />
-          <Route path="/products/refractory-materials/:productId" element={<RefractoryProductDetails />} />
-          
-          {/* INDUSTRIAL EQUIPMENT ROUTES */}
-          <Route path="/products/industrial-equipment" element={<IndustrialEquipments />} />
-          <Route path="/products/industrial-equipment/:id" element={<IndustrialEquipmentDetails />} />
-          
-          {/* CAST IRON PARTS ROUTES */}
-          <Route path="/products/cast-iron-parts" element={<CastIronParts />} />
-          <Route path="/certificates" element={<Certificates />} />
-          <Route path="/gallery" element={<Gallery />} />
-        </Routes>
-      </div>
-    </Router>
+    <>
+      {showSplash && (
+        <SplashScreen onComplete={handleSplashComplete} />
+      )}
+      <Router>
+        <div className="font-sans">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/clients" element={<Clients />} />
+            <Route path="/contact" element={<Contact />} /> 
+            
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            
+            {/* REFRACTORY MATERIALS ROUTES */}
+            <Route path="/products/refractory-materials" element={<RefractoryMaterial />} />
+            <Route path="/products/refractory-materials/:productId" element={<RefractoryProductDetails />} />
+            
+            {/* INDUSTRIAL EQUIPMENT ROUTES */}
+            <Route path="/products/industrial-equipment" element={<IndustrialEquipments />} />
+            <Route path="/products/industrial-equipment/:id" element={<IndustrialEquipmentDetails />} />
+            
+            {/* CAST IRON PARTS ROUTES */}
+            <Route path="/products/cast-iron-parts" element={<CastIronParts />} />
+            <Route path="/certificates" element={<Certificates />} />
+            <Route path="/gallery" element={<Gallery />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
-export default App;
+export default App;

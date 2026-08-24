@@ -286,7 +286,7 @@ const RefractoryProductDetails = () => {
   const performanceStats = getPerformanceProfile();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f4f0] font-sans selection:bg-[#e63946]/30 selection:text-white print:bg-white print:text-black">
+    <div className="min-h-screen flex flex-col bg-[#f5f4f0] font-sans selection:bg-[#c49a3c]/30 selection:text-white print:bg-white print:text-black">
       <SEO 
         title={`${product.name} Manufacturer in India | Paragon Refractories and Minerals`}
         description={`Buy high-quality ${product.name} engineered for steel furnaces by PRM. Technical Specs - Max Temp: ${product.specs.maxTemp}, Bulk Density: ${product.specs.density}. Ensure superior thermal resistance.`}
@@ -306,7 +306,7 @@ const RefractoryProductDetails = () => {
         
         {/* Subtle diagonal background stripe - Hidden during print */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 print:hidden">
-          <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[#1e3a5f]/[0.02] to-transparent" />
+          <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[#0d1f35]/[0.02] to-transparent" />
           <div className="absolute top-40 right-10 w-96 h-96 bg-blueprint-grid opacity-30 pointer-events-none" />
         </div>
 
@@ -318,7 +318,7 @@ const RefractoryProductDetails = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
               <Link 
                 to="/products/refractory-materials" 
-                className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-500 hover:text-[#e63946] transition-colors group"
+                className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-500 hover:text-[#c49a3c] transition-colors group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
                 Back to Catalog
@@ -327,7 +327,7 @@ const RefractoryProductDetails = () => {
               <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
                 <Link to="/products/refractory-materials" className="hover:text-gray-600 transition-colors">Refractories</Link>
                 <span className="w-1 h-1 rounded-full bg-gray-300" />
-                <span className="text-[#e63946]">{product.category}</span>
+                <span className="text-[#c49a3c]">{product.category}</span>
               </div>
             </div>
 
@@ -342,12 +342,12 @@ const RefractoryProductDetails = () => {
                   {/* Image Container with blueprint drawing pattern */}
                   <div className="w-full md:w-5/12 shrink-0 flex flex-col gap-4">
                     <div 
-                      className={`w-full aspect-[4/3] relative overflow-hidden rounded-2xl bg-white shadow-md group border border-[#e8e3d8] bg-blueprint-grid p-2 transition-all duration-500 hover:border-[#1e3a5f]/20 flex items-center justify-center ${activeImage ? 'cursor-zoom-in' : ''}`}
+                      className={`w-full aspect-[4/3] relative overflow-hidden rounded-2xl bg-white shadow-md group border border-[#e8e3d8] bg-blueprint-grid p-2 transition-all duration-500 hover:border-[#0d1f35]/20 flex items-center justify-center ${activeImage ? 'cursor-zoom-in' : ''}`}
                       onClick={() => activeImage && setIsLightboxOpen(true)}
                     >
                       {/* Technical Blueprint Watermarks */}
-                      <div className="absolute top-2 left-2 text-[8px] font-mono text-[#1e3a5f]/30 select-none">PRM-SPEC-DRAW-A1</div>
-                      <div className="absolute bottom-2 right-2 text-[8px] font-mono text-[#1e3a5f]/30 select-none">SCALE: N.T.S.</div>
+                      <div className="absolute top-2 left-2 text-[8px] font-mono text-[#0d1f35]/30 select-none">PRM-SPEC-DRAW-A1</div>
+                      <div className="absolute bottom-2 right-2 text-[8px] font-mono text-[#0d1f35]/30 select-none">SCALE: N.T.S.</div>
                       
                       <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-slate-300" />
                       <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-slate-300" />
@@ -365,7 +365,7 @@ const RefractoryProductDetails = () => {
                               alt={product.name} 
                               className="w-full h-full object-cover rounded-xl opacity-95 group-hover:opacity-100 transition-opacity duration-500"
                             />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-[#1e3a5f]/15 transition-colors duration-500 z-10 flex items-center justify-center pointer-events-none">
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-[#0d1f35]/15 transition-colors duration-500 z-10 flex items-center justify-center pointer-events-none">
                               <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-75 group-hover:scale-100" />
                             </div>
                           </>
@@ -390,7 +390,7 @@ const RefractoryProductDetails = () => {
                           disabled={!img}
                           className={`relative aspect-[4/3] overflow-hidden rounded-xl bg-white border flex items-center justify-center transition-all duration-300 ${img ? 'cursor-pointer group' : 'cursor-not-allowed opacity-50'} ${
                             activeIndex === idx 
-                              ? 'border-[#e63946] shadow-[0_0_12px_rgba(230,57,70,0.2)] ring-1 ring-[#e63946]' 
+                              ? 'border-[#c49a3c] shadow-[0_0_12px_rgba(196,154,60,0.2)] ring-1 ring-[#c49a3c]' 
                               : 'border-[#e8e3d8] hover:border-gray-400'
                           }`}
                         >
@@ -402,7 +402,7 @@ const RefractoryProductDetails = () => {
                               className={`w-full h-full object-cover transition-transform duration-500 ${activeIndex === idx ? 'scale-105' : 'group-hover:scale-105'}`}
                             />
                           ) : (
-                            <ImageIcon className={`w-4 h-4 transition-colors duration-300 ${activeIndex === idx ? 'text-[#e63946]' : 'text-gray-400'}`} />
+                            <ImageIcon className={`w-4 h-4 transition-colors duration-300 ${activeIndex === idx ? 'text-[#c49a3c]' : 'text-gray-400'}`} />
                           )}
                         </button>
                       ))}
@@ -414,26 +414,26 @@ const RefractoryProductDetails = () => {
                     
                     {/* Category Badge */}
                     <div className="inline-flex items-center gap-1.5 py-1 px-3 rounded bg-white border border-[#e8e3d8] shadow-sm mb-4">
-                      <Sparkles className="w-3.5 h-3.5 text-[#e63946]" />
-                      <span className="text-[9px] uppercase tracking-[0.2em] text-[#1e3a5f] font-bold">{product.category} Refractory</span>
+                      <Sparkles className="w-3.5 h-3.5 text-[#c49a3c]" />
+                      <span className="text-[9px] uppercase tracking-[0.2em] text-[#0d1f35] font-bold">{product.category} Refractory</span>
                     </div>
 
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1e3a5f] font-black tracking-tight leading-[1.1] mb-5">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#0d1f35] font-black tracking-tight leading-[1.1] mb-5">
                       {product.name}
                       {product.subtitle && (
-                        <span className="text-[#e63946] block mt-1 font-serif text-2xl font-bold italic">{product.subtitle}</span>
+                        <span className="text-[#c49a3c] block mt-1 font-serif text-2xl font-bold italic">{product.subtitle}</span>
                       )}
                     </h1>
 
                     <div className="flex flex-col gap-5 text-gray-600 font-light leading-relaxed text-sm md:text-base mb-6">
                       {product.longDescription ? (
                         product.longDescription.map((desc, idx) => (
-                          <p key={idx} className={idx === 0 ? 'border-l-3 border-[#e63946] pl-4 font-normal text-[#1e3a5f]/90' : ''}>
+                          <p key={idx} className={idx === 0 ? 'border-l-3 border-[#c49a3c] pl-4 font-normal text-[#0d1f35]/90' : ''}>
                             {desc}
                           </p>
                         ))
                       ) : (
-                        <p className="border-l-3 border-[#e63946] pl-4 font-normal text-[#1e3a5f]/90">
+                        <p className="border-l-3 border-[#c49a3c] pl-4 font-normal text-[#0d1f35]/90">
                           {product.shortDescription}
                         </p>
                       )}
@@ -443,11 +443,11 @@ const RefractoryProductDetails = () => {
                     <div className="grid grid-cols-2 gap-4 bg-white border border-[#e8e3d8] rounded-2xl p-5 shadow-sm">
                       <div className="flex flex-col">
                         <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Max Classification Temp</span>
-                        <span className="text-lg md:text-xl font-bold text-[#1e3a5f]">{product.specs.maxTemp}</span>
+                        <span className="text-lg md:text-xl font-bold text-[#0d1f35]">{product.specs.maxTemp}</span>
                       </div>
                       <div className="flex flex-col border-l border-gray-100 pl-4">
                         <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Bulk Density Spec</span>
-                        <span className="text-lg md:text-xl font-bold text-[#1e3a5f]">{product.specs.density}</span>
+                        <span className="text-lg md:text-xl font-bold text-[#0d1f35]">{product.specs.density}</span>
                       </div>
                     </div>
                   </div>
@@ -458,15 +458,15 @@ const RefractoryProductDetails = () => {
                   
                   {/* Section Header with PDF print button */}
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8 pb-4 border-b border-gray-100">
-                    <h3 className="text-xl md:text-2xl font-serif text-[#1e3a5f] font-bold flex items-center gap-2">
-                      <FileText className="w-5 h-5 text-[#e63946]" />
+                    <h3 className="text-xl md:text-2xl font-serif text-[#0d1f35] font-bold flex items-center gap-2">
+                      <FileText className="w-5 h-5 text-[#c49a3c]" />
                       Technical Datasheet
                     </h3>
 
                     <button 
                       onClick={handleDownloadSpecs}
                       disabled={downloadState !== 'idle'}
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:text-white bg-[#e63946] hover:bg-[#1e3a5f] border-none shadow-[0_4px_14px_rgba(230,57,70,0.35)] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 px-5 py-3 rounded-xl transition-all duration-300 disabled:opacity-50 transform relative overflow-hidden group animate-industrial-pulse"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:text-white bg-[#c49a3c] hover:bg-[#0d1f35] border-none shadow-[0_4px_14px_rgba(196,154,60,0.35)] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 px-5 py-3 rounded-xl transition-all duration-300 disabled:opacity-50 transform relative overflow-hidden group animate-industrial-pulse"
                     >
                       {downloadState === 'idle' && (
                         <>
@@ -476,7 +476,7 @@ const RefractoryProductDetails = () => {
                       )}
                       {downloadState === 'processing' && (
                         <>
-                          <div className="w-3.5 h-3.5 rounded-full border-2 border-[#e63946] border-t-transparent animate-spin" />
+                          <div className="w-3.5 h-3.5 rounded-full border-2 border-[#c49a3c] border-t-transparent animate-spin" />
                           Processing...
                         </>
                       )}
@@ -493,10 +493,10 @@ const RefractoryProductDetails = () => {
                   {product.tableSpecs ? (
                     <div className="overflow-x-auto border border-gray-100 rounded-xl bg-white">
                       <table className="w-full text-left text-sm whitespace-nowrap">
-                        <thead className="bg-[#1e3a5f] text-white">
+                        <thead className="bg-[#0d1f35] text-white">
                           <tr>
                             {product.tableSpecs.headers.map((header, i) => (
-                              <th key={i} className={`p-4 font-bold tracking-[0.1em] uppercase text-[10px] ${i === 0 ? 'bg-[#e63946]' : ''}`}>
+                              <th key={i} className={`p-4 font-bold tracking-[0.1em] uppercase text-[10px] ${i === 0 ? 'bg-[#c49a3c]' : ''}`}>
                                 {header}
                               </th>
                             ))}
@@ -506,7 +506,7 @@ const RefractoryProductDetails = () => {
                           {product.tableSpecs.rows.map((row, i) => (
                             <tr key={i} className="hover:bg-gray-50 transition-colors duration-150">
                               {row.map((cell, j) => (
-                                <td key={j} className={`p-4 ${j === 0 ? 'text-[#1e3a5f] font-semibold text-xs' : 'text-gray-700 font-light'}`}>
+                                <td key={j} className={`p-4 ${j === 0 ? 'text-[#0d1f35] font-semibold text-xs' : 'text-gray-700 font-light'}`}>
                                   {cell}
                                 </td>
                               ))}
@@ -518,9 +518,9 @@ const RefractoryProductDetails = () => {
                   ) : product.detailedSpecs ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {product.detailedSpecs.map((spec, idx) => (
-                        <div key={idx} className="flex justify-between items-center p-4 bg-gray-50/50 border border-gray-100 rounded-xl hover:bg-white hover:border-[#1e3a5f]/20 hover:shadow-sm transition-all duration-300">
+                        <div key={idx} className="flex justify-between items-center p-4 bg-gray-50/50 border border-gray-100 rounded-xl hover:bg-white hover:border-[#0d1f35]/20 hover:shadow-sm transition-all duration-300">
                           <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{spec.label}</span>
-                          <span className="text-sm text-[#1e3a5f] font-bold">{spec.value}</span>
+                          <span className="text-sm text-[#0d1f35] font-bold">{spec.value}</span>
                         </div>
                       ))}
                     </div>
@@ -531,8 +531,8 @@ const RefractoryProductDetails = () => {
 
                 {/* Material Performance Indicators */}
                 <div className="mb-12 bg-white border border-[#e8e3d8] rounded-2xl p-6 md:p-8 shadow-sm">
-                  <h3 className="text-xl md:text-2xl font-serif text-[#1e3a5f] font-bold mb-6 flex items-center gap-2 pb-4 border-b border-gray-100">
-                    <Sparkles className="w-5 h-5 text-[#e63946]" />
+                  <h3 className="text-xl md:text-2xl font-serif text-[#0d1f35] font-bold mb-6 flex items-center gap-2 pb-4 border-b border-gray-100">
+                    <Sparkles className="w-5 h-5 text-[#c49a3c]" />
                     Material Performance Profile
                   </h3>
 
@@ -541,7 +541,7 @@ const RefractoryProductDetails = () => {
                       <div key={idx} className="space-y-2">
                         <div className="flex justify-between items-baseline text-xs">
                           <span className="text-gray-600 font-medium">{stat.label}</span>
-                          <span className="text-[#e63946] font-bold">{stat.value}%</span>
+                          <span className="text-[#c49a3c] font-bold">{stat.value}%</span>
                         </div>
                         
                         <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
@@ -549,7 +549,7 @@ const RefractoryProductDetails = () => {
                             initial={{ width: 0 }}
                             animate={{ width: `${stat.value}%` }}
                             transition={{ duration: 1, delay: idx * 0.1, ease: "easeOut" }}
-                            className="h-full bg-gradient-to-r from-[#1e3a5f] to-[#e63946] rounded-full"
+                            className="h-full bg-gradient-to-r from-[#0d1f35] to-[#c49a3c] rounded-full"
                           />
                         </div>
                       </div>
@@ -563,14 +563,14 @@ const RefractoryProductDetails = () => {
                   {/* Features block */}
                   {product.features && (
                     <div className="bg-white border border-[#e8e3d8] rounded-2xl p-6 md:p-8 shadow-sm">
-                      <h3 className="text-lg md:text-xl font-serif text-[#1e3a5f] font-bold mb-6 pb-3 border-b border-gray-100">
+                      <h3 className="text-lg md:text-xl font-serif text-[#0d1f35] font-bold mb-6 pb-3 border-b border-gray-100">
                         Key Features
                       </h3>
                       <div className="space-y-4">
                         {product.features.map((feature, idx) => (
                           <div key={idx} className="flex items-start gap-3 group">
-                            <div className="w-5 h-5 rounded-full bg-[#1e3a5f]/5 border border-[#1e3a5f]/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:border-[#e63946] transition-colors duration-300">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#e63946]" />
+                            <div className="w-5 h-5 rounded-full bg-[#0d1f35]/5 border border-[#0d1f35]/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:border-[#c49a3c] transition-colors duration-300">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#c49a3c]" />
                             </div>
                             <span className="text-sm text-gray-600 leading-relaxed font-light group-hover:text-gray-900 transition-colors duration-300">
                               {feature}
@@ -584,13 +584,13 @@ const RefractoryProductDetails = () => {
                   {/* Applications block */}
                   {product.applications && (
                     <div className="bg-white border border-[#e8e3d8] rounded-2xl p-6 md:p-8 shadow-sm">
-                      <h3 className="text-lg md:text-xl font-serif text-[#1e3a5f] font-bold mb-6 pb-3 border-b border-gray-100">
+                      <h3 className="text-lg md:text-xl font-serif text-[#0d1f35] font-bold mb-6 pb-3 border-b border-gray-100">
                         Primary Applications
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {product.applications.map((app, idx) => (
-                          <div key={idx} className="bg-gray-50/50 border border-gray-100 rounded-xl p-4 hover:bg-white hover:border-[#1e3a5f]/20 hover:shadow-sm transition-all duration-300 group">
-                            <span className="text-xs text-gray-600 font-medium group-hover:text-[#1e3a5f] transition-colors">
+                          <div key={idx} className="bg-gray-50/50 border border-gray-100 rounded-xl p-4 hover:bg-white hover:border-[#0d1f35]/20 hover:shadow-sm transition-all duration-300 group">
+                            <span className="text-xs text-gray-600 font-medium group-hover:text-[#0d1f35] transition-colors">
                               {app}
                             </span>
                           </div>
@@ -608,11 +608,11 @@ const RefractoryProductDetails = () => {
                 <div className="sticky top-28 space-y-8 pb-12">
                   
                   {/* Modern B2B Inquiry Card */}
-                  <div className="bg-white border-2 border-[#1e3a5f]/10 rounded-2xl p-6 shadow-md relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#1e3a5f] to-[#e63946]" />
+                  <div className="bg-white border-2 border-[#0d1f35]/10 rounded-2xl p-6 shadow-md relative overflow-hidden group">
+                    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#0d1f35] to-[#c49a3c]" />
                     
-                    <h3 className="text-lg font-serif text-[#1e3a5f] font-bold mb-2 flex items-center gap-2">
-                      <Send className="w-4 h-4 text-[#e63946]" />
+                    <h3 className="text-lg font-serif text-[#0d1f35] font-bold mb-2 flex items-center gap-2">
+                      <Send className="w-4 h-4 text-[#c49a3c]" />
                       B2B Quick Inquiry
                     </h3>
                     <p className="text-xs text-gray-400 leading-relaxed font-light mb-6">
@@ -630,7 +630,7 @@ const RefractoryProductDetails = () => {
                               value={inquiryName}
                               onChange={(e) => setInquiryName(e.target.value)}
                               placeholder="Your full name" 
-                              className="w-full px-4 py-2.5 text-sm bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#1e3a5f] focus:bg-white transition-all font-light"
+                              className="w-full px-4 py-2.5 text-sm bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#0d1f35] focus:bg-white transition-all font-light"
                             />
                           </div>
 
@@ -643,7 +643,7 @@ const RefractoryProductDetails = () => {
                                 value={inquiryEmail}
                                 onChange={(e) => setInquiryEmail(e.target.value)}
                                 placeholder="company@email.com" 
-                                className="w-full px-4 py-2.5 text-sm bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#1e3a5f] focus:bg-white transition-all font-light"
+                                className="w-full px-4 py-2.5 text-sm bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#0d1f35] focus:bg-white transition-all font-light"
                               />
                             </div>
                             <div>
@@ -653,7 +653,7 @@ const RefractoryProductDetails = () => {
                                 value={inquiryCompany}
                                 onChange={(e) => setInquiryCompany(e.target.value)}
                                 placeholder="Enterprise or plant name" 
-                                className="w-full px-4 py-2.5 text-sm bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#1e3a5f] focus:bg-white transition-all font-light"
+                                className="w-full px-4 py-2.5 text-sm bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#0d1f35] focus:bg-white transition-all font-light"
                               />
                             </div>
                           </div>
@@ -666,14 +666,14 @@ const RefractoryProductDetails = () => {
                               value={inquiryMessage}
                               onChange={(e) => setInquiryMessage(e.target.value)}
                               placeholder={`Type your inquiry notes here regarding: ${product.name}...`}
-                              className="w-full px-4 py-2.5 text-xs bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#1e3a5f] focus:bg-white transition-all font-light resize-none leading-relaxed"
+                              className="w-full px-4 py-2.5 text-xs bg-gray-50 border border-[#e8e3d8] rounded-xl focus:outline-none focus:border-[#0d1f35] focus:bg-white transition-all font-light resize-none leading-relaxed"
                             />
                           </div>
 
                           <button 
                             type="submit" 
                             disabled={inquirySubmitting}
-                            className="w-full inline-flex items-center justify-center gap-2 bg-[#1e3a5f] hover:bg-[#e63946] text-white py-3 px-6 text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 disabled:opacity-50"
+                            className="w-full inline-flex items-center justify-center gap-2 bg-[#0d1f35] hover:bg-[#c49a3c] text-white py-3 px-6 text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 disabled:opacity-50"
                           >
                             {inquirySubmitting ? (
                               <>
@@ -703,7 +703,7 @@ const RefractoryProductDetails = () => {
                           </p>
                           <button 
                             onClick={() => setInquirySubmitted(false)}
-                            className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a5f] hover:underline mt-2"
+                            className="text-[10px] font-bold uppercase tracking-widest text-[#0d1f35] hover:underline mt-2"
                           >
                             Submit another inquiry
                           </button>
@@ -713,11 +713,11 @@ const RefractoryProductDetails = () => {
 
                     {/* Quick Contacts Footer */}
                     <div className="mt-6 pt-5 border-t border-gray-100 flex flex-col gap-2 text-[10px] text-gray-500 font-medium">
-                      <a href="tel:+919932317334" className="flex items-center gap-2 hover:text-[#e63946] transition-colors">
+                      <a href="tel:+919932317334" className="flex items-center gap-2 hover:text-[#c49a3c] transition-colors">
                         <Phone className="w-3.5 h-3.5 text-gray-400" />
                         Sales Hot-line: +91 99323 17334
                       </a>
-                      <a href="mailto:paragonrefractories22@gmail.com" className="flex items-center gap-2 hover:text-[#e63946] transition-colors">
+                      <a href="mailto:paragonrefractories22@gmail.com" className="flex items-center gap-2 hover:text-[#c49a3c] transition-colors">
                         <Mail className="w-3.5 h-3.5 text-gray-400" />
                         Email: paragonrefractories22@gmail.com
                       </a>
@@ -726,7 +726,7 @@ const RefractoryProductDetails = () => {
 
                   {/* Sidebar Catalog list */}
                   <div className="bg-white border border-[#e8e3d8] rounded-2xl p-6 shadow-sm">
-                    <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#1e3a5f] mb-6 pb-3 border-b border-gray-100">
+                    <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#0d1f35] mb-6 pb-3 border-b border-gray-100">
                       Refractory Materials
                     </h3>
                     
@@ -752,26 +752,26 @@ const RefractoryProductDetails = () => {
                                   }`} 
                                 />
                               ) : (
-                                <ImageIcon className={`w-3.5 h-3.5 transition-colors duration-300 ${isActive ? 'text-[#e63946]' : 'text-gray-400 group-hover:text-gray-700'}`} />
+                                <ImageIcon className={`w-3.5 h-3.5 transition-colors duration-300 ${isActive ? 'text-[#c49a3c]' : 'text-gray-400 group-hover:text-gray-700'}`} />
                               )}
-                              {isActive && <div className="absolute inset-0 ring-1 ring-inset ring-[#e63946] rounded-lg" />}
+                              {isActive && <div className="absolute inset-0 ring-1 ring-inset ring-[#c49a3c] rounded-lg" />}
                             </div>
                             
                             <div className="flex-grow min-w-0 pr-2">
                               <h4 className={`text-xs truncate transition-colors duration-300 ${
-                                isActive ? 'text-[#1e3a5f] font-bold' : 'text-gray-600 group-hover:text-[#1e3a5f]'
+                                isActive ? 'text-[#0d1f35] font-bold' : 'text-gray-600 group-hover:text-[#0d1f35]'
                               }`}>
                                 {p.name}
                               </h4>
                               <p className={`text-[8px] uppercase tracking-[0.15em] mt-0.5 transition-colors duration-300 ${
-                                isActive ? 'text-[#e63946]' : 'text-gray-400'
+                                isActive ? 'text-[#c49a3c]' : 'text-gray-400'
                               }`}>
                                 {p.category}
                               </p>
                             </div>
 
                             <ChevronRight className={`w-3.5 h-3.5 shrink-0 transition-all duration-300 ${
-                              isActive ? 'text-[#e63946]' : 'text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
+                              isActive ? 'text-[#c49a3c]' : 'text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
                             }`} />
                           </Link>
                         );
@@ -790,12 +790,12 @@ const RefractoryProductDetails = () => {
         <div className="hidden print:block bg-white text-black p-8 font-sans max-w-4xl mx-auto">
           
           {/* Document Header */}
-          <div className="flex justify-between items-center border-b-3 border-[#1e3a5f] pb-4 mb-6">
+          <div className="flex justify-between items-center border-b-3 border-[#0d1f35] pb-4 mb-6">
             <div className="flex items-center gap-4">
               <img src={logo} alt="Paragon Logo" className="h-14 w-auto object-contain bg-transparent" />
               <div>
-                <h1 className="text-xl font-extrabold text-[#1e3a5f] tracking-tight uppercase">Paragon Refractories and Minerals</h1>
-                <p className="text-[9px] text-[#e63946] font-bold uppercase tracking-[0.15em] mt-0.5">High-Temperature Refractory Solutions & Industrial Engineering</p>
+                <h1 className="text-xl font-extrabold text-[#0d1f35] tracking-tight uppercase">Paragon Refractories and Minerals</h1>
+                <p className="text-[9px] text-[#c49a3c] font-bold uppercase tracking-[0.15em] mt-0.5">High-Temperature Refractory Solutions & Industrial Engineering</p>
               </div>
             </div>
             <div className="text-right">
@@ -818,8 +818,8 @@ const RefractoryProductDetails = () => {
             </div>
             {/* Summary Details */}
             <div className="col-span-8">
-              <span className="text-[9px] text-[#e63946] font-bold uppercase tracking-wider">{product.category} Series</span>
-              <h3 className="text-lg font-bold text-[#1e3a5f] mt-0.5 mb-2.5">{product.name}</h3>
+              <span className="text-[9px] text-[#c49a3c] font-bold uppercase tracking-wider">{product.category} Series</span>
+              <h3 className="text-lg font-bold text-[#0d1f35] mt-0.5 mb-2.5">{product.name}</h3>
               <p className="text-xs text-gray-700 leading-relaxed font-light">{product.shortDescription}</p>
               {product.longDescription && (
                 <p className="text-xs text-gray-500 leading-relaxed font-light mt-2 border-t border-dashed border-slate-200 pt-2">{product.longDescription[0]}</p>
@@ -829,7 +829,7 @@ const RefractoryProductDetails = () => {
 
           {/* Table Specification Section */}
           <div className="mb-6">
-            <h4 className="text-xs font-bold text-[#1e3a5f] uppercase tracking-wider mb-3 pb-1 border-b border-slate-200">
+            <h4 className="text-xs font-bold text-[#0d1f35] uppercase tracking-wider mb-3 pb-1 border-b border-slate-200">
               Material Physical & Chemical Properties
             </h4>
             
@@ -838,7 +838,7 @@ const RefractoryProductDetails = () => {
                 <thead>
                   <tr className="bg-slate-100">
                     {product.tableSpecs.headers.map((header, i) => (
-                      <th key={i} className="border border-slate-200 p-2 text-[9px] font-bold text-[#1e3a5f] uppercase tracking-wider">
+                      <th key={i} className="border border-slate-200 p-2 text-[9px] font-bold text-[#0d1f35] uppercase tracking-wider">
                         {header}
                       </th>
                     ))}
@@ -861,7 +861,7 @@ const RefractoryProductDetails = () => {
                 {product.detailedSpecs.map((spec, idx) => (
                   <div key={idx} className="flex justify-between items-baseline py-1.5 border-b border-slate-100 text-xs">
                     <span className="text-gray-400 font-bold uppercase tracking-wider text-[8px]">{spec.label}</span>
-                    <span className="font-bold text-[#1e3a5f]">{spec.value}</span>
+                    <span className="font-bold text-[#0d1f35]">{spec.value}</span>
                   </div>
                 ))}
               </div>
@@ -874,17 +874,17 @@ const RefractoryProductDetails = () => {
           <div className="mb-8 grid grid-cols-2 gap-6 bg-slate-50/30 border border-slate-100 rounded-xl p-4">
             <div className="space-y-1">
               <span className="text-[8px] text-gray-400 font-bold uppercase tracking-wider">Max Classification Temperature</span>
-              <p className="text-sm font-bold text-[#1e3a5f]">{product.specs.maxTemp}</p>
+              <p className="text-sm font-bold text-[#0d1f35]">{product.specs.maxTemp}</p>
             </div>
             <div className="space-y-1 border-l border-slate-200 pl-6">
               <span className="text-[8px] text-gray-400 font-bold uppercase tracking-wider">Standard Bulk Density</span>
-              <p className="text-sm font-bold text-[#1e3a5f]">{product.specs.density}</p>
+              <p className="text-sm font-bold text-[#0d1f35]">{product.specs.density}</p>
             </div>
           </div>
 
           {/* Corporate Seal & Notes */}
           <div className="mt-16 pt-4 border-t border-slate-200 text-center">
-            <p className="text-[9px] font-bold text-[#1e3a5f] tracking-wide">PARAGON REFRACTORIES AND MINERALS</p>
+            <p className="text-[9px] font-bold text-[#0d1f35] tracking-wide">PARAGON REFRACTORIES AND MINERALS</p>
             <p className="text-[8px] text-gray-400 mt-1 uppercase">Durgapur, West Bengal, India, 713201</p>
             <p className="text-[7.5px] text-gray-400 mt-0.5">
               Phone: +91 99323 17334 / +91 81588 84204 | Email: paragonrefractories22@gmail.com | Website: www.paragonrefractoriesandminerals.com
@@ -905,7 +905,7 @@ const RefractoryProductDetails = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#030508]/95 backdrop-blur-xl p-4 md:p-10 print:hidden"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#020a14]/95 backdrop-blur-xl p-4 md:p-10 print:hidden"
             onClick={() => setIsLightboxOpen(false)}
           >
             <button
@@ -918,7 +918,7 @@ const RefractoryProductDetails = () => {
             {allImages.length > 1 && (
               <button
                 onClick={handlePrevImage}
-                className="absolute left-4 md:left-10 text-white/50 hover:text-white transition-all duration-300 p-3 md:p-4 z-50 bg-white/5 hover:bg-[#e63946] rounded-full hover:scale-110"
+                className="absolute left-4 md:left-10 text-white/50 hover:text-white transition-all duration-300 p-3 md:p-4 z-50 bg-white/5 hover:bg-[#c49a3c] rounded-full hover:scale-110"
               >
                 <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
               </button>
@@ -927,7 +927,7 @@ const RefractoryProductDetails = () => {
             {allImages.length > 1 && (
               <button
                 onClick={handleNextImage}
-                className="absolute right-4 md:right-10 text-white/50 hover:text-white transition-all duration-300 p-3 md:p-4 z-50 bg-white/5 hover:bg-[#e63946] rounded-full hover:scale-110"
+                className="absolute right-4 md:right-10 text-white/50 hover:text-white transition-all duration-300 p-3 md:p-4 z-50 bg-white/5 hover:bg-[#c49a3c] rounded-full hover:scale-110"
               >
                 <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
               </button>
@@ -955,7 +955,7 @@ const RefractoryProductDetails = () => {
                     key={idx}
                     onClick={() => setActiveIndex(galleryImages.indexOf(img))}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      activeImage === img ? 'bg-[#e63946] w-6' : 'bg-white/30 hover:bg-white/60'
+                      activeImage === img ? 'bg-[#c49a3c] w-6' : 'bg-white/30 hover:bg-white/60'
                     }`}
                   />
                 ))}

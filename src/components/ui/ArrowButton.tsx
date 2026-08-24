@@ -18,8 +18,8 @@ export const ArrowButton = ({
   
   const variants = {
     default: 'bg-white/20 hover:bg-white/40 text-white',
-    dark: 'bg-[#1e3a5f] hover:bg-[#152a45] text-white',
-    outline: 'border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white',
+    dark: 'bg-[#0d1f35] hover:bg-[#07111f] text-white',
+    outline: 'border-2 border-[#0d1f35] text-[#0d1f35] hover:bg-[#0d1f35] hover:text-white',
   };
 
   return (
@@ -59,7 +59,7 @@ export const DotIndicators = ({
           className={cn(
             'w-3 h-3 rounded-full transition-all duration-300',
             current === index 
-              ? 'bg-[#e63946]' 
+              ? 'bg-[#c49a3c]' 
               : 'bg-white/50 hover:bg-white/70'
           )}
           aria-label={`Go to slide ${index + 1}`}

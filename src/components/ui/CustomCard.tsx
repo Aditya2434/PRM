@@ -31,16 +31,16 @@ export const NewsCard = ({
           className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
         />
       </div>
-      <h3 className="text-sm font-bold text-[#1e3a5f] mb-3 leading-snug group-hover:text-[#e63946] transition-colors uppercase tracking-tight">
+      <h3 className="text-sm font-bold text-[#0d1f35] mb-3 leading-snug group-hover:text-[#c49a3c] transition-colors uppercase tracking-tight">
         {title}
       </h3>
       <div className="flex items-center gap-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
         <span className="flex items-center gap-1.5">
-          <Calendar className="w-3 h-3 text-[#e63946]" />
+          <Calendar className="w-3 h-3 text-[#c49a3c]" />
           {date}
         </span>
         <span className="flex items-center gap-1.5">
-          <MessageCircle className="w-3 h-3 text-[#e63946]" />
+          <MessageCircle className="w-3 h-3 text-[#c49a3c]" />
           {comments} Comments
         </span>
       </div>
@@ -66,25 +66,25 @@ export const ServiceCard = ({
       'group relative bg-white p-10 text-center border border-gray-100 transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2',
       className
     )}>
-      <div className="absolute top-0 left-0 w-full h-1 bg-[#e63946] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-[#c49a3c] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
       
       <div className="mb-6 flex justify-center">
-        <div className="relative w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#1e3a5f]">
+        <div className="relative w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#0d1f35]">
           <Icon 
-            className="w-8 h-8 text-[#1e3a5f] group-hover:text-white transition-colors duration-500" 
+            className="w-8 h-8 text-[#0d1f35] group-hover:text-white transition-colors duration-500" 
             strokeWidth={1.5} 
           />
         </div>
       </div>
 
-      <h3 className="text-base font-bold mb-4 tracking-widest text-[#1e3a5f] uppercase group-hover:text-[#e63946] transition-colors duration-300">
+      <h3 className="text-base font-bold mb-4 tracking-widest text-[#0d1f35] uppercase group-hover:text-[#c49a3c] transition-colors duration-300">
         {title}
       </h3>
       <p className="text-sm leading-relaxed text-gray-500 font-medium mb-6">
         {description}
       </p>
 
-      <div className="flex justify-center items-center gap-2 text-[10px] font-bold text-[#e63946] opacity-0 group-hover:opacity-100 transition-opacity duration-500 tracking-[0.2em] uppercase">
+      <div className="flex justify-center items-center gap-2 text-[10px] font-bold text-[#c49a3c] opacity-0 group-hover:opacity-100 transition-opacity duration-500 tracking-[0.2em] uppercase">
         Read More <ArrowRight className="w-3 h-3" />
       </div>
     </div>
@@ -181,13 +181,13 @@ export const ProjectCard = ({
               />
               {/* Tag for the Front Face with opacity and blur */}
               {tag && (
-                <div className="absolute top-3 right-3 bg-[#e63946]/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-10 shadow-md">
+                <div className="absolute top-3 right-3 bg-[#c49a3c]/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-10 shadow-md">
                   {tag}
                 </div>
               )}
             </div>
             <div className="h-[72px] w-full flex items-center justify-center px-4 bg-white border-t border-gray-100">
-              <h4 className="text-sm font-bold text-[#1e3a5f] text-center line-clamp-2 leading-tight">
+              <h4 className="text-sm font-bold text-[#0d1f35] text-center line-clamp-2 leading-tight">
                 {title}
               </h4>
             </div>
@@ -202,15 +202,15 @@ export const ProjectCard = ({
               className="absolute inset-0 w-full h-full object-cover blur-[3px] scale-110"
             />
             {/* Dark film overlay and content */}
-            <div className="absolute inset-0 bg-[#0f172a]/60 flex flex-col items-center justify-center p-6 text-center z-10">
+            <div className="absolute inset-0 bg-[#0d1f35]/60 flex flex-col items-center justify-center p-6 text-center z-10">
               {/* Tag for the Back Face with opacity and blur */}
               {tag && (
-                <div className="absolute top-3 right-3 bg-[#e63946]/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-20 shadow-md">
+                <div className="absolute top-3 right-3 bg-[#c49a3c]/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-20 shadow-md">
                   {tag}
                 </div>
               )}
 
-              <span className="text-[10px] font-bold text-[#e63946] uppercase tracking-[0.3em] mb-3">
+              <span className="text-[10px] font-bold text-[#c49a3c] uppercase tracking-[0.3em] mb-3">
                 {category}
               </span>
               
@@ -227,21 +227,21 @@ export const ProjectCard = ({
 
       {/* Pop-up Enquiry Modal */}
       {showEnquiry && isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#0f172a]/80 backdrop-blur-sm transition-opacity">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#0d1f35]/80 backdrop-blur-sm transition-opacity">
           <div 
             className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col"
             onClick={(e) => e.stopPropagation()} 
           >
             <div className="flex items-center justify-between p-6 md:p-8 border-b border-gray-100 bg-gray-50/50">
               <div>
-                <span className="text-[#e63946] text-xs font-bold tracking-[0.2em] uppercase mb-1 block">
+                <span className="text-[#c49a3c] text-xs font-bold tracking-[0.2em] uppercase mb-1 block">
                   Product Enquiry
                 </span>
-                <h3 className="text-2xl font-serif font-bold text-[#1e3a5f]">{title}</h3>
+                <h3 className="text-2xl font-serif font-bold text-[#0d1f35]">{title}</h3>
               </div>
               <button 
                 onClick={() => setIsModalOpen(false)}
-                className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#e63946] hover:border-[#e63946] transition-colors shadow-sm"
+                className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#c49a3c] hover:border-[#c49a3c] transition-colors shadow-sm"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -252,49 +252,49 @@ export const ProjectCard = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <User className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                      <User className="h-5 w-5 text-gray-400 group-focus-within:text-[#c49a3c] transition-colors" />
                     </div>
                     <input type="text" name="name" value={formData.name} onChange={handleChange} required disabled={isSubmitting}
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Full Name *" />
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#c49a3c]/20 focus:border-[#c49a3c] block pl-11 p-3.5 transition-all outline-none" placeholder="Full Name *" />
                   </div>
 
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <Building2 className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                      <Building2 className="h-5 w-5 text-gray-400 group-focus-within:text-[#c49a3c] transition-colors" />
                     </div>
                     <input type="text" name="company" value={formData.company} onChange={handleChange} disabled={isSubmitting}
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Company Name" />
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#c49a3c]/20 focus:border-[#c49a3c] block pl-11 p-3.5 transition-all outline-none" placeholder="Company Name" />
                   </div>
 
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <AtSign className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                      <AtSign className="h-5 w-5 text-gray-400 group-focus-within:text-[#c49a3c] transition-colors" />
                     </div>
                     <input type="email" name="email" value={formData.email} onChange={handleChange} required disabled={isSubmitting}
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Email Address *" />
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#c49a3c]/20 focus:border-[#c49a3c] block pl-11 p-3.5 transition-all outline-none" placeholder="Email Address *" />
                   </div>
 
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <PhoneCall className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                      <PhoneCall className="h-5 w-5 text-gray-400 group-focus-within:text-[#c49a3c] transition-colors" />
                     </div>
                     <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required disabled={isSubmitting}
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none" placeholder="Phone Number *" />
+                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#c49a3c]/20 focus:border-[#c49a3c] block pl-11 p-3.5 transition-all outline-none" placeholder="Phone Number *" />
                   </div>
                 </div>
 
                 <div className="relative group">
                   <div className="absolute top-4 left-0 pl-4 pointer-events-none">
-                    <MessageSquare className="h-5 w-5 text-gray-400 group-focus-within:text-[#e63946] transition-colors" />
+                    <MessageSquare className="h-5 w-5 text-gray-400 group-focus-within:text-[#c49a3c] transition-colors" />
                   </div>
                   <textarea name="message" value={formData.message} onChange={handleChange} required rows={3} disabled={isSubmitting}
-                    className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#e63946]/20 focus:border-[#e63946] block pl-11 p-3.5 transition-all outline-none resize-none" placeholder="Additional requirements..."
+                    className="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#c49a3c]/20 focus:border-[#c49a3c] block pl-11 p-3.5 transition-all outline-none resize-none" placeholder="Additional requirements..."
                   ></textarea>
                 </div>
 
                 <div className="pt-2">
                   <button type="submit" disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-2 bg-[#e63946] hover:bg-[#c1121f] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 shadow-[0_4px_14px_0_rgb(230,57,70,0.39)] hover:shadow-[0_6px_20px_rgba(230,57,70,0.23)] disabled:shadow-none"
+                    className="w-full flex items-center justify-center gap-2 bg-[#c49a3c] hover:bg-[#9a7530] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 shadow-[0_4px_14px_0_rgb(230,57,70,0.39)] hover:shadow-[0_6px_20px_rgba(196,154,60,0.23)] disabled:shadow-none"
                   >
                     <span>{isSubmitting ? 'Sending Request...' : 'Submit Request'}</span>
                     {!isSubmitting && <Send className="w-5 h-5" />}

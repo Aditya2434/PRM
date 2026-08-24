@@ -28,11 +28,11 @@ const PrivacyPolicy = () => {
 
       <main className="flex-grow">
         {/* Premium Hero Section */}
-        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-[#0f172a]">
+        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-[#0d1f35]">
           <div className="absolute inset-0 opacity-20 mix-blend-overlay">
             <img src={heroBg} alt="Privacy Policy Background" className="w-full h-full object-cover" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f35] via-[#0d1f35]/80 to-transparent" />
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
              <motion.div
@@ -41,8 +41,8 @@ const PrivacyPolicy = () => {
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6 shadow-xl"
             >
-              <ShieldCheck className="w-4 h-4 text-[#e63946]" />
-              <span className="text-[#e63946] text-xs font-black uppercase tracking-[0.2em]">Legal Information</span>
+              <ShieldCheck className="w-4 h-4 text-[#c49a3c]" />
+              <span className="text-[#c49a3c] text-xs font-black uppercase tracking-[0.2em]">Legal Information</span>
             </motion.div>
 
             <motion.h1 
@@ -51,7 +51,7 @@ const PrivacyPolicy = () => {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
             >
-              Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-[#ffb3c6]">Policy</span>
+              Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c49a3c] to-[#ffb3c6]">Policy</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -74,15 +74,15 @@ const PrivacyPolicy = () => {
               className="bg-white p-8 md:p-12 lg:p-16 rounded-2xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100"
             >
               <div className="border-b border-slate-100 pb-6 mb-8">
-                 <p className="text-sm font-bold text-[#e63946] tracking-widest uppercase">Last updated: {new Date().toLocaleDateString()}</p>
+                 <p className="text-sm font-bold text-[#c49a3c] tracking-widest uppercase">Last updated: {new Date().toLocaleDateString()}</p>
               </div>
               
               <div className="space-y-12 text-slate-600 font-medium leading-relaxed">
                 
                 {/* Section 1 */}
                 <div>
-                  <h2 className="text-2xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                    <span className="w-8 h-1 bg-[#e63946] inline-block rounded-full" />
+                  <h2 className="text-2xl font-bold text-[#0d1f35] mb-4 flex items-center gap-3">
+                    <span className="w-8 h-1 bg-[#c49a3c] inline-block rounded-full" />
                     1. Introduction
                   </h2>
                   <p className="pl-11">
@@ -92,8 +92,8 @@ const PrivacyPolicy = () => {
 
                 {/* Section 2 */}
                 <div>
-                  <h2 className="text-2xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                    <span className="w-8 h-1 bg-[#e63946] inline-block rounded-full" />
+                  <h2 className="text-2xl font-bold text-[#0d1f35] mb-4 flex items-center gap-3">
+                    <span className="w-8 h-1 bg-[#c49a3c] inline-block rounded-full" />
                     2. The Data We Collect About You
                   </h2>
                   <p className="pl-11">
@@ -103,8 +103,8 @@ const PrivacyPolicy = () => {
 
                 {/* Section 3 */}
                 <div>
-                  <h2 className="text-2xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                    <span className="w-8 h-1 bg-[#e63946] inline-block rounded-full" />
+                  <h2 className="text-2xl font-bold text-[#0d1f35] mb-4 flex items-center gap-3">
+                    <span className="w-8 h-1 bg-[#c49a3c] inline-block rounded-full" />
                     3. How We Use Your Personal Data
                   </h2>
                   <p className="pl-11">
@@ -114,8 +114,8 @@ const PrivacyPolicy = () => {
 
                 {/* Section 4 */}
                 <div>
-                  <h2 className="text-2xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                    <span className="w-8 h-1 bg-[#e63946] inline-block rounded-full" />
+                  <h2 className="text-2xl font-bold text-[#0d1f35] mb-4 flex items-center gap-3">
+                    <span className="w-8 h-1 bg-[#c49a3c] inline-block rounded-full" />
                     4. Data Security
                   </h2>
                   <p className="pl-11">
@@ -125,12 +125,12 @@ const PrivacyPolicy = () => {
 
                 {/* Section 5 */}
                 <div className="bg-slate-50 p-6 md:p-8 rounded-xl border border-slate-100 ml-11">
-                  <h2 className="text-xl font-bold text-[#0f172a] mb-3">
+                  <h2 className="text-xl font-bold text-[#0d1f35] mb-3">
                     5. Contact Us
                   </h2>
                   <p>
                     If you have any questions about this privacy policy or our privacy practices, please contact us directly at: <br/>
-                    <a href="mailto:paragonrefractories22@gmail.com" className="text-[#e63946] hover:text-[#0f172a] transition-colors font-bold mt-2 inline-block">
+                    <a href="mailto:paragonrefractories22@gmail.com" className="text-[#c49a3c] hover:text-[#0d1f35] transition-colors font-bold mt-2 inline-block">
                       paragonrefractories22@gmail.com
                     </a>
                   </p>
