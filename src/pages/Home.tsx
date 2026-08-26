@@ -95,7 +95,7 @@ const Home = () => {
         "@id": "https://www.paragonrefractoriesandminerals.com/#organization",
         "name": "Paragon Refractories and Minerals",
         "url": "https://www.paragonrefractoriesandminerals.com/",
-        "logo": "https://www.paragonrefractoriesandminerals.com/src/assets/logo.png",
+        "logo": "https://www.paragonrefractoriesandminerals.com/favicon.png",
         "sameAs": [
           "https://www.linkedin.com/company/paragon-refractories-minerals"
         ],

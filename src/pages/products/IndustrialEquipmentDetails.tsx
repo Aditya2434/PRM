@@ -264,6 +264,7 @@ const IndustrialEquipmentDetails = () => {
         description={`Buy heavy-duty ${product.title} by PRM. Engineered for maximum heating efficiency and durability. Fuel Compatibility: ${product.specs['Fuel Type'] || 'Custom'}, Capacity: ${product.specs.Capacity || 'Customizable'}.`}
         keywords={dynamicKeywords}
         url={`/products/industrial-equipment/${product.id}`}
+        image={product.image || undefined}
         schema={combinedSchema}
       />
       

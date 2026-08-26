@@ -16,6 +16,34 @@ const Projects = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Projects ItemList Schema
+  const projectsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.paragonrefractoriesandminerals.com/projects/#collectionpage",
+        "url": "https://www.paragonrefractoriesandminerals.com/projects",
+        "name": "Industrial Furnace & Refractory Projects | PRM",
+        "description": "Portfolio of completed reheating furnace installations, refractory linings, and combustion system setup projects for steel plants across India by PRM.",
+        "hasPart": projects.map((project) => ({
+          "@type": "CreativeWork",
+          "name": project.title,
+          "description": project.detail || project.category,
+          "image": `https://www.paragonrefractoriesandminerals.com${project.image}`
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.paragonrefractoriesandminerals.com/projects/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.paragonrefractoriesandminerals.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://www.paragonrefractoriesandminerals.com/projects" }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <SEO 
@@ -23,6 +51,7 @@ const Projects = () => {
         description="Browse our portfolio of completed reheating furnace installations, refractory linings, and combustion system setup projects for steel plants in India."
         keywords="reheating furnace projects, steel plant furnace installation, refractory installation case studies, rolling mill setup India, industrial piping projects"
         url="/projects"
+        schema={projectsSchema}
       />
       <TopBar />
       <Header />

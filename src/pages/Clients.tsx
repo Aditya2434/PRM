@@ -72,6 +72,32 @@ const Clients = () => {
   const col2 = clients.slice(8, 17);
   const col3 = clients.slice(17, 25);
 
+  // Clients ItemList + BreadcrumbList Schema
+  const clientsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": "https://www.paragonrefractoriesandminerals.com/clients/#clientlist",
+        "name": "Steel Plant & Rolling Mill Clients of Paragon Refractories and Minerals",
+        "description": "PRM is trusted by major steel manufacturing plants and rolling mills across India for industrial furnaces, refractory materials, and cast iron components.",
+        "itemListElement": clients.map((client, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": client.name
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.paragonrefractoriesandminerals.com/clients/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.paragonrefractoriesandminerals.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Clients", "item": "https://www.paragonrefractoriesandminerals.com/clients" }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col relative bg-[#f5f4f0]">
       <SEO 
@@ -79,6 +105,7 @@ const Clients = () => {
         description="PRM is trusted by major steel manufacturing plants and rolling mills across India for high-quality furnace components, castings, and refractory supplies."
         keywords="steel plant clients, rolling mill partners, industrial furnace customers, refractory clients India, steel manufacturer suppliers"
         url="/clients"
+        schema={clientsSchema}
       />
       <TopBar />
       <Header />

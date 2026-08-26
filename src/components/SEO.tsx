@@ -53,6 +53,10 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={absoluteImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:locale" content="en_IN" />
       
       {/* Twitter tags */}
       <meta name="twitter:creator" content={name} />
@@ -69,4 +73,4 @@ export default function SEO({
       )}
     </Helmet>
   );
-}
+}
