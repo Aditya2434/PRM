@@ -202,6 +202,10 @@ const RefractoryProductDetails = () => {
   ].join(", ");
 
   // Schema.org Product Graph Data
+  // NOTE: No price is specified — pricing is quote-based and not displayed on the page.
+  // The Offer entity is required by Google's Product schema spec (GSC error: 'Either offers,
+  // review, or aggregateRating should be specified') and is truthful: these products are
+  // manufactured and available for B2B supply via the inquiry form on this page.
   const combinedSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -213,14 +217,51 @@ const RefractoryProductDetails = () => {
         "description": product.shortDescription,
         "brand": {
           "@type": "Brand",
-          "name": "Paragon Refractories"
+          "name": "Paragon Refractories and Minerals"
         },
         "manufacturer": {
           "@type": "Organization",
           "name": "Paragon Refractories and Minerals",
           "url": "https://www.paragonrefractoriesandminerals.com/"
         },
-        "category": `Refractory Materials > ${product.category}`
+        "category": `Refractory Materials > ${product.category}`,
+        // additionalProperty: only spec values that are actually rendered on the page
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Maximum Classification Temperature",
+            "value": product.specs.maxTemp
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Bulk Density",
+            "value": product.specs.density
+          },
+          ...(product.specs.thermalConductivity ? [{
+            "@type": "PropertyValue",
+            "name": "Thermal Conductivity",
+            "value": product.specs.thermalConductivity
+          }] : []),
+          ...(product.category ? [{
+            "@type": "PropertyValue",
+            "name": "Product Category",
+            "value": product.category
+          }] : [])
+        ],
+        // Offer: satisfies Google's Product schema requirement.
+        // No price or priceCurrency — B2B quote-based supply only.
+        // availability: InStock is truthful — products are manufactured and
+        // available for bulk order via the inquiry form displayed on this page.
+        "offers": {
+          "@type": "Offer",
+          "seller": {
+            "@type": "Organization",
+            "name": "Paragon Refractories and Minerals",
+            "url": "https://www.paragonrefractoriesandminerals.com/"
+          },
+          "availability": "https://schema.org/InStock",
+          "url": `https://www.paragonrefractoriesandminerals.com/products/refractory-materials/${product.id}`
+        }
       },
       {
         "@type": "BreadcrumbList",
@@ -248,6 +289,7 @@ const RefractoryProductDetails = () => {
       }
     ]
   };
+
 
   // Material Performance values based on Category
   const getPerformanceProfile = () => {
