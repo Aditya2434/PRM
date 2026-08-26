@@ -69,8 +69,9 @@ module.exports = {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        serif: ['DM Serif Display', 'Georgia', 'serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       keyframes: {
         "accordion-down": {
