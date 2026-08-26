@@ -26,6 +26,43 @@ const Services = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // ItemList Schema for all services
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": "https://www.paragonrefractoriesandminerals.com/services/#services-list",
+        "name": "Industrial Furnace & Refractory Services by PRM",
+        "description": "Comprehensive industrial furnace installation, refractory lining, and maintenance services by Paragon Refractories and Minerals.",
+        "itemListElement": services.map((service, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": service.title,
+          "description": service.description
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.paragonrefractoriesandminerals.com/services/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.paragonrefractoriesandminerals.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.paragonrefractoriesandminerals.com/services"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc]">
       <SEO 
@@ -33,6 +70,7 @@ const Services = () => {
         description="Get professional industrial reheating furnace installation, refractory lining, maintenance, and combustion system audit services across steel mills in India."
         keywords="furnace installation services, refractory lining installation, reheating furnace maintenance, combustion audit services India, steel plant furnace repairs"
         url="/services"
+        schema={servicesSchema}
       />
       {/* Navigation Area */}
       <TopBar />

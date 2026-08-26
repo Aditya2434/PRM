@@ -74,6 +74,58 @@ const Contact = () => {
     }
   };
 
+  // ContactPage + LocalBusiness Schema
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://www.paragonrefractoriesandminerals.com/contact/#contactpage",
+        "url": "https://www.paragonrefractoriesandminerals.com/contact",
+        "name": "Contact Paragon Refractories and Minerals",
+        "description": "Contact PRM for customized reheating furnace systems, refractory materials, and industrial equipment in Durgapur, West Bengal, India.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.paragonrefractoriesandminerals.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.paragonrefractoriesandminerals.com/contact" }
+          ]
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.paragonrefractoriesandminerals.com/#localbusiness",
+        "name": "Paragon Refractories and Minerals",
+        "image": "https://www.paragonrefractoriesandminerals.com/images/refractory_hero.jpg",
+        "url": "https://www.paragonrefractoriesandminerals.com/",
+        "telephone": ["+919932317334", "+918158884204"],
+        "email": "paragonrefractories22@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Durgapur",
+          "addressLocality": "Durgapur",
+          "addressRegion": "West Bengal",
+          "postalCode": "713201",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 23.5204,
+          "longitude": 87.3119
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "priceRange": "$$",
+        "currenciesAccepted": "INR",
+        "paymentAccepted": "Cash, Bank Transfer"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f4f7f9] font-sans">
       <SEO 
@@ -81,6 +133,7 @@ const Contact = () => {
         description="Get in touch with PRM India in Durgapur, West Bengal for customized reheating furnace systems, high-quality refractory bricks, and enterprise quotes."
         keywords="contact refractory supplier, furnace manufacturer Durgapur, refractory brick prices India, steel plant equipment quote, PRM contact number"
         url="/contact"
+        schema={contactSchema}
       />
       <TopBar />
       <Header />

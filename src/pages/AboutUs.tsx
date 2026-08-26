@@ -15,6 +15,52 @@ const AboutUs = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // AboutPage Schema
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.paragonrefractoriesandminerals.com/about/#aboutpage",
+        "url": "https://www.paragonrefractoriesandminerals.com/about",
+        "name": "About Paragon Refractories and Minerals",
+        "description": "Learn about PRM — a premier manufacturer of reheating furnaces, high-alumina refractory bricks, castables, and custom cast iron furnace components in Durgapur, West Bengal, India.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.paragonrefractoriesandminerals.com/" },
+            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.paragonrefractoriesandminerals.com/about" }
+          ]
+        },
+        "mainEntity": {
+          "@type": "Organization",
+          "@id": "https://www.paragonrefractoriesandminerals.com/#organization",
+          "name": "Paragon Refractories and Minerals",
+          "alternateName": ["PRM", "Paragon Refractories & Minerals"],
+          "url": "https://www.paragonrefractoriesandminerals.com/",
+          "logo": "https://www.paragonrefractoriesandminerals.com/favicon.png",
+          "foundingDate": "2010",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Durgapur",
+            "addressRegion": "West Bengal",
+            "postalCode": "713201",
+            "addressCountry": "IN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+919932317334",
+            "contactType": "sales",
+            "areaServed": "IN"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/paragon-refractories-minerals"
+          ]
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <SEO 
@@ -22,6 +68,7 @@ const AboutUs = () => {
         description="Learn about Paragon Refractories & Minerals (PRM), a premier manufacturer and supplier of industrial reheating furnaces, high-alumina bricks, castables, and custom cast iron components in Durgapur, West Bengal."
         keywords="About Paragon Refractories, Reheating Furnace manufacturer Durgapur, refractory brick supplier West Bengal, cast iron casting manufacturer India, steel plant furnace suppliers"
         url="/about"
+        schema={aboutSchema}
       />
       <TopBar />
       <Header />

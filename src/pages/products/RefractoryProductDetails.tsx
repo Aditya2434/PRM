@@ -292,6 +292,7 @@ const RefractoryProductDetails = () => {
         description={`Buy high-quality ${product.name} engineered for steel furnaces by PRM. Technical Specs - Max Temp: ${product.specs.maxTemp}, Bulk Density: ${product.specs.density}. Ensure superior thermal resistance.`}
         keywords={dynamicKeywords}
         url={`/products/refractory-materials/${product.id}`}
+        image={product.image || undefined}
         schema={combinedSchema}
       />
       
