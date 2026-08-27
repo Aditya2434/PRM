@@ -201,27 +201,15 @@ const IndustrialEquipmentDetails = () => {
     ...(product.applications || [])
   ].join(", ");
 
-  // Schema.org Product Graph Data
+  // Schema.org structured data — BreadcrumbList only.
+  // Product schema was intentionally removed: Google's Product rich results
+  // require offers.price+priceCurrency, review, or aggregateRating. This is
+  // a B2B manufacturer page with quote-based pricing and no public prices,
+  // reviews, or ratings. Rather than add fabricated commerce data, we omit
+  // the Product entity entirely.
   const combinedSchema = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Product",
-        "@id": `https://www.paragonrefractoriesandminerals.com/products/industrial-equipment/${product.id}#product`,
-        "name": product.title,
-        "image": product.image ? `https://www.paragonrefractoriesandminerals.com${product.image}` : undefined,
-        "description": product.desc,
-        "brand": {
-          "@type": "Brand",
-          "name": "Paragon Refractories"
-        },
-        "manufacturer": {
-          "@type": "Organization",
-          "name": "Paragon Refractories and Minerals",
-          "url": "https://www.paragonrefractoriesandminerals.com/"
-        },
-        "category": `Industrial Equipment > ${product.category}`
-      },
       {
         "@type": "BreadcrumbList",
         "@id": `https://www.paragonrefractoriesandminerals.com/products/industrial-equipment/${product.id}#breadcrumb`,
