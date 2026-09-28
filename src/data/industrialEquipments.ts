@@ -452,3 +452,5 @@ export const equipmentsData: IndustrialEquipment[] = [
     ]
   }
 ];
+
+export const industrialEquipments = equipmentsData;

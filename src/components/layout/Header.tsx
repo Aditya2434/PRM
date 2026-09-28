@@ -1,7 +1,6 @@
 // src/components/layout/Header.tsx
 import { Mail, Phone, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import CustomButton from '@/components/ui/CustomButton';
 import logo from '@/assets/logo.png';
 import { motion } from 'framer-motion';
 
@@ -30,11 +29,11 @@ const Header = () => {
 
           {/* Text Section - Responsive Typography */}
           <div className="flex flex-col border-l border-gray-300 pl-2 md:pl-3 py-1">
-            <span className="text-[15px] sm:text-lg md:text-2xl font-bold text-[#0d1f35] leading-none tracking-tight group-hover:text-[#0d1f35]/80 transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+            <span className="text-[15px] sm:text-lg md:text-2xl font-bold text-[#0B1828] leading-none tracking-tight group-hover:text-[#0B1828]/80 transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
               Paragon Refractories
             </span>
             {/* Highlighted "And Minerals" */}
-            <span className="text-[9px] sm:text-[11px] md:text-sm font-semibold bg-gradient-to-r from-[#c49a3c] to-[#9a7530] bg-clip-text text-transparent leading-tight mt-0.5 md:mt-1 tracking-wide">
+            <span className="text-[9px] sm:text-[11px] md:text-sm font-semibold text-[#D97706] leading-tight mt-0.5 md:mt-1 tracking-wide">
               And Minerals
             </span>
           </div>
@@ -51,35 +50,35 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-8">
             {/* Email Block */}
             <div className="flex items-center gap-3 group/item">
-              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-[#c49a3c] shadow-sm transition-all duration-300 group-hover/item:bg-[#c49a3c] group-hover/item:text-white group-hover/item:border-[#c49a3c] group-hover/item:shadow-md">
+              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#D97706] shadow-sm transition-all duration-300 group-hover/item:bg-[#D97706] group-hover/item:text-white group-hover/item:border-[#D97706] group-hover/item:shadow-md">
                 <Mail className="w-4 h-4" strokeWidth={2} />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Us</span>
-                <a href="mailto:paragonrefractories22@gmail.com" className="text-sm font-semibold text-[#334155] hover:text-[#c49a3c] transition-colors">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest font-mono">Email Us</span>
+                <a href="mailto:paragonrefractories22@gmail.com" className="text-sm font-semibold text-slate-700 hover:text-[#D97706] transition-colors">
                   paragonrefractories22@gmail.com
                 </a>
               </div>
             </div>
 
             {/* Divider */}
-            <div className="h-10 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
+            <div className="h-10 w-px bg-slate-200" />
 
             {/* Phone Block */}
             <div className="flex items-center gap-3 group/item">
-              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-[#c49a3c] shadow-sm transition-all duration-300 group-hover/item:bg-[#c49a3c] group-hover/item:text-white group-hover/item:border-[#c49a3c] group-hover/item:shadow-md">
+              <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#D97706] shadow-sm transition-all duration-300 group-hover/item:bg-[#D97706] group-hover/item:text-white group-hover/item:border-[#D97706] group-hover/item:shadow-md">
                 <Phone className="w-4 h-4" strokeWidth={2} />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Call Us</span>
-                <a href="tel:+919932317334" className="text-sm font-semibold text-[#334155] hover:text-[#c49a3c] transition-colors">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest font-mono">Call Us</span>
+                <a href="tel:+919932317334" className="text-sm font-semibold text-slate-700 hover:text-[#D97706] transition-colors">
                   +91 9932317334
                 </a>
               </div>
             </div>
           </div>
 
-          {/* CTA Button - Scaled intelligently for mobile & desktop */}
+          {/* CTA Button */}
           <Link 
             to="/contact"
             onClick={() => {
@@ -88,15 +87,12 @@ const Header = () => {
               }, 150);
             }}
           >
-            <CustomButton 
-              variant="primary" 
-              className="group relative overflow-hidden bg-gradient-to-r from-[#0d1f35] to-[#07111f] hover:from-[#c49a3c] hover:to-[#9a7530] text-white px-3 py-2 md:px-9 md:py-4 text-[10px] md:text-[13px] font-bold tracking-wider md:tracking-[0.15em] rounded-sm shadow-lg shadow-slate-900/10 transition-all duration-500 transform hover:-translate-y-0.5 whitespace-nowrap"
+            <button 
+              className="inline-flex items-center gap-2 bg-[#090D16] hover:bg-[#D97706] text-white px-5 py-3 md:px-7 md:py-3.5 text-xs font-ui font-bold tracking-[0.16em] uppercase rounded-md shadow-md hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300"
             >
-              <span className="relative z-10 flex items-center gap-1 md:gap-2">
-                <span className="hidden sm:inline">GET A </span>QUOTE
-                <ChevronRight className="w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-            </CustomButton>
+              <span><span className="hidden sm:inline">GET A </span>QUOTE</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </button>
           </Link>
         </motion.div>
       </div>

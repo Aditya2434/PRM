@@ -3,6 +3,17 @@ module.exports = {
   darkMode: ["class"],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1.5rem',
+        sm: '2rem',
+        md: '3rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -49,13 +60,15 @@ module.exports = {
           ring: "hsl(var(--sidebar-ring))",
         },
         industrial: {
-          navy: "#0d1f35",
-          gold: "#c49a3c",
-          "gold-light": "#e8cc7e",
-          "gold-dark": "#9a7530",
-          sand: "#f8f6f1",
-          steel: "#8a9ab0",
-          dark: "#07111f",
+          navy: "#090D16",
+          slate: "#0F172A",
+          gold: "#D97706",
+          amber: "#F59E0B",
+          "gold-mid": "#E5A93C",
+          "gold-light": "#FEF3C7",
+          sand: "#F8FAFC",
+          steel: "#64748B",
+          dark: "#040711",
         },
       },
       borderRadius: {
@@ -69,9 +82,12 @@ module.exports = {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
       },
       fontFamily: {
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
-        serif: ['DM Serif Display', 'Georgia', 'serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        heading: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        serif: ['Plus Jakarta Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        ui: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

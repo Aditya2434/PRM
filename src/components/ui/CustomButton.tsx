@@ -19,10 +19,10 @@ const CustomButton = ({
   const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-sm';
   
   const variants = {
-    primary: 'bg-[#c49a3c] text-white hover:bg-[#9a7530]',
-    secondary: 'bg-[#0d1f35] text-white hover:bg-[#07111f]',
-    outline: 'border-2 border-white text-white hover:bg-white hover:text-[#0d1f35]',
-    outlineDark: 'border-2 border-[#0d1f35] text-[#0d1f35] hover:bg-[#0d1f35] hover:text-white',
+    primary: 'bg-[#D97706] text-white hover:bg-[#F59E0B] shadow-sm hover:shadow-md hover:shadow-amber-500/20',
+    secondary: 'bg-[#090D16] text-white hover:bg-[#D97706] shadow-sm',
+    outline: 'border border-slate-300 text-slate-800 hover:bg-[#090D16] hover:text-white hover:border-[#090D16]',
+    outlineDark: 'border border-[#090D16] text-[#090D16] hover:bg-[#090D16] hover:text-white',
   };
   
   const sizes = {

@@ -1,3 +1,4 @@
+// src/components/sections/TestimonialsSection.tsx
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { testimonials } from '@/data/testimonials';
@@ -10,82 +11,67 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const testimonialStyles = [
-  {
-    gradient: "from-white via-white to-blue-50/40",
-    accent: "bg-[#0d1f35]",
-    iconColor: "text-blue-100",
-    borderColor: "border-blue-100/30"
-  },
-  {
-    gradient: "from-white via-white to-red-50/40",
-    accent: "bg-[#c49a3c]",
-    iconColor: "text-red-100",
-    borderColor: "border-red-100/30"
-  },
-  {
-    gradient: "from-white via-white to-indigo-50/40",
-    accent: "bg-indigo-600",
-    iconColor: "text-indigo-100",
-    borderColor: "border-indigo-100/30"
-  }
-];
-
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-16 bg-slate-50 overflow-hidden relative">
-      <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-white -skew-x-12 translate-x-1/4 -z-10" />
-      </div>
-
-      <div className="container mx-auto px-12 lg:px-24 relative z-10">
-        <SectionTitle title="TESTIMONIALS" />
+    <section id="testimonials" className="py-20 bg-slate-50/70 border-t border-slate-200/80 overflow-hidden relative">
+      <div className="container mx-auto px-6 lg:px-24 relative z-10">
+        <SectionTitle title="CLIENT TESTIMONIALS" />
+        
+        <div className="max-w-3xl mb-12">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#090D16] tracking-tight">
+            Endorsed by Engineering Directors &amp; Plant Heads
+          </h2>
+          <p className="font-ui text-slate-500 text-sm sm:text-base mt-2">
+            Verified performance reports from heavy steel manufacturing and thermal processing facilities across India.
+          </p>
+        </div>
         
         <Carousel opts={{ align: "start", loop: true }} className="w-full relative">
           <CarouselContent className="-ml-6">
-            {testimonials.map((testimonial, index) => {
-              const style = testimonialStyles[index % testimonialStyles.length];
-              return (
-                <CarouselItem key={testimonial.id} className="pl-6 md:basis-1/2 lg:basis-1/2">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="h-full group"
-                  >
-                    <div className={`relative h-full p-10 rounded-2xl border ${style.borderColor} bg-white overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] shadow-sm`}>
-                      <div className={`absolute inset-0 bg-gradient-to-br ${style.gradient} -z-10`} />
-                      <Quote className={`absolute top-6 right-6 w-32 h-32 ${style.iconColor} opacity-40 -z-10 rotate-12 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-0`} />
-                      <div className={`absolute top-0 left-0 w-1.5 h-full ${style.accent} opacity-20 group-hover:opacity-100 transition-opacity duration-500`} />
-                      <Quote className={`w-10 h-10 ${style.accent} mb-8 opacity-80`} />
-                      <p className="text-gray-600 leading-relaxed italic text-lg mb-10 relative z-10 font-medium">"{testimonial.text}"</p>
-                      <div className="flex items-center gap-5 mt-auto border-t border-black/5 pt-8">
-                        <div className="w-14 h-14 rounded-full border-2 border-white overflow-hidden shrink-0 shadow-md relative z-10">
-                          <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        </div>
-                        <div>
-                          <h4 className="font-serif font-bold text-[#0d1f35] text-base tracking-tight mb-0.5">{testimonial.name}</h4>
-                          <div className="flex items-center gap-2">
-                            <div className="w-4 h-[1px] bg-[#c49a3c]" />
-                            <p className="text-[10px] text-[#c49a3c] font-bold uppercase tracking-[0.2em]">{testimonial.company}</p>
-                          </div>
-                        </div>
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={testimonial.id} className="pl-6 md:basis-1/2 lg:basis-1/2">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="h-full group"
+                >
+                  <div className="relative h-full p-8 lg:p-10 rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-slate-900/5 hover:border-amber-500/40 shadow-xs flex flex-col">
+                    <Quote className="absolute top-6 right-6 w-24 h-24 text-slate-100 -z-0 rotate-12 transition-transform duration-500 group-hover:scale-105" />
+                    
+                    <div className="flex items-center gap-1.5 mb-6 text-[#D97706]">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-amber-500 text-sm">★</span>
+                      ))}
+                    </div>
+
+                    <p className="text-slate-700 font-ui leading-relaxed text-base mb-8 relative z-10 font-normal">
+                      "{testimonial.text}"
+                    </p>
+
+                    <div className="flex items-center gap-4 mt-auto border-t border-slate-100 pt-6">
+                      <div className="w-12 h-12 rounded-full border border-slate-200 overflow-hidden shrink-0 shadow-xs relative z-10">
+                        <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h4 className="font-display font-bold text-[#090D16] text-base tracking-tight">{testimonial.name}</h4>
+                        <p className="font-mono text-[10px] text-[#D97706] font-bold uppercase tracking-[0.16em]">{testimonial.company}</p>
                       </div>
                     </div>
-                  </motion.div>
-                </CarouselItem>
-              );
-            })}
+                  </div>
+                </motion.div>
+              </CarouselItem>
+            ))}
           </CarouselContent>
           
-          <div className="flex justify-center items-center gap-6 mt-16">
-            <CarouselPrevious className="static translate-y-0 h-14 w-14 rounded-full border-slate-200 bg-white shadow-sm hover:bg-[#0d1f35] hover:text-white hover:border-[#0d1f35] transition-all duration-300">
-              <ChevronLeft className="w-6 h-6" />
+          <div className="flex justify-center items-center gap-5 mt-12">
+            <CarouselPrevious className="static translate-y-0 h-11 w-11 rounded-lg border-slate-200 bg-white shadow-xs hover:bg-[#090D16] hover:text-white hover:border-[#090D16] transition-all duration-200">
+              <ChevronLeft className="w-5 h-5" />
             </CarouselPrevious>
-            <div className="h-px w-12 bg-slate-300" />
-            <CarouselNext className="static translate-y-0 h-14 w-14 rounded-full border-slate-200 bg-white shadow-sm hover:bg-[#c49a3c] hover:text-white hover:border-[#c49a3c] transition-all duration-300">
-              <ChevronRight className="w-6 h-6" />
+            <div className="h-px w-8 bg-slate-200" />
+            <CarouselNext className="static translate-y-0 h-11 w-11 rounded-lg border-slate-200 bg-white shadow-xs hover:bg-[#D97706] hover:text-white hover:border-[#D97706] transition-all duration-200">
+              <ChevronRight className="w-5 h-5" />
             </CarouselNext>
           </div>
         </Carousel>

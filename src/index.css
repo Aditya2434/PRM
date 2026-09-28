@@ -1,85 +1,340 @@
+/* Google Fonts — High-End Industrial Architectural Typography */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* ═══════════════════════════════════════════
-       OBSIDIAN & GOLD — Premium Industrial Theme
-       Primary:  #0d1f35 (Deep Obsidian Navy)
-       Accent:   #c49a3c (Amber Gold)
-    ═══════════════════════════════════════════ */
-    --background: 40 25% 97%;           /* warm ivory #f8f6f1 */
-    --foreground: 215 56% 14%;          /* deep navy #0d1f35 */
-    --card: 0 0% 100%;
-    --card-foreground: 215 56% 14%;
+    /* ── Obsidian Slate & High-Temp Molten Amber Palette ── */
+    --navy:        #090D16;   /* Deep Obsidian Carbon */
+    --navy-mid:    #0F172A;   /* Technical Slate 900 */
+    --navy-light:  #1E293B;   /* Slate 800 */
+    
+    /* Radiant Forge Amber / High-Temperature Metallic Flame */
+    --gold:        #D97706;   /* Amber 600 - Rich Forge Gold */
+    --gold-mid:    #F59E0B;   /* Amber 500 - Radiant Molten Heat */
+    --gold-light:  #FEF3C7;   /* Amber 100 - High-End Accent Glow */
+    --gold-bg:     #FFFBEB;   /* Amber 50 */
+
+    /* Surface & Background — Crisp, Bright, Premium Light UI */
+    --background:  210 40% 99%;      /* #F8FAFC crisp white-slate */
+    --surface:     0 0% 100%;        /* #FFFFFF pure radiant white */
+    --surface-alt: 210 30% 96%;      /* #F1F5F9 clean architectural surface */
+
+    /* Typography Hierarchy */
+    --foreground:      222 47% 11%;  /* #0F172A rich obsidian slate */
+    --text-secondary:  215 25% 35%;  /* #334155 high readability secondary */
+    --text-muted:      215 16% 50%;  /* #64748B crisp technical muted */
+
+    /* Precision Architectural Dividers */
+    --border:         214 32% 91%;   /* #E2E8F0 */
+    --border-strong:  215 20% 82%;   /* #CBD5E1 */
+
+    /* High-Energy Industrial Accent */
+    --accent:             38 92% 50%; /* #D97706 */
+    --accent-foreground:  0 0% 100%;
+
+    /* Compatibility Tokens */
+    --card: var(--surface);
+    --card-foreground: var(--foreground);
     --popover: 0 0% 100%;
-    --popover-foreground: 215 56% 14%;
-    --primary: 215 56% 14%;             /* #0d1f35 — obsidian navy */
+    --popover-foreground: 222 47% 11%;
+    --primary: 222 47% 11%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 40 18% 91%;            /* warm sand */
-    --secondary-foreground: 215 56% 14%;
-    --muted: 40 15% 93%;
-    --muted-foreground: 215 14% 47%;
-    --accent: 40 54% 50%;               /* #c49a3c — amber gold */
-    --accent-foreground: 0 0% 100%;
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 16% 50%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 12% 88%;
-    --input: 40 12% 92%;
-    --ring: 215 56% 14%;
-    --radius: 0.625rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 215 56% 14%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 40 15% 91%;
-    --sidebar-accent-foreground: 215 56% 14%;
-    --sidebar-border: 40 12% 88%;
-    --sidebar-ring: 215 56% 14%;
-  }
-
-  .dark {
-    --background: 215 56% 4%;
-    --foreground: 0 0% 98%;
-    --card: 215 56% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 215 56% 6%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 215 56% 14%;
-    --secondary: 215 35% 12%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 215 35% 12%;
-    --muted-foreground: 215 16% 55%;
-    --accent: 40 54% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 215 35% 15%;
-    --input: 215 35% 15%;
-    --ring: 40 54% 50%;
-    --sidebar-background: 215 56% 5%;
-    --sidebar-foreground: 40 15% 91%;
-    --sidebar-primary: 40 54% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 35% 12%;
-    --sidebar-accent-foreground: 40 15% 91%;
-    --sidebar-border: 215 35% 15%;
-    --sidebar-ring: 40 54% 50%;
+    --input: 214 32% 91%;
+    --ring: 38 92% 50%;
+    --radius: 0.5rem;
   }
 }
 
 @layer base {
   * {
     border-color: hsl(var(--border));
+    box-sizing: border-box;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Imposing, Authoritative Architectural Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+  }
+}
+
+@layer utilities {
+  /* Typography Utilities */
+  .font-display {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+  }
+  .font-heading {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .font-ui {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  .font-mono-spec {
+    font-family: 'JetBrains Mono', monospace;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  /* Colors */
+  .text-navy { color: var(--navy); }
+  .text-gold { color: var(--gold); }
+  .bg-navy { background-color: var(--navy); }
+  .bg-navy-mid { background-color: var(--navy-mid); }
+  .bg-gold { background-color: var(--gold); }
+  .bg-gold-light { background-color: var(--gold-light); }
+  .bg-gold-bg { background-color: var(--gold-bg); }
+  .border-gold { border-color: var(--gold); }
+  .border-navy { border-color: var(--navy); }
+
+  /* Premium hairline rule */
+  .hairline {
+    border-width: 1px;
+    border-color: hsl(var(--border));
+  }
+
+  /* Gold accent bar — modern technical indicator */
+  .gold-bar::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-mid));
+    border-radius: 9999px;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+  }
+
+  /* Premium button variants */
+  .btn-primary {
+    @apply inline-flex items-center gap-2.5 bg-[#090D16] text-white px-8 py-4 font-ui font-bold text-xs tracking-[0.16em] uppercase transition-all duration-300 hover:bg-[#D97706] hover:shadow-lg hover:shadow-amber-500/20 rounded-md;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2.5 border border-slate-300 text-[#090D16] bg-white px-8 py-4 font-ui font-bold text-xs tracking-[0.16em] uppercase transition-all duration-300 hover:bg-[#090D16] hover:text-white hover:border-[#090D16] rounded-md shadow-sm;
+  }
+  .btn-gold {
+    @apply inline-flex items-center gap-2.5 bg-[#D97706] text-white px-8 py-4 font-ui font-bold text-xs tracking-[0.16em] uppercase transition-all duration-300 hover:bg-[#F59E0B] hover:shadow-lg hover:shadow-amber-500/25 rounded-md;
+  }
+
+  /* Enhanced Site-Wide Horizontal Padding */
+  .container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2.25rem !important;
+      padding-right: 2.25rem !important;
+    }
+  }
+  @media (min-width: 768px) {
+    .container {
+      padding-left: 3.5rem !important;
+      padding-right: 3.5rem !important;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 5rem !important;
+      padding-right: 5rem !important;
+    }
+  }
+  @media (min-width: 1280px) {
+    .container {
+      padding-left: 6.5rem !important;
+      padding-right: 6.5rem !important;
+    }
+  }
+  @media (min-width: 1536px) {
+    .container {
+      padding-left: 8rem !important;
+      padding-right: 8rem !important;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════
+   MARQUEE ANIMATION
+═══════════════════════════════════════════ */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 65s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION TECHNICAL EYEBROW
+═══════════════════════════════════════════ */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--gold);
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.8);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   PREMIUM STAT COUNTER STRIP
+═══════════════════════════════════════════ */
+.stat-number {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* ═══════════════════════════════════════════
+   CARD HOVER EFFECTS
+═══════════════════════════════════════════ */
+.premium-card {
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.premium-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px -12px rgba(9, 13, 22, 0.10);
+  border-color: rgba(217, 119, 6, 0.35);
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL TO TOP BUTTON
+═══════════════════════════════════════════ */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--navy);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  z-index: 50;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -5px rgba(217, 119, 6, 0.4);
+}
+
+/* ═══════════════════════════════════════════
+   BLUEPRINT GRID PATTERN
+═══════════════════════════════════════════ */
+.bg-blueprint-grid {
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE-IN ANIMATION (for nav)
+═══════════════════════════════════════════ */
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ═══════════════════════════════════════════
+   PREMIUM SPECIFICATION PRINT & PDF STYLES
+═══════════════════════════════════════════ */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 16mm 14mm 16mm;
+  }
+  
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Instantly exclude all interactive UI from print layout */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+
+  /* Prevent page breaks inside critical engineering blocks */
+  .print-avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 }

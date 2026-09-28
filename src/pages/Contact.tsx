@@ -1,34 +1,75 @@
 // src/pages/Contact.tsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
-import TopBar from '../components/layout/TopBar';
-import Header from '../components/layout/Header';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { CheckCircle2, AlertCircle, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { 
+  CheckCircle2, 
+  AlertCircle, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  ArrowRight, 
+  ChevronRight, 
+  Clock, 
+  ExternalLink,
+  MessageSquare,
+  User,
+  Tag,
+  Building2,
+  Copy,
+  Check,
+  ShieldCheck,
+  Zap,
+  Factory
+} from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
 import { Label } from '../components/ui/label';
 
+const QUICK_TOPICS = [
+  'Reheating Furnaces EPC',
+  'Refractory Bricks (40%-80%)',
+  'Monolithic Castables',
+  'Cast Iron Spares',
+  'Emergency Relining'
+];
+
 const Contact = () => {
-  // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     phone: '',
-    subject: '',
+    company: '',
+    subject: QUICK_TOPICS[0],
     message: ''
   });
 
+  const [selectedTopic, setSelectedTopic] = useState(QUICK_TOPICS[0]);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [resultMessage, setResultMessage] = useState('');
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleTopicClick = (topic: string) => {
+    setSelectedTopic(topic);
+    setFormData(prev => ({
+      ...prev,
+      subject: topic
+    }));
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('paragonrefractories22@gmail.com');
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -48,21 +89,22 @@ const Contact = () => {
         },
         body: JSON.stringify({
           access_key: "e0c4e386-1dea-4873-86d2-5edee06ea579",
-          name: `${formData.firstName} ${formData.lastName}`,
+          name: formData.name,
           email: formData.email,
           phone: formData.phone || "Not provided",
+          company: formData.company || "Not provided",
           subject: formData.subject,
           message: formData.message,
-          from_name: "PRM Website",
+          from_name: "PRM Website Contact Form",
         }),
       });
 
       const result = await response.json();
 
-      if (response.status === 200) {
+      if (response.status === 200 || result.success) {
         setStatus('success');
-        setResultMessage("Thank you! Your message has been sent successfully.");
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' });
+        setResultMessage("Thank you! Your inquiry has been received. An engineering specialist will contact you within 24 hours.");
+        setFormData({ name: '', email: '', phone: '', company: '', subject: QUICK_TOPICS[0], message: '' });
       } else {
         setStatus('error');
         setResultMessage(result.message || "Something went wrong. Please try again.");
@@ -70,11 +112,10 @@ const Contact = () => {
     } catch (error) {
       console.error(error);
       setStatus('error');
-      setResultMessage("Network error. Please check your connection and try again.");
+      setResultMessage("Network error. Please check your connection or call +91 99323 17334.");
     }
   };
 
-  // ContactPage + LocalBusiness Schema
   const contactSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -96,38 +137,29 @@ const Contact = () => {
         "@type": "LocalBusiness",
         "@id": "https://www.paragonrefractoriesandminerals.com/#localbusiness",
         "name": "Paragon Refractories and Minerals",
-        "image": "https://www.paragonrefractoriesandminerals.com/images/refractory_hero.jpg",
+        "image": "https://www.paragonrefractoriesandminerals.com/images/about_us_hero.jpg",
         "url": "https://www.paragonrefractoriesandminerals.com/",
         "telephone": ["+919932317334", "+918158884204"],
         "email": "paragonrefractories22@gmail.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Durgapur",
+          "streetAddress": "Durgapur Industrial Complex",
           "addressLocality": "Durgapur",
           "addressRegion": "West Bengal",
-          "postalCode": "713201",
+          "postalCode": "713206",
           "addressCountry": "IN"
         },
         "geo": {
           "@type": "GeoCoordinates",
           "latitude": 23.5204,
           "longitude": 87.3119
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        "priceRange": "$$",
-        "currenciesAccepted": "INR",
-        "paymentAccepted": "Cash, Bank Transfer"
+        }
       }
     ]
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f4f7f9] font-sans">
+    <div className="min-h-screen flex flex-col bg-[#FAFBFD] text-slate-900 selection:bg-amber-500 selection:text-white">
       <SEO 
         title="Contact Us | Reheating Furnace & Refractory Manufacturer | Paragon Refractories and Minerals"
         description="Get in touch with PRM India in Durgapur, West Bengal for customized reheating furnace systems, high-quality refractory bricks, and enterprise quotes."
@@ -135,238 +167,448 @@ const Contact = () => {
         url="/contact"
         schema={contactSchema}
       />
-      <TopBar />
-      <Header />
       <Navbar />
 
-      <main className="flex-grow relative">
+      <main className="flex-grow">
         
-        {/* --- ULTRA PREMIUM HERO SECTION --- */}
-        <section className="relative bg-[#020617] pt-32 pb-48 lg:pt-40 lg:pb-72 overflow-hidden flex items-center justify-center">
-          {/* Deep Abstract Gradients */}
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
+        {/* ══════════════════════════════════════════════════════════════
+            1. SIGNATURE ARCHITECTURAL HERO SECTION
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="relative pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-18 border-b border-slate-200/80 overflow-hidden bg-slate-50">
           
-          {/* Glowing Orbs */}
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-[#c49a3c] rounded-full blur-[150px] pointer-events-none" 
-          />
-          <div className="absolute top-[20%] -left-[10%] w-[500px] h-[500px] bg-[#0d1f35] rounded-full blur-[150px] pointer-events-none" />
-
-          {/* Giant Watermark */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
-            <h1 className="text-[150px] md:text-[250px] lg:text-[350px] font-black text-white/5 tracking-tighter leading-none">
-              PRM
-            </h1>
+          {/* Subtle Background Image with Frosted Gradient */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <img
+              src="/images/about_us_hero.jpg"
+              alt="Paragon Refractories and Minerals Headquarters"
+              className="w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.05] opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-slate-50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/80" />
           </div>
 
-          <div className="container mx-auto px-6 lg:px-24 relative z-10 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="inline-flex items-center justify-center gap-3 mb-6 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-[#c49a3c] animate-pulse"></span>
-                <span className="text-white/80 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">
-                  Global Industrial Support
-                </span>
-              </div>
-              
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.1] tracking-tight">
-                Let's Build <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c49a3c] to-[#ff8fa3] italic">
-                  Something Great.
-                </span>
-              </h2>
-              <p className="text-gray-400 text-sm md:text-base max-w-3xl mx-auto font-light leading-relaxed">
-                Our main expertise is in reheating furnace manufacturing and installation. Connect with our engineering team for customized refractory solutions, detailed product specifications, and enterprise quotes.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+          {/* Blueprint Grid & Warm Ambient Radial Glow */}
+          <div className="absolute inset-0 bg-blueprint-grid opacity-35 pointer-events-none z-0" />
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[650px] h-[500px] bg-amber-400/15 rounded-full blur-3xl pointer-events-none z-0" />
 
-        {/* --- SPLIT PANEL CONTACT SECTION --- */}
-        {/* Adheres strictly to the site's container padding (px-6 lg:px-24) */}
-        <section className="container mx-auto px-6 lg:px-24 relative z-20 -mt-24 lg:-mt-44 mb-32">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="max-w-7xl mx-auto flex flex-col lg:flex-row bg-white rounded-[2rem] lg:rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-gray-100"
-          >
+          <div className="container mx-auto px-5 sm:px-6 lg:px-20 relative z-10">
             
-            {/* LEFT SIDE: THE FORM (Renders Top on Mobile) */}
-            <div className="w-full lg:w-3/5 p-6 sm:p-10 lg:p-16 order-1">
-              <div className="mb-10">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#0d1f35] tracking-tight mb-2">Send a Message</h3>
-                <p className="text-gray-500 text-sm md:text-base">Fill out the form below and we will get back to you promptly.</p>
+            {/* Breadcrumb Navigation */}
+            <nav aria-label="breadcrumb" className="mb-5 flex justify-center">
+              <ol className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-wider">
+                <li>
+                  <Link to="/" className="hover:text-slate-900 transition-colors">Home</Link>
+                </li>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                <li className="text-[#D97706] font-semibold">Contact</li>
+              </ol>
+            </nav>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="max-w-3xl mx-auto text-center"
+            >
+              {/* Category Eyebrow Pill */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#D97706] font-mono text-[10.5px] font-bold uppercase tracking-[0.2em] mb-5 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.9)]" />
+                <span>Get In Touch</span>
               </div>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                      First Name <span className="text-[#c49a3c]">*</span>
-                    </Label>
-                    <Input 
-                      id="firstName" value={formData.firstName} onChange={handleChange} required 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                      Last Name <span className="text-[#c49a3c]">*</span>
-                    </Label>
-                    <Input 
-                      id="lastName" value={formData.lastName} onChange={handleChange} required 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                    />
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                      Email Address <span className="text-[#c49a3c]">*</span>
-                    </Label>
-                    <Input 
-                      id="email" type="email" value={formData.email} onChange={handleChange} required 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                      Phone Number
-                    </Label>
-                    <Input 
-                      id="phone" type="tel" value={formData.phone} onChange={handleChange} 
-                      className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                    />
-                  </div>
-                </div>
+              {/* Display Headline */}
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-5 leading-[1.10] tracking-tight">
+                Let's Discuss Your{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-[#D97706] to-amber-600">
+                  Industrial Requirements.
+                </span>
+              </h1>
 
-                <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                    Subject <span className="text-[#c49a3c]">*</span>
-                  </Label>
-                  <Input 
-                    id="subject" value={formData.subject} onChange={handleChange} required 
-                    className="h-14 bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 text-[15px]" 
-                  />
-                </div>
+              {/* Subtext */}
+              <p className="font-ui text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-2xl mx-auto mb-7">
+                Connect directly with our engineering and procurement team for custom refractory formulations, turnkey reheating furnace EPC, or emergency plant overhaul.
+              </p>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-[13px] font-bold text-gray-600 uppercase tracking-wide">
-                    Message <span className="text-[#c49a3c]">*</span>
-                  </Label>
-                  <Textarea 
-                    id="message" value={formData.message} onChange={handleChange} required 
-                    className="min-h-[150px] bg-gray-50/80 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-[#c49a3c] focus:ring-4 focus:ring-[#c49a3c]/10 transition-all duration-300 rounded-xl px-5 py-4 text-[15px] resize-y"
-                  />
-                </div>
-
-                {/* Status Notifications */}
-                {status === 'success' && (
-                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 text-emerald-700 bg-emerald-50 p-4 rounded-xl border border-emerald-100">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
-                    <span className="text-sm font-medium">{resultMessage}</span>
-                  </motion.div>
-                )}
-                
-                {status === 'error' && (
-                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 text-red-700 bg-red-50 p-4 rounded-xl border border-red-100">
-                    <AlertCircle className="w-5 h-5 text-red-500 shrink-0" />
-                    <span className="text-sm font-medium">{resultMessage}</span>
-                  </motion.div>
-                )}
-
-                <div className="pt-4">
-                  <Button 
-                    type="submit" 
-                    disabled={status === 'submitting'}
-                    className="w-full bg-[#c49a3c] hover:bg-[#a67d28] text-white h-16 text-[15px] tracking-[0.1em] uppercase font-bold rounded-xl transition-all duration-500 flex items-center justify-center shadow-[0_10px_20px_rgba(196,154,60,0.2)] hover:shadow-[0_10px_30px_rgba(196,154,60,0.3)] hover:-translate-y-1 group"
-                  >
-                    {status === 'submitting' ? 'Processing...' : 'Submit Request'}
-                    {status !== 'submitting' && <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />}
-                  </Button>
-                </div>
-              </form>
-            </div>
-
-            {/* RIGHT SIDE: CONTACT INFO (Renders Bottom on Mobile) */}
-            <div className="w-full lg:w-2/5 p-6 sm:p-10 lg:p-16 bg-[#0d1f35] relative overflow-hidden order-2">
-              
-              {/* Decorative Geometric Patterns */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#c49a3c]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
-
-              <div className="relative z-10 h-full flex flex-col">
-                <div className="mb-12">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">Contact Information</h3>
-                  <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                    Prefer to speak directly? Reach out to our headquarters using the details below.
-                  </p>
-                </div>
-
-                <div className="space-y-10 flex-grow">
-                  {/* Phone */}
-                  <div className="flex items-start gap-5 group">
-                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] transition-all duration-500">
-                      <Phone className="w-5 h-5 text-[#c49a3c] group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Direct Lines</p>
-                      <p className="text-lg font-medium text-white hover:text-[#c49a3c] transition-colors">
-                        <a href="tel:+919932317334">+91 9932317334</a>
-                      </p>
-                      <p className="text-lg font-medium text-white hover:text-[#c49a3c] transition-colors mt-1">
-                        <a href="tel:+918158884204">+91 8158884204</a>
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start gap-5 group">
-                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] transition-all duration-500">
-                      <Mail className="w-5 h-5 text-[#c49a3c] group-hover:text-white transition-colors" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Email Support</p>
-                      <p className="text-[15px] sm:text-[17px] font-medium text-white break-all sm:break-normal hover:text-[#c49a3c] transition-colors cursor-pointer">
-                        <a href="mailto:paragonrefractories22@gmail.com">paragonrefractories22@gmail.com</a>
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Location */}
-                  <div className="flex items-start gap-5 group">
-                    <div className="shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] transition-all duration-500">
-                      <MapPin className="w-5 h-5 text-[#c49a3c] group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">Headquarters</p>
-                      <p className="text-base font-medium text-white leading-relaxed">
-                        Durgapur, West Bengal<br/>
-                        <span className="text-gray-400">India</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Decorative Bottom Line */}
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mt-12 mb-6"></div>
-                <p className="text-xs text-center text-gray-500 uppercase tracking-widest font-bold">
-                  Operating Worldwide
-                </p>
+              {/* Verified Trust Badges */}
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 border border-slate-200 text-slate-700 text-xs font-mono font-medium shadow-2xs">
+                  <Zap className="w-3.5 h-3.5 text-[#D97706]" />
+                  <span>&lt; 24h Response SLA</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 border border-slate-200 text-slate-700 text-xs font-mono font-medium shadow-2xs">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>NDA Protected &amp; ISO 9001</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 border border-slate-200 text-slate-700 text-xs font-mono font-medium shadow-2xs">
+                  <Factory className="w-3.5 h-3.5 text-[#D97706]" />
+                  <span>3 Direct Works in Durgapur</span>
+                </span>
               </div>
-            </div>
+            </motion.div>
 
-          </motion.div>
+          </div>
+
+          {/* Bottom Hairline Divider */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            2. ATTRACTIVE & POLISHED SPLIT CONTACT SHOWCASE
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="py-14 sm:py-20 relative">
+          <div className="container mx-auto px-4 sm:px-5 lg:px-12 max-w-6xl">
+            
+            {/* The Unified Card Container with Ambient Halo Border */}
+            <motion.div 
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+              className="p-[1.5px] rounded-[32px] bg-gradient-to-br from-amber-400/35 via-slate-200 to-amber-500/25 shadow-[0_25px_70px_-15px_rgba(15,23,42,0.08)]"
+            >
+              <div className="bg-white rounded-[30px] overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                
+                {/* ──────────────────────────────────────────────────────────
+                    LEFT PANEL: REFINED CONTACT FORM (7 COLS)
+                ────────────────────────────────────────────────────────── */}
+                <div className="lg:col-span-7 p-6 sm:p-10 lg:p-13">
+                  <div className="mb-7">
+                    <span className="text-[10.5px] font-mono font-bold uppercase tracking-[0.2em] text-[#D97706] block mb-1.5">
+                      Direct Dispatch
+                    </span>
+                    <h2 className="font-display text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                      Send Us an Inquiry
+                    </h2>
+                    <p className="font-ui text-slate-500 text-sm mt-1.5">
+                      Fill out your details below and a senior technical representative will reach out promptly.
+                    </p>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    
+                    {/* Interactive Topic Selector Chips */}
+                    <div>
+                      <Label className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider block mb-2">
+                        Requirement Category
+                      </Label>
+                      <div className="flex flex-wrap gap-2">
+                        {QUICK_TOPICS.map((topic) => {
+                          const isSelected = selectedTopic === topic;
+                          return (
+                            <button
+                              type="button"
+                              key={topic}
+                              onClick={() => handleTopicClick(topic)}
+                              className={`px-3 py-1.5 rounded-xl text-xs font-ui font-medium transition-all duration-200 cursor-pointer ${
+                                isSelected
+                                  ? 'bg-[#090D16] text-amber-400 shadow-sm'
+                                  : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
+                              }`}
+                            >
+                              {topic}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Name */}
+                    <div className="space-y-1.5">
+                      <Label htmlFor="name" className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                        Full Name <span className="text-[#D97706]">*</span>
+                      </Label>
+                      <div className="relative">
+                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                        <Input 
+                          id="name" 
+                          value={formData.name} 
+                          onChange={handleChange} 
+                          required 
+                          placeholder="e.g. Rajesh Banerjee"
+                          className="pl-11 h-12 bg-slate-50/70 border-slate-200 hover:border-slate-300 focus:bg-white focus:border-[#D97706] focus:ring-4 focus:ring-amber-500/10 rounded-xl text-sm font-ui transition-all" 
+                        />
+                      </div>
+                    </div>
+
+                    {/* Email & Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="email" className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                          Corporate Email <span className="text-[#D97706]">*</span>
+                        </Label>
+                        <div className="relative">
+                          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                          <Input 
+                            id="email" 
+                            type="email" 
+                            value={formData.email} 
+                            onChange={handleChange} 
+                            required 
+                            placeholder="name@steelplant.com"
+                            className="pl-11 h-12 bg-slate-50/70 border-slate-200 hover:border-slate-300 focus:bg-white focus:border-[#D97706] focus:ring-4 focus:ring-amber-500/10 rounded-xl text-sm font-ui transition-all" 
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="phone" className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                          Phone / WhatsApp
+                        </Label>
+                        <div className="relative">
+                          <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                          <Input 
+                            id="phone" 
+                            type="tel" 
+                            value={formData.phone} 
+                            onChange={handleChange} 
+                            placeholder="+91 99323 17334"
+                            className="pl-11 h-12 bg-slate-50/70 border-slate-200 hover:border-slate-300 focus:bg-white focus:border-[#D97706] focus:ring-4 focus:ring-amber-500/10 rounded-xl text-sm font-ui transition-all" 
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Company / Plant Name */}
+                    <div className="space-y-1.5">
+                      <Label htmlFor="company" className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                        Company / Steel Plant Name
+                      </Label>
+                      <div className="relative">
+                        <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                        <Input 
+                          id="company" 
+                          value={formData.company} 
+                          onChange={handleChange} 
+                          placeholder="e.g. Modern Steel &amp; Rolling Mill Ltd."
+                          className="pl-11 h-12 bg-slate-50/70 border-slate-200 hover:border-slate-300 focus:bg-white focus:border-[#D97706] focus:ring-4 focus:ring-amber-500/10 rounded-xl text-sm font-ui transition-all" 
+                        />
+                      </div>
+                    </div>
+
+                    {/* Subject */}
+                    <div className="space-y-1.5">
+                      <Label htmlFor="subject" className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                        Subject Reference <span className="text-[#D97706]">*</span>
+                      </Label>
+                      <div className="relative">
+                        <Tag className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                        <Input 
+                          id="subject" 
+                          value={formData.subject} 
+                          onChange={handleChange} 
+                          required 
+                          className="pl-11 h-12 bg-slate-50/70 border-slate-200 hover:border-slate-300 focus:bg-white focus:border-[#D97706] focus:ring-4 focus:ring-amber-500/10 rounded-xl text-sm font-ui transition-all" 
+                        />
+                      </div>
+                    </div>
+
+                    {/* Message */}
+                    <div className="space-y-1.5">
+                      <Label htmlFor="message" className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                        Technical Requirements / Scope <span className="text-[#D97706]">*</span>
+                      </Label>
+                      <Textarea 
+                        id="message" 
+                        value={formData.message} 
+                        onChange={handleChange} 
+                        required 
+                        rows={4}
+                        placeholder="Please describe furnace capacity (TPH), brick grades, operating temperature, delivery schedule, or site location..."
+                        className="bg-slate-50/70 border-slate-200 hover:border-slate-300 focus:bg-white focus:border-[#D97706] focus:ring-4 focus:ring-amber-500/10 rounded-xl p-4 text-sm font-ui resize-none transition-all" 
+                      />
+                    </div>
+
+                    {/* Alerts */}
+                    {status === 'success' && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-3 text-emerald-800 text-sm font-ui"
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                        <span>{resultMessage}</span>
+                      </motion.div>
+                    )}
+
+                    {status === 'error' && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="p-4 rounded-xl bg-red-50 border border-red-200 flex items-center gap-3 text-red-800 text-sm font-ui"
+                      >
+                        <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+                        <span>{resultMessage}</span>
+                      </motion.div>
+                    )}
+
+                    {/* Submit Button */}
+                    <div className="pt-2">
+                      <Button 
+                        type="submit" 
+                        disabled={status === 'submitting'}
+                        className="w-full bg-[#090D16] hover:bg-[#D97706] text-white h-13 text-xs font-mono tracking-[0.16em] uppercase font-bold rounded-xl transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-xl hover:shadow-amber-500/25 group cursor-pointer"
+                      >
+                        {status === 'submitting' ? (
+                          <span className="flex items-center gap-2">
+                            <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <span>Transmitting Inquiry...</span>
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            <span>Submit Engineering Request</span>
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                          </span>
+                        )}
+                      </Button>
+                    </div>
+                  </form>
+                </div>
+
+                {/* ──────────────────────────────────────────────────────────
+                    RIGHT PANEL: LUMINOUS FROSTED CORPORATE HUB (5 COLS)
+                ────────────────────────────────────────────────────────── */}
+                <div className="lg:col-span-5 bg-gradient-to-br from-slate-50 via-white to-amber-50/20 border-t lg:border-t-0 lg:border-l border-slate-200/80 p-6 sm:p-10 lg:p-13 flex flex-col justify-between relative overflow-hidden">
+                  
+                  {/* Subtle Blueprint Ambient */}
+                  <div className="absolute inset-0 bg-blueprint-grid opacity-20 pointer-events-none" />
+
+                  <div className="relative z-10 space-y-7">
+                    
+                    {/* Header */}
+                    <div>
+                      <span className="font-mono text-[10.5px] text-[#D97706] font-bold uppercase tracking-[0.2em] block mb-1.5">
+                        Works &amp; Headquarters
+                      </span>
+                      <h3 className="font-display text-2xl font-bold text-slate-900 tracking-tight mb-2">
+                        Paragon Refractories &amp; Minerals
+                      </h3>
+                      <p className="font-ui text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Continuous reheating furnace EPC, high-alumina refractory brick production, and metallurgical foundry castings.
+                      </p>
+                    </div>
+
+                    {/* Information Cards Stack */}
+                    <div className="space-y-4">
+                      
+                      {/* Phone Card */}
+                      <div className="bg-white/80 backdrop-blur-sm border border-slate-200/90 hover:border-amber-400/80 rounded-2xl p-4 transition-all duration-200 shadow-2xs">
+                        <div className="flex items-start gap-3.5">
+                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-[#D97706] flex items-center justify-center shrink-0 mt-0.5">
+                            <Phone className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-0.5">Direct Engineering Lines</p>
+                            <a href="tel:+919932317334" className="block text-sm font-bold text-slate-900 hover:text-[#D97706] transition-colors">
+                              +91 99323 17334
+                            </a>
+                            <a href="tel:+918158884204" className="block text-xs font-semibold text-slate-600 hover:text-[#D97706] transition-colors mt-0.5">
+                              +91 81588 84204
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Email Card */}
+                      <div className="bg-white/80 backdrop-blur-sm border border-slate-200/90 hover:border-amber-400/80 rounded-2xl p-4 transition-all duration-200 shadow-2xs">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="flex items-start gap-3.5 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-[#D97706] flex items-center justify-center shrink-0 mt-0.5">
+                              <Mail className="w-5 h-5" />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email Desk</p>
+                              <a href="mailto:paragonrefractories22@gmail.com" className="block text-xs sm:text-sm font-bold text-slate-900 hover:text-[#D97706] transition-colors truncate">
+                                paragonrefractories22@gmail.com
+                              </a>
+                            </div>
+                          </div>
+                          <button 
+                            onClick={handleCopyEmail}
+                            title="Copy Email Address"
+                            className="text-[11px] font-mono font-semibold px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-[#D97706] flex items-center gap-1 transition-all shrink-0 cursor-pointer"
+                          >
+                            {copiedEmail ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
+                            <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Location Card */}
+                      <div className="bg-white/80 backdrop-blur-sm border border-slate-200/90 hover:border-amber-400/80 rounded-2xl p-4 transition-all duration-200 shadow-2xs">
+                        <div className="flex items-start gap-3.5">
+                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-[#D97706] flex items-center justify-center shrink-0 mt-0.5">
+                            <MapPin className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-0.5">Works &amp; Stockyard</p>
+                            <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                              Durgapur Industrial Complex
+                            </p>
+                            <p className="text-xs text-slate-500 mt-0.5">
+                              West Bengal, India — 713206 (NH-19)
+                            </p>
+                            <a 
+                              href="https://maps.google.com/?q=Durgapur+Industrial+Area+West+Bengal+713206" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-[#D97706] hover:underline mt-1.5"
+                            >
+                              <span>View on Google Maps</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Hours Card */}
+                      <div className="bg-white/80 backdrop-blur-sm border border-slate-200/90 hover:border-amber-400/80 rounded-2xl p-4 transition-all duration-200 shadow-2xs">
+                        <div className="flex items-start gap-3.5">
+                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-[#D97706] flex items-center justify-center shrink-0 mt-0.5">
+                            <Clock className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-0.5">Operational Desk</p>
+                            <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                              Monday – Saturday
+                            </p>
+                            <p className="text-xs text-slate-500 mt-0.5">
+                              08:30 AM – 08:30 PM IST (Emergency 24/7)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    {/* WhatsApp Action Button */}
+                    <a 
+                      href="https://wa.me/917363993193?text=Hello%20Paragon%20Refractories%2C%20I%20would%20like%20to%20inquire%20about%20your%20products."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-mono text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200 cursor-pointer"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Chat on WhatsApp</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+
+                  </div>
+
+                  {/* Status Indicator */}
+                  <div className="relative z-10 pt-5 mt-6 border-t border-slate-200 flex items-center justify-between text-xs font-mono text-slate-500">
+                    <span className="flex items-center gap-2 text-slate-700 font-semibold">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      Engineering Desk Active
+                    </span>
+                    <span>ISO 9001:2015</span>
+                  </div>
+
+                </div>
+
+              </div>
+            </motion.div>
+
+          </div>
+        </section>
+
       </main>
 
       <Footer />

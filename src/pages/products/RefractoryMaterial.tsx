@@ -1,52 +1,42 @@
 // src/pages/products/RefractoryMaterial.tsx
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom'; 
-import SEO from '@/components/SEO';
-import TopBar from '@/components/layout/TopBar';
-import Header from '@/components/layout/Header';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ChevronRight, ImageIcon, ShieldCheck, Flame, Layers } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import SEO from '@/components/SEO';
 import CustomButton from '@/components/ui/CustomButton';
 import { refractoryProducts } from '@/data/refractoryProducts';
-import { ArrowRight, Image as ImageIcon } from 'lucide-react';
 
 const categories = ['All', 'High Alumina', 'Castables', 'Insulating', 'Special'];
 
 const RefractoryMaterial = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const filteredProducts = activeFilter === 'All' 
     ? refractoryProducts 
-    : refractoryProducts.filter(product => product.category === activeFilter);
+    : refractoryProducts.filter(p => p.category.toLowerCase() === activeFilter.toLowerCase());
 
-  // Combined Collection & Breadcrumb Schema
   const refractorySchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "CollectionPage",
-        "@id": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials/#collection",
-        "url": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials",
-        "name": "Refractory Materials Catalog | Paragon Refractories & Minerals",
-        "description": "High-performance refractory materials catalog including High Alumina Bricks (50%-80%), Fire Clay Bricks, Refractory Castables, Insulating Bricks, and special shapes.",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Paragon Refractories & Minerals"
+        "@type": "Product",
+        "name": "High Alumina Refractory Bricks & Materials",
+        "description": "Premium high alumina bricks, dense fire clay bricks, castables, and custom burner blocks designed for temperatures up to 1850°C.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Paragon Refractories and Minerals"
         },
-        "about": {
-          "@type": "Thing",
-          "name": "Refractory Materials"
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Paragon Refractories and Minerals",
+          "url": "https://www.paragonrefractoriesandminerals.com"
         }
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -57,6 +47,12 @@ const RefractoryMaterial = () => {
           {
             "@type": "ListItem",
             "position": 2,
+            "name": "Products",
+            "item": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
             "name": "Refractory Materials",
             "item": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials"
           }
@@ -66,176 +62,230 @@ const RefractoryMaterial = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f4f0]">
+    <div className="min-h-screen flex flex-col relative bg-white text-slate-900 selection:bg-amber-500 selection:text-white">
       <SEO 
         title="Refractory Material Manufacturer | Alumina Bricks & Castables | Paragon Refractories and Minerals"
-        description="PRM is a premier refractory material manufacturer in India. We supply high alumina bricks, fire clay bricks, super castables, insulation blocks, and burner blocks for steel mill furnaces."
+        description="PRM is a premier refractory material manufacturer in India. We supply high alumina bricks, fire clay bricks, super duty castables, insulation blocks, and burner blocks for steel mill furnaces."
         keywords="refractory material manufacturer India, high alumina bricks suppliers, fire clay bricks price, super duty castables, furnace insulation blocks, refractory manufacturer West Bengal"
         url="/products/refractory-materials"
         schema={refractorySchema}
       />
-      <TopBar />
-      <Header />
       <Navbar />
 
       <main className="flex-grow">
         
-        {/* --- Premium Hero Section — Refractory Theme --- */}
-        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0d1f35]">
-          {/* Background Image — Molten Metal / Refractory */}
-          <div className="absolute inset-0 overflow-hidden">
+        {/* ══════════════════════════════════════════════════════════════
+            1. BRIGHT ARCHITECTURAL HERO SECTION (CENTER-ALIGNED)
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="relative pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-18 border-b border-slate-200/80 overflow-hidden bg-slate-50">
+          
+          {/* Subtle Full-Bleed Industrial Background Image with Frosted Gradient */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <img
               src="/images/refractory_hero.jpg"
-              alt="Refractory Materials & Molten Metal"
-              className="w-full h-full object-cover animate-ken-burns"
+              alt="Paragon Refractories High-Performance Thermal Materials"
+              className="w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.05] opacity-20"
             />
+            {/* Soft Luminous Frosted Gradient Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-slate-50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/80" />
           </div>
-          {/* Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f35]/92 via-[#0d1f35]/65 to-[#0d1f35]/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f35]/80 via-transparent to-[#0d1f35]/30" />
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(196,154,60,0.03)_30px,rgba(196,154,60,0.03)_31px)] pointer-events-none" />
-          {/* Corner brackets */}
-          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#c49a3c]/60" />
-          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#c49a3c]/60" />
 
-          <div className="container mx-auto px-6 lg:px-24 relative z-10 pt-36 pb-20 text-center">
+          {/* Blueprint Grid & Warm Ambient Radial Glows */}
+          <div className="absolute inset-0 bg-blueprint-grid opacity-35 pointer-events-none z-0" />
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-amber-400/15 rounded-full blur-3xl pointer-events-none z-0" />
+
+          <div className="container mx-auto px-5 sm:px-6 lg:px-20 relative z-10">
+            
+            {/* Breadcrumb Navigation (Center-Aligned) */}
+            <nav aria-label="breadcrumb" className="mb-5 flex justify-center">
+              <ol className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-wider">
+                <li>
+                  <Link to="/" className="hover:text-[#090D16] transition-colors">Home</Link>
+                </li>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                <span className="text-slate-400">Products</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                <li className="text-[#D97706] font-semibold">Refractory Materials</li>
+              </ol>
+            </nav>
+
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              className="max-w-4xl mx-auto text-center"
             >
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#c49a3c]"></span>
-                <span className="text-[#c49a3c] font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase">Product Catalog</span>
-                <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#c49a3c]"></span>
+              {/* Category Eyebrow Pill (Center-Aligned) */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#D97706] font-mono text-[10.5px] font-bold uppercase tracking-[0.2em] mb-5 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.9)]" />
+                <span>Technical Product Catalog • Thermal Protection</span>
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 leading-[1.1] tracking-tight">
-                Engineered <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c49a3c] via-[#ff6b6b] to-[#ffb3c6]">Refractory</span> Solutions.
+
+              {/* Authoritative Display Headline (Center-Aligned) */}
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-black text-slate-900 mb-6 leading-[1.10] tracking-tight">
+                High-Performance{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#D97706] to-[#B45309]">
+                  Refractory Systems
+                </span>{" "}
+                &amp; Materials.
               </h1>
-              <div className="w-20 h-[3px] bg-gradient-to-r from-[#c49a3c] to-transparent mx-auto mb-5" />
-              <p className="text-gray-200 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed tracking-wide">
-                High-performance thermal protection for the world's most demanding industrial environments. Precision-engineered for extreme temperatures.
+
+              {/* Narrative Subtext (Center-Aligned) */}
+              <p className="font-ui text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed font-normal max-w-3xl mx-auto mb-8">
+                Extreme-temperature thermal protection engineered for continuous industrial operations up to 1850°C. Manufactured to stringent metallurgical standards for steel plants, rolling mills, and heavy reheating furnaces.
               </p>
+
+              {/* Verified Badges Strip (Center-Aligned) */}
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1">
+                <div className="inline-flex items-center gap-2.5 text-xs font-mono font-bold text-slate-800 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-xl px-4 py-2.5 shadow-sm hover:border-amber-400/60 transition-colors">
+                  <Flame className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>MAX TEMP: <strong>UP TO 1850°C</strong></span>
+                </div>
+                <div className="inline-flex items-center gap-2.5 text-xs font-mono font-bold text-slate-800 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-xl px-4 py-2.5 shadow-sm hover:border-amber-400/60 transition-colors">
+                  <Layers className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>AL₂O₃ GRADE: <strong>50% TO 80%+</strong></span>
+                </div>
+                <div className="inline-flex items-center gap-2.5 text-xs font-mono font-bold text-slate-800 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-xl px-4 py-2.5 shadow-sm hover:border-amber-400/60 transition-colors">
+                  <ShieldCheck className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>CERTIFICATION: <strong>ISO 9001:2015</strong></span>
+                </div>
+              </div>
             </motion.div>
+
           </div>
+
+          {/* Bottom Hairline Divider */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         </section>
 
-        {/* --- Introduction Section --- */}
-        <section className="container mx-auto px-6 lg:px-24 py-16 relative z-20">
+        {/* --- Architectural Introduction Panel --- */}
+        <section className="container mx-auto px-5 sm:px-6 lg:px-24 py-8 sm:py-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative bg-white border border-[#e8e3d8] rounded-2xl p-8 lg:p-12 overflow-hidden shadow-[0_8px_30px_rgba(13,31,53,0.08)] hover:shadow-[0_12px_40px_rgba(13,31,53,0.12)] transition-all duration-500"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white border border-slate-200/90 rounded-xl p-6 sm:p-8 lg:p-10 shadow-xs flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10"
           >
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#c49a3c] via-[#c49a3c]/50 to-transparent opacity-80" />
-            <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-[#0d1f35]/5 rounded-full blur-[60px] pointer-events-none" />
-
-            <div className="relative z-10">
-              <h2 className="text-xl md:text-2xl font-serif text-[#0d1f35] mb-5 tracking-wide font-bold">
-                Premium Refractory Solutions for All Industrial Applications
+            <div className="lg:w-1/3 border-b lg:border-b-0 lg:border-r border-slate-200/80 pb-4 lg:pb-0 lg:pr-8">
+              <span className="font-mono text-[10.5px] text-[#D97706] font-bold uppercase tracking-[0.2em] block mb-2">
+                Material Standards
+              </span>
+              <h2 className="font-display text-2xl font-bold text-[#090D16] tracking-tight leading-snug">
+                Engineered for Punishing Furnace Atmospheres
               </h2>
-              <p className="text-gray-600 text-base md:text-lg font-light leading-relaxed">
-                Refractory materials are specially engineered products designed to withstand extremely high temperatures, chemical attack, and mechanical stress in industrial environments. These materials are widely used in industries such as steel plants, cement plants, power plants, foundries, and reheating furnaces. <span className="text-[#0d1f35] font-semibold">At Paragon Refractories and Minerals</span>, we are a leading manufacturer and supplier of high-quality refractory materials in India, offering a complete range of products including high alumina bricks, fire bricks, castables, insulation materials, and special refractories. Our refractory products are manufactured using high-grade raw materials and advanced production techniques to ensure durability, thermal stability, and long service life.
+            </div>
+            <div className="lg:w-2/3">
+              <p className="font-ui text-slate-600 text-sm sm:text-base font-normal leading-relaxed">
+                Refractory compounds endure continuous high temperatures, molten slag abrasion, and extreme mechanical loading. Our catalog spans high alumina bricks, dense fire clay bricks, super duty castables, ceramic fiber blankets, and custom precast burner blocks tailored specifically to walking beam and pusher-type reheating furnaces.
               </p>
             </div>
           </motion.div>
         </section>
 
-        {/* --- Filter Bar — Light Industrial --- */}
-        <section className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b-2 border-[#e8e3d8] py-5 mb-12 shadow-[0_4px_20px_rgba(13,31,53,0.08)]">
-          <div className="container mx-auto px-6 lg:px-24">
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveFilter(category)}
-                  className={`px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 ${
-                    activeFilter === category
-                      ? 'bg-[#0d1f35] text-white border border-[#0d1f35] shadow-[0_4px_15px_rgba(13,31,53,0.3)]'
-                      : 'bg-transparent text-gray-500 border border-[#e8e3d8] hover:border-[#0d1f35] hover:text-[#0d1f35] hover:bg-[#0d1f35]/5'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+        {/* --- Category Filter Bar — Precision Segmented Control --- */}
+        <section className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-y border-slate-200/90 py-4 mb-12 shadow-xs">
+          <div className="container mx-auto px-5 sm:px-6 lg:px-24">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+              {categories.map((category) => {
+                const isActive = activeFilter === category;
+                return (
+                  <button
+                    key={category}
+                    onClick={() => setActiveFilter(category)}
+                    className={`px-5 py-2.5 rounded-lg text-xs font-mono font-semibold uppercase tracking-[0.14em] transition-all duration-200 ${
+                      isActive
+                        ? 'bg-[#090D16] text-white shadow-sm ring-1 ring-[#090D16]'
+                        : 'bg-slate-50 text-slate-600 border border-slate-200/80 hover:border-slate-300 hover:bg-white hover:text-[#090D16]'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* --- Ultra-Premium Product Grid --- */}
-        <section className="container mx-auto px-6 lg:px-24 pb-24">
-          <motion.div 
+        {/* --- Precision Technical Product Grid --- */}
+        <section id="first-product" className="container mx-auto px-5 sm:px-6 lg:px-24 pb-16 sm:pb-24 scroll-mt-28">
+          <motion.div
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-7"
           >
             <AnimatePresence>
               {filteredProducts.map((product) => (
                 <motion.div
                   layout
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  initial={{ opacity: 0, scale: 0.96, y: 16 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  exit={{ opacity: 0, scale: 0.96, y: 16 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
                   key={product.id}
-                  className="group relative bg-white border border-[#e8e3d8] rounded-2xl overflow-hidden hover:border-[#0d1f35]/30 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(13,31,53,0.12)]"
+                  className="group relative bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-[#D97706]/60 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 flex flex-col hover:-translate-y-1"
                 >
-                  <Link 
-                    to={`/products/refractory-materials/${product.id}`} 
+                  <Link
+                    to={`/products/refractory-materials/${product.id}`}
                     className="flex flex-col flex-grow h-full w-full"
                   >
-                    {/* Image Container */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 flex items-center justify-center">
-                      <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent z-10 pointer-events-none group-hover:opacity-30 transition-opacity duration-500" />
-                      
+                    {/* Studio Image Showcase */}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100/70 border-b border-slate-100 flex items-center justify-center p-6">
                       {product.image ? (
-                        <img 
-                          src={product.image} 
-                          alt={product.name} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            if (!target.src.includes('High%20Alumina.webp') && !target.src.includes('High Alumina.webp')) {
+                              target.src = '/images/refractory/High Alumina.webp';
+                            }
+                          }}
+                          className="max-h-40 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-500 ease-out"
                         />
                       ) : (
-                        <ImageIcon className="w-12 h-12 text-gray-400 opacity-40 group-hover:scale-110 transition-transform duration-700" />
+                        <ImageIcon className="w-12 h-12 text-slate-400 opacity-40 group-hover:scale-110 transition-transform duration-500" />
                       )}
 
-                      <div className="absolute top-4 left-4 z-20">
-                        <span className="bg-[#0d1f35] text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-lg">
+                      {/* Floating Category Tag */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="bg-white/95 backdrop-blur-md text-[#090D16] border border-slate-200/90 font-mono text-[9px] font-bold px-2.5 py-1 rounded shadow-xs uppercase tracking-[0.15em]">
                           {product.category}
                         </span>
                       </div>
                     </div>
 
-                    {/* Spec Content Area */}
-                    <div className="p-6 flex flex-col flex-grow relative z-20">
-                      <h3 className="text-lg lg:text-xl font-bold text-[#0d1f35] mb-2 group-hover:text-[#0d1f35] transition-colors duration-500 leading-tight">
+                    {/* Technical Spec & Details Area */}
+                    <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                      <h3 className="font-display text-base lg:text-lg font-bold text-[#090D16] mb-2 group-hover:text-[#D97706] transition-colors duration-200 leading-tight">
                         {product.name}
                       </h3>
-                      <p className="text-gray-500 text-xs leading-relaxed mb-6 flex-grow font-light line-clamp-3">
+
+                      <p className="font-ui text-slate-500 text-xs leading-relaxed mb-5 flex-grow font-normal line-clamp-2">
                         {product.shortDescription}
                       </p>
 
-                      <div className="bg-[#f5f4f0] rounded-xl p-4 border border-[#e8e3d8] mb-4 group-hover:border-[#0d1f35]/20 transition-colors duration-500">
-                        <div className="grid grid-cols-2 gap-3">
-                          <div className="border-r border-[#e8e3d8]">
-                            <span className="block text-[8px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Max Temp</span>
-                            <span className="block text-[#0d1f35] font-mono text-xs tracking-tight">{product.specs.maxTemp}</span>
+                      {/* Specs Data Box */}
+                      <div className="bg-slate-50 rounded-lg p-3 border border-slate-200/80 mb-4 group-hover:border-amber-500/30 transition-colors">
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="border-r border-slate-200 pr-2">
+                            <span className="block text-[8px] text-slate-400 font-mono font-bold uppercase tracking-[0.16em] mb-0.5">Max Temp</span>
+                            <span className="block text-[#090D16] font-mono text-xs font-bold">{product.specs.maxTemp}</span>
                           </div>
                           <div className="pl-1">
-                            <span className="block text-[8px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Density</span>
-                            <span className="block text-[#0d1f35] font-mono text-xs tracking-tight">{product.specs.density}</span>
+                            <span className="block text-[8px] text-slate-400 font-mono font-bold uppercase tracking-[0.16em] mb-0.5">Density</span>
+                            <span className="block text-[#090D16] font-mono text-xs font-bold">{product.specs.density}</span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="mt-auto block active:scale-[0.98] transition-transform duration-200">
-                        <div className="flex items-center justify-between px-4 py-3 rounded-xl border border-[#e8e3d8] group-hover:border-[#0d1f35] group-hover:bg-[#0d1f35] transition-all duration-300">
-                          <span className="text-[10px] font-bold text-gray-600 group-hover:text-white uppercase tracking-[0.2em] transition-colors duration-300">
-                            Explore Specs
+                      {/* Action Link */}
+                      <div className="mt-auto block pt-1">
+                        <div className="flex items-center justify-between px-3.5 py-2.5 rounded-lg border border-slate-200 group-hover:border-[#090D16] group-hover:bg-[#090D16] transition-all duration-200">
+                          <span className="font-mono text-[10px] font-bold text-slate-700 group-hover:text-white uppercase tracking-[0.16em] transition-colors">
+                            Technical Data
                           </span>
-                          <div className="w-7 h-7 rounded-full bg-[#0d1f35]/10 group-hover:bg-white/20 flex items-center justify-center transition-all duration-300">
-                            <ArrowRight className="w-3.5 h-3.5 text-[#0d1f35] group-hover:text-white transform group-hover:translate-x-0.5 transition-all duration-300" />
-                          </div>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-400 transform group-hover:translate-x-0.5 transition-all" />
                         </div>
                       </div>
                     </div>
@@ -246,37 +296,32 @@ const RefractoryMaterial = () => {
           </motion.div>
         </section>
 
-        {/* --- Technical Support Strip --- */}
-        <section className="relative py-24 overflow-hidden bg-white border-t border-[#e8e3d8]">
-          <div className="absolute inset-0 bg-blueprint-grid pointer-events-none" />
-
-          <div className="container mx-auto px-6 lg:px-24 relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+        {/* --- Technical Consultation Strip (Light Architectural Accent) --- */}
+        <section className="relative py-16 bg-slate-50 border-t border-slate-200 overflow-hidden">
+          <div className="container mx-auto px-5 sm:px-6 lg:px-24 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-[#0d1f35] rounded-3xl p-10 lg:p-14 flex flex-col md:flex-row items-center justify-between gap-10 shadow-[0_20px_60px_rgba(13,31,53,0.25)] relative overflow-hidden"
+              transition={{ duration: 0.5 }}
+              className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-sm"
             >
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-white/5 blur-[80px] pointer-events-none rounded-full" />
-              <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,transparent,transparent_20px,rgba(255,255,255,0.02)_20px,rgba(255,255,255,0.02)_40px)]" />
-
-              <div className="md:w-2/3 relative z-10">
-                <div className="flex items-center gap-4 mb-5">
-                  <span className="w-8 h-[1px] bg-[#c49a3c]"></span>
-                  <span className="text-[#c49a3c] font-bold tracking-[0.3em] text-[10px] uppercase">Engineering Support</span>
+              <div className="md:w-2/3">
+                <div className="inline-flex items-center gap-2 font-mono text-[10.5px] font-bold text-[#D97706] tracking-[0.2em] uppercase mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706]" />
+                  Custom Furnace Formulation
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-5 leading-tight tracking-tight">
-                  Need a custom Refractory Material lining design?
+                <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#090D16] mb-3 leading-tight tracking-tight">
+                  Need a custom refractory lining configuration?
                 </h2>
-                <p className="text-white/70 text-base md:text-lg font-light leading-relaxed max-w-2xl">
-                  Speak directly with our metallurgical engineers to find the exact formulation for your furnace, ensuring maximum thermal efficiency and lifespan.
+                <p className="font-ui text-slate-600 text-sm sm:text-base font-normal leading-relaxed max-w-2xl">
+                  Consult directly with our ceramic and metallurgical engineers to formulate brick grades and castables tailored to your furnace thermal cycle and load profiles.
                 </p>
               </div>
-              
-              <div className="md:w-1/3 flex justify-end shrink-0 w-full md:w-auto mt-8 md:mt-0 relative z-10">
-                <Link to="/contact" className="relative group block w-full md:w-auto">
-                  <CustomButton className="relative w-full md:w-auto bg-[#c49a3c] hover:bg-white hover:text-[#c49a3c] text-white font-bold py-4 px-10 uppercase tracking-[0.2em] text-[11px] transition-all duration-300 rounded-xl text-center whitespace-nowrap shadow-2xl">
+
+              <div className="md:w-1/3 flex justify-start md:justify-end shrink-0 w-full md:w-auto">
+                <Link to="/contact" className="w-full md:w-auto">
+                  <CustomButton className="w-full md:w-auto bg-[#090D16] hover:bg-[#D97706] text-white font-ui font-bold py-4 px-8 uppercase tracking-[0.16em] text-xs transition-all duration-300 rounded-md shadow-sm hover:shadow-lg hover:shadow-amber-500/20">
                     Contact Engineering
                   </CustomButton>
                 </Link>
