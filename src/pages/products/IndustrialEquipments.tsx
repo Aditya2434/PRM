@@ -1,52 +1,42 @@
 // src/pages/products/IndustrialEquipments.tsx
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import SEO from '@/components/SEO';
-import TopBar from '@/components/layout/TopBar';
-import Header from '@/components/layout/Header';
+import { ArrowRight, ChevronRight, Cpu, ShieldCheck, Flame } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import SEO from '@/components/SEO';
 import CustomButton from '@/components/ui/CustomButton';
-import { ArrowRight, Settings } from 'lucide-react';
-import { equipmentsData } from '@/data/industrialEquipments';
+import { industrialEquipments } from '@/data/industrialEquipments';
 
-const categories = ['All', 'Furnaces', 'Burners', 'Handling', 'Systems', 'Valves', 'Accessories'];
+const categories = ['All', 'Furnaces', 'Energy Recovery', 'Combustion', 'Material Handling'];
 
 const IndustrialEquipments = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const filteredEquipments = activeFilter === 'All'
+    ? industrialEquipments
+    : industrialEquipments.filter(e => e.category.toLowerCase() === activeFilter.toLowerCase());
 
-  const filteredEquipments = activeFilter === 'All' 
-    ? equipmentsData 
-    : equipmentsData.filter(item => item.category === activeFilter.toUpperCase());
-
-  // Combined Collection & Breadcrumb Schema
   const equipmentSchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "CollectionPage",
-        "@id": "https://www.paragonrefractoriesandminerals.com/products/industrial-equipment/#collection",
-        "url": "https://www.paragonrefractoriesandminerals.com/products/industrial-equipment",
-        "name": "Industrial Reheating Furnaces & Equipment Catalog | PRM",
-        "description": "Discover heavy-duty industrial reheating furnaces, recuperators, combustion burners, and billet handling systems engineered by PRM.",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Paragon Refractories & Minerals"
+        "@type": "Product",
+        "name": "Industrial Furnace Equipment & Machinery",
+        "description": "Heavy-duty reheating furnaces, metallic recuperators, industrial blowers, combustion burners, and billet handling systems engineered by PRM.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Paragon Refractories and Minerals"
         },
-        "about": {
-          "@type": "Thing",
-          "name": "Industrial Equipment"
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Paragon Refractories and Minerals",
+          "url": "https://www.paragonrefractoriesandminerals.com"
         }
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://www.paragonrefractoriesandminerals.com/products/industrial-equipment/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -66,171 +56,219 @@ const IndustrialEquipments = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f4f0]">
+    <div className="min-h-screen flex flex-col bg-white">
       <SEO 
-        title="Reheating Furnace & Industrial Equipment Manufacturer | Paragon Refractories and Minerals"
+        title="Industrial Equipment Manufacturer | Reheating Furnaces & Recuperators | PRM"
         description="Discover heavy-duty reheating furnaces, metallic recuperators, industrial blowers, combustion burners, and billet handling systems engineered by PRM for steel plants."
         keywords="reheating furnace manufacturer, industrial furnace equipment India, metallic recuperator suppliers, coal pulverizer price, billet ejector supplier, combustion systems West Bengal"
         url="/products/industrial-equipment"
         schema={equipmentSchema}
       />
-      <TopBar />
-      <Header />
       <Navbar />
 
       <main className="flex-grow">
         
-        {/* --- Premium Hero Section — Industrial Light Theme --- */}
-        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#0d1f35]">
-          {/* Background Image */}
-          <div className="absolute inset-0 overflow-hidden">
+        {/* ══════════════════════════════════════════════════════════════
+            1. BRIGHT ARCHITECTURAL HERO SECTION (CENTER-ALIGNED)
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="relative pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-18 border-b border-slate-200/80 overflow-hidden bg-slate-50">
+          
+          {/* Subtle Full-Bleed Industrial Background Image with Frosted Gradient */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <img
               src="/images/industrial_equipment_hero.jpg"
-              alt="Industrial Equipment Manufacturing Floor"
-              className="w-full h-full object-cover animate-ken-burns"
+              alt="Paragon Industrial Furnace & Thermal Machinery"
+              className="w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.05] opacity-20"
             />
+            {/* Luminous Frosted Gradient Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-slate-50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/80" />
           </div>
-          {/* Multi-layer overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f35]/92 via-[#0d1f35]/65 to-[#0d1f35]/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f35]/80 via-transparent to-[#0d1f35]/30" />
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(-60deg,transparent,transparent_30px,rgba(196,154,60,0.03)_30px,rgba(196,154,60,0.03)_31px)] pointer-events-none" />
-          {/* Corner brackets */}
-          <div className="absolute top-8 left-8 md:top-12 md:left-12 w-16 h-16 border-t-2 border-l-2 border-[#c49a3c]/60" />
-          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-16 h-16 border-b-2 border-r-2 border-[#c49a3c]/60" />
 
-          <div className="container mx-auto px-6 lg:px-24 relative z-10 pt-36 pb-20 text-center">
+          {/* Blueprint Grid & Warm Ambient Radial Glows */}
+          <div className="absolute inset-0 bg-blueprint-grid opacity-35 pointer-events-none z-0" />
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-amber-400/15 rounded-full blur-3xl pointer-events-none z-0" />
+
+          <div className="container mx-auto px-5 sm:px-6 lg:px-20 relative z-10">
+            
+            {/* Breadcrumb Navigation (Center-Aligned) */}
+            <nav aria-label="breadcrumb" className="mb-5 flex justify-center">
+              <ol className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-wider">
+                <li>
+                  <Link to="/" className="hover:text-[#090D16] transition-colors">Home</Link>
+                </li>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                <span className="text-slate-400">Products</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                <li className="text-[#D97706] font-semibold">Industrial Equipment</li>
+              </ol>
+            </nav>
+
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              className="max-w-4xl mx-auto text-center"
             >
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#c49a3c]"></span>
-                <span className="text-[#c49a3c] font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase flex items-center gap-2">
-                  <Settings className="w-4 h-4" /> Heavy Machinery
-                </span>
-                <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#c49a3c]"></span>
+              {/* Category Eyebrow Pill (Center-Aligned) */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#D97706] font-mono text-[10.5px] font-bold uppercase tracking-[0.2em] mb-5 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.9)]" />
+                <span>Heavy Industrial Machinery • Turnkey Systems</span>
               </div>
-              
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 leading-[1.1] tracking-tight">
-                Industrial <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c49a3c] via-[#ff6b6b] to-[#ffb3c6]">
-                  Equipments.
+
+              {/* Authoritative Display Headline (Center-Aligned) */}
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-black text-slate-900 mb-6 leading-[1.10] tracking-tight">
+                Industrial Furnace &amp;{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#D97706] to-[#B45309]">
+                  Thermal Hardware.
                 </span>
               </h1>
-              
-              <div className="w-20 h-[3px] bg-gradient-to-r from-[#c49a3c] to-transparent mx-auto mb-5" />
-              
-              <p className="text-gray-200 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed tracking-wide">
-                Precision-engineered manufacturing hardware. From state-of-the-art reheating furnaces to high-efficiency combustion systems, built for maximum reliability and output.
+
+              {/* Narrative Subtext (Center-Aligned) */}
+              <p className="font-ui text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed font-normal max-w-3xl mx-auto mb-8">
+                Heavy-duty reheating furnaces, metallic radiation recuperators, precision dual-fuel burners, and automated billet handling systems engineered for non-stop industrial productivity.
               </p>
+
+              {/* Verified Badges Strip (Center-Aligned) */}
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1">
+                <div className="inline-flex items-center gap-2.5 text-xs font-mono font-bold text-slate-800 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-xl px-4 py-2.5 shadow-sm hover:border-amber-400/60 transition-colors">
+                  <Flame className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>HEAT RECOVERY: <strong>UP TO 40% FUEL SAVINGS</strong></span>
+                </div>
+                <div className="inline-flex items-center gap-2.5 text-xs font-mono font-bold text-slate-800 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-xl px-4 py-2.5 shadow-sm hover:border-amber-400/60 transition-colors">
+                  <Cpu className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>CAPACITY: <strong>10 TO 80+ TPH BILLET FURNACES</strong></span>
+                </div>
+                <div className="inline-flex items-center gap-2.5 text-xs font-mono font-bold text-slate-800 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-xl px-4 py-2.5 shadow-sm hover:border-amber-400/60 transition-colors">
+                  <ShieldCheck className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>EXECUTION: <strong>TURNKEY EPC &amp; RETROFITS</strong></span>
+                </div>
+              </div>
             </motion.div>
+
           </div>
+
+          {/* Bottom Hairline Divider */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         </section>
 
-        {/* --- Introduction Section --- */}
-        <section className="container mx-auto px-6 lg:px-24 py-16 relative z-20">
+        {/* --- Architectural Overview Panel --- */}
+        <section className="container mx-auto px-5 sm:px-6 lg:px-24 py-8 sm:py-12">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative bg-white border border-[#e8e3d8] rounded-2xl p-8 lg:p-12 overflow-hidden shadow-[0_8px_30px_rgba(13,31,53,0.08)] group hover:shadow-[0_12px_40px_rgba(13,31,53,0.12)] transition-all duration-500"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white border border-slate-200/90 rounded-xl p-6 sm:p-8 lg:p-10 shadow-xs flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10"
           >
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#c49a3c] via-[#c49a3c]/50 to-transparent opacity-80" />
-            <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-[#0d1f35]/5 rounded-full blur-[60px] pointer-events-none" />
-            
-            <div className="relative z-10">
-              <h2 className="text-xl md:text-2xl font-serif text-[#0d1f35] mb-5 tracking-wide font-bold">
-                Engineering Excellence for Demanding Environments
+            <div className="lg:w-1/3 border-b lg:border-b-0 lg:border-r border-slate-200/80 pb-4 lg:pb-0 lg:pr-8">
+              <span className="font-mono text-[10.5px] text-[#D97706] font-bold uppercase tracking-[0.2em] block mb-2">
+                Engineering Capabilities
+              </span>
+              <h2 className="font-display text-2xl font-bold text-[#090D16] tracking-tight leading-snug">
+                Heavy Furnace Engineering for Modern Rolling Mills
               </h2>
-              <p className="text-gray-600 text-base md:text-lg font-light leading-relaxed">
-                Industrial equipment is essential for ensuring efficient, reliable, and high-performance operations in demanding industrial environments such as steel plants, rolling mills, cement plants, power plants, foundries, and reheating furnaces. <span className="text-[#0d1f35] font-semibold">At Paragon Refractories and Minerals</span>, we are a leading manufacturer and supplier of industrial equipment in India, offering a comprehensive range of solutions including reheating furnaces, industrial burners, recuperators, blowers, fuel heating & pumping units, and material handling systems. With strong expertise in both refractory materials and furnace engineering, we deliver integrated, energy-efficient, and performance-driven solutions tailored to specific industrial requirements.
+            </div>
+            <div className="lg:w-2/3">
+              <p className="font-ui text-slate-600 text-sm sm:text-base font-normal leading-relaxed">
+                Industrial reheating equipment must deliver continuous duty cycle reliability with optimal fuel efficiency and minimal thermal waste. We manufacture complete walking beam, walking hearth, and pusher furnaces, complemented by metallic radiation recuperators, high-pressure blowers, and automatic billet charging and ejection systems.
               </p>
             </div>
           </motion.div>
         </section>
 
-        {/* --- Filter Bar — Light Industrial --- */}
-        <section className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b-2 border-[#e8e3d8] py-5 mb-12 shadow-[0_4px_20px_rgba(13,31,53,0.08)]">
-          <div className="container mx-auto px-6 lg:px-24">
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveFilter(category)}
-                  className={`px-5 py-2.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 ${
-                    activeFilter === category
-                      ? 'bg-[#0d1f35] text-white border border-[#0d1f35] shadow-[0_4px_15px_rgba(13,31,53,0.3)]'
-                      : 'bg-transparent text-gray-500 border border-[#e8e3d8] hover:border-[#0d1f35] hover:text-[#0d1f35] hover:bg-[#0d1f35]/5'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+        {/* --- Filter Bar — Precision Segmented Control --- */}
+        <section className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-y border-slate-200/90 py-4 mb-12 shadow-xs">
+          <div className="container mx-auto px-5 sm:px-6 lg:px-24">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+              {categories.map((category) => {
+                const isActive = activeFilter === category;
+                return (
+                  <button
+                    key={category}
+                    onClick={() => setActiveFilter(category)}
+                    className={`px-5 py-2.5 rounded-lg text-xs font-mono font-semibold uppercase tracking-[0.14em] transition-all duration-200 ${
+                      isActive
+                        ? 'bg-[#090D16] text-white shadow-sm ring-1 ring-[#090D16]'
+                        : 'bg-slate-50 text-slate-600 border border-slate-200/80 hover:border-slate-300 hover:bg-white hover:text-[#090D16]'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* --- Grid --- */}
-        <section className="container mx-auto px-6 lg:px-24 pb-24">
+        {/* --- Equipment Cards Grid --- */}
+        <section id="first-product" className="container mx-auto px-5 sm:px-6 lg:px-24 pb-16 sm:pb-24 scroll-mt-28">
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-9"
           >
             <AnimatePresence>
               {filteredEquipments.map((equipment) => (
                 <motion.div
                   layout
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  initial={{ opacity: 0, scale: 0.96, y: 16 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  exit={{ opacity: 0, scale: 0.96, y: 16 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
                   key={equipment.id}
-                  className="group relative bg-white border border-[#e8e3d8] rounded-2xl overflow-hidden hover:border-[#0d1f35]/30 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(13,31,53,0.15)]"
+                  className="group relative bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-[#D97706]/60 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 flex flex-col hover:-translate-y-1"
                 >
-                  {/* ENTIRE CARD WRAPPED IN LINK */}
                   <Link 
                     to={`/products/industrial-equipment/${equipment.id}`} 
                     className="flex flex-col flex-grow h-full w-full"
                   >
-                    <div className="relative h-64 sm:h-72 overflow-hidden bg-gray-100">
-                      <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity duration-500" />
+                    {/* Equipment Photo Showcase */}
+                    <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-900">
                       <img 
                         src={equipment.image} 
                         alt={equipment.title} 
-                        className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (!target.src.includes('industrial_equipment_hero')) {
+                            target.src = '/images/industrial_equipment_hero.jpg';
+                          }
+                        }}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
                       />
-                      <div className="absolute top-5 right-5 z-20">
-                        <span className="bg-[#c49a3c] text-white text-[9px] font-bold px-3 py-1.5 rounded-md uppercase tracking-[0.2em] shadow-lg">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
+                      <div className="absolute top-3.5 right-3.5 z-20">
+                        <span className="bg-white/95 backdrop-blur-md text-[#090D16] border border-slate-200/90 font-mono text-[9px] font-bold px-3 py-1 rounded shadow-xs uppercase tracking-[0.16em]">
                           {equipment.category}
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20 border-t border-[#e8e3d8] group-hover:border-[#0d1f35]/20 transition-colors duration-500">
-                      <h3 className="text-xl font-serif text-[#0d1f35] mb-3 leading-tight group-hover:text-[#0d1f35] transition-colors duration-500">
+                    {/* Card Details */}
+                    <div className="p-6 md:p-7 flex flex-col flex-grow relative z-20 border-t border-slate-100">
+                      <h3 className="font-display text-lg lg:text-xl font-bold text-[#090D16] mb-2 leading-tight group-hover:text-[#D97706] transition-colors duration-200">
                         {equipment.title}
                       </h3>
-                      <p className="text-gray-500 text-sm leading-relaxed font-light line-clamp-2 mb-6">
+                      
+                      <p className="font-ui text-slate-500 text-xs sm:text-sm leading-relaxed font-normal line-clamp-2 mb-6">
                         {equipment.desc}
                       </p>
 
-                      <div className="grid grid-cols-2 gap-3 mb-8 mt-auto">
+                      {/* Technical Specs 2x2 Grid */}
+                      <div className="grid grid-cols-2 gap-2 mb-6 mt-auto">
                         {Object.entries(equipment.specs).slice(0, 4).map(([key, value], idx) => (
-                          <div key={idx} className="bg-[#f5f4f0] rounded-xl p-3 border border-[#e8e3d8] flex flex-col gap-1 transition-colors duration-300 group-hover:border-[#0d1f35]/20">
-                            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest truncate">{key}</span>
-                            <span className="text-[#0d1f35] text-xs font-mono truncate">{value as string}</span>
+                          <div key={idx} className="bg-slate-50 rounded-lg p-2.5 border border-slate-200/80 flex flex-col gap-0.5 group-hover:border-amber-500/20 transition-colors">
+                            <span className="text-[8px] text-slate-400 font-mono font-bold uppercase tracking-wider truncate">{key}</span>
+                            <span className="text-[#090D16] text-xs font-mono font-bold truncate">{value as string}</span>
                           </div>
                         ))}
                       </div>
 
-                      <div className="flex items-center justify-between w-full px-5 py-4 bg-[#f5f4f0] border border-[#e8e3d8] group-hover:border-[#0d1f35] group-hover:bg-[#0d1f35] transition-all duration-300 rounded-xl mt-auto">
-                        <span className="text-[10px] font-bold text-[#0d1f35] group-hover:text-white uppercase tracking-[0.2em] transition-colors duration-300">
-                          View Full Details
+                      {/* Action Link */}
+                      <div className="flex items-center justify-between w-full px-4 py-3 bg-slate-50 border border-slate-200 group-hover:border-[#090D16] group-hover:bg-[#090D16] transition-all duration-200 rounded-lg mt-auto">
+                        <span className="font-mono text-[10px] font-bold text-slate-700 group-hover:text-white uppercase tracking-[0.18em] transition-colors">
+                          Technical Specs &amp; Sizing
                         </span>
-                        <div className="w-6 h-6 rounded-full bg-[#0d1f35]/10 flex items-center justify-center transition-all duration-300 group-hover:bg-white/20">
-                          <ArrowRight className="w-3.5 h-3.5 text-[#0d1f35] group-hover:text-white transform group-hover:translate-x-1 transition-transform duration-300" />
-                        </div>
+                        <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-400 transform group-hover:translate-x-0.5 transition-all" />
                       </div>
                     </div>
                   </Link>
@@ -240,39 +278,33 @@ const IndustrialEquipments = () => {
           </motion.div>
         </section>
 
-        {/* --- CTA — Light Industrial --- */}
-        <section className="relative py-24 overflow-hidden bg-white border-t border-[#e8e3d8]">
-          <div className="absolute inset-0 bg-blueprint-grid pointer-events-none" />
-          
-          <div className="container mx-auto px-6 lg:px-24 relative z-10">
+        {/* --- Technical Consultation Strip --- */}
+        <section className="relative py-16 bg-slate-50 border-t border-slate-200 overflow-hidden">
+          <div className="container mx-auto px-5 sm:px-6 lg:px-24 relative z-10">
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-[#0d1f35] border border-[#0d1f35] rounded-3xl p-10 lg:p-14 flex flex-col md:flex-row items-center justify-between gap-10 shadow-[0_20px_60px_rgba(13,31,53,0.25)] relative overflow-hidden"
+              transition={{ duration: 0.5 }}
+              className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-sm"
             >
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-white/5 blur-[80px] pointer-events-none rounded-full" />
-              <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,transparent,transparent_20px,rgba(255,255,255,0.02)_20px,rgba(255,255,255,0.02)_40px)]" />
-
-              <div className="md:w-2/3 relative z-10">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-[#c49a3c] font-bold tracking-[0.3em] text-[10px] uppercase">
-                    Turnkey Projects
-                  </span>
+              <div className="md:w-2/3">
+                <div className="inline-flex items-center gap-2 font-mono text-[10.5px] font-bold text-[#D97706] tracking-[0.2em] uppercase mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706]" />
+                  Custom Engineering &amp; EPC Sizing
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
-                  Require custom Industrial Heating & Furnace solutions?
+                <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#090D16] mb-3 leading-tight tracking-tight">
+                  Require Custom Sizing for Your Rolling Mill?
                 </h2>
-                <p className="text-white/70 text-base md:text-lg font-light leading-relaxed max-w-2xl">
-                  Our design bureau can customize dimensions, configurations, and automation systems tailored entirely to your specific manufacturing plant requirements.
+                <p className="font-ui text-slate-600 text-sm sm:text-base font-normal leading-relaxed max-w-2xl">
+                  Our thermal engineering design group calculates exact furnace tonnage, hearth travel speed, recuperator surface area, and combustion blower CFM for your production target.
                 </p>
               </div>
               
-              <div className="md:w-1/3 flex justify-end shrink-0 w-full md:w-auto mt-6 md:mt-0 relative z-10">
-                <Link to="/contact" className="relative group block w-full md:w-auto">
-                  <CustomButton className="relative w-full md:w-auto bg-[#c49a3c] hover:bg-white hover:text-[#c49a3c] text-white font-bold py-4 px-10 uppercase tracking-[0.2em] text-[11px] transition-all duration-300 rounded-xl text-center shadow-2xl">
-                    Consult Our Engineers
+              <div className="md:w-1/3 flex justify-start md:justify-end shrink-0 w-full md:w-auto">
+                <Link to="/contact" className="w-full md:w-auto">
+                  <CustomButton className="w-full md:w-auto bg-[#090D16] hover:bg-[#D97706] text-white font-ui font-bold py-4 px-8 uppercase tracking-[0.16em] text-xs transition-all duration-300 rounded-md shadow-sm hover:shadow-lg hover:shadow-amber-500/20">
+                    Schedule Engineering Review
                   </CustomButton>
                 </Link>
               </div>

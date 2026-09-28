@@ -20,6 +20,9 @@ import IndustrialEquipmentDetails from '@/pages/products/IndustrialEquipmentDeta
 
 import CastIronParts from '@/pages/products/CastIronParts';
 import SplashScreen from '@/components/SplashScreen';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import ScrollToTop from '@/components/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 // Show the splash screen only once per browser session
@@ -39,6 +42,7 @@ function App() {
         <SplashScreen onComplete={handleSplashComplete} />
       )}
       <Router>
+        <ScrollToTop />
         <div className="font-sans">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -63,8 +67,12 @@ function App() {
             <Route path="/certificates" element={<Certificates />} />
             <Route path="/gallery" element={<Gallery />} />
           </Routes>
+
+          {/* Global Floating WhatsApp Contact Action */}
+          <WhatsAppButton phoneNumber="7363993193" />
         </div>
       </Router>
+      <Analytics />
     </>
   );
 }

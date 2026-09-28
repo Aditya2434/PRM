@@ -11,19 +11,19 @@ const categories = [
   {
     id: 'refractories',
     title: 'Refractory Products',
-    link: '/products/refractory-materials',
+    link: '/products/refractory-materials#first-product',
     icon: Flame,
   },
   {
     id: 'equipments',
     title: 'Industrial Equipments',
-    link: '/products/industrial-equipment',
+    link: '/products/industrial-equipment#first-product',
     icon: Cpu,
   },
   {
     id: 'cast-iron',
     title: 'Cast Iron Parts',
-    link: '/products/cast-iron-parts',
+    link: '/products/cast-iron-parts#first-product',
     icon: Wrench,
   },
 ];
@@ -169,56 +169,82 @@ const marqueeProducts = [...productsList, ...productsList];
 
 const ProductsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#fbfbfa] border-t border-b border-gray-100">
+    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden bg-white border-t border-b border-slate-200">
       {/* Subtle Blueprint Dot Grid Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e5e0_1px,transparent_1px)] [background-size:20px_20px] opacity-60 pointer-events-none" />
-      
-      {/* Decorative Blueprint Corner Accent */}
-      <div className="absolute top-0 right-0 w-32 h-32 border-b border-l border-gray-200 pointer-events-none opacity-40">
-        <div className="absolute bottom-2 left-2 text-[9px] font-mono text-gray-400 tracking-wider">SEC-PRD v2.2</div>
-      </div>
+      <div className="absolute inset-0 bg-blueprint-grid opacity-20 pointer-events-none" />
       
       <div className="w-full relative z-10">
         
-        {/* Section Header (Sticks to Container Padding) */}
-        <div className="container mx-auto px-6 lg:px-24 flex flex-col md:flex-row md:items-end justify-between mb-12">
+        {/* Section Header */}
+        <div className="container mx-auto px-5 sm:px-6 lg:px-24 flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14">
           <SectionTitle 
-            subtitle="OUR CATALOG" 
+            subtitle="ENGINEERED CATALOG" 
             title="Featured Products & Components" 
             centered={false}
             className="mb-0"
           />
-          <p className="text-gray-500 text-sm md:text-base max-w-md mt-4 md:mt-0 font-light leading-relaxed">
-            Quickly browse our core industrial solutions. Select a category below or explore the sliding catalog of actual products.
+          <p className="text-slate-500 text-sm md:text-base max-w-md mt-4 md:mt-0 font-normal leading-relaxed">
+            High-temperature refractory materials, turnkey reheating furnace assemblies, and custom-machined cast iron parts.
           </p>
         </div>
 
         {/* --- 3 CATEGORY NAVIGATION BOXES --- */}
-        <div className="container mx-auto px-6 lg:px-24 mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-24 mb-8 sm:mb-16">
+          {/* Mobile View (< md): Sleek 3-column quick-nav micro-cards (space-saving single row) */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:hidden">
             {categories.map((cat) => {
               const Icon = cat.icon;
               return (
                 <Link
                   key={cat.id}
                   to={cat.link}
-                  className="group relative flex items-center gap-5 p-6 bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_30px_-6px_rgba(13,31,53,0.08)] hover:border-[#c49a3c]/30 hover:-translate-y-1 transition-all duration-300"
+                  className="group relative flex flex-col items-center justify-between p-2.5 sm:p-3 bg-slate-50/90 hover:bg-white active:bg-amber-50/40 rounded-xl border border-slate-200/90 active:border-amber-500/50 shadow-2xs transition-all text-center min-h-[105px]"
                 >
-                  {/* Decorative background grid line */}
-                  <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-gray-100 rounded-tr-2xl group-hover:border-[#c49a3c]/20 transition-colors pointer-events-none" />
+                  {/* Subtle amber accent bar */}
+                  <div className="w-6 h-0.5 rounded-full bg-amber-500/40 mb-1" />
 
                   {/* Icon Area */}
-                  <div className="shrink-0 w-14 h-14 bg-[#0d1f35]/5 rounded-xl flex items-center justify-center border border-[#0d1f35]/10 group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] transition-all duration-300">
-                    <Icon className="w-6 h-6 text-[#0d1f35] group-hover:text-white transition-colors" />
+                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/80 flex items-center justify-center text-[#D97706] shadow-2xs group-active:scale-95 transition-transform">
+                    <Icon className="w-4 h-4" />
+                  </div>
+
+                  {/* Title */}
+                  <h4 className="font-display text-[11px] sm:text-xs font-bold text-slate-900 leading-snug tracking-tight line-clamp-2 my-1">
+                    {cat.title}
+                  </h4>
+
+                  {/* Micro Catalog Link */}
+                  <span className="inline-flex items-center gap-0.5 text-[9px] sm:text-[10px] font-mono font-semibold text-[#D97706] uppercase tracking-wider">
+                    Catalog
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Desktop View (md+): Original full horizontal cards */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {categories.map((cat) => {
+              const Icon = cat.icon;
+              return (
+                <Link
+                  key={cat.id}
+                  to={cat.link}
+                  className="group relative flex items-center gap-5 p-6 bg-slate-50 rounded-xl border border-slate-200 hover:border-amber-500/40 hover:bg-white hover:shadow-xl hover:shadow-slate-900/5 hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  {/* Icon Area */}
+                  <div className="shrink-0 w-13 h-13 bg-white rounded-lg flex items-center justify-center border border-slate-200 group-hover:bg-[#090D16] group-hover:border-[#090D16] transition-all duration-300 shadow-xs">
+                    <Icon className="w-6 h-6 text-[#D97706] group-hover:text-amber-400 transition-colors" />
                   </div>
 
                   {/* Text Area */}
                   <div>
-                    <h4 className="text-base md:text-lg font-bold text-[#0d1f35] group-hover:text-[#c49a3c] transition-colors duration-300 tracking-tight">
+                    <h4 className="font-display text-base font-bold text-slate-900 group-hover:text-[#D97706] transition-colors duration-300 tracking-tight">
                       {cat.title}
                     </h4>
-                    <p className="text-xs text-gray-400 font-medium tracking-wider uppercase mt-1.5 inline-flex items-center gap-1.5">
-                      Browse Category
+                    <p className="font-mono text-[11px] text-slate-400 font-semibold tracking-wider uppercase mt-1 inline-flex items-center gap-1.5 group-hover:text-[#D97706] transition-colors">
+                      View Catalog
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                     </p>
                   </div>
@@ -230,33 +256,27 @@ const ProductsSection = () => {
 
         {/* --- INFINITE SCROLLING MARQUEE CONTAINER --- */}
         <div className="relative w-full overflow-hidden py-4
-          before:absolute before:left-0 before:top-0 before:h-full before:w-16 md:before:w-32 before:bg-gradient-to-r before:from-[#fbfbfa] before:to-transparent before:z-20 
-          after:absolute after:right-0 after:top-0 after:h-full after:w-16 md:after:w-32 after:bg-gradient-to-l after:from-[#fbfbfa] after:to-transparent after:z-20"
+          before:absolute before:left-0 before:top-0 before:h-full before:w-16 md:before:w-32 before:bg-gradient-to-r before:from-white before:to-transparent before:z-20 
+          after:absolute after:right-0 after:top-0 after:h-full after:w-16 md:after:w-32 after:bg-gradient-to-l after:from-white after:to-transparent after:z-20"
         >
           {/* Scrolling Row */}
           <div className="animate-marquee flex gap-6 px-4">
             {marqueeProducts.map((prd, index) => (
               <div
                 key={`${prd.id}-${index}`}
-                className="group flex flex-col w-[280px] md:w-[320px] shrink-0 bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(13,31,53,0.1)] hover:border-[#c49a3c]/30 overflow-hidden transition-all duration-500"
+                className="group flex flex-col w-[280px] md:w-[320px] shrink-0 bg-white rounded-xl border border-slate-200 hover:border-amber-500/40 hover:shadow-xl hover:shadow-slate-900/10 overflow-hidden transition-all duration-300"
               >
                 {/* Image Container */}
                 <div className="relative h-44 md:h-48 overflow-hidden bg-slate-900">
                   <img 
                     src={prd.image} 
                     alt={prd.title} 
-                    className="w-full h-full object-cover opacity-90 transition-transform duration-1000 ease-out group-hover:scale-115"
+                    className="w-full h-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
 
-                  {/* Corner Accent Brackets */}
-                  <div className="absolute top-3 left-3 w-2 h-2 border-t border-l border-[#c49a3c] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-3 right-3 w-2 h-2 border-t border-r border-[#c49a3c] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-3 left-3 w-2 h-2 border-b border-l border-[#c49a3c] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-3 right-3 w-2 h-2 border-b border-r border-[#c49a3c] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* Mini category badge */}
-                  <div className="absolute top-4 left-4 bg-[#0d1f35]/90 border border-white/10 text-[9px] font-bold text-[#c49a3c] tracking-widest uppercase px-2 py-0.5 rounded shadow z-15">
+                  {/* Category badge */}
+                  <div className="absolute top-3.5 left-3.5 bg-[#090D16]/90 border border-white/15 text-[9px] font-mono font-bold text-amber-400 tracking-wider uppercase px-2.5 py-1 rounded shadow-xs z-15 backdrop-blur-sm">
                     {prd.category}
                   </div>
                 </div>
@@ -264,21 +284,21 @@ const ProductsSection = () => {
                 {/* Content Area */}
                 <div className="p-6 flex-grow flex flex-col justify-between bg-white">
                   <div>
-                    <h3 className="text-base md:text-lg font-bold text-[#0d1f35] group-hover:text-[#c49a3c] transition-colors duration-300 mb-2 tracking-tight line-clamp-1">
+                    <h3 className="font-display text-base font-bold text-slate-900 group-hover:text-[#D97706] transition-colors duration-300 mb-2 tracking-tight line-clamp-1">
                       {prd.title}
                     </h3>
-                    <p className="text-gray-500 text-xs md:text-sm font-light leading-relaxed line-clamp-2">
+                    <p className="font-ui text-slate-500 text-xs md:text-sm font-normal leading-relaxed line-clamp-2">
                       {prd.description}
                     </p>
                   </div>
 
                   {/* Explore Button */}
-                  <div className="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between">
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
                     <Link 
                       to={prd.link}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#c49a3c] hover:text-[#0d1f35] transition-colors duration-300 group/btn"
+                      className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#D97706] hover:text-[#090D16] transition-colors duration-300 group/btn"
                     >
-                      Explore Details
+                      Technical Specs
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </Link>
                   </div>

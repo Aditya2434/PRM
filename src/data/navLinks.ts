@@ -30,5 +30,6 @@ export const topBarLinks: Omit<NavLink, 'hasDropdown'>[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
+  { name: 'Facebook', icon: 'FaFacebookF', href: 'https://www.facebook.com/profile.php?id=61589326615080' },
   { name: 'LinkedIn', icon: 'FaLinkedinIn', href: 'https://www.linkedin.com/company/110518013/' },
 ];

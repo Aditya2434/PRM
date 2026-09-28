@@ -8,64 +8,61 @@ interface ContactInfoItem {
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
   title: string;
   lines: string[];
+  href: string;
 }
 
 const contactInfo: ContactInfoItem[] = [
   {
     id: 1,
     icon: Phone,
-    title: 'CALL US NOW',
-    lines: [
-      '+91 9932317334'
-    ],
+    title: 'DIRECT INDUSTRIAL HOTLINE',
+    lines: ['+91 9932317334'],
+    href: 'tel:+919932317334',
   },
   {
     id: 2,
     icon: Mail,
-    title: 'SEND US A MESSAGE',
-    lines: [
-      'paragonrefractories22@gmail.com'
-    ],
+    title: 'TECHNICAL & COMMERCIAL RFQ',
+    lines: ['paragonrefractories22@gmail.com'],
+    href: 'mailto:paragonrefractories22@gmail.com',
   },
 ];
 
 const ContactStrip = () => {
   return (
-    <section id="contact" className="py-16 bg-white border-t border-gray-100">
-      <div className="container mx-auto px-6 lg:px-24">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+    <section id="contact" className="py-14 bg-white border-t border-slate-200/80">
+      <div className="container mx-auto px-6 lg:px-20">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {contactInfo.map((item, index) => (
-            <motion.div
+            <motion.a
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
+              href={item.href}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden flex items-center p-5 sm:p-6 lg:p-8 bg-[#0d1f35] rounded-2xl shadow-xl hover:shadow-[0_8px_30px_rgba(196,154,60,0.2)] transition-all duration-300 border border-white/5"
+              className="group flex items-center p-6 bg-slate-50/80 hover:bg-white rounded-xl border border-slate-200/80 hover:border-amber-500/40 hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-300"
             >
-              {/* Decorative hover gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#c49a3c]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10 flex items-center gap-4 sm:gap-5 w-full">
-                {/* Icon Container - Compact & Left Aligned */}
-                <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c49a3c] group-hover:border-[#c49a3c] group-hover:scale-110 transition-all duration-300 shadow-inner">
-                  <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#c49a3c] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
+              <div className="flex items-center gap-5 w-full">
+                {/* Icon Container */}
+                <div className="shrink-0 w-12 h-12 bg-amber-500/10 border border-amber-500/25 rounded-xl flex items-center justify-center text-[#D97706] group-hover:bg-[#090D16] group-hover:text-amber-400 group-hover:border-[#090D16] transition-all duration-300 shadow-xs">
+                  <item.icon className="w-5 h-5" strokeWidth={2} />
                 </div>
                 
-                {/* Text Content - Horizontal Layout with min-w-0 for proper truncating/wrapping */}
+                {/* Text Content */}
                 <div className="text-left flex-1 min-w-0">
-                  <h4 className="text-[10px] sm:text-[11px] font-bold text-gray-400 mb-1 sm:mb-1.5 tracking-widest uppercase group-hover:text-gray-300 transition-colors duration-300">
+                  <span className="text-[10px] font-mono font-bold text-slate-500 tracking-[0.16em] uppercase block mb-1">
                     {item.title}
-                  </h4>
+                  </span>
                   
                   {item.lines.map((line, lineIndex) => (
-                    <p key={lineIndex} className="text-[13px] sm:text-[15px] md:text-base font-medium text-white/90 tracking-wide group-hover:text-white transition-colors duration-300 break-all sm:break-normal">
+                    <p key={lineIndex} className="text-base sm:text-lg font-bold text-[#090D16] group-hover:text-[#D97706] transition-colors duration-300 truncate font-ui">
                       {line}
                     </p>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

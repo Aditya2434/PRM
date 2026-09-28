@@ -17,16 +17,16 @@ export const ArrowButton = ({
   const Icon = direction === 'left' ? ChevronLeft : ChevronRight;
   
   const variants = {
-    default: 'bg-white/20 hover:bg-white/40 text-white',
-    dark: 'bg-[#0d1f35] hover:bg-[#07111f] text-white',
-    outline: 'border-2 border-[#0d1f35] text-[#0d1f35] hover:bg-[#0d1f35] hover:text-white',
+    default: 'bg-white/80 hover:bg-white text-slate-800 border border-slate-200 shadow-sm',
+    dark: 'bg-[#090D16] hover:bg-[#D97706] text-white',
+    outline: 'border border-slate-300 text-slate-800 hover:bg-[#090D16] hover:text-white hover:border-[#090D16]',
   };
 
   return (
     <button
       onClick={onClick}
       className={cn(
-        'w-10 h-10 flex items-center justify-center transition-all duration-300',
+        'w-10 h-10 rounded-md flex items-center justify-center transition-all duration-300',
         variants[variant],
         className
       )}
@@ -59,8 +59,8 @@ export const DotIndicators = ({
           className={cn(
             'w-3 h-3 rounded-full transition-all duration-300',
             current === index 
-              ? 'bg-[#c49a3c]' 
-              : 'bg-white/50 hover:bg-white/70'
+              ? 'bg-[#D97706] w-6' 
+              : 'bg-slate-300 hover:bg-slate-400'
           )}
           aria-label={`Go to slide ${index + 1}`}
         />
