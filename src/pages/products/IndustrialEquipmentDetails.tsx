@@ -332,6 +332,24 @@ const IndustrialEquipmentDetails = () => {
       ];
     }
 
+    if (product.id === 'industrial-pulley') {
+      return [
+        { label: 'Load Rating', sublabel: 'Heavy Dynamic Duty', value: '50+ Tons', unit: 'CAPACITY', icon: Layers, tag: 'LOAD' },
+        { label: 'Sheave Dia.', sublabel: 'Machined Cast Steel', value: '1,000', unit: 'mm MAX', icon: Gauge, tag: 'DIAMETER' },
+        { label: 'Hardness', sublabel: 'Heat-Treated Groove', value: '350', unit: 'BHN', icon: ShieldCheck, tag: 'HARDNESS' },
+        { label: 'Rope Range', sublabel: 'Wire Rope Compatibility', value: '12–40', unit: 'mm', icon: Activity, tag: 'CABLE' }
+      ];
+    }
+
+    if (product.id === 'industrial-winch-machine') {
+      return [
+        { label: 'Pull Capacity', sublabel: 'High-Torque Heavy Haulage', value: '30+', unit: 'TONS', icon: Layers, tag: 'CAPACITY' },
+        { label: 'Motor Power', sublabel: 'Heavy Crane Duty Drive', value: '50+', unit: 'HP', icon: Zap, tag: 'POWER' },
+        { label: 'Rope Speed', sublabel: 'Controlled Drum Spooling', value: '20', unit: 'm/min', icon: Gauge, tag: 'SPEED' },
+        { label: 'Brake Type', sublabel: 'Fail-Safe Electro-Magnetic', value: 'Thruster', unit: 'BRAKE', icon: ShieldCheck, tag: 'SAFETY' }
+      ];
+    }
+
     // Generic fallback with clean parsing
     const specsEntries = Object.entries(product.specs || {});
     const tempSpec = specsEntries.find(([k]) => k.toLowerCase().includes('temp'));

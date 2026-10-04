@@ -71,7 +71,8 @@ export const equipmentsData: IndustrialEquipment[] = [
     category: 'ACCESSORIES', 
     image: '/images/equipments/Recuperator.webp',
     gallery: [
-      '/images/equipments/Recuperator 2.webp'
+      '/images/equipments/Recuperator 2.webp',
+      '/images/equipments/Recuperator 3.webp'
     ],
     desc: 'A Recuperator is a heat recovery device used in industrial furnaces to recover waste heat from flue gases and preheat combustion air, significantly improving fuel efficiency and reducing operating costs. It is an essential component in modern furnaces for energy saving and performance optimization. We are a leading Recuperator manufacturer and supplier in India, offering high-efficiency heat recovery systems.',
     highlights: [
@@ -114,8 +115,8 @@ export const equipmentsData: IndustrialEquipment[] = [
     category: 'SYSTEMS', 
     image: '/images/equipments/Heating Pumping Unit.webp',
     gallery: [
-      '/images/equipments/Heating Unit 2.webp',
-      '/images/equipments/Heating unit.webp'
+      '/images/equipments/Heating Pumping Unit 2.webp',
+      '/images/equipments/Heating Pumping Unit 3.webp'
     ],
     desc: 'Heating & Pumping Unit is an integrated system designed to heat and pump fuel (mainly furnace oil / LDO / heavy oil) at the required temperature and pressure for efficient combustion in industrial furnaces and burners. This unit ensures smooth fuel flow, proper atomization, and consistent furnace performance.',
     highlights: [
@@ -300,10 +301,10 @@ export const equipmentsData: IndustrialEquipment[] = [
     id: 'billet-pusher', 
     title: 'Billet Pusher', 
     category: 'HANDLING', 
-    image: '/images/equipments/H Pusher.webp',
+    image: '/images/equipments/Hydraulic Pusher.webp',
     gallery: [
-      '/images/equipments/H Pusher 2.webp',
-      '/images/equipments/H Pusher 3.webp'
+      '/images/equipments/Hydraulic Pusher 2.webp',
+      '/images/equipments/Hydraulic Pusher 3.webp'
     ],
     desc: 'Billet Pusher is a heavy-duty mechanical or hydraulic system used to push billets, blooms, or slabs into the reheating furnace in a controlled and continuous manner. It is a key component in pusher-type furnaces, ensuring smooth material flow and uniform heating.',
     highlights: [
@@ -403,10 +404,10 @@ export const equipmentsData: IndustrialEquipment[] = [
     id: 'butterfly-valve', 
     title: 'Butterfly Valve', 
     category: 'VALVES', 
-    image: '/images/equipments/butterfly valv.webp',
+    image: '/images/equipments/butterfly valve.webp',
     gallery: [
-      '/images/equipments/butterfly valv 2.webp',
-      '/images/equipments/butterfly valv 3.webp'
+      '/images/equipments/butterfly valve 2.webp',
+      '/images/equipments/butterfly valve 3.webp'
     ],
     desc: 'Butterfly Valve is a quarter-turn flow control valve used to regulate or isolate the flow of liquids, gases, and air in industrial pipelines. It is widely used in furnace systems, fuel lines, air ducts, and process industries due to its compact design, quick operation, and reliable sealing.',
     highlights: [
@@ -449,6 +450,88 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Water Treatment Plants',
       'Chemical and Petrochemical Industries',
       'Boilers and Thermal Systems'
+    ]
+  },
+  { 
+    id: 'industrial-pulley', 
+    title: 'Industrial Pulley', 
+    category: 'HANDLING', 
+    image: '/images/equipments/Pully.webp',
+    desc: 'Heavy-duty industrial wire rope pulleys and sheaves designed for reheating furnaces, billet charging mechanisms, and high-load rolling mill material handling systems. Engineered with precision bearings and hardened groove profiles for maximum cable life and smooth mechanical transfer.',
+    highlights: [
+      'Heavy-duty cast steel and forged construction',
+      'Hardened wire rope groove for reduced cable wear',
+      'Equipped with heavy-duty sealed roller bearings',
+      'High load-carrying capacity for rolling mill duty',
+      'Corrosion and heat-resistant finish for furnace areas',
+      'Custom diameters and bore sizes available'
+    ],
+    specs: { 
+      'Type': 'Wire Rope / Guide / Snatch Pulley',
+      'Diameter Range': '150 mm to 1000+ mm (customizable)',
+      'Material': 'Cast Steel / Forged Steel / CI FG-260',
+      'Bearing Type': 'Heavy-Duty Spherical Roller / Bronze Bush',
+      'Groove Hardness': 'Up to 300–350 BHN',
+      'Wire Rope Size': '12 mm to 40 mm',
+      'Load Capacity': '1 Ton to 50+ Tons',
+      'Mounting': 'Base Mounted / Suspended / Clevis'
+    },
+    features: [
+      'High mechanical strength under heavy cyclic loads',
+      'Smooth rotation with minimal friction loss',
+      'Precision-machined groove profile minimizes cable fatigue',
+      'Low maintenance with extended greasing intervals',
+      'Robust design for harsh steel mill and furnace environments',
+      'Balanced dynamically for high-speed wire rope systems'
+    ],
+    applications: [
+      'Reheating Furnace Door Hoisting',
+      'Billet Pusher Wire Rope Systems',
+      'Rolling Mill Material Handling',
+      'Overhead Cranes and Hoists',
+      'Winch and Cable Haulage Systems',
+      'Industrial Furnace Charging Rigs'
+    ]
+  },
+  { 
+    id: 'industrial-winch-machine', 
+    title: 'Industrial Winch Machine', 
+    category: 'HANDLING', 
+    image: '/images/equipments/Winch.webp',
+    desc: 'Industrial Winch Machine is a heavy-duty electric and mechanical hauling system engineered for furnace door lifting, pusher positioning, and mill material pulling operations. Built with high-torque gearboxes, fail-safe electro-magnetic braking, and rugged steel drums for maximum safety and duty cycles.',
+    highlights: [
+      'Heavy-duty electric drive with high-torque helical gearbox',
+      'Fail-safe electro-magnetic / thruster braking system',
+      'Heavy grooved wire rope drum for uniform spooling',
+      'Push-button and wireless remote pendant control',
+      'Designed for continuous 24/7 industrial duty cycles',
+      'Custom pulling and lifting capacities from 1 to 30+ tons'
+    ],
+    specs: { 
+      'Type': 'Electric / Motorized Industrial Winch',
+      'Capacity': '1 Ton to 30+ Tons',
+      'Rope Speed': '5 to 20 m/min (variable speed available)',
+      'Motor Rating': '3 HP to 50+ HP (Flameproof / Crane Duty)',
+      'Brake Type': 'Electro-Magnetic Disc / Thruster Brake',
+      'Gearbox': 'Heavy-Duty Helical / Planetary Reducer',
+      'Rope Drum': 'Precision Grooved Mild Steel / Forged Drum',
+      'Control System': 'Pendant / Radio Remote / PLC Integrated'
+    },
+    features: [
+      'High pulling power with reliable emergency braking',
+      'Smooth acceleration and deceleration without rope snatch',
+      'Rugged base frame for heavy steel plant installations',
+      'Overload protection and limit switches for safety',
+      'Weatherproof and high-temperature resistant construction',
+      'Low maintenance with high mechanical efficiency'
+    ],
+    applications: [
+      'Reheating Furnace Door Raising & Lowering',
+      'Billet Car and Furnace Pusher Positioning',
+      'Steel Mill Transfer Car Haulage',
+      'Ladle & Tundish Handling Systems',
+      'Heavy Machinery Erection and Rigging',
+      'Industrial Pulling & Material Shifting'
     ]
   }
 ];
