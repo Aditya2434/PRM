@@ -22,21 +22,24 @@ const RefractoryMaterial = () => {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Product",
-        "name": "High Alumina Refractory Bricks & Materials",
+        "@type": "CollectionPage",
+        "@id": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials/#collection",
+        "url": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials",
+        "name": "High Alumina Refractory Bricks & Materials Catalog | PRM",
         "description": "Premium high alumina bricks, dense fire clay bricks, castables, and custom burner blocks designed for temperatures up to 1850°C.",
-        "brand": {
-          "@type": "Brand",
-          "name": "Paragon Refractories and Minerals"
-        },
-        "manufacturer": {
+        "publisher": {
           "@type": "Organization",
           "name": "Paragon Refractories and Minerals",
           "url": "https://www.paragonrefractoriesandminerals.com"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Refractory Materials and Industrial Bricks"
         }
       },
       {
         "@type": "BreadcrumbList",
+        "@id": "https://www.paragonrefractoriesandminerals.com/products/refractory-materials/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
