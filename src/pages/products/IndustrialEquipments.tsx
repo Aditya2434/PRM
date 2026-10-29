@@ -22,21 +22,24 @@ const IndustrialEquipments = () => {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Product",
-        "name": "Industrial Furnace Equipment & Machinery",
+        "@type": "CollectionPage",
+        "@id": "https://www.paragonrefractoriesandminerals.com/products/industrial-equipment/#collection",
+        "url": "https://www.paragonrefractoriesandminerals.com/products/industrial-equipment",
+        "name": "Industrial Furnace Equipment & Machinery Catalog | PRM",
         "description": "Heavy-duty reheating furnaces, metallic recuperators, industrial blowers, combustion burners, and billet handling systems engineered by PRM.",
-        "brand": {
-          "@type": "Brand",
-          "name": "Paragon Refractories and Minerals"
-        },
-        "manufacturer": {
+        "publisher": {
           "@type": "Organization",
           "name": "Paragon Refractories and Minerals",
           "url": "https://www.paragonrefractoriesandminerals.com"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Industrial Furnace Equipment and Machinery"
         }
       },
       {
         "@type": "BreadcrumbList",
+        "@id": "https://www.paragonrefractoriesandminerals.com/products/industrial-equipment/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
