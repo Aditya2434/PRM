@@ -9,7 +9,7 @@ export interface IndustrialEquipment {
   title: string;
   category: string;
   image: string;
-  gallery?: string[]; 
+  gallery?: string[];
   desc: string;
   specs: EquipmentSpec;
   highlights?: string[];
@@ -20,10 +20,10 @@ export interface IndustrialEquipment {
 }
 
 export const equipmentsData: IndustrialEquipment[] = [
-  { 
-    id: 'pusher-type-reheating-furnace', 
-    title: 'Pusher Type Reheating Furnace', 
-    category: 'FURNACES', 
+  {
+    id: 'pusher-type-reheating-furnace',
+    title: 'Pusher Type Reheating Furnace',
+    category: 'FURNACES',
     image: '/images/equipments/RHF.webp',
     gallery: [
       '/images/equipments/RHF 2.webp'
@@ -37,7 +37,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Optimized design for fuel efficiency and heat recovery',
       'Custom-built as per plant layout and capacity'
     ],
-    specs: { 
+    specs: {
       'Type': 'Continuous Pusher Type Furnace',
       'Capacity': '5 TPH to 100+ TPH (customizable)',
       'Fuel Type': 'Coal / Oil / Gas',
@@ -57,22 +57,24 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Suitable for medium to large rolling mills'
     ],
     applications: [
-      'Steel Rolling Mills', 
-      'Billet & Ingot Heating', 
+      'Steel Rolling Mills',
+      'Billet & Ingot Heating',
       'Forging Industries',
       'Alloy Steel Processing',
       'Non-Ferrous Metal Heating',
       'Industrial Heat Treatment'
     ]
   },
-  { 
-    id: 'recuperator', 
-    title: 'Recuperator', 
-    category: 'ACCESSORIES', 
-    image: '/images/equipments/Recuperator.webp',
+  {
+    id: 'recuperator',
+    title: 'Recuperator',
+    category: 'ACCESSORIES',
+    image: '/images/equipments/Recuperator 2.webp',
     gallery: [
-      '/images/equipments/Recuperator 2.webp',
-      '/images/equipments/Recuperator 3.webp'
+      '/images/equipments/Recuperator.webp',
+      '/images/equipments/Recuperator 3.webp',
+      '/images/equipments/4 recuperator.webp',
+      '/images/equipments/4 stage recuperator.webp'
     ],
     desc: 'A Recuperator is a heat recovery device used in industrial furnaces to recover waste heat from flue gases and preheat combustion air, significantly improving fuel efficiency and reducing operating costs. It is an essential component in modern furnaces for energy saving and performance optimization. We are a leading Recuperator manufacturer and supplier in India, offering high-efficiency heat recovery systems.',
     highlights: [
@@ -83,7 +85,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Robust construction for high-temperature operation',
       'Custom-designed as per furnace capacity and layout'
     ],
-    specs: { 
+    specs: {
       'Type': 'Metallic / Ceramic Recuperator',
       'Max Temp': 'Up to 1100°C (Metallic) / 1400°C (Ceramic)',
       'Heat Recovery Efficiency': '30% – 70%',
@@ -109,10 +111,10 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Petrochemical Industries'
     ]
   },
-  { 
-    id: 'heating-pumping-unit', 
-    title: 'Heating & Pumping Unit', 
-    category: 'SYSTEMS', 
+  {
+    id: 'heating-pumping-unit',
+    title: 'Heating & Pumping Unit',
+    category: 'SYSTEMS',
     image: '/images/equipments/Heating Pumping Unit.webp',
     gallery: [
       '/images/equipments/Heating Pumping Unit 2.webp',
@@ -127,7 +129,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Compact design with easy installation',
       'Custom-built as per furnace and burner requirements'
     ],
-    specs: { 
+    specs: {
       'Fuel Type': 'Furnace Oil (FO) / LDO / Heavy Oil',
       'Heating System': 'Electrical / Thermic Fluid / Steam',
       'Operating Temp': '80°C – 140°C (adjustable)',
@@ -162,10 +164,10 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Petrochemical Industries'
     ]
   },
-  { 
-    id: 'industrial-blowers', 
-    title: 'Industrial Blower', 
-    category: 'ACCESSORIES', 
+  {
+    id: 'industrial-blowers',
+    title: 'Industrial Blower',
+    category: 'ACCESSORIES',
     image: '/images/equipments/Blower 1.webp',
     gallery: [
       '/images/equipments/Blower 2.webp',
@@ -181,7 +183,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Available in multiple capacities and configurations',
       'Custom-built as per application requirements'
     ],
-    specs: { 
+    specs: {
       'Type': 'Centrifugal / Axial Flow Blower',
       'Air Flow Capacity': '500 – 50,000+ m³/hr',
       'Pressure Range': '100 – 1500 mmWC',
@@ -208,11 +210,14 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Ventilation and Dust Collection Systems'
     ]
   },
-  { 
-    id: 'industrial-pulverizer', 
-    title: 'Industrial Pulverizer', 
-    category: 'SYSTEMS', 
+  {
+    id: 'industrial-pulverizer',
+    title: 'Industrial Pulverizer',
+    category: 'SYSTEMS',
     image: '/images/equipments/pulvurizer.webp',
+    gallery: [
+      '/images/equipments/pulverizer2.webp'
+    ],
     desc: 'Industrial Pulverizer (Coal Pulverizer) is a heavy-duty crushing and grinding machine used for pulverizing coal into fine powder for efficient combustion in furnaces, boilers, and kilns. It ensures uniform particle size, better fuel burning, and improved thermal efficiency.',
     highlights: [
       'Designed for coal crushing and fine grinding',
@@ -222,7 +227,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Easy maintenance and long service life',
       'Available in multiple capacities'
     ],
-    specs: { 
+    specs: {
       'Type': 'Hammer Mill / Impact Pulverizer',
       'Capacity': '500 kg/hr – 10 TPH',
       'Output Size': '0 – 3 mm (adjustable)',
@@ -248,10 +253,56 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Industrial Fuel Processing Units'
     ]
   },
-  { 
-    id: 'billet-ejector', 
-    title: 'Billet Ejector', 
-    category: 'HANDLING', 
+  {
+    id: 'coal-pulverizer-system',
+    title: 'Coal Pulverizer System',
+    category: 'SYSTEMS',
+    image: '/images/equipments/pulverizer system.webp',
+    desc: 'Coal Pulverizer System is designed to grind coal into a fine powder so it can be burned in air suspension like a gas for higher combustion efficiency. The pulverized coal is carried by an air pipeline directly into the furnace or boiler, ensuring optimum burning with zero manual feeding losses. It delivers steady heating, causes less burning loss than furnace oil, and helps minimize chimney emissions.',
+    highlights: [
+      'Grinds coal into fine powder that burns like gas in air suspension',
+      '100% optimum coal firing with zero fuel wastage from manual feeding',
+      'Average coal consumption of only 60 to 80 kg per MT production (Grade-1 coal)',
+      'Increases production output by up to 20% in coal-fired furnaces',
+      'Less burning loss than furnace oil and fewer breakdowns, extending furnace life',
+      'Produces clean chimney exhaust with lower gaseous and fly ash emissions',
+      'Automated process controls with steady air and coal mixture feeding'
+    ],
+    specs: {
+      'System Type': 'Direct Fired Coal Pulverizer System',
+      'Capacity': '500 kg/hr to 15+ TPH (customizable)',
+      'Coal Fineness': 'Up to 200 Mesh (75 microns)',
+      'Coal Consumption': '60 - 80 kg / MT (Grade-1 Coal)',
+      'Production Boost': 'Up to 20% in conventional furnaces',
+      'Firing Method': 'Pneumatic Air-Suspension Firing',
+      'Combustion Efficiency': '100% Optimum Firing (Zero manual loss)',
+      'Scale Loss': 'Lower burning loss than furnace oil',
+      'Motor Power': '15 HP to 150+ HP TEFC',
+      'Control System': 'Manual / Semi-Automatic / PLC Panel',
+      'Body Material': 'Heavy MS Body with Wear-Resistant Liners',
+      'Suitable Fuels': 'Grade-1 & Industrial Coal'
+    },
+    features: [
+      'Fine Coal Pulverization: Mechanically grinds coal into fine powder for quick ignition and smooth gas-like burning in suspension.',
+      'Automated Feed Controls: Regulates air and coal flow smoothly to keep furnace temperatures steady and uniform.',
+      'Optimum Firing: Eliminates the 20% to 25% coal loss typically seen with manual shovel feeding.',
+      'Protects Furnace Linings: Provides even, controlled flames that reduce refractory wear and furnace breakdowns compared to oil firing.',
+      'Eco-Friendly Combustion: Cleaner burning minimizes unburned carbon in fly ash and reduces harmful chimney emissions.',
+      'Durable Industrial Build: Heavy-duty rotor and replaceable wear plates engineered for long, continuous mill duty.'
+    ],
+    applications: [
+      'Steel Re-Rolling Mills',
+      'Mini Steel Plants & Billet Reheating Furnaces',
+      'Heat Treatment & Annealing Plants',
+      'Steel Casting Plants & Foundries',
+      'Aluminium & Lead Melting Plants',
+      'Industrial Steam Boilers & Kilns'
+    ]
+  },
+  {
+    id: 'billet-ejector',
+    title: 'Billet Ejector',
+    category: 'HANDLING',
     image: '/images/equipments/Ejector.webp',
     gallery: [
       '/images/equipments/Ejector 2.webp',
@@ -266,7 +317,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Reduces manual handling and improves safety',
       'Custom-built as per furnace design and billet size'
     ],
-    specs: { 
+    specs: {
       'Type': 'Mechanical / Hydraulic Ejector',
       'Operation': 'Automatic / Semi-Automatic',
       'Billet Size': 'As per requirement (customizable)',
@@ -297,10 +348,10 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Continuous Heating Systems'
     ]
   },
-  { 
-    id: 'billet-pusher', 
-    title: 'Billet Pusher', 
-    category: 'HANDLING', 
+  {
+    id: 'billet-pusher',
+    title: 'Billet Pusher',
+    category: 'HANDLING',
     image: '/images/equipments/Hydraulic Pusher.webp',
     gallery: [
       '/images/equipments/Hydraulic Pusher 2.webp',
@@ -315,7 +366,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Custom-built based on billet size and furnace design',
       'Improves furnace efficiency and productivity'
     ],
-    specs: { 
+    specs: {
       'Type': 'Mechanical / Hydraulic Pusher',
       'Operation': 'Automatic / Semi-Automatic',
       'Billet Size': 'As per requirement',
@@ -347,10 +398,10 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Continuous Heating Systems'
     ]
   },
-  { 
-    id: 'industrial-burner', 
-    title: 'Industrial Burner', 
-    category: 'BURNERS', 
+  {
+    id: 'industrial-burner',
+    title: 'Industrial Burner',
+    category: 'BURNERS',
     image: '/images/equipments/Burner.webp',
     gallery: [
       '/images/equipments/Burner2.webp',
@@ -366,7 +417,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Easy installation and low maintenance',
       'Custom-built for different furnace capacities'
     ],
-    specs: { 
+    specs: {
       'Size Range': '2A to 6A',
       'Fuel Type': 'FO / LDO / Gas',
       'Firing Capacity': '1 LPH – 100+ LPH',
@@ -400,10 +451,10 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Petrochemical Plants'
     ]
   },
-  { 
-    id: 'butterfly-valve', 
-    title: 'Butterfly Valve', 
-    category: 'VALVES', 
+  {
+    id: 'butterfly-valve',
+    title: 'Butterfly Valve',
+    category: 'VALVES',
     image: '/images/equipments/butterfly valve.webp',
     gallery: [
       '/images/equipments/butterfly valve 2.webp',
@@ -418,7 +469,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Available in multiple sizes and materials',
       'Easy installation and maintenance'
     ],
-    specs: { 
+    specs: {
       'Type': 'Wafer / Lug / Flanged',
       'Size Range': '1” to 24” (DN25 – DN600)',
       'Operation': 'Manual / Gear / Pneumatic / Electric',
@@ -452,10 +503,10 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Boilers and Thermal Systems'
     ]
   },
-  { 
-    id: 'industrial-pulley', 
-    title: 'Industrial Pulley', 
-    category: 'HANDLING', 
+  {
+    id: 'industrial-pulley',
+    title: 'Industrial Pulley',
+    category: 'HANDLING',
     image: '/images/equipments/Pully.webp',
     desc: 'Heavy-duty industrial wire rope pulleys and sheaves designed for reheating furnaces, billet charging mechanisms, and high-load rolling mill material handling systems. Engineered with precision bearings and hardened groove profiles for maximum cable life and smooth mechanical transfer.',
     highlights: [
@@ -466,7 +517,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Corrosion and heat-resistant finish for furnace areas',
       'Custom diameters and bore sizes available'
     ],
-    specs: { 
+    specs: {
       'Type': 'Wire Rope / Guide / Snatch Pulley',
       'Diameter Range': '150 mm to 1000+ mm (customizable)',
       'Material': 'Cast Steel / Forged Steel / CI FG-260',
@@ -493,10 +544,10 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Industrial Furnace Charging Rigs'
     ]
   },
-  { 
-    id: 'industrial-winch-machine', 
-    title: 'Industrial Winch Machine', 
-    category: 'HANDLING', 
+  {
+    id: 'industrial-winch-machine',
+    title: 'Industrial Winch Machine',
+    category: 'HANDLING',
     image: '/images/equipments/Winch.webp',
     desc: 'Industrial Winch Machine is a heavy-duty electric and mechanical hauling system engineered for furnace door lifting, pusher positioning, and mill material pulling operations. Built with high-torque gearboxes, fail-safe electro-magnetic braking, and rugged steel drums for maximum safety and duty cycles.',
     highlights: [
@@ -507,7 +558,7 @@ export const equipmentsData: IndustrialEquipment[] = [
       'Designed for continuous 24/7 industrial duty cycles',
       'Custom pulling and lifting capacities from 1 to 30+ tons'
     ],
-    specs: { 
+    specs: {
       'Type': 'Electric / Motorized Industrial Winch',
       'Capacity': '1 Ton to 30+ Tons',
       'Rope Speed': '5 to 20 m/min (variable speed available)',
@@ -536,4 +587,4 @@ export const equipmentsData: IndustrialEquipment[] = [
   }
 ];
 
-export const industrialEquipments = equipmentsData;
+export const industrialEquipments = equipmentsData;
