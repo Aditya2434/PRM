@@ -16,7 +16,14 @@ const IndustrialEquipments = () => {
 
   const filteredEquipments = activeFilter === 'All'
     ? industrialEquipments
-    : industrialEquipments.filter(e => e.category.toLowerCase() === activeFilter.toLowerCase());
+    : industrialEquipments.filter(e => {
+        const cat = e.category.toUpperCase();
+        if (activeFilter === 'Furnaces') return cat === 'FURNACES';
+        if (activeFilter === 'Energy Recovery') return cat === 'ACCESSORIES' || cat === 'ENERGY RECOVERY';
+        if (activeFilter === 'Combustion') return cat === 'SYSTEMS' || cat === 'BURNERS' || cat === 'VALVES' || cat === 'COMBUSTION';
+        if (activeFilter === 'Material Handling') return cat === 'HANDLING' || cat === 'MATERIAL HANDLING';
+        return cat === activeFilter.toUpperCase();
+      });
 
   const equipmentSchema = {
     "@context": "https://schema.org",
@@ -63,7 +70,7 @@ const IndustrialEquipments = () => {
       <SEO 
         title="Industrial Equipment Manufacturer | Reheating Furnaces & Recuperators | PRM"
         description="Discover heavy-duty reheating furnaces, metallic recuperators, industrial blowers, combustion burners, and billet handling systems engineered by PRM for steel plants."
-        keywords="reheating furnace manufacturer, industrial furnace equipment India, metallic recuperator suppliers, coal pulverizer price, billet ejector supplier, combustion systems West Bengal"
+        keywords="reheating furnace manufacturer, industrial furnace equipment India, metallic recuperator suppliers, coal pulverizer price, coal pulverizer system, billet ejector supplier, combustion systems West Bengal"
         url="/products/industrial-equipment"
         schema={equipmentSchema}
       />

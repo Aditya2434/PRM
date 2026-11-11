@@ -137,11 +137,13 @@ const IndustrialEquipmentDetails = () => {
     return <Navigate to="/products/industrial-equipment" replace />;
   }
 
-  // Gallery array creation
-  const allImages = [
-    product.image,
-    ...(product.gallery || [])
-  ].filter(Boolean) as string[];
+  // Gallery array creation (deduplicated)
+  const allImages = Array.from(
+    new Set([
+      product.image,
+      ...(product.gallery || [])
+    ].filter(Boolean))
+  ) as string[];
 
   // Keyboard navigation for lightbox
   useEffect(() => {
@@ -293,6 +295,15 @@ const IndustrialEquipmentDetails = () => {
         { label: 'Motor Power', sublabel: 'High-Torque Heavy Impact', value: '10–100', unit: 'HP', icon: Zap, tag: 'POWER' },
         { label: 'Fineness', sublabel: 'Uniform Coal Particle Size', value: '0–3', unit: 'mm', icon: Activity, tag: 'FINENESS' },
         { label: 'Intake Size', sublabel: 'Impact Grinding Chamber', value: '50', unit: 'mm MAX', icon: Gauge, tag: 'FEED' }
+      ];
+    }
+
+    if (product.id === 'coal-pulverizer-system') {
+      return [
+        { label: 'Coal Fineness', sublabel: 'Gas-Like Air Suspension', value: '200 Mesh', unit: 'POWDER', icon: Activity, tag: 'FINENESS' },
+        { label: 'Coal Consumption', sublabel: 'Grade-1 Coal per MT Steel', value: '60–80', unit: 'KG / MT', icon: Flame, tag: 'FUEL RATE' },
+        { label: 'Production Boost', sublabel: 'Over Manual Furnaces', value: '+20%', unit: 'OUTPUT', icon: Layers, tag: 'YIELD' },
+        { label: 'Firing Efficiency', sublabel: 'Zero Manual Feed Loss', value: '100%', unit: 'OPTIMUM', icon: Zap, tag: 'FIRING' }
       ];
     }
 
